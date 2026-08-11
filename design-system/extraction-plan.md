@@ -1,69 +1,51 @@
 # Extraction Plan — Figma → design-system 문서 검수
 
-원본: Figma `시디즈_디자인 시스템` (`y2nbRqmwbrpMDmJdNvz15U`), 캔버스 `1:184` (이름: 에셋).
-이 체크리스트 순서대로 Figma 실제 값을 읽어 `design-system/` 문서와 대조·보완한다.
+원본(현행): Figma `시디즈_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`), 로컬 덤프 `sources/figma-raw.json` (REST, 8.1MB).
+※ 구 파일(`y2nbRqmwbrpMDmJdNvz15U` 시디즈닷컴 디자인에셋)과 **다른 파일·다른 토큰 체계**다.
 
-**상태 범례:** ⬜ 미착수 · 🔄 진행중 · ✅ 완료 · ⚠️ Figma에서도 미확인(`[확인 필요]` 유지)
-
-> **현재 블로커:** Figma MCP 값 조회(`get_variable_defs`/`get_design_context`)가 **View seat 호출 한도**에 막혀 있음. 아래 Step 1(구조/plan)은 기존 metadata 덤프로 완료. Step 2~(값 대조)는 한도 리셋 후 진행.
+**상태:** ✅ 완료 · 🔄 진행중 · ⬜ 미착수 · ⚠️ 확인 필요
 
 ---
 
-## 1. Color — `tokens/color.md`
+## [0] 자산 전수 검증 — ✅ 완료
 
-| ⬜ | 항목 | Figma 노드 ID | 비고 |
-|---|---|---|---|
-| ⬜ | basic / grayscale (gray 000~900) | `15:2033` (하위 스와치 `22:3020`, `31:1880`, `31:1973`) | gray 000~800은 초안에 확보. gray 900 존재/값 확인 대상 |
-| ⬜ | system color (상태색: blue/error 등) | `31:1921` (`15:2033` 내 라벨) + 스와치 프레임 | SIDIZ Blue·error 정식 토큰명/값 확인 |
-| ⬜ | semantic / text (`text_*`) | `15:2111` (`15:2107` 내, 스와치 `15:2114`) | `text_primary`~`text_error` HEX 채우기 |
-| ⬜ | semantic / Border (`border_*`) | `15:2112` (`15:2107` 내, 스와치 `15:2195`) | **문서에 없음 → 신규 추가 대상** |
+- 최상위 `components` 맵 111 vs 트리 78 → 차이 33 = **전부 `remote=True`**(원티드/퍼시스/시디즈 외부 로고). 로컬 78.
+- 최상위 `componentSets` 맵 35 vs 트리 34 → 차이 1(`2:58`) = remote 로고 세트. 로컬 34.
+- 페이지별:
 
-## 2. Typography — `tokens/typography.md`
+| 페이지 | id | 총 노드 | COMPONENT | COMPONENT_SET |
+|---|---|---|---|---|
+| Cover | 0:1 | 15 | 0 | 0 |
+| Updates | 4:399 | 52 | 0 | 0 |
+| --- | 4:130 | 0 | 0 | 0 |
+| **Foundation** | 4:131 | **0** | 0 | 0 | ← 원문 `children:[]`, 정말 비어있음 |
+| Page 5 | 4:476 | 512 | 41 | 17 |
+| Page 6 | 5:1224 | 9294 | 37 | 17 |
 
-| ⬜ | 항목 | Figma 노드 ID | 비고 |
-|---|---|---|---|
-| ⬜ | 폰트 패밀리 (Centra No.2 / Pretendard) + letter-spacing | `15:1892` (하위 `76:1598`) | 자간 값 확인 |
-| ⬜ | 타입 스케일 title1~7 | `76:1598` 내 (`76:1620` title1 …) | size/line-height/weight 채우기 |
-| ⬜ | 타입 스케일 Body1~4 | `76:1598` 내 (`76:1677` Body1 …) | size/line-height 채우기 |
-| ⬜ | 타입 스케일 Caption1~2 | `76:1598` 내 (`512:10207`, `512:10215`) | Caption2 = 최소 텍스트 크기 |
+- **로컬 컴포넌트 38개 단위(셋 34 + 독립 4)는 전부 `Logo/Wanted*`** (원티드 로고). SIDIZ UI 컴포넌트 아님.
 
-## 3. Spacing / Layout — `tokens/spacing.md` (미작성 → 신규)
+## [1] tokens/color.md — ✅ 완료
+FILL 스타일 63개 → Light/Dark 페어로 정리. (12 단일 / 48 L·D 확정 / 3 L·D 확인필요)
 
-| ⬜ | 항목 | Figma 노드 ID | 비고 |
-|---|---|---|---|
-| ⬜ | 페이지 넓이/사이드 마진 규칙 (max-width, margin 24/16) | `5106:56707` (페이지 넓이 규칙) | 브레이크포인트별 폭·마진. **문서 없음 → 신규** |
-| ⬜ | 타이틀 사용 규칙 (1뎁스/2뎁스) | `5106:56462` (타이틀 사용 규칙 가이드) | 가이드 성격. 토큰 아님, 규칙만 정리 |
+## [2] tokens/typography.md — ✅ 완료
+TEXT 스타일 37개(중복 제거) → ko/* 13, en/* 12, 레거시 10. size/lh/ls/weight 실측 채움.
 
-## 4. Components (우선 3개: 버튼 / 인풋 / 카드) — `components/` (신규)
+## [3] tokens/spacing.md — ✅ 완료 (결론: 정식 토큰 없음)
+spacing/grid/radius 스타일·변수 카테고리 부재. 관찰값만 기록, 나머지 `[확인 필요]`.
 
-| ⬜ | 항목 | Figma 노드 ID | 비고 |
-|---|---|---|---|
-| ⬜ | **Button** 섹션 | `350:750` | 하위 유형 ↓ |
-| ⬜ | └ 결정버튼 L / w고정 / H54 | `3825:11786` | 페이지당 1개, 최대 버튼 |
-| ⬜ | └ 주 사용 버튼 M / w가변 / H34 | `346:4204` | |
-| ⬜ | └ 작은 버튼 S / w가변 / H24 | `3809:19992` | |
-| ⬜ | └ 텍스트 버튼 / underline | `391:7895`, `3809:16946` | |
-| ⬜ | └ 아이콘 버튼 frame 28 / 32 | `467:6435`, `3825:12436` | |
-| ⬜ | └ 필터 H28 / H48 | `731:14726`, `1199:69201` | |
-| ⬜ | └ PDP 옵션버튼 / btn color / page navi | `350:902`, `388:2933`, `3825:24231` | |
-| ⬜ | **Input** 섹션 | `1169:30424` | 하위 ↓ |
-| ⬜ | └ input/text (+ 상태 default/active/filled/disabled/error) | `1169:30229` (라벨 `4707:2131`~) | |
-| ⬜ | └ input/search | `4639:49364` | "수정중" 주석 있음 |
-| ⚠️ | **Card** | — | **Figma에 전용 Card 컴포넌트 없음.** 유사: 상세페이지 s-culture 콘텐츠 카드(`5090:42451` 등), 슬라이드(`4252:114133`). 정식 토큰/컴포넌트로 만들지 결정 필요 → `[확인 필요]` |
+## [4] tokens/effect.md — ✅ 완료
+EFFECT 스타일 7종(DROP_SHADOW) → x/y/blur/spread/color 정리.
 
-## 5. Components (목록만 — 나중에)
+## [5] components/ — ⚠️ 재확인 필요 (블로커)
 
-| ⬜ | 항목 | Figma 노드 ID |
-|---|---|---|
-| ⬜ | Icon 세트 (Nova Line, 16x16, stroke 1.2px) | `4684:48878` |
-| ⬜ | Badge (일시품절/new/수동부착/sc_event) | `346:4250`, `350:1087`, `350:1092`, `346:4273` |
-| ⬜ | Tab | `350:750` 내 Tab/Hug/H48 |
-| ⬜ | Snackbar / 하단 안내바 | `5260:8876` |
-| ⬜ | Popup | `6287:20680` |
-| ⬜ | Slide / 슬라이드 컨트롤 | `4252:112963`, `3976:28280` |
-| ⬜ | GNB / Footer | `4511:40538` 내 (`175:1724`, `438:768`) |
+**이 파일에 SIDIZ UI 컴포넌트(버튼/인풋/카드)가 없음.** 로컬 컴포넌트 38단위는 전부 원티드 로고:
+
+- `Logo/Wanted/*`, `Logo/Wanted Gigs/*`, `Logo/Wanted Space/*`, `Logo/Wanted Sub Services/*`, `Logo/Wanted Partnership/*` (Page 5 / Page 6에 중복 존재)
+
+→ 버튼/인풋/카드 문서화는 이 파일로 불가. 방향 결정 필요(아래 옵션은 최종 보고 참조).
 
 ---
 
 ## 진행 로그
-- 2026-08-11: Step 1 완료 — 구조 파싱, 섹션·노드 ID 정리. Step 2 값 대조는 Figma MCP 한도로 대기.
+- 2026-08-11: 구 파일 기반 초안 커밋(placeholder 다수).
+- 2026-08-11: 신 파일 `UsCx1wPybDpRRBglYY5Nmx` REST 덤프. [0]~[4] 완료. 토큰 체계가 구 문서와 상이(Semantic 라이트/다크, `#0066FF` 등)하여 color/typography 전면 재작성. [5]는 UI 컴포넌트 부재로 보류.

@@ -4,7 +4,7 @@
 모든 디자인 관련 작업 전에 이 문서를 먼저 읽는다.
 
 - 값의 최종 원본은 Figma 파일 `시디즈_디자인 시스템`
-  (`figma.com/design/y2nbRqmwbrpMDmJdNvz15U`, node `1-184`)이다.
+  (`figma.com/design/UsCx1wPybDpRRBglYY5Nmx`)이며, 로컬 덤프는 `sources/figma-raw.json`(REST)이다.
 - 이 폴더의 문서는 그 Figma 값을 마크다운으로 옮긴 기준서다. `tokens.css` 등 코드 파일은
   이 문서에서 변환해 생성하며, 지금은 만들지 않는다.
 
@@ -12,9 +12,11 @@
 
 | 문서 | 내용 | 상태 |
 |---|---|---|
-| [tokens/color.md](tokens/color.md) | 컬러 팔레트(basic gray) + 시맨틱 텍스트 컬러 | 초안 (일부 `[확인 필요]`) |
-| [tokens/typography.md](tokens/typography.md) | 폰트 · 타입 스케일(title/body/caption) | 초안 (수치 `[확인 필요]`) |
-| tokens/spacing.md | 간격 · 여백 스케일 | 미작성 |
+| [tokens/color.md](tokens/color.md) | Semantic 컬러(Label/Background/Line/Primary/Accent…) Light·Dark | ✅ FILL 63 반영 |
+| [tokens/typography.md](tokens/typography.md) | ko/* · en/* 타입 스케일 | ✅ TEXT 37 반영 |
+| [tokens/spacing.md](tokens/spacing.md) | 간격·radius | ✅ (정식 토큰 부재 확인) |
+| [tokens/effect.md](tokens/effect.md) | 그림자(DROP_SHADOW) | ✅ EFFECT 7 반영 |
+| [extraction-plan.md](extraction-plan.md) | 추출 체크리스트·진행 로그 | 🔄 [5] 컴포넌트 보류 |
 
 ## 작성 원칙
 
