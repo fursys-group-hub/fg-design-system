@@ -7,7 +7,7 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Breadcrumb | W×H 264×18, gap 4 | 캡션1(Semibold), 캡션1 | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-400 (#A4AAB0) | — |
+| Breadcrumb | W×H 296×18, gap 8 | Body/Body3-SemiBold, Body/Body4-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-400 (#A4AAB0) | — |
 
 ## 하위 구조 (대표 variant)
 

@@ -7,7 +7,7 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Header | W×H 1344×50, padding(TRBL) -/24/-/24, gap 10 | 캡션1(Semibold), [확인 필요:10px 정본없음], [확인 필요:8px 정본없음] | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), #FEFEFE, Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
+| Header | W×H 1344×50, padding(TRBL) -/24/-/24, gap 10 | Body/Body3-SemiBold, Caption/Caption2-10-Semibold, Caption/Caption4-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), #FEFEFE, Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
 
 ## 하위 구조 (대표 variant)
 
@@ -15,7 +15,7 @@
 
 ## 연결된 시맨틱 FILL 스타일
 
-- `[확인 필요:구 Main Gray, Foundation 정본없음]`
+- `Main colors/Main Gray/main-gray_50`
 
 ## 확인 필요
 
