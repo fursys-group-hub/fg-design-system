@@ -44,7 +44,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 
 ### UI 컴포넌트 (3. Component)
 - ✅ Button — set `69:6191`
-- ⬜ Input — set `69:7170`
+- ✅ Input — set `69:7170`
 - ⬜ Input Case — set `66:2132`
 - ⬜ Checkbox — set `66:1863`
 - ⬜ Radio — set `66:1837`
