@@ -11,8 +11,8 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| State=Extended | W×H 1280×221, padding(TRBL) 12/-/12/-, radius 4, gap 8 | Body/Body3-SemiBold, Body/Body4-Regular, Caption/Caption1-11-Semibold, Caption/Caption1-SemiBold, Caption/Caption2-SemiBold, Caption/Caption3-Regular | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), #B3B3B3, Red-600 (#FF3A4A), #FF5C39, Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), #B3B3B3, Grey-200 (#EAEDF0), #EF2E32 | — |
-| State=Default | W×H 1280×79, padding(TRBL) 12/-/12/-, radius 4, gap 8 | Body/Body3-SemiBold, Body/Body4-Regular, Caption/Caption1-11-Semibold, Caption/Caption1-SemiBold, Caption/Caption2-SemiBold, Caption/Caption3-10-Regular, Caption/Caption3-Regular | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), #B3B3B3, #EF2E32, Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), #B3B3B3, Grey-200 (#EAEDF0), #EF2E32 | — |
+| State=Extended | W×H 1280×221, padding(TRBL) 12/-/12/-, radius 4, gap 8 | Body/Body3-SemiBold, Body/Body4-Regular, Caption/Caption1-SemiBold, Caption/Caption2-SemiBold | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), #FF5C39, Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
+| State=Default | W×H 1280×79, padding(TRBL) 12/-/12/-, radius 4, gap 8 | Body/Body3-SemiBold, Body/Body4-Regular, Caption/Caption1-SemiBold, Caption/Caption2-SemiBold | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
 
 ## 하위 구조 (대표 variant)
 

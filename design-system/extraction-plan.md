@@ -67,3 +67,4 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 - 2026-08-11: 구 파일 기반 초안 → 신 파일(구버전) 토큰 재작성.
 - 2026-08-12: 파일 전면 개편 재수신. [0]~[4] 재작성 완료(팔레트 #003EFF 복귀 등). [5] 컴포넌트 19단위 전부 문서화·커밋 완료.
 - 2026-08-12(2차): 타이포 전면 개편 재수신. typography.md를 신 체계(Title1~5/Body1~4/Caption1~5, Pretendard·LH150%·LS1%)로 재작성 — 확정 체계와 14종 전부 일치. 컴포넌트 19단위 재파싱(구조·노드ID 동일, 적용 토큰만 갱신). color/spacing/effect 무변경. **legacy 토큰 잔존 5개(Table Cell·Search Filter·Sidebar·Header·Dropdown List) — Figma 재적용 누락**.
+- 2026-08-12(3차): Figma legacy 정리 완료. 재수신 검증 결과 **19 컴포넌트 정의·문서 legacy 토큰 0건(clean)**. published 구 px-named 스타일 8→1(`Body/Body4-12-Regular`만 잔존, 데모 프레임에서만 사용·컴포넌트 미사용). FILL 6→5(`Main colors/Main Gray/main-gray_500` 삭제됨).

@@ -5,16 +5,17 @@
 
 ## Variant 속성
 
-- **Varient**: Favorite, All
-- **States**: Default, Extended
+- **Varient**: Favorite, Default
+- **States**: Default, Extended, Hover
 
-## Variant 전체 (3)
+## Variant 전체 (4)
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Varient=Favorite, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12, gap 24 | Body/Body1-SemiBold, Body/Body3-12-Semibold | Grey-900 (#000000), #1A1A1A, #1D1D1B, Grey-400 (#A4AAB0), #B3B3B3, Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), #18181B, #3F3F46, #414344, #71717A, Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
-| Varient=All, States=Extended | W×H 256×1080, padding(TRBL) -/12/-/12, gap 24 | Body/Body1-SemiBold | Grey-900 (#000000), #1D1D1B, Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), #18181B, #222222, #3F3F46, #414344, #71717A, Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
-| Varient=All, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12, gap 24 | Body/Body1-13-Semibold, Body/Body1-SemiBold | Grey-900 (#000000), Blue-700 (#003EFF), #1D1D1B, Grey-400 (#A4AAB0), #B3B3B3, Blue-100 (#E3EDFF), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Blue-700 (#003EFF), #18181B, #222222, #3F3F46, #414344, #71717A, Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
+| Varient=Favorite, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12, gap 24 | Body/Body1-SemiBold | Grey-900 (#000000), #1D1D1B, Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
+| Varient=Default, States=Extended | W×H 256×1080, padding(TRBL) -/12/-/12, gap 24 | Body/Body1-SemiBold | Grey-900 (#000000), #1D1D1B, Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
+| Varient=Default, States=Hover | W×H 256×1080, padding(TRBL) -/12/-/12, gap 24 | Body/Body1-SemiBold | Grey-900 (#000000), Blue-700 (#003EFF), #1D1D1B, Grey-400 (#A4AAB0), Blue-100 (#E3EDFF), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Blue-700 (#003EFF), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
+| Varient=Default, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12, gap 24 | Body/Body1-SemiBold | Grey-900 (#000000), #1D1D1B, Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
 
 ## 하위 구조 (대표 variant)
 
