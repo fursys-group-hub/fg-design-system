@@ -53,7 +53,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 - ✅ Tab — set `66:2256`
 - ✅ Tag — set `69:6068`
 - ✅ Table Cell — set `66:1794`
-- ⬜ Toast Popup — set `66:1681`
+- ✅ Toast Popup — set `66:1681`
 - ⬜ Carousel — set `69:9181`
 - ⬜ Sidebar — set `69:5382`
 - ⬜ Breadcrumb — component `69:8870`
