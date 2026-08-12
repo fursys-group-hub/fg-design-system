@@ -39,7 +39,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 목록 순서대로 하나씩 `components/[이름].md` 작성 → 체크 → 커밋.
 
 ### 로고 (1. Logo)
-- ⬜ Attention — set `66:4004`
+- ✅ Attention — set `66:4004`
 - ⬜ Signature — set `66:3929`
 
 ### UI 컴포넌트 (3. Component)
