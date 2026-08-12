@@ -12,11 +12,12 @@
 
 | 문서 | 내용 | 상태 |
 |---|---|---|
-| [tokens/color.md](tokens/color.md) | Semantic 컬러(Label/Background/Line/Primary/Accent…) Light·Dark | ✅ FILL 63 반영 |
-| [tokens/typography.md](tokens/typography.md) | ko/* · en/* 타입 스케일 | ✅ TEXT 37 반영 |
-| [tokens/spacing.md](tokens/spacing.md) | 간격·radius | ✅ (정식 토큰 부재 확인) |
-| [tokens/effect.md](tokens/effect.md) | 그림자(DROP_SHADOW) | ✅ EFFECT 7 반영 |
-| [extraction-plan.md](extraction-plan.md) | 추출 체크리스트·진행 로그 | 🔄 [5] 컴포넌트 보류 |
+| [tokens/color.md](tokens/color.md) | 팔레트(Blue/Red/Grey) + 시맨틱 FILL | ✅ 팔레트 15 + FILL 6 |
+| [tokens/typography.md](tokens/typography.md) | Title/Body/Caption · ko/en · 컴팩트 · 레거시 | ✅ TEXT 53 |
+| [tokens/spacing.md](tokens/spacing.md) | radius/padding/gap 스케일 | ✅ 변수값 집계 |
+| [tokens/effect.md](tokens/effect.md) | 그림자 | ✅ EFFECT 2 |
+| [components/](components/) | UI 컴포넌트 19단위 | 🔄 작성중 |
+| [extraction-plan.md](extraction-plan.md) | 추출 체크리스트·진행 로그 | 🔄 [5] 진행중 |
 
 ## 작성 원칙
 
