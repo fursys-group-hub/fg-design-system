@@ -40,7 +40,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 
 ### 로고 (1. Logo)
 - ✅ Attention — set `66:4004`
-- ⬜ Signature — set `66:3929`
+- ✅ Signature — set `66:3929`
 
 ### UI 컴포넌트 (3. Component)
 - ⬜ Button — set `69:6191`
