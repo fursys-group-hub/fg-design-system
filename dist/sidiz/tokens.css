@@ -1,0 +1,111 @@
+/* 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. */
+/* 생성일: 2026-08-12 · 정본 덤프 기준 lastModified: 2026-08-12T07:05:46Z */
+/* SIDIZ 디자인 시스템 토큰. 정본 팔레트/타이포/스페이싱/이펙트만 포함. */
+
+:root {
+  /* ===== Color — Primary (Blue) ===== */
+  --sidiz-color-blue-700: #003EFF; /* 브랜드 포인트: CTA/선택/링크. 남용 금지 */
+  --sidiz-color-blue-500: #357FFF; /* 보조/hover */
+  --sidiz-color-blue-100: #E3EDFF; /* 선택·활성 배경 */
+
+  /* ===== Color — System (Red) ===== */
+  --sidiz-color-red-600: #FF3A4A; /* 에러·경고 텍스트/보더 */
+  --sidiz-color-red-100: #FFECEE; /* 에러 배경 */
+
+  /* ===== Color — Grey (10) ===== */
+  --sidiz-color-grey-900: #000000;
+  --sidiz-color-grey-800: #242526;
+  --sidiz-color-grey-700: #434548;
+  --sidiz-color-grey-600: #595C5E;
+  --sidiz-color-grey-500: #7C8084;
+  --sidiz-color-grey-400: #A4AAB0;
+  --sidiz-color-grey-300: #D6DADE;
+  --sidiz-color-grey-200: #EAEDF0;
+  --sidiz-color-grey-100: #F5F6F7;
+  --sidiz-color-grey-50:  #FFFFFF;
+
+  /* ===== 컴포넌트 로컬 색 (전역 토큰 아님 — 지정 컴포넌트 한정) ===== */
+  /* 저빈도 비변수화 색. 아래 컴포넌트 밖 사용 금지. 전역 팔레트에 넣지 않음. */
+  /* Tag Green:  #10C266 (전경) / #E7F6E7 (배경) — Tag(Color=Green) 전용 */
+  /* Tag Yellow: #F5CA1D (전경) / #FCF7DF (배경) — Tag(Color=Yellow) 전용 */
+
+  /* ===== Typography ===== */
+  --sidiz-font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  --sidiz-font-line-height: 1.5;   /* 150% 공통 */
+  --sidiz-font-letter-spacing: 0.01em; /* 1% 공통 */
+
+  --sidiz-font-weight-semibold: 600;
+  --sidiz-font-weight-regular: 400;
+
+  --sidiz-font-size-title1: 40px;
+  --sidiz-font-size-title2: 26px;
+  --sidiz-font-size-title3: 22px;
+  --sidiz-font-size-title4: 16px;
+  --sidiz-font-size-title5: 14px;
+  --sidiz-font-size-body1: 13px;
+  --sidiz-font-size-body2: 13px;
+  --sidiz-font-size-body3: 12px;
+  --sidiz-font-size-body4: 12px;
+  --sidiz-font-size-caption1: 11px;
+  --sidiz-font-size-caption2: 10px;
+  --sidiz-font-size-caption3: 10px;
+  --sidiz-font-size-caption4: 8px;
+  --sidiz-font-size-caption5: 8px;
+
+  /* ===== Spacing (padding/gap 스케일, px) ===== */
+  --sidiz-space-2: 2px;
+  --sidiz-space-4: 4px;
+  --sidiz-space-5: 5px;
+  --sidiz-space-6: 6px;
+  --sidiz-space-8: 8px;
+  --sidiz-space-10: 10px;
+  --sidiz-space-12: 12px;
+  --sidiz-space-16: 16px;
+  --sidiz-space-20: 20px;
+  --sidiz-space-24: 24px;
+  --sidiz-space-32: 32px;
+  --sidiz-space-40: 40px;
+  --sidiz-space-64: 64px;
+  --sidiz-space-80: 80px;
+  --sidiz-space-100: 100px;
+
+  /* ===== Radius (px) ===== */
+  --sidiz-radius-2: 2px;
+  --sidiz-radius-4: 4px;   /* 버튼/인풋 기본 */
+  --sidiz-radius-5: 5px;
+  --sidiz-radius-6: 6px;
+  --sidiz-radius-32: 32px;
+  --sidiz-radius-40: 40px;
+  --sidiz-radius-pill: 9999px; /* 태그/칩/원형 */
+
+  /* ===== Effect (그림자) ===== */
+  --sidiz-shadow-dropshadow: 0 4px 6px -2px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.10);
+  --sidiz-shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+}
+
+/* ===== Typography 조합 클래스 (14) ===== */
+.title1, .title2, .title3, .title4, .title5,
+.body1, .body2, .body3, .body4,
+.caption1, .caption2, .caption3, .caption4, .caption5 {
+  font-family: var(--sidiz-font-family);
+  line-height: var(--sidiz-font-line-height);
+  letter-spacing: var(--sidiz-font-letter-spacing);
+}
+
+.title1 { font-size: var(--sidiz-font-size-title1); font-weight: var(--sidiz-font-weight-semibold); }
+.title2 { font-size: var(--sidiz-font-size-title2); font-weight: var(--sidiz-font-weight-semibold); }
+.title3 { font-size: var(--sidiz-font-size-title3); font-weight: var(--sidiz-font-weight-semibold); }
+.title4 { font-size: var(--sidiz-font-size-title4); font-weight: var(--sidiz-font-weight-semibold); }
+.title5 { font-size: var(--sidiz-font-size-title5); font-weight: var(--sidiz-font-weight-semibold); }
+
+.body1 { font-size: var(--sidiz-font-size-body1); font-weight: var(--sidiz-font-weight-semibold); }
+.body2 { font-size: var(--sidiz-font-size-body2); font-weight: var(--sidiz-font-weight-regular); }
+.body3 { font-size: var(--sidiz-font-size-body3); font-weight: var(--sidiz-font-weight-semibold); }
+.body4 { font-size: var(--sidiz-font-size-body4); font-weight: var(--sidiz-font-weight-regular); }
+
+.caption1 { font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold); }
+.caption2 { font-size: var(--sidiz-font-size-caption2); font-weight: var(--sidiz-font-weight-semibold); }
+.caption3 { font-size: var(--sidiz-font-size-caption3); font-weight: var(--sidiz-font-weight-regular); }
+/* caption4·5 (8·10px): 뱃지/태그/아이콘 라벨 전용. 본문 사용 금지 */
+.caption4 { font-size: var(--sidiz-font-size-caption4); font-weight: var(--sidiz-font-weight-semibold); }
+.caption5 { font-size: var(--sidiz-font-size-caption5); font-weight: var(--sidiz-font-weight-regular); }
