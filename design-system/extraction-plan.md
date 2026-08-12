@@ -48,7 +48,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 - ✅ Input Case — set `66:2132`
 - ✅ Checkbox — set `66:1863`
 - ✅ Radio — set `66:1837`
-- ⬜ Dropdown List — set `66:2543`
+- ✅ Dropdown List — set `66:2543`
 - ⬜ Search Filter — set `66:1886`
 - ⬜ Tab — set `66:2256`
 - ⬜ Tag — set `69:6068`
