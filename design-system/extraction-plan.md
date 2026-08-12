@@ -59,7 +59,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 - ✅ Breadcrumb — component `69:8870`
 - ✅ Dashboard Card — component `69:8975`
 - ✅ Header — component `68:4651`
-- ⬜ Pagination — component `69:9226`
+- ✅ Pagination — component `69:9226`
 
 ---
 
