@@ -50,7 +50,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 - ✅ Radio — set `66:1837`
 - ✅ Dropdown List — set `66:2543`
 - ✅ Search Filter — set `66:1886`
-- ⬜ Tab — set `66:2256`
+- ✅ Tab — set `66:2256`
 - ⬜ Tag — set `69:6068`
 - ⬜ Table Cell — set `66:1794`
 - ⬜ Toast Popup — set `66:1681`
