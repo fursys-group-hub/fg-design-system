@@ -38,3 +38,17 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 | `Grey-200` | `#EAEDF0` |
 | `Grey-100` | `#F5F6F7` |
 | `Grey-50` | `#FFFFFF` |
+
+## 컴포넌트 로컬 색 (Component-local — 변수화 제외)
+
+*저빈도로 사용되어 의도적으로 전역 변수/토큰에서 제외한 색(디자이너 확정: 비변수화). 아래 **지정 컴포넌트에서만** 사용하며, 다른 컴포넌트·위치에서 쓰면 위반이다.*
+
+| 토큰(별칭) | 값 | 사용 컴포넌트 (한정) | 용도 |
+|---|---|---|---|
+| Tag Green | `#10C266` | **Tag** (Color=Green) | Green 태그 전경(Dark 배경 채움 / Light 글자) |
+| Tag Green BG | `#E7F6E7` | **Tag** (Color=Green, State=Light) | Green Light 태그 배경 |
+| Tag Yellow | `#F5CA1D` | **Tag** (Color=Yellow) | Yellow 태그 전경 |
+| Tag Yellow BG | `#FCF7DF` | **Tag** (Color=Yellow, State=Light) | Yellow Light 태그 배경 |
+
+> 이 4색은 Figma에서 변수 바인딩 없이 Tag 컴포넌트 로컬로 지정됨(의도적 비변수화). **지정 컴포넌트 외 사용 금지.** 신규 화면에서 초록/노랑이 필요하면 먼저 팔레트 확장을 검토한다.
+> 그 밖에 스캔에서 검출될 수 있는 팔레트 밖 값(#1D1D1B 등)은 **로고 자산 색·문서/견본 텍스트·숨김 레이어**로, UI 컴포넌트 색이 아니다.

@@ -1,0 +1,87 @@
+---
+name: export
+description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)로 가공한다. 정본 → 배포물 단방향이며 역방향은 없다. tokens 4종 + components 19개를 통합 마크다운·tokens.css·CLAUDE.md·README.md로 변환한다. "디자인 시스템 배포", "export", "dist 생성", "배포물 만들어줘", "tokens.css 뽑아줘", "실무자용으로 내보내줘" 류 요청에 사용. 정본은 읽기만 하고 수정하지 않는다.
+---
+
+# export — 정본(design-system/) → 실무자 배포물(dist/sidiz/)
+
+`design-system/` 정본 문서를 Cowork/클로드 챗/클로드 코드 실무자가 바로 쓰는 배포물로 가공하는 워크플로우.
+
+## 원칙 (필수)
+
+- **방향은 항상 정본 → 배포물.** `design-system/`을 읽어 `dist/sidiz/`를 생성한다. **역방향(배포물 → 정본)은 없다.**
+- **정본을 수정하지 않는다.** `design-system/` 아래 파일은 읽기 전용. 쓰기는 `dist/` 아래로만.
+- **값을 지어내지 않는다.** 정본에 없는 값은 만들지 않는다. 정본의 `[확인 필요]` 항목은 **CSS에 넣지 않고 별도 보고**한다.
+- **자동 생성물 명시.** 모든 생성 파일 상단에 `자동 생성 파일 — 원본은 design-system/. 직접 수정 금지.`를 남긴다.
+- 값 표기: 색은 `#RRGGBB`(+반투명 `@0.NN`), 크기 px.
+- 정본 로드는 항상 `design-system/index.md`를 먼저 읽고 → `tokens/` + `components/`를 로드한다. 외워서 변환하지 않는다.
+
+## 참고 상수 (변동 가능 — 매번 정본에서 재확인)
+
+- **정본 토큰 4종:** `tokens/color.md`, `tokens/typography.md`, `tokens/spacing.md`, `tokens/effect.md`
+- **정본 컴포넌트 19종:** `components/*.md` (index.md 컴포넌트 표 기준)
+- **타이포 14종:** Title1~5-SemiBold, Body1~4, Caption1~5 (Pretendard / LH 150% / LS 1%)
+- **최소 크기 규칙:** Caption4·5(8·10px)는 뱃지/태그/아이콘 라벨 전용, 본문 사용 금지
+
+---
+
+## 0. 사전 확인
+
+- **정본 최신성:** `design-system/extraction-plan.md`의 **마지막 로그**를 확인해 정본이 최신인지 본다. 오래됐거나 진행 중이면 사용자에게 알리고 진행 여부를 묻는다.
+- **미해결 위반 확인:** `design-system/audits/`의 **가장 최근 design-qa 결과**를 읽는다. **미해결 "위반"(명백)이 있으면 경고**하고, 그대로 배포할지 사용자에게 묻는다. (주의·정보 등급은 진행 가능, 단 보고에 언급)
+- 정본 로드: `index.md` → `tokens/`(color·typography·spacing·effect) + `components/` 19종. 로드본만 변환 소스로 삼는다.
+- `dist/sidiz/` 디렉터리 준비(없으면 생성).
+
+## 1. `dist/sidiz/design-system.md` 생성
+
+- tokens 4종 + components 19개를 **한 파일로 통합**.
+- **구조:** 개요 → 컬러 → 타이포 → 스페이싱 → 이펙트 → 컴포넌트별 명세.
+- 각 값에 **사용 규칙(언제 쓰고 언제 안 쓰는지)을 함께** 기재해 AI가 읽고 화면을 만들 수 있게 한다.
+- 상단에 `자동 생성 파일 — 원본은 design-system/` 명시 + 생성일 + 정본 덤프 기준(`lastModified`)을 남긴다.
+- 500줄을 넘으면 섹션 요약 위주로 압축하되, 토큰 값·컴포넌트 variant 목록은 누락 없이 유지한다.
+
+## 2. `dist/sidiz/tokens.css` 생성
+
+정본 값을 CSS 커스텀 프로퍼티로 변환. `:root`에 정의한다.
+
+- **컬러:** `--sidiz-color-*` (예: `--sidiz-color-blue-700: #003EFF;`). 정본 팔레트만.
+- **타이포:** `--sidiz-font-*`(family/size/weight/line-height/letter-spacing) + **조합 클래스** `.title1 ~ .caption5`(14종).
+- **스페이싱:** `--sidiz-space-*`(padding/gap 스케일), `--sidiz-radius-*`(radius 스케일).
+- **이펙트:** `--sidiz-shadow-*`(Drop Shadow 2겹 합성, shadow/sm).
+- **`[확인 필요]` 항목은 CSS에 넣지 않는다.** 대신 5단계 보고에 "CSS 제외 — 확인 필요" 목록으로 모아 보고한다.
+- 상단 주석에 `자동 생성 파일 — 원본은 design-system/` 명시.
+
+## 3. `dist/sidiz/CLAUDE.md` 생성
+
+Cowork 사용자용 지침 파일.
+
+- 핵심 지시: **"이 폴더의 `design-system.md`를 항상 참조하고, 그 규격대로 화면을 만든다."**
+- 지켜야 할 원칙 명시:
+  - **정본 토큰만 사용** — `tokens.css` 변수/클래스로만 스타일. 임의 hex·폰트·radius 발명 금지. **단, `design-system.md`에 문서화된 "컴포넌트 로컬 색"은 해당 컴포넌트에 한해 허용**(전역 토큰 아님, 다른 곳 사용 금지).
+  - **최소 크기 규칙** — Caption4·5(8·10px)는 뱃지/태그/아이콘 라벨 전용, 본문 금지.
+  - 브랜드 포인트 `Blue-700 #003EFF` 절제 사용, 기본 구분은 border(그림자는 떠 있는 표면만).
+  - 컴포넌트는 `design-system.md`의 명세·variant 범위 안에서만 사용.
+
+## 4. `dist/sidiz/README.md` 생성
+
+비개발자용 사용법.
+
+- **클로드 챗:** `design-system.md`를 프로젝트 지식(Project knowledge)에 업로드한다.
+- **Cowork:** 이 `dist/sidiz/` 폴더를 작업 폴더로 지정한다(CLAUDE.md가 자동 적용됨).
+- **클로드 코드:** 저장소를 클론한 뒤 `/sidiz-design-system` 스킬을 호출한다.
+- **업데이트 받는 법:** 정본이 갱신되면 이 배포물을 다시 export 해서 파일을 교체한다(정본 → 배포물 단방향).
+
+## 5. 검증 및 보고
+
+- **생성 결과:** 각 파일 경로·크기(줄 수/바이트), 통합 문서에 포함된 **토큰 수·컴포넌트 수**.
+- **개수 일치 검증:** 정본 토큰 4종 / 컴포넌트 19종과 배포물 포함 개수가 **일치하는지** 대조. 불일치 시 누락 항목 명시.
+- **CSS 제외 목록:** `[확인 필요]`라 tokens.css에 넣지 않은 항목을 모아 보고.
+- **미해결 위반:** 0단계에서 확인한 design-qa 미해결 위반이 있으면 재고지.
+- **커밋·푸시는 사용자 승인 시에만.** 승인 시 한국어 커밋 메시지 + 끝에:
+  `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`
+
+---
+
+## 완료 보고 형식
+
+정본 최신성·미해결 위반 여부 · 생성 파일 4종(경로/크기) · 포함 토큰 수·컴포넌트 수 · 정본 대비 개수 일치 여부 · CSS 제외(확인 필요) 목록 · 커밋 여부.
