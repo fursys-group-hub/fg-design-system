@@ -56,7 +56,7 @@ EFFECT 2종(Drop Shadow 2겹, shadow/sm).
 - ✅ Toast Popup — set `66:1681`
 - ✅ Carousel — set `69:9181`
 - ✅ Sidebar — set `69:5382`
-- ⬜ Breadcrumb — component `69:8870`
+- ✅ Breadcrumb — component `69:8870`
 - ⬜ Dashboard Card — component `69:8975`
 - ⬜ Header — component `68:4651`
 - ⬜ Pagination — component `69:9226`
