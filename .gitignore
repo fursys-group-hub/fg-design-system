@@ -2,3 +2,4 @@
 *.zip
 .env
 sources/
+.claude/settings.local.json

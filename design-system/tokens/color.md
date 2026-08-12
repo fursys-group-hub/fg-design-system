@@ -47,8 +47,25 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 |---|---|---|---|
 | Tag Green | `#10C266` | **Tag** (Color=Green) | Green 태그 전경(Dark 배경 채움 / Light 글자) |
 | Tag Green BG | `#E7F6E7` | **Tag** (Color=Green, State=Light) | Green Light 태그 배경 |
-| Tag Yellow | `#F5CA1D` | **Tag** (Color=Yellow) | Yellow 태그 전경 |
+| Tag/Alert Yellow | `#F5CA1D` | **Tag** (Color=Yellow) · **Toast** (State=Alert) | Yellow 태그 전경 / Alert 토스트 경고 아이콘 |
 | Tag Yellow BG | `#FCF7DF` | **Tag** (Color=Yellow, State=Light) | Yellow Light 태그 배경 |
 
 > 이 4색은 Figma에서 변수 바인딩 없이 Tag 컴포넌트 로컬로 지정됨(의도적 비변수화). **지정 컴포넌트 외 사용 금지.** 신규 화면에서 초록/노랑이 필요하면 먼저 팔레트 확장을 검토한다.
-> 그 밖에 스캔에서 검출될 수 있는 팔레트 밖 값(#1D1D1B 등)은 **로고 자산 색·문서/견본 텍스트·숨김 레이어**로, UI 컴포넌트 색이 아니다.
+
+## 로고 자산 색 (Logo asset — UI 색 아님)
+
+*로고 아트워크에만 쓰는 색. **팔레트도 allowlist도 아니며, UI(텍스트·배경·보더)에 사용 금지.***
+
+| 값 | 사용 범위 (한정) | 비고 |
+|---|---|---|
+| `#1D1D1B` | **Signature 로고 벡터**(`66:3931`~`66:3935`)와 그 인스턴스 | 브랜드 로고 근검정. 이 노드 밖에서 fill로 쓰면 위반 |
+
+> Sidebar 등에서 보이는 `#1D1D1B`는 모두 Signature 로고 인스턴스(`I…;66:3931`)이며, 컴포넌트 고유 색이 아니다.
+
+## 가이드/문서 색 (Figma 정리용 — 검사 제외)
+
+*디자인 색이 아니라 Figma 편집·문서 정리용 색. 정본 토큰 아님. design-qa는 위치 무관 **검사 제외**하고 제외 건수만 집계한다.*
+
+- `#8A38F5` — 컴포넌트 세트/인스턴스 표시 테두리
+- `#9747FF` — 이미지 플레이스홀더 기본색
+- `#F9F4FF` — 로고 전시/정리용 배경(로고 배경 아님)
