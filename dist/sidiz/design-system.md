@@ -59,9 +59,10 @@ AI/실무자가 이 문서만 읽고 SIDIZ 규격대로 화면을 만들 수 있
 |---|---|---|
 | `#10C266` | Tag (Color=Green) | Green 태그 전경 |
 | `#E7F6E7` | Tag (Color=Green, Light) | Green 태그 배경 |
-| `#F5CA1D` | Tag (Color=Yellow) | Yellow 태그 전경 |
+| `#F5CA1D` | Tag (Color=Yellow) · Toast (State=Alert) | Yellow 태그 전경 / Alert 토스트 경고 아이콘 |
 | `#FCF7DF` | Tag (Color=Yellow, Light) | Yellow 태그 배경 |
 
+> **로고 전용:** `#1D1D1B`는 Signature 로고 아트워크 색으로, UI(텍스트·배경·보더)에는 쓰지 않는다.
 > 그 밖의 팔레트 밖 색(그라데이션·보라 등)은 정본이 아닙니다. 사용하지 마세요.
 
 ---
@@ -171,7 +172,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.11 Toast Popup — 3 variant
 - **속성:** State(Default/Error/Alert). W520×H56, padding 12/32, radius 6, **Drop Shadow**.
-- Default 포인트 Blue-500, Error Red-600, Alert 노랑. 텍스트 Body1+Body4.
+- Default 포인트 Blue-500, Error Red-600, Alert 노랑(`#F5CA1D`, 컴포넌트 로컬 색 — Toast/Tag 한정). 텍스트 Body1+Body4.
 - **사용 규칙:** 떠 있는 알림 → 그림자. 상태색은 아이콘/포인트에만.
 
 ### 5.12 Carousel — 2 variant

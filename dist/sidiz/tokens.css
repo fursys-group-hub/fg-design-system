@@ -28,6 +28,7 @@
   /* 저빈도 비변수화 색. 아래 컴포넌트 밖 사용 금지. 전역 팔레트에 넣지 않음. */
   /* Tag Green:  #10C266 (전경) / #E7F6E7 (배경) — Tag(Color=Green) 전용 */
   /* Tag Yellow: #F5CA1D (전경) / #FCF7DF (배경) — Tag(Color=Yellow) 전용 */
+  /* Alert:      #F5CA1D — Toast(State=Alert) 경고 아이콘에도 사용(로컬 색) */
 
   /* ===== Typography ===== */
   --sidiz-font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
