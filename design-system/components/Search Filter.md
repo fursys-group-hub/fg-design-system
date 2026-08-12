@@ -11,8 +11,8 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| State=Extended | W×H 1280×221, padding(TRBL) 12/-/12/-, radius 4, gap 8 | Body/Body3-12-Semibold, Body/Body4-12-Regular, Caption/Caption1-11-Semibold, Caption/Caption2-10-Semibold, Caption/Caption3-10-Regular | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), #B3B3B3, Red-600 (#FF3A4A), #FF5C39, Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), #B3B3B3, Grey-200 (#EAEDF0), #EF2E32 | — |
-| State=Default | W×H 1280×79, padding(TRBL) 12/-/12/-, radius 4, gap 8 | Body/Body3-12-Semibold, Body/Body4-12-Regular, Caption/Caption1-11-Semibold, Caption/Caption2-10-Semibold, Caption/Caption3-10-Regular | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), #B3B3B3, #EF2E32, Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), #B3B3B3, Grey-200 (#EAEDF0), #EF2E32 | — |
+| State=Extended | W×H 1280×221, padding(TRBL) 12/-/12/-, radius 4, gap 8 | 캡션1(Semibold), 캡션1, 캡션2(Semibold), [확인 필요:10px 정본없음], [확인 필요:10px 정본없음] | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), #B3B3B3, Red-600 (#FF3A4A), #FF5C39, Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), #B3B3B3, Grey-200 (#EAEDF0), #EF2E32 | — |
+| State=Default | W×H 1280×79, padding(TRBL) 12/-/12/-, radius 4, gap 8 | 캡션1(Semibold), 캡션1, 캡션2(Semibold), [확인 필요:10px 정본없음], [확인 필요:10px 정본없음] | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), #B3B3B3, #EF2E32, Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), #B3B3B3, Grey-200 (#EAEDF0), #EF2E32 | — |
 
 ## 하위 구조 (대표 variant)
 

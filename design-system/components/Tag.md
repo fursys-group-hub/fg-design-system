@@ -12,18 +12,18 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| State=Dark, Color=Black | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Grey-900 (#000000), Grey-50 (#FFFFFF) | — | — |
-| State=Light, Color=Black | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
-| State=Dark, Color=Gray | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | — | — |
-| State=Light, Color=Gray | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | — | — |
-| State=Dark, Color=Blue | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Blue-500 (#357FFF), Grey-50 (#FFFFFF) | — | — |
-| State=Light, Color=Blue | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Blue-500 (#357FFF), Blue-100 (#E3EDFF) | — | — |
-| State=Dark, Color=Green | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | #10C266, Grey-50 (#FFFFFF) | — | — |
-| State=Light, Color=Green | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | #10C266, #E7F6E7 | — | — |
-| State=Dark, Color=Yellow | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | #F5CA1D, Grey-50 (#FFFFFF) | — | — |
-| State=Light, Color=Yellow | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | #F5CA1D, #FCF7DF | — | — |
-| State=Dark, Color=Red | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | — | — |
-| State=Light, Color=Red | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | Caption/Caption2-10-Semibold | Red-600 (#FF3A4A), Red-100 (#FFECEE) | — | — |
+| State=Dark, Color=Black | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Grey-900 (#000000), Grey-50 (#FFFFFF) | — | — |
+| State=Light, Color=Black | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| State=Dark, Color=Gray | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | — | — |
+| State=Light, Color=Gray | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | — | — |
+| State=Dark, Color=Blue | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Blue-500 (#357FFF), Grey-50 (#FFFFFF) | — | — |
+| State=Light, Color=Blue | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Blue-500 (#357FFF), Blue-100 (#E3EDFF) | — | — |
+| State=Dark, Color=Green | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | #10C266, Grey-50 (#FFFFFF) | — | — |
+| State=Light, Color=Green | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | #10C266, #E7F6E7 | — | — |
+| State=Dark, Color=Yellow | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | #F5CA1D, Grey-50 (#FFFFFF) | — | — |
+| State=Light, Color=Yellow | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | #F5CA1D, #FCF7DF | — | — |
+| State=Dark, Color=Red | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | — | — |
+| State=Light, Color=Red | W×H 26×16, padding(TRBL) -/4/-/4, radius 2 | [확인 필요:10px 정본없음] | Red-600 (#FF3A4A), Red-100 (#FFECEE) | — | — |
 
 ## 하위 구조 (대표 variant)
 

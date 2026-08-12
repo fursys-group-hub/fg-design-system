@@ -11,8 +11,8 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Varient=Text | W×H 115×39, gap 6 | Body/Body4-12-Regular, Caption/Caption2-10-Semibold | Grey-900 (#000000), Grey-500 (#7C8084) | — | — |
-| Varient=Field | W×H 314×76, gap 6 | Body/Body4-12-Regular, Caption/Caption2-10-Semibold, Caption/Caption3-10-Regular | Grey-500 (#7C8084), Grey-400 (#A4AAB0), Red-600 (#FF3A4A), #FF5C39, Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0), #EF2E32 | — |
+| Varient=Text | W×H 115×39, gap 6 | 캡션1, [확인 필요:10px 정본없음] | Grey-900 (#000000), Grey-500 (#7C8084) | — | — |
+| Varient=Field | W×H 314×76, gap 6 | 캡션1, [확인 필요:10px 정본없음], [확인 필요:10px 정본없음] | Grey-500 (#7C8084), Grey-400 (#A4AAB0), Red-600 (#FF3A4A), #FF5C39, Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0), #EF2E32 | — |
 
 ## 하위 구조 (대표 variant)
 
