@@ -1,6 +1,7 @@
-/* 버전: 2026-08-13 / 생성 커밋: 790b47a */
+/* 버전: 2026-08-13 / 생성 커밋: 392e7ea */
 /* 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. */
-/* 정본 덤프 기준 lastModified: 2026-08-12T07:05:46Z */
+/* 정본 덤프 기준 lastModified: 2026-08-13T02:43:40Z */
+/* Pretendard 웹폰트: <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"> */
 /* SIDIZ 디자인 시스템 토큰. 정본 팔레트/타이포/스페이싱/이펙트만 포함. */
 
 :root {
@@ -27,9 +28,9 @@
 
   /* ===== 컴포넌트 로컬 색 (전역 토큰 아님 — 지정 컴포넌트 한정) ===== */
   /* 저빈도 비변수화 색. 아래 컴포넌트 밖 사용 금지. 전역 팔레트에 넣지 않음. */
-  /* Tag Green:  #10C266 (전경) / #E7F6E7 (배경) — Tag(Color=Green) 전용 */
-  /* Tag Yellow: #F5CA1D (전경) / #FCF7DF (배경) — Tag(Color=Yellow) 전용 */
-  /* Alert:      #F5CA1D — Toast(State=Alert) 경고 아이콘에도 사용(로컬 색) */
+  /* Tag Green:  #38BA77 (전경) / #E7F6E7 (배경) — Tag(Color=Green) 전용 */
+  /* Tag Yellow: #E8C32E (전경) / #FCF7DF (배경) — Tag(Color=Yellow) 전용 */
+  /* Alert:      #F5CA1D — Toast(State=Alert) 경고 아이콘 전용 로컬 색 */
 
   /* ===== Typography ===== */
   --sidiz-font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;

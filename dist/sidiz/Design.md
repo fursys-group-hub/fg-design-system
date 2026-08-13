@@ -1,6 +1,6 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-13 / 생성 커밋: `790b47a`**
-> 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-12T07:05:46Z.
+> **버전: 2026-08-13 / 생성 커밋: `392e7ea`**
+> 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T02:43:40Z.
 
 # SIDIZ 디자인 시스템 — 배포본
 
@@ -19,6 +19,16 @@ AI/실무자가 이 문서만 읽고 SIDIZ 규격대로 화면을 만들 수 있
 - **radius:** 버튼/인풋 4~6px, pill(태그/칩/원형) `9999`. 임의값 금지.
 - **최소 크기 규칙:** Caption4·5(8·10px)는 **뱃지/태그/아이콘 라벨 전용**, 본문 사용 금지.
 - **토큰만 사용:** 아래 팔레트/타이포/스페이싱 밖의 임의 hex·크기·radius를 만들지 않는다.
+
+### 웹폰트 로드 (필수)
+HTML을 생성할 때 `<head>`에 아래 한 줄을 넣고 `body`에 폰트를 지정하세요. (Pretendard 미로드 시 규격이 깨집니다.)
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+```
+```css
+body { font-family: 'Pretendard', sans-serif; }
+```
 
 ---
 
@@ -58,10 +68,11 @@ AI/실무자가 이 문서만 읽고 SIDIZ 규격대로 화면을 만들 수 있
 
 | 값 | 사용 컴포넌트 | 용도 |
 |---|---|---|
-| `#10C266` | Tag (Color=Green) | Green 태그 전경 |
+| `#38BA77` | Tag (Color=Green) | Green 태그 전경 |
 | `#E7F6E7` | Tag (Color=Green, Light) | Green 태그 배경 |
-| `#F5CA1D` | Tag (Color=Yellow) · Toast (State=Alert) | Yellow 태그 전경 / Alert 토스트 경고 아이콘 |
+| `#E8C32E` | Tag (Color=Yellow) | Yellow 태그 전경 |
 | `#FCF7DF` | Tag (Color=Yellow, Light) | Yellow 태그 배경 |
+| `#F5CA1D` | Toast (State=Alert) | Alert 토스트 경고 아이콘 |
 
 > **로고 전용:** `#1D1D1B`는 Signature 로고 아트워크 색으로, UI(텍스트·배경·보더)에는 쓰지 않는다.
 > 그 밖의 팔레트 밖 색(그라데이션·보라 등)은 정본이 아닙니다. 사용하지 마세요.
@@ -124,20 +135,20 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.1 Button — 12 variant
 - **속성:** Varient(Primary/Secondary/Disabled/Error) × Shape(Square/Round/Text/Flat)
-- **크기:** 대부분 H28, Flat은 H20. radius: Square=4, Round/Text/Flat=9999, gap 6, padding 좌우 12(Flat 8).
-- **텍스트:** Round/Square=Body3(12/600), Text/Flat=Caption1(11/600).
+- **크기:** 대부분 H32, Flat은 H24. radius: Square=4, Round/Text/Flat=9999, gap 8, padding 좌우 12(Flat 10).
+- **텍스트:** Round/Square=Body1(13/600), Text/Flat=Body3(12/600).
 - **색 규칙:** Primary=Grey-900 배경/텍스트 강조, Secondary=Grey-900+Grey-200 보더, Disabled=Grey-400/Grey-200, Error=Red-600.
 - **사용 규칙:** 한 화면의 "결정 버튼"은 하나. 파란 채움 버튼을 기본으로 쓰지 않는다.
 
 ### 5.2 Input — 28 variant
 - **속성:** Varient(Text/Search/Date/Stepper/Unit/Composite/Dropdown) × State(Default/Hover/Filled/Disabled)
-- **크기:** H34, radius 4, padding 8/12. 텍스트 Body4(12/400).
+- **크기:** H36, radius 4, padding 8/12. 텍스트 Body2(13/400).
 - **색 규칙:** Default 보더 Grey-200, Hover/Filled 보더 Grey-900(활성), Disabled Grey-400/Grey-200.
 - **사용 규칙:** 상태별 보더색으로 포커스/입력 상태 표현. 배경은 흰색 기본.
 
 ### 5.3 Input Case — 2 variant
 - **속성:** Varient(Field/Text) — 라벨/헬프/에러 조합 래퍼.
-- Field(W314×H76): 라벨(Caption2) + 입력 + 헬프/에러(Caption3). Text(W115×H39): 라벨+본문.
+- Field(W314×H84): 라벨(Body3) + 입력 + 헬프/에러(Body4). Text(W124×H44): 라벨+본문(Body2/Body3).
 - **사용 규칙:** 폼 필드의 라벨·헬프·에러 묶음 표준. 에러는 Red-600.
 
 ### 5.4 Checkbox — 5 variant
@@ -150,30 +161,30 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.6 Dropdown List — 5 variant
 - **속성:** Varient(Single/Multiple/Profile) × State(Default/Hover). radius 4, **Drop Shadow**(Profile).
-- 텍스트 Body4 기본. 항목 Hover 배경 Grey-100.
+- 텍스트 Body2 기본. 항목 Hover 배경 Grey-100.
 - **사용 규칙:** 떠 있는 목록이므로 그림자 사용. 선택 항목만 강조.
 
 ### 5.7 Search Filter — 2 variant
-- **속성:** State(Default H79 / Extended H221). W1280, radius 4, gap 8.
-- 텍스트 Body3/Body4/Caption1/Caption2. **사용 규칙:** 필터 확장 시 Extended.
+- **속성:** State(Default H91 / Extended H241). W1280, radius 4, gap 8, padding 상하 16.
+- 텍스트 Body1/Body2/Body3/Caption1. **사용 규칙:** 필터 확장 시 Extended.
 
 ### 5.8 Tab — 2 variant
-- **속성:** Varient(Box/Line). H40, 텍스트 Body1(13/600), **shadow/sm**.
+- **속성:** Varient(Box/Line). H40, 텍스트 Title5(14/600), **shadow/sm**.
 - Line 탭 활성 밑줄 **Blue-700**. **사용 규칙:** 선택 탭만 포인트 색.
 
 ### 5.9 Tag — 12 variant
-- **속성:** State(Light/Dark) × Color(Red/Green/Blue/Gray/Yellow/Black). 26×16, padding 좌우 4, **radius 2**, 텍스트 Caption2(10/600).
+- **속성:** State(Light/Dark) × Color(Red/Green/Blue/Gray/Yellow/Black). 28×16, padding 좌우 4, **radius 2**, 텍스트 Caption1(11/600).
 - 정본 팔레트 매핑: Blue=Blue-500/Blue-100, Red=Red-600/Red-100, Gray=Grey-400/Grey-100, Black=Grey-900.
-- **컴포넌트 로컬 색:** Green(`#10C266`/`#E7F6E7`)·Yellow(`#F5CA1D`/`#FCF7DF`)는 Tag 전용 로컬 색(전역 토큰 아님). Tag 밖에서 사용 금지. (1장 "컴포넌트 로컬 색" 참조)
+- **컴포넌트 로컬 색:** Green(`#38BA77`/`#E7F6E7`)·Yellow(`#E8C32E`/`#FCF7DF`)는 Tag 전용 로컬 색(전역 토큰 아님). Tag 밖에서 사용 금지. (1장 "컴포넌트 로컬 색" 참조)
 
 ### 5.10 Table Cell — 13 variant
 - **속성:** Varient(Header/Cell) × Type(Checkbox/Text/Link/Textlink/Radio/Icon/Button/Tag/Calendar/Input). H32(Header)/H38(Cell), padding 좌우 16.
-- Header 텍스트 Caption2, Cell 텍스트 Body4. 보더 Grey-200/Grey-300.
+- Header 텍스트 Caption1, Cell 텍스트 Body2(Button 셀=Body3). 보더 Grey-200/Grey-300.
 - **사용 규칙:** 표는 셀 타입 조합으로 구성. 구분은 hairline(Grey-200).
 
 ### 5.11 Toast Popup — 3 variant
 - **속성:** State(Default/Error/Alert). W520×H56, padding 12/32, radius 6, **Drop Shadow**.
-- Default 포인트 Blue-500, Error Red-600, Alert 노랑(`#F5CA1D`, 컴포넌트 로컬 색 — Toast/Tag 한정). 텍스트 Body1+Body4.
+- Default 포인트 Blue-500, Error Red-600, Alert 노랑(`#F5CA1D`, Toast 전용 로컬 색). 텍스트 Body1+Body2.
 - **사용 규칙:** 떠 있는 알림 → 그림자. 상태색은 아이콘/포인트에만.
 
 ### 5.12 Carousel — 2 variant
@@ -181,23 +192,23 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.13 Sidebar — 4 variant
 - **속성:** Varient(Favorite/Default) × States(Default/Extended/Hover). W256×H1080, padding 좌우 12, gap 24, **shadow/sm**.
-- 텍스트 Body1. Hover 활성 항목 **Blue-700** + 배경 Blue-100.
+- 텍스트 Body1 + Title5(그룹 타이틀). Hover 활성 항목 **Blue-700** + 배경 Blue-100.
 - **사용 규칙:** 흰 배경 사이드바. 활성 메뉴만 포인트 색.
 
 ### 5.14 Breadcrumb — 1
-- W296×H18, gap 8. 텍스트 Body3(현재)/Body4. 구분자 ChevronRight 아이콘. 현재 위치 Grey-900, 상위 Grey-400.
+- W308×H20, gap 8. 텍스트 Body1(현재)/Body2. 구분자 ChevronRight 아이콘. 현재 위치 Grey-900, 상위 Grey-400.
 - **사용 규칙:** `·`/`•` 대신 chevron 아이콘 사용.
 
 ### 5.15 Dashboard Card — 1
-- W314×H65, padding 16/20, radius 4, 보더 Grey-200. 텍스트 Title3(수치)+Caption1/Caption2(라벨). Tag 포함.
-- **사용 규칙:** 그림자 없이 border로 구분. 수치는 Title3, 라벨은 Caption.
+- W314×H65, padding 16/20, radius 4, 보더 Grey-200. 텍스트 Title3(수치)+Caption1(라벨). Tag 포함.
+- **사용 규칙:** 그림자 없이 border로 구분. 수치는 Title3, 라벨은 Caption1.
 
 ### 5.16 Header — 1
-- W1344×H50, padding 좌우 24, gap 10. 텍스트 Body3/Caption2/Caption4. 보더 하단 Grey-200.
+- W1344×H50, padding 좌우 24, gap 10. 텍스트 Body1/Caption1/Caption2. 보더 하단 Grey-200.
 - **사용 규칙:** 흰색 헤더(다크/네이비 금지). 심볼 마크 로고 사용.
 
 ### 5.17 Pagination — 1
-- W174×H18, gap 12. 텍스트 Body3(현재)/Body4. Chevron 좌우 아이콘. 현재 페이지 Grey-900.
+- W176×H20, gap 12. 텍스트 Body1(현재)/Body2. Chevron 좌우 아이콘. 현재 페이지 Grey-900.
 
 ### 5.18 Attention (로고) — 2 variant
 - **속성:** Sort=Attention × Color(Black/White). 60×84. Black=Grey-900, White=Grey-50.
@@ -205,6 +216,24 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.19 Signature (로고) — 2 variant
 - **속성:** Sort=Signature × Color(Black/White). 200×59.
 - **사용 규칙:** 심볼/시그니처 로고 사용, "SIDIZ" 워드마크 텍스트 금지.
+
+---
+
+## 6. 로고 SVG (Attention 심볼)
+
+로고는 아래 인라인 SVG를 그대로 사용하세요. viewBox `60×84.3129` 단일 벡터. **Black**=밝은 배경, **White**=어두운 배경.
+
+**Black:**
+```html
+<svg width="60" height="84.3129" viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="black"/></svg>
+```
+
+**White:**
+```html
+<svg width="60" height="84.3129" viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="white"/></svg>
+```
+
+> 로고는 형태 변형 금지. "SIDIZ" 워드마크 텍스트로 대체하지 마세요.
 
 ---
 
