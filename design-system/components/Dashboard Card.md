@@ -7,7 +7,7 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Dashboard Card | W×H 314×65, padding(TRBL) 16/20/16/20, radius 4 | Caption/Caption1-SemiBold, Caption/Caption2-SemiBold, Title/Title3-SemiBold | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| Dashboard Card | W×H 314×65, padding(TRBL) 16/20/16/20, radius 4 | Caption/Caption1-SemiBold, Title/Title3-SemiBold | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
 
 ## 하위 구조 (대표 variant)
 

@@ -45,12 +45,14 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 
 | 토큰(별칭) | 값 | 사용 컴포넌트 (한정) | 용도 |
 |---|---|---|---|
-| Tag Green | `#10C266` | **Tag** (Color=Green) | Green 태그 전경(Dark 배경 채움 / Light 글자) |
+| Tag Green | `#38BA77` | **Tag** (Color=Green) | Green 태그 전경(Dark 배경 채움 / Light 글자) |
 | Tag Green BG | `#E7F6E7` | **Tag** (Color=Green, State=Light) | Green Light 태그 배경 |
-| Tag/Alert Yellow | `#F5CA1D` | **Tag** (Color=Yellow) · **Toast** (State=Alert) | Yellow 태그 전경 / Alert 토스트 경고 아이콘 |
+| Tag Yellow | `#E8C32E` | **Tag** (Color=Yellow) | Yellow 태그 전경 |
 | Tag Yellow BG | `#FCF7DF` | **Tag** (Color=Yellow, State=Light) | Yellow Light 태그 배경 |
+| Alert Yellow | `#F5CA1D` | **Toast** (State=Alert) | Alert 토스트 경고 아이콘 |
 
-> 이 4색은 Figma에서 변수 바인딩 없이 Tag 컴포넌트 로컬로 지정됨(의도적 비변수화). **지정 컴포넌트 외 사용 금지.** 신규 화면에서 초록/노랑이 필요하면 먼저 팔레트 확장을 검토한다.
+> 이 색들은 Figma에서 변수 바인딩 없이 컴포넌트 로컬로 지정됨(의도적 비변수화). **지정 컴포넌트 외 사용 금지.** 신규 화면에서 초록/노랑이 필요하면 먼저 팔레트 확장을 검토한다.
+> ⚠️ 2026-08-13 sync: Tag Green `#10C266→#38BA77`, Tag Yellow `#F5CA1D→#E8C32E` 변경. Toast Alert 노랑은 `#F5CA1D` 유지(Tag와 분리됨).
 
 ## 로고 자산 색 (Logo asset — UI 색 아님)
 

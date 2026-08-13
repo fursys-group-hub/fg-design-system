@@ -11,8 +11,8 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Varient=Line | W×H 535×40 | Body/Body1-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-300 (#D6DADE), Grey-50 (#FFFFFF) | Blue-700 (#003EFF), #18181B, #71717A, Grey-200 (#EAEDF0) | shadow/sm |
-| Varient=Box | W×H 568×40 | Body/Body1-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | #18181B, #71717A | shadow/sm |
+| Varient=Line | W×H 570×40 | Title/Title5-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-300 (#D6DADE), Grey-50 (#FFFFFF) | Blue-700 (#003EFF), #18181B, #71717A, Grey-200 (#EAEDF0) | shadow/sm |
+| Varient=Box | W×H 608×40 | Body/Body2-Regular, Title/Title5-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | #18181B, #71717A | shadow/sm |
 
 ## 하위 구조 (대표 variant)
 

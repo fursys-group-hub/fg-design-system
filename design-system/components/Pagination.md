@@ -7,7 +7,7 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Pagination | W×H 174×18, gap 12 | Body/Body3-SemiBold, Body/Body4-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-900 (#000000) | — |
+| Pagination | W×H 176×20, gap 12 | Body/Body1-SemiBold, Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-900 (#000000) | — |
 
 ## 하위 구조 (대표 variant)
 

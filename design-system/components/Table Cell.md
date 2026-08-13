@@ -12,17 +12,17 @@
 
 | variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Varient=Header, Type=Text | W×H 50×32, padding(TRBL) -/16/-/16 | Caption/Caption2-SemiBold | #B3B3B3, Grey-100 (#F5F6F7) | Grey-200 (#EAEDF0), #ECECEC | — |
+| Varient=Header, Type=Text | W×H 52×32, padding(TRBL) -/16/-/16 | Caption/Caption1-SemiBold | #B3B3B3, Grey-100 (#F5F6F7) | Grey-200 (#EAEDF0), #ECECEC | — |
 | Varient=Header, Type=Radio | W×H 48×32, padding(TRBL) -/16/-/16 | — | Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-300 (#D6DADE), Grey-200 (#EAEDF0) | — |
 | Varient=Header, Type=Checkbox | W×H 48×32, padding(TRBL) -/16/-/16 | — | Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-300 (#D6DADE), Grey-200 (#EAEDF0) | — |
-| Varient=Cell, Type=Calendar | W×H 123×38, padding(TRBL) -/16/-/16 | Body/Body4-Regular | Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
-| Varient=Cell, Type=Input | W×H 346×38, padding(TRBL) -/16/-/16 | Body/Body4-Regular | Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| Varient=Cell, Type=Calendar | W×H 128×38, padding(TRBL) -/16/-/16 | Body/Body2-Regular | Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| Varient=Cell, Type=Input | W×H 346×38, padding(TRBL) -/16/-/16 | Body/Body2-Regular | Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
 | Varient=Cell, Type=Icon | W×H 48×38, padding(TRBL) -/16/-/16 | — | Grey-50 (#FFFFFF) | Grey-300 (#D6DADE), Grey-200 (#EAEDF0) | — |
-| Varient=Cell, Type=Button | W×H 95×38, padding(TRBL) -/16/-/16 | Caption/Caption1-SemiBold | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-200 (#EAEDF0) | — |
-| Varient=Cell, Type=Tag | W×H 58×38, padding(TRBL) -/16/-/16 | Caption/Caption2-SemiBold | Red-600 (#FF3A4A), Red-100 (#FFECEE), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
-| Varient=Cell, Type=Link | W×H 157×38, padding(TRBL) -/16/-/16 | Body/Body4-Regular | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
-| Varient=Cell, Type=Textlink | W×H 64×38, padding(TRBL) -/16/-/16 | Body/Body4-Regular | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
-| Varient=Cell, Type=Text | W×H 64×38, padding(TRBL) -/16/-/16, gap 4 | Body/Body4-Regular | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| Varient=Cell, Type=Button | W×H 102×38, padding(TRBL) -/16/-/16 | Body/Body3-SemiBold | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-200 (#EAEDF0) | — |
+| Varient=Cell, Type=Tag | W×H 60×38, padding(TRBL) -/16/-/16 | Caption/Caption1-SemiBold | Red-600 (#FF3A4A), Red-100 (#FFECEE), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| Varient=Cell, Type=Link | W×H 167×38, padding(TRBL) -/16/-/16 | Body/Body2-Regular | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| Varient=Cell, Type=Textlink | W×H 66×38, padding(TRBL) -/16/-/16 | Body/Body2-Regular | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
+| Varient=Cell, Type=Text | W×H 66×38, padding(TRBL) -/16/-/16, gap 4 | Body/Body2-Regular | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-200 (#EAEDF0) | — |
 | Varient=Cell, Type=Radio | W×H 48×38, padding(TRBL) -/16/-/16 | — | Grey-50 (#FFFFFF) | Grey-300 (#D6DADE), Grey-200 (#EAEDF0) | — |
 | Varient=Cell, Type=Checkbox | W×H 48×38, padding(TRBL) -/16/-/16 | — | Grey-50 (#FFFFFF) | Grey-300 (#D6DADE), Grey-200 (#EAEDF0) | — |
 
