@@ -46,8 +46,9 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
   - `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">`
   - `body { font-family: 'Pretendard', sans-serif; }`
 - **로고 SVG 섹션(필수):** `design-system/assets/attention-black.svg`·`attention-white.svg`의 **인라인 SVG 코드**를 그대로 싣는다(배포본만 읽어도 로고를 쓸 수 있게). Black=밝은 배경, White=어두운 배경.
+- **컴포넌트 오토레이아웃 요약(필수):** 컴포넌트 명세에 각 컴포넌트의 **방향(가로/세로)·주축/교차 정렬**을 표로 싣는다(특히 `SPACE_BETWEEN`=양끝 배치는 명시). 화면이 제대로 안 나오는 주원인이 레이아웃 정보 누락이므로 생략 금지. 상세 하위 구조는 `components/*.md`(정본).
 - 상단에 **버전 스탬프**(원칙 참조) + `자동 생성 파일 — 원본은 design-system/` 명시 + 정본 덤프 기준(`lastModified`)을 남긴다.
-- **상단 참조 1줄:** 버전 스탬프 아래에 `화면 조립·판단 기준은 design-principles.md 참조`를 넣는다(화면 조립 규칙은 별도 파일).
+- **상단 참조 1줄:** 버전 스탬프 아래에 `화면 조립=design-principles.md · 아이콘=icons.md · 레이아웃=layouts.md 참조`를 넣는다(별도 파일).
 - 500줄을 넘으면 섹션 요약 위주로 압축하되, 토큰 값·컴포넌트 variant 목록·로고 SVG는 누락 없이 유지한다.
 
 ## 2. `dist/sidiz/tokens.css` 생성
@@ -88,11 +89,14 @@ Cowork 사용자용 지침 파일. 최상단에 **버전 스탬프**(원칙 참�
   6. **문의** — 관리자 연락처 `@커머스DX팀 이수지`.
 - **실제 값(반영됨):** 프로젝트 링크 = `https://claude.ai/project/019ff881-be01-75f1-921a-72c7db7b4f8e` · 관리자 연락처 = `@커머스DX팀 이수지`. 값이 바뀌면 이 규칙을 갱신한다.
 
-## 5. `dist/sidiz/design-principles.md` (독립 복사)
+## 5. 참조 문서 독립 복사 (design-principles.md · icons.md · layouts.md)
 
-정본 `design-system/design-principles.md`를 **그대로 복사**한다(값 변환·요약 없음). **`Design.md`에 병합하지 않는다** — 화면 조립 규칙은 별도 파일로 유지한다.
+아래 정본 문서를 각각 `dist/sidiz/`로 **그대로 복사**한다(값 변환·요약 없음). **`Design.md`에 병합하지 않는다** — 조립·아이콘·레이아웃 규칙은 별도 파일로 유지한다.
 
-- 복사본 **최상단에 버전 스탬프**(원칙 참조, 다른 산출물과 동일 날짜·해시) + `자동 생성 파일 — 원본은 design-system/design-principles.md` 명시.
+- `design-system/design-principles.md` → `dist/sidiz/design-principles.md` (화면 조립·판단 기준)
+- `design-system/icons.md` → `dist/sidiz/icons.md` (Lucide 아이콘 세트·컴포넌트별 매핑)
+- `design-system/layouts.md` → `dist/sidiz/layouts.md` (화면 유형·공통 치수·조합 규칙)
+- 각 복사본 **최상단에 버전 스탬프**(원칙 참조, 다른 산출물과 동일 날짜·해시) + `자동 생성 파일 — 원본은 design-system/<파일>` 명시.
 - 본문은 정본과 동일하게 유지(토큰·컴포넌트 이름 참조, 값 미기재).
 
 ## 6. 루트 `CLAUDE.md` 동기화
@@ -118,4 +122,4 @@ Cowork 사용자용 지침 파일. 최상단에 **버전 스탬프**(원칙 참�
 
 ## 완료 보고 형식
 
-정본 최신성·미해결 위반 여부 · 생성 파일 5종(Design.md·tokens.css·CLAUDE.md·README.md + design-principles.md 복사, 경로/크기) · 포함 토큰 수·컴포넌트 수 · 정본 대비 개수 일치 여부 · CSS 제외(확인 필요) 목록 · **루트 CLAUDE.md 동기화 여부** · 커밋 여부.
+정본 최신성·미해결 위반 여부 · 생성 파일 7종(Design.md·tokens.css·CLAUDE.md·README.md + design-principles.md·icons.md·layouts.md 복사, 경로/크기) · 포함 토큰 수·컴포넌트 수 · 정본 대비 개수 일치 여부 · CSS 제외(확인 필요) 목록 · **루트 CLAUDE.md 동기화 여부** · 커밋 여부.
