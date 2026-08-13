@@ -29,7 +29,9 @@
 | 토스트·알림·스낵바 | [Toast Popup](components/Toast%20Popup.md) |
 | 캐러셀·슬라이더 | [Carousel](components/Carousel.md) |
 | 로고 | [Attention](components/Attention.md), [Signature](components/Signature.md) |
-| 새 화면 전체·프로토타입 | **tokens 4종 전부** + 해당 컴포넌트 문서 |
+| 아이콘·아이콘 세트 | [icons.md](icons.md) |
+| 화면 조립·레이아웃·화면 유형(목록/상세/대시보드/모달/인증) | [layouts.md](layouts.md) |
+| 새 화면 전체·프로토타입 | **tokens 4종 전부** + [icons.md](icons.md) + [layouts.md](layouts.md) + 해당 컴포넌트 문서 |
 
 ---
 
@@ -65,6 +67,14 @@
 | [Pagination](components/Pagination.md) | 페이지네이션. |
 | [Attention](components/Attention.md) | Attention 로고. |
 | [Signature](components/Signature.md) | Signature 로고. |
+
+## 자산·조립 문서
+
+| 문서 | 한 줄 설명 |
+|---|---|
+| [icons.md](icons.md) | Lucide 아이콘 세트(24×24·2px)·이름 규칙·컴포넌트별 사용 아이콘 매핑. |
+| [layouts.md](layouts.md) | 화면 유형별 골격·공통 치수(사이드바 256·헤더 50 등)·컴포넌트 조합 규칙. |
+| [design-principles.md](design-principles.md) | 화면 조립·판단 원칙(레이아웃·위계·패턴). `/sync` 대상 아님(관리자 직접 수정). |
 
 기타: [extraction-plan.md](extraction-plan.md) — 추출 체크리스트·진행 로그(작업 이력용, 디자인 작업 시 필독 아님).
 

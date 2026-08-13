@@ -5,13 +5,27 @@
 
 ## Variant 전체 (1)
 
-| variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
+| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Pagination | W×H 176×20, gap 12 | Body/Body1-SemiBold, Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-900 (#000000) | — |
+| Pagination | W×H 176×20 | Body/Body1-SemiBold, Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-900 (#000000) | — |
 
-## 하위 구조 (대표 variant)
+## 레이아웃 (오토레이아웃)
 
-`Pagination` → Icon / ChevronLeft(instance), 숫자(frame), Icon / ChevronRight(instance)
+전 variant 공통 — 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · sizing 주축 hug/교차 hug · gap 12
+
+## 하위 구조 (대표 variant, 2~3레벨)
+
+`Pagination` — 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · sizing 주축 hug/교차 hug · gap 12
+- Icon / ChevronLeft (instance) [가로 고정/세로 고정] · → Icon / ChevronLeft
+  - Vector (vector)
+- 숫자 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug]
+  - 1 (text) [가로 hug/세로 hug] · 텍스트 Body/Body1-SemiBold
+  - 2 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+  - 3 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+  - 4 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+  - 5 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+- Icon / ChevronRight (instance) [가로 고정/세로 고정] · → Icon / ChevronRight
+  - Vector (vector)
 
 ## 확인 필요
 

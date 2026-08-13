@@ -5,13 +5,30 @@
 
 ## Variant 전체 (1)
 
-| variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
+| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
-| Breadcrumb | W×H 308×20, gap 8 | Body/Body1-SemiBold, Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-400 (#A4AAB0) | — |
+| Breadcrumb | W×H 308×20 | Body/Body1-SemiBold, Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-400 (#A4AAB0) | — |
 
-## 하위 구조 (대표 variant)
+## 레이아웃 (오토레이아웃)
 
-`Breadcrumb` → 메뉴명(text), Icon / ChevronRight(instance), 메뉴명(text), Icon / ChevronRight(instance), 메뉴명(text), Icon / ChevronRight(instance), 메뉴명(text), Icon / ChevronRight(instance), 현재 메뉴명(text)
+전 variant 공통 — 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · sizing 주축 hug/교차 hug · gap 8
+
+## 하위 구조 (대표 variant, 2~3레벨)
+
+`Breadcrumb` — 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · sizing 주축 hug/교차 hug · gap 8
+- 메뉴명 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+- Icon / ChevronRight (instance) [가로 고정/세로 고정] · → Icon / ChevronRight
+  - Vector (vector)
+- 메뉴명 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+- Icon / ChevronRight (instance) [가로 고정/세로 고정] · → Icon / ChevronRight
+  - Vector (vector)
+- 메뉴명 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+- Icon / ChevronRight (instance) [가로 고정/세로 고정] · → Icon / ChevronRight
+  - Vector (vector)
+- 메뉴명 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+- Icon / ChevronRight (instance) [가로 고정/세로 고정] · → Icon / ChevronRight
+  - Vector (vector)
+- 현재 메뉴명 (text) [가로 hug/세로 hug] · 텍스트 Body/Body1-SemiBold
 
 ## 확인 필요
 

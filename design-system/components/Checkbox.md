@@ -9,7 +9,7 @@
 
 ## Variant 전체 (5)
 
-| variant | 크기·간격 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
+| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
 |---|---|---|---|---|---|
 | State=Hover | W×H 16×16 | — | Grey-50 (#FFFFFF) | Grey-900 (#000000) | — |
 | State=Disabled | W×H 16×16 | — | Grey-300 (#D6DADE) | Grey-50 (#FFFFFF) | — |
@@ -17,9 +17,18 @@
 | State=Unchecked | W×H 16×16 | — | Grey-50 (#FFFFFF) | Grey-300 (#D6DADE) | — |
 | State=Checked | W×H 16×16 | — | Grey-900 (#000000) | Grey-50 (#FFFFFF) | — |
 
-## 하위 구조 (대표 variant)
+## 레이아웃 (오토레이아웃)
 
-`State=Hover` → Frame 1000007700(frame)
+전 variant 공통 — 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
+
+## 하위 구조 (대표 variant, 2~3레벨)
+
+`State=Hover` — 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
+- Frame 1000007700 (frame)
+
+## Variant 차이 (무엇이 바뀌나)
+
+- **State** (Checked / Disabled / Hover / Multiple Checked / Unchecked) 변화 시 → 달라짐: **fill, stroke** · 동일: 크기, 레이아웃, 텍스트, 이펙트
 
 ## 확인 필요
 
