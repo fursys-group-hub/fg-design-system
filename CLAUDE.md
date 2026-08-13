@@ -13,6 +13,10 @@
 
 스타일은 `dist/sidiz/tokens.css`의 CSS 변수·클래스로만 적용한다. HTML 생성 시 `Design.md`의 **Pretendard 웹폰트 로드 1줄**을 반드시 포함한다.
 
+### 생성물 저장 위치 (필수)
+
+화면·컴포넌트 등 생성 산출물은 사용자의 바탕화면(`~/Desktop`) 아래 `sidiz-output` 폴더에 만든다. 폴더가 없으면 생성한다. 저장소 안(루트, `design-system/`, `dist/`)에는 생성물을 만들지 않는다.
+
 > **옛 전역 플러그인/스킬은 폐기됐다.** `~/.claude/skills/sidiz-design-system` 및 그 규격(Centra 폰트, 좌측 아이콘 레일, gray-100 캔버스, admin-dashboard 스캐폴드 등)은 **더 이상 사용하지 않는다.** 옛 규격으로 화면을 만들지 않는다.
 
 ## 반드시 지킬 원칙 (요약 — 상세는 Design.md · design-principles.md)
