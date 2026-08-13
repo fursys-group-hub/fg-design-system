@@ -9,7 +9,7 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 
 | 토큰 | 값 | 용도·규칙 |
 |---|---|---|
-| `Blue-700` | `#003EFF` | 브랜드 포인트(CTA 강조/선택/링크). 남용 금지 |
+| `Blue-700` | `#003EFF` | 브랜드 포인트(강조/선택/링크). 남용 금지 |
 | `Blue-500` | `#357FFF` | 보조/hover 상태 |
 | `Blue-100` | `#E3EDFF` | 선택·활성 **배경**(연한 파랑) |
 
