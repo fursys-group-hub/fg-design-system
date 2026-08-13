@@ -22,9 +22,9 @@ description: 피그마 파일이 시디즈 디자인 시스템 정본(design-sys
 - **정본 타이포 14종:** Title1~5-SemiBold, Body1~4, Caption1~5 (Pretendard / LH 150% / LS 1%)
 - **정본 팔레트:** Blue-700/500/100, Red-600/100, Grey-900~50 — 정확한 값은 `tokens/color.md`에서 로드
 - **컴포넌트 로컬 색 allowlist (색+컴포넌트 쌍 — 색상만 X):** 근거 `tokens/color.md` "컴포넌트 로컬 색". 아래 쌍은 **지정 컴포넌트 서브트리 안**에서만 통과, 그 외 위치에서 발견되면 위반.
-  - `#10C266`, `#E7F6E7` — **Tag** (Color=Green)
-  - `#F5CA1D` — **Tag** (Color=Yellow) · **Toast Popup** (State=Alert)
-  - `#FCF7DF` — **Tag** (Color=Yellow, State=Light)
+  - `#38BA77`, `#E7F6E7` — **Tag** (Color=Green)
+  - `#E8C32E`, `#FCF7DF` — **Tag** (Color=Yellow)
+  - `#F5CA1D` — **Toast Popup** (State=Alert)
 - **로고 자산 색 (색+노드범위 — UI 색 아님):** 근거 `tokens/color.md` "로고 자산 색".
   - `#1D1D1B` — **Signature 로고 벡터 `66:3931`~`66:3935` 및 그 인스턴스**(노드 id에 해당 base id 포함)에서만 통과. 그 외 노드에서 fill로 발견되면 **위반**.
 - **가이드/문서 색 (검사 전면 제외 — 건수만 집계):** 근거 `tokens/color.md` "가이드/문서 색". 위치 무관 검사 제외, 보고엔 제외 건수만.

@@ -40,10 +40,14 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
 ## 1. `dist/sidiz/Design.md` 생성
 
 - tokens 4종 + components 19개를 **한 파일로 통합**.
-- **구조:** 개요 → 컬러 → 타이포 → 스페이싱 → 이펙트 → 컴포넌트별 명세.
+- **구조:** 개요 → **웹폰트 로드** → 컬러 → 타이포 → 스페이싱 → 이펙트 → 컴포넌트별 명세 → **로고 SVG**.
 - 각 값에 **사용 규칙(언제 쓰고 언제 안 쓰는지)을 함께** 기재해 AI가 읽고 화면을 만들 수 있게 한다.
+- **Pretendard 웹폰트 로드 안내(필수):** 생성하는 HTML `<head>`에 아래 한 줄과 body 폰트 지정을 포함하라는 지침을 개요/폰트 섹션에 명시한다.
+  - `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">`
+  - `body { font-family: 'Pretendard', sans-serif; }`
+- **로고 SVG 섹션(필수):** `design-system/assets/attention-black.svg`·`attention-white.svg`의 **인라인 SVG 코드**를 그대로 싣는다(배포본만 읽어도 로고를 쓸 수 있게). Black=밝은 배경, White=어두운 배경.
 - 상단에 **버전 스탬프**(원칙 참조) + `자동 생성 파일 — 원본은 design-system/` 명시 + 정본 덤프 기준(`lastModified`)을 남긴다.
-- 500줄을 넘으면 섹션 요약 위주로 압축하되, 토큰 값·컴포넌트 variant 목록은 누락 없이 유지한다.
+- 500줄을 넘으면 섹션 요약 위주로 압축하되, 토큰 값·컴포넌트 variant 목록·로고 SVG는 누락 없이 유지한다.
 
 ## 2. `dist/sidiz/tokens.css` 생성
 
