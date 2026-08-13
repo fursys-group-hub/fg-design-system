@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/design-principles.md. 직접 수정 금지. -->
-> **버전: 2026-08-13 / 생성 커밋: `b2a04c6`**
+> **버전: 2026-08-13 / 생성 커밋: `f86998a`**
 > 자동 생성 파일 — 원본은 `design-system/design-principles.md`. 직접 수정 금지.
 
 # SIDIZ 화면 조립 원칙 (design-principles)

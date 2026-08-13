@@ -1,7 +1,7 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-13 / 생성 커밋: `b2a04c6`**
-> 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T02:43:40Z.
-> **화면 조립·판단 기준은 `design-principles.md` 참조** (이 문서는 값·규격).
+> **버전: 2026-08-13 / 생성 커밋: `f86998a`**
+> 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
+> **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
 
 # SIDIZ 디자인 시스템 — 배포본
 
@@ -134,6 +134,29 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 각 컴포넌트는 정본 variant 목록·크기·적용 토큰 기준. 색/간격은 Figma 변수 바인딩(값 확정, 변수명 미제공).
 
+### 컴포넌트 오토레이아웃 요약 (배치 필수 정보)
+
+렌더링 시 방향·정렬을 반드시 지킨다. **`SPACE_BETWEEN`=자식을 양끝으로 밀어 배치**(고정 gap 아님). 상세 하위 구조는 정본 `components/*.md`.
+
+| 컴포넌트 | 방향 | 정렬(주축·교차) |
+|---|---|---|
+| Button | 가로 | 주축 가운데 · 교차 가운데 |
+| Input | 가로 | 주축 시작 · 교차 가운데 |
+| Input Case | 세로 | 주축 시작 · 교차 시작 |
+| Checkbox / Radio | 없음(자유배치) | — |
+| Dropdown List | 세로 | 주축 시작 · 교차 시작 |
+| Search Filter | 세로 | 주축 끝 · 교차 끝 |
+| Tab | 가로 | 주축 시작 · 교차 시작 |
+| Tag | 가로 | 주축 가운데 · 교차 가운데 |
+| Table Cell | 가로 | 주축 시작 · 교차 가운데 |
+| **Toast Popup** | 가로 | **주축 양끝(SPACE_BETWEEN)** · 교차 가운데 |
+| Carousel | 가로 | 주축 가운데 · 교차 가운데 |
+| Sidebar | 세로 | 주축 시작 · 교차 시작 |
+| Breadcrumb | 가로 | 주축 시작 · 교차 가운데 |
+| Dashboard Card | 가로 | 주축 시작 · 교차 가운데 |
+| **Header** | 가로 | **주축 양끝(SPACE_BETWEEN)** · 교차 가운데 |
+| Pagination | 가로 | 주축 시작 · 교차 가운데 |
+
 ### 5.1 Button — 12 variant
 - **속성:** Varient(Primary/Secondary/Disabled/Error) × Shape(Square/Round/Text/Flat)
 - **크기:** 대부분 H32, Flat은 H24. radius: Square=4, Round/Text/Flat=9999, gap 8, padding 좌우 12(Flat 10).
@@ -186,6 +209,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.11 Toast Popup — 3 variant
 - **속성:** State(Default/Error/Alert). W520×H56, padding 12/32, radius 6, **Drop Shadow**.
 - Default 포인트 Blue-500, Error Red-600, Alert 노랑(`#F5CA1D`, Toast 전용 로컬 색). 텍스트 Body1+Body2.
+- **레이아웃:** 가로 auto-layout, **주축 SPACE_BETWEEN**(왼쪽 콘텐츠[아이콘+텍스트] / 오른쪽 Button 인스턴스를 양끝 배치 — 고정 gap 아님).
 - **사용 규칙:** 떠 있는 알림 → 그림자. 상태색은 아이콘/포인트에만.
 
 ### 5.12 Carousel — 2 variant

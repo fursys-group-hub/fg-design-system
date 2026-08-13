@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-13 / 생성 커밋: `b2a04c6`**
+> **버전: 2026-08-13 / 생성 커밋: `f86998a`**
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지.
 
 # SIDIZ 디자인 시스템 — 작업 지침 (Cowork)
@@ -22,7 +22,7 @@
 
 7. **컴포넌트.** 버튼·인풋·뱃지·탭·드롭다운 등은 `Design.md` 5장의 명세와 variant 범위 안에서만 사용한다. 한 화면의 "결정 버튼"은 하나로 제한한다.
 
-8. **화면 조립.** 레이아웃·위계·패턴(화면 골격·필터·요약 카드·테이블·모달·피드백·색 사용)은 `design-principles.md`를 따른다. 값은 `Design.md`, 조립은 `design-principles.md`가 기준이다.
+8. **화면 조립.** 레이아웃·위계·패턴은 `design-principles.md`(원칙)와 `layouts.md`(화면 유형·공통 치수·조합 규칙)를 따른다. **아이콘은 `icons.md`**(Lucide 24×24·2px, 컴포넌트별 매핑) 기준으로만 쓰고 이모지 금지. **컴포넌트 방향·정렬은 `Design.md`의 오토레이아웃 요약을 지킨다**(Toast·Header는 SPACE_BETWEEN). 값=`Design.md`, 조립=`design-principles.md`/`layouts.md`.
 
 ## 값이 애매할 때
 
