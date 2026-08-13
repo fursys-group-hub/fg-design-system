@@ -37,7 +37,7 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
 - 정본 로드: `index.md` → `tokens/`(color·typography·spacing·effect) + `components/` 19종. 로드본만 변환 소스로 삼는다.
 - `dist/sidiz/` 디렉터리 준비(없으면 생성).
 
-## 1. `dist/sidiz/design-system.md` 생성
+## 1. `dist/sidiz/Design.md` 생성
 
 - tokens 4종 + components 19개를 **한 파일로 통합**.
 - **구조:** 개요 → 컬러 → 타이포 → 스페이싱 → 이펙트 → 컴포넌트별 명세.
@@ -60,12 +60,12 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
 
 Cowork 사용자용 지침 파일. 최상단에 **버전 스탬프**(원칙 참조) + 자동 생성 명시.
 
-- 핵심 지시: **"이 폴더의 `design-system.md`를 항상 참조하고, 그 규격대로 화면을 만든다."**
+- 핵심 지시: **"이 폴더의 `Design.md`를 항상 참조하고, 그 규격대로 화면을 만든다."**
 - 지켜야 할 원칙 명시:
-  - **정본 토큰만 사용** — `tokens.css` 변수/클래스로만 스타일. 임의 hex·폰트·radius 발명 금지. **단, `design-system.md`에 문서화된 "컴포넌트 로컬 색"은 해당 컴포넌트에 한해 허용**(전역 토큰 아님, 다른 곳 사용 금지).
+  - **정본 토큰만 사용** — `tokens.css` 변수/클래스로만 스타일. 임의 hex·폰트·radius 발명 금지. **단, `Design.md`에 문서화된 "컴포넌트 로컬 색"은 해당 컴포넌트에 한해 허용**(전역 토큰 아님, 다른 곳 사용 금지).
   - **최소 크기 규칙** — Caption4·5(8·10px)는 뱃지/태그/아이콘 라벨 전용, 본문 금지.
   - 브랜드 포인트 `Blue-700 #003EFF` 절제 사용, 기본 구분은 border(그림자는 떠 있는 표면만).
-  - 컴포넌트는 `design-system.md`의 명세·variant 범위 안에서만 사용.
+  - 컴포넌트는 `Design.md`의 명세·variant 범위 안에서만 사용.
 
 ## 4. `dist/sidiz/README.md` 생성
 
