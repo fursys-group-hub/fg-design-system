@@ -1,11 +1,11 @@
-/* 버전: 2026-08-13 / 생성 커밋: 3f1dbf0 */
+/* 버전: 2026-08-13 / 생성 커밋: 914f370 */
 /* 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. */
 /* 정본 덤프 기준 lastModified: 2026-08-12T07:05:46Z */
 /* SIDIZ 디자인 시스템 토큰. 정본 팔레트/타이포/스페이싱/이펙트만 포함. */
 
 :root {
   /* ===== Color — Primary (Blue) ===== */
-  --sidiz-color-blue-700: #003EFF; /* 브랜드 포인트: CTA/선택/링크. 남용 금지 */
+  --sidiz-color-blue-700: #003EFF; /* 브랜드 포인트: 강조/선택/링크. 남용 금지 */
   --sidiz-color-blue-500: #357FFF; /* 보조/hover */
   --sidiz-color-blue-100: #E3EDFF; /* 선택·활성 배경 */
 
