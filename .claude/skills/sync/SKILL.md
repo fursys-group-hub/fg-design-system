@@ -46,22 +46,28 @@ HTTP 200과 `lastModified` 확인 후 보고. (`sources/`는 gitignore — 커�
 ## 2. 자산 전수 파악 (표로 보고)
 
 로컬 JSON만 파싱해서 보고:
-- 스타일 수: TEXT / FILL / EFFECT
-- COMPONENT / COMPONENT_SET 수 (map vs 트리, remote 제외)
+- 스타일 수: TEXT / FILL / EFFECT를 **local(`remote=False`) vs remote(`remote=True`) 분리** 집계.
+  - **정본 판정은 local 스타일만**으로 한다. remote 스타일(같은 이름 중복·legacy·px-named 포함)은 다른 파일/라이브러리에서 **붙여넣은 콘텐츠(예: 예시 화면)가 참조**하는 것일 수 있으니 신규/중복 생성으로 오판하지 말 것.
+- COMPONENT / COMPONENT_SET 수 (트리 기준)
 - 페이지별 노드 수 / 컴포넌트 수
-- 컴포넌트셋+독립 컴포넌트 목록(이름 + node ID)
+- 컴포넌트셋+독립 컴포넌트 목록(이름 + node ID + **소속 페이지**). **정본 페이지(`1. Logo`·`3. Component`) 밖의 컴포넌트는 `[정본 외]`로 표시** — 예시/화면 작업 페이지에 붙여넣다 딸려온 중복 메인 컴포넌트일 수 있음(인스턴스와 구분: `componentId`가 있으면 INSTANCE, `None`이면 메인 COMPONENT).
 
 ```python
 import json;from collections import Counter
 d=json.load(open("sources/figma-raw.json"));doc=d["document"];sm=d["styles"]
-print(Counter(v["styleType"] for v in sm.values()))
+CANON_PAGES={"1. Logo","3. Component"}
+# 스타일: local vs remote 분리
+loc=Counter(v["styleType"] for v in sm.values() if not v.get("remote"))
+rem=Counter(v["styleType"] for v in sm.values() if v.get("remote"))
+print("local(정본 후보):",dict(loc)," | remote(참조):",dict(rem))
 pages=[c for c in doc["children"] if c["type"]=="CANVAS"]
 sets=[];stand=[]
-def w(n,pt):
-    if n["type"]=="COMPONENT_SET":sets.append((n["id"],n["name"],len([c for c in n.get("children",[]) if c["type"]=="COMPONENT"])))
-    if n["type"]=="COMPONENT" and pt!="COMPONENT_SET":stand.append((n["id"],n["name"]))
-    for c in n.get("children",[]):w(c,n["type"])
-for p in pages:w(p,"CANVAS")
+def w(n,pt,page):
+    if n["type"]=="COMPONENT_SET":sets.append((n["id"],n["name"],page,len([c for c in n.get("children",[]) if c["type"]=="COMPONENT"])))
+    if n["type"]=="COMPONENT" and pt!="COMPONENT_SET":stand.append((n["id"],n["name"],page,"[정본 외]" if page not in CANON_PAGES else ""))
+    for c in n.get("children",[]):w(c,n["type"],page)
+for p in pages:w(p,"CANVAS",p["name"])
+# 정본 외 컴포넌트는 중복 여부 경고
 ```
 
 ## 3. 이전 상태와 비교 → **사용자 확인 지점**
