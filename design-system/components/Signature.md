@@ -10,28 +10,30 @@
 
 ## Variant 전체 (2)
 
-| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
-|---|---|---|---|---|---|
-| Sort=Signature, Color=Black | W×H 200×59 | — | #1D1D1B | — | — |
-| Sort=Signature, Color=White | W×H 200×59 | — | Grey-50 (#FFFFFF) | — | — |
+> **배경**=컨테이너 자체 fill, **보더**=컨테이너 자체 stroke. 자식 요소(텍스트·아이콘)의 색·크기는 아래 **하위 구조** 참조.
+
+| variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
+|---|---|---|---|---|---|---|
+| Sort=Signature, Color=Black | W×H 200×59 | **투명** | — | #1D1D1B | — | — |
+| Sort=Signature, Color=White | W×H 200×59 | **투명** | — | Grey-50 (#FFFFFF) | — | — |
 
 ## 레이아웃 (오토레이아웃)
 
 전 variant 공통 — 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
 
-## 하위 구조 (대표 variant, 2~3레벨)
+## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
-`Sort=Signature, Color=Black` — 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
-- Vector (vector)
-- Vector (vector)
-- Vector (vector)
-- Vector (vector)
-- Vector (vector)
+`Sort=Signature, Color=Black` — 배경 **투명** · 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
+- Vector (vector) [크기 42×59] · 배경 #1D1D1B
+- Vector (vector) [크기 11×57] · 배경 #1D1D1B
+- Vector (vector) [크기 11×57] · 배경 #1D1D1B
+- Vector (vector) [크기 45×57] · 배경 #1D1D1B
+- Vector (vector) [크기 45×57] · 배경 #1D1D1B
 
 ## Variant 차이 (무엇이 바뀌나)
 
-- **Sort** (Signature) 변화 시 → 달라짐: **없음(동일 형태, 조합만 다름)** · 동일: 크기, 레이아웃, 텍스트, fill, stroke, 이펙트
-- **Color** (Black / White) 변화 시 → 달라짐: **fill** · 동일: 크기, 레이아웃, 텍스트, stroke, 이펙트
+- **Sort** (Signature) 변화 시 → 달라짐: **없음(동일 형태, 조합만 다름)** · 동일: 크기, 배경, 보더, 자식 색, 레이아웃, 텍스트, 이펙트
+- **Color** (Black / White) 변화 시 → 달라짐: **자식 색** · 동일: 크기, 배경, 보더, 레이아웃, 텍스트, 이펙트
 
 ## 확인 필요
 

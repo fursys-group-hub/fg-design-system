@@ -5,27 +5,29 @@
 
 ## Variant 전체 (1)
 
-| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
-|---|---|---|---|---|---|
-| Pagination | W×H 176×20 | Body/Body1-SemiBold, Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0) | Grey-900 (#000000) | — |
+> **배경**=컨테이너 자체 fill, **보더**=컨테이너 자체 stroke. 자식 요소(텍스트·아이콘)의 색·크기는 아래 **하위 구조** 참조.
+
+| variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
+|---|---|---|---|---|---|---|
+| Pagination | W×H 176×20 | **투명** | — | Grey-900 (#000000), Grey-400 (#A4AAB0) | Body/Body1-SemiBold, Body/Body2-Regular | — |
 
 ## 레이아웃 (오토레이아웃)
 
-전 variant 공통 — 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · sizing 주축 hug/교차 hug · gap 12
+전 variant 공통 — 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · gap 12
 
-## 하위 구조 (대표 variant, 2~3레벨)
+## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
-`Pagination` — 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · sizing 주축 hug/교차 hug · gap 12
-- Icon / ChevronLeft (instance) [가로 고정/세로 고정] · → Icon / ChevronLeft
-  - Vector (vector)
-- 숫자 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug]
-  - 1 (text) [가로 hug/세로 hug] · 텍스트 Body/Body1-SemiBold
-  - 2 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
-  - 3 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
-  - 4 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
-  - 5 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
-- Icon / ChevronRight (instance) [가로 고정/세로 고정] · → Icon / ChevronRight
-  - Vector (vector)
+`Pagination` — 배경 **투명** · 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · gap 12
+- Icon / ChevronLeft (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / ChevronLeft
+  - Vector (vector) [크기 4×8] · 선 Grey-900 (#000000)
+- 숫자 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug · 크기 120×20]
+  - 1 (text) [가로 hug/세로 hug · 크기 6×20] · 텍스트 Body/Body1-SemiBold · 색 Grey-900 (#000000)
+  - 2 (text) [가로 hug/세로 hug · 크기 8×20] · 텍스트 Body/Body2-Regular · 색 Grey-400 (#A4AAB0)
+  - 3 (text) [가로 hug/세로 hug · 크기 9×20] · 텍스트 Body/Body2-Regular · 색 Grey-400 (#A4AAB0)
+  - 4 (text) [가로 hug/세로 hug · 크기 9×20] · 텍스트 Body/Body2-Regular · 색 Grey-400 (#A4AAB0)
+  - 5 (text) [가로 hug/세로 hug · 크기 8×20] · 텍스트 Body/Body2-Regular · 색 Grey-400 (#A4AAB0)
+- Icon / ChevronRight (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / ChevronRight
+  - Vector (vector) [크기 4×8] · 선 Grey-900 (#000000)
 
 ## 확인 필요
 

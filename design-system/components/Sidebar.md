@@ -10,42 +10,44 @@
 
 ## Variant 전체 (4)
 
-| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
-|---|---|---|---|---|---|
-| Varient=Favorite, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | Body/Body1-SemiBold, Title/Title5-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
-| Varient=Default, States=Extended | W×H 256×1080, padding(TRBL) -/12/-/12 | Body/Body1-SemiBold, Title/Title5-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
-| Varient=Default, States=Hover | W×H 256×1080, padding(TRBL) -/12/-/12 | Body/Body1-SemiBold, Title/Title5-SemiBold | Grey-900 (#000000), Blue-700 (#003EFF), Grey-400 (#A4AAB0), Blue-100 (#E3EDFF), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Blue-700 (#003EFF), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
-| Varient=Default, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | Body/Body1-SemiBold, Title/Title5-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), #ECECEC | shadow/sm |
+> **배경**=컨테이너 자체 fill, **보더**=컨테이너 자체 stroke. 자식 요소(텍스트·아이콘)의 색·크기는 아래 **하위 구조** 참조.
+
+| variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
+|---|---|---|---|---|---|---|
+| Varient=Favorite, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | #ECECEC | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
+| Varient=Default, States=Extended | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | #ECECEC | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
+| Varient=Default, States=Hover | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | #ECECEC | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Blue-100 (#E3EDFF), Blue-700 (#003EFF) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
+| Varient=Default, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | #ECECEC | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
 
 ## 레이아웃 (오토레이아웃)
 
-전 variant 공통 — 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · sizing 주축 고정/교차 고정 · gap 24
+전 variant 공통 — 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · gap 24
 
-## 하위 구조 (대표 variant, 2~3레벨)
+## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
-`Varient=Favorite, States=Default` — 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · sizing 주축 고정/교차 고정 · gap 24
-- Frame 1000007000 (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · stretch]
-  - Frame 1000007777 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug]
-    - Attention (instance) [가로 고정/세로 고정] · → Sort=Attention, Color=Black
-    - (시스템명) (text) [가로 hug/세로 hug] · 텍스트 Title/Title5-SemiBold
-  - Search (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · stretch]
-    - Icon / Search (instance) [가로 고정/세로 고정] · → Icon / Search
-    - PlaceholderText (text) [가로 fill/세로 hug · grow 1.0] · 텍스트 Body/Body1-SemiBold
-- Frame 1000007001 (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · stretch]
-  - Tab (frame) [레이아웃 세로(V) · 가로 hug/세로 hug]
-    - Menu (frame) [레이아웃 가로(H) · 가로 hug/세로 고정]
-  - List (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · stretch]
-    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · stretch]
-    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · stretch]
-    - Sidebar / SidebarMenuItem (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · stretch]
-    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · stretch]
-    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · stretch]
-    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · stretch]
+`Varient=Favorite, States=Default` — 배경 **Grey-50 (#FFFFFF)** · 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · gap 24
+- Frame 1000007000 (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 232×107]
+  - Frame 1000007777 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug · 크기 94×25]
+    - Attention (instance) [가로 고정/세로 고정 · 크기 18×25] · → Sort=Attention, Color=Black
+    - (시스템명) (text) [가로 hug/세로 hug · 크기 60×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-900 (#000000)
+  - Search (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · 크기 232×38] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0)
+    - Icon / Search (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Search
+    - PlaceholderText (text) [가로 fill/세로 hug · grow 1.0 · 크기 180×20] · 텍스트 Body/Body1-SemiBold · 색 Grey-400 (#A4AAB0)
+- Frame 1000007001 (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 232×312]
+  - Tab (frame) [레이아웃 세로(V) · 가로 hug/세로 hug · 크기 232×40]
+    - Menu (frame) [레이아웃 가로(H) · 가로 hug/세로 고정 · 크기 232×40] · 배경 Grey-100 (#F5F6F7)
+  - List (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 232×256]
+    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · 크기 232×34] · 배경 Grey-50 (#FFFFFF)
+    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · 크기 232×34] · 배경 Grey-50 (#FFFFFF)
+    - Sidebar / SidebarMenuItem (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 232×72]
+    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · 크기 232×34] · 배경 Grey-50 (#FFFFFF)
+    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · 크기 232×34] · 배경 Grey-50 (#FFFFFF)
+    - Sidebar / SidebarMenuButton (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · 크기 232×34] · 배경 Grey-50 (#FFFFFF)
 
 ## Variant 차이 (무엇이 바뀌나)
 
-- **Varient** (Default / Favorite) 변화 시 → 달라짐: **없음(동일 형태, 조합만 다름)** · 동일: 크기, 레이아웃, 텍스트, fill, stroke, 이펙트
-- **States** (Default / Extended / Hover) 변화 시 → 달라짐: **fill, stroke** · 동일: 크기, 레이아웃, 텍스트, 이펙트
+- **Varient** (Default / Favorite) 변화 시 → 달라짐: **없음(동일 형태, 조합만 다름)** · 동일: 크기, 배경, 보더, 자식 색, 레이아웃, 텍스트, 이펙트
+- **States** (Default / Extended / Hover) 변화 시 → 달라짐: **자식 색** · 동일: 크기, 배경, 보더, 레이아웃, 텍스트, 이펙트
 
 ## 확인 필요
 

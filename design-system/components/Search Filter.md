@@ -9,33 +9,35 @@
 
 ## Variant 전체 (2)
 
-| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
-|---|---|---|---|---|---|
-| State=Extended | W×H 1280×241, padding(TRBL) 16/-/16/-, radius 4 | Body/Body1-SemiBold, Body/Body2-Regular, Body/Body3-SemiBold, Caption/Caption1-SemiBold | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
-| State=Default | W×H 1280×91, padding(TRBL) 16/-/16/-, radius 4 | Body/Body1-SemiBold, Body/Body2-Regular, Body/Body3-SemiBold, Caption/Caption1-SemiBold | Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0), Red-600 (#FF3A4A), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
+> **배경**=컨테이너 자체 fill, **보더**=컨테이너 자체 stroke. 자식 요소(텍스트·아이콘)의 색·크기는 아래 **하위 구조** 참조.
+
+| variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
+|---|---|---|---|---|---|---|
+| State=Extended | W×H 1280×241, padding(TRBL) 16/-/16/-, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-500 (#7C8084), Red-600 (#FF3A4A), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000) | Caption/Caption1-SemiBold, Body/Body2-Regular, Body/Body3-SemiBold, Body/Body1-SemiBold | — |
+| State=Default | W×H 1280×91, padding(TRBL) 16/-/16/-, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-500 (#7C8084), Red-600 (#FF3A4A), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000) | Caption/Caption1-SemiBold, Body/Body2-Regular, Body/Body3-SemiBold, Body/Body1-SemiBold | — |
 
 ## 레이아웃 (오토레이아웃)
 
-전 variant 공통 — 방향 세로(V) · 주축 정렬 끝 · 교차 정렬 끝 · sizing 주축 hug/교차 고정 · gap 8
+전 variant 공통 — 방향 세로(V) · 주축 정렬 끝 · 교차 정렬 끝 · gap 8
 
-## 하위 구조 (대표 variant, 2~3레벨)
+## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
-`State=Extended` — 방향 세로(V) · 주축 정렬 끝 · 교차 정렬 끝 · sizing 주축 hug/교차 고정 · gap 8
-- Frame 1000007021 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-  - Frame 1000007760 (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · grow 1.0]
-    - Frame 1000007765 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-    - Frame 1000007766 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-    - Frame 1000007767 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-  - Frame 1000007015 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug]
-    - Button (frame) [레이아웃 가로(H) · 가로 hug/세로 고정]
-    - Button (instance) [레이아웃 가로(H) · 가로 hug/세로 고정] · → Varient=Secondary, Shape=Round
-- Frame 1000007062 (frame) [레이아웃 가로(H) · 가로 고정/세로 고정]
-  - Icon / ChevronUp (instance) [가로 고정/세로 고정] · → Icon / ChevronUp
-    - Vector (vector)
+`State=Extended` — 배경 **Grey-50 (#FFFFFF)** · 방향 세로(V) · 주축 정렬 끝 · 교차 정렬 끝 · gap 8
+- Frame 1000007021 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 1280×209]
+  - Frame 1000007760 (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · grow 1.0 · 크기 1070×209]
+    - Frame 1000007765 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 1070×59]
+    - Frame 1000007766 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 1070×59]
+    - Frame 1000007767 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 1070×59]
+  - Frame 1000007015 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug · 크기 162×32]
+    - Button (frame) [레이아웃 가로(H) · 가로 hug/세로 고정 · 크기 87×32]
+    - Button (instance) [레이아웃 가로(H) · 가로 hug/세로 고정 · 크기 71×32] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0), → Varient=Secondary, Shape=Round
+- Frame 1000007062 (frame) [레이아웃 가로(H) · 가로 고정/세로 고정 · 크기 24×24] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0)
+  - Icon / ChevronUp (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / ChevronUp
+    - Vector (vector) [크기 8×4] · 선 Grey-900 (#000000)
 
 ## Variant 차이 (무엇이 바뀌나)
 
-- **State** (Default / Extended) 변화 시 → 달라짐: **크기** · 동일: 레이아웃, 텍스트, fill, stroke, 이펙트
+- **State** (Default / Extended) 변화 시 → 달라짐: **크기** · 동일: 배경, 보더, 자식 색, 레이아웃, 텍스트, 이펙트
 
 ## 확인 필요
 

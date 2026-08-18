@@ -10,39 +10,40 @@
 
 ## Variant 전체 (5)
 
-| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
-|---|---|---|---|---|---|
-| Varient=Profile, State=Default | W×H 195×243, radius 4 | Body/Body2-Regular, Body/Body3-SemiBold, Caption/Caption1-SemiBold, Title/Title5-SemiBold | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | Drop Shadow |
-| Varient=Multiple, State=Hover | W×H 220×256, radius 4 | Body/Body2-Regular, Body/Body4-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-300 (#D6DADE), Grey-200 (#EAEDF0) | — |
-| Varient=Multiple, State=Default | W×H 220×260, radius 4 | Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | Grey-400 (#A4AAB0), Grey-300 (#D6DADE), Grey-200 (#EAEDF0) | — |
-| Varient=Single, State=Hover | W×H 220×260, radius 4 | Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Grey-50 (#FFFFFF) | Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
-| Varient=Single, State=Default | W×H 220×260, radius 4 | Body/Body2-Regular | Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-50 (#FFFFFF) | Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | — |
+> **배경**=컨테이너 자체 fill, **보더**=컨테이너 자체 stroke. 자식 요소(텍스트·아이콘)의 색·크기는 아래 **하위 구조** 참조.
+
+| variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
+|---|---|---|---|---|---|---|
+| Varient=Profile, State=Default | W×H 195×243, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-900 (#000000), Grey-100 (#F5F6F7), Grey-400 (#A4AAB0) | Title/Title5-SemiBold, Caption/Caption1-SemiBold, Body/Body2-Regular, Body/Body3-SemiBold | Drop Shadow |
+| Varient=Multiple, State=Hover | W×H 220×256, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000), Grey-300 (#D6DADE), Grey-100 (#F5F6F7) | Body/Body4-Regular, Body/Body2-Regular | — |
+| Varient=Multiple, State=Default | W×H 220×260, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000), Grey-300 (#D6DADE) | Body/Body2-Regular | — |
+| Varient=Single, State=Hover | W×H 220×260, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000), Grey-100 (#F5F6F7) | Body/Body2-Regular | — |
+| Varient=Single, State=Default | W×H 220×260, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000) | Body/Body2-Regular | — |
 
 ## 레이아웃 (오토레이아웃)
 
-- **Varient=Profile, State=Default**: 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · sizing 주축 hug/교차 hug · gap 0
-- **Varient=Multiple, State=Hover 외 3종**: 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · sizing 주축 hug/교차 고정 · gap 0
+전 variant 공통 — 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · gap 0
 
-## 하위 구조 (대표 variant, 2~3레벨)
+## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
-`Varient=Profile, State=Default` — 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · sizing 주축 hug/교차 hug · gap 0
-- Profile (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-  - Frame 3916 (frame) [레이아웃 세로(V) · 가로 hug/세로 hug]
-    - Frame 1000007758 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-    - email_adress@fursys.com (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
-- Settings (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · stretch]
-  - Language (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · stretch]
-    - Section (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · stretch]
-    - Select (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-- Log Out (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · stretch]
-  - Icon / LogOut (instance) [가로 고정/세로 고정] · → Icon / LogOut
-    - Vector (vector)
-  - 로그아웃 (text) [가로 hug/세로 hug] · 텍스트 Body/Body2-Regular
+`Varient=Profile, State=Default` — 배경 **Grey-50 (#FFFFFF)** · 방향 세로(V) · 주축 정렬 시작 · 교차 정렬 시작 · gap 0
+- Profile (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 195×83] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0)
+  - Frame 3916 (frame) [레이아웃 세로(V) · 가로 hug/세로 hug · 크기 155×43]
+    - Frame 1000007758 (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 155×21]
+    - email_adress@fursys.com (text) [가로 hug/세로 hug · 크기 155×20] · 텍스트 Body/Body2-Regular · 색 Grey-400 (#A4AAB0)
+- Settings (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 195×100] · 배경 Grey-50 (#FFFFFF)
+  - Language (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 155×60]
+    - Section (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 155×18]
+    - Select (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 155×36] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0)
+- Log Out (frame) [레이아웃 가로(H) · 가로 fill/세로 hug · 크기 195×60] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0)
+  - Icon / LogOut (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / LogOut
+    - Vector (vector) [크기 12×12] · 선 Grey-400 (#A4AAB0)
+  - 로그아웃 (text) [가로 hug/세로 hug · 크기 46×20] · 텍스트 Body/Body2-Regular · 색 Grey-400 (#A4AAB0)
 
 ## Variant 차이 (무엇이 바뀌나)
 
-- **Varient** (Multiple / Profile / Single) 변화 시 → 달라짐: **fill, stroke, 레이아웃, 이펙트, 크기, 텍스트** · 동일: —
-- **State** (Default / Hover) 변화 시 → 달라짐: **fill, stroke, 크기, 텍스트** · 동일: 레이아웃, 이펙트
+- **Varient** (Multiple / Profile / Single) 변화 시 → 달라짐: **이펙트, 자식 색, 크기, 텍스트** · 동일: 배경, 보더, 레이아웃
+- **State** (Default / Hover) 변화 시 → 달라짐: **자식 색, 크기, 텍스트** · 동일: 배경, 보더, 레이아웃, 이펙트
 
 ## 확인 필요
 

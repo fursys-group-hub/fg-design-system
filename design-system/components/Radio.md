@@ -9,24 +9,26 @@
 
 ## Variant 전체 (3)
 
-| variant | 크기 | 텍스트 토큰 | 컬러(fill) | 보더(stroke) | 이펙트 |
-|---|---|---|---|---|---|
-| State=Hover | W×H 16×16 | — | Grey-50 (#FFFFFF) | Grey-900 (#000000) | — |
-| State=Inactive | W×H 16×16 | — | Grey-50 (#FFFFFF) | Grey-300 (#D6DADE) | — |
-| State=Activated | W×H 16×16 | — | Grey-900 (#000000), Grey-50 (#FFFFFF) | Grey-900 (#000000) | — |
+> **배경**=컨테이너 자체 fill, **보더**=컨테이너 자체 stroke. 자식 요소(텍스트·아이콘)의 색·크기는 아래 **하위 구조** 참조.
+
+| variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
+|---|---|---|---|---|---|---|
+| State=Hover | W×H 16×16 | **투명** | — | Grey-50 (#FFFFFF), Grey-900 (#000000) | — | — |
+| State=Inactive | W×H 16×16 | **투명** | — | Grey-50 (#FFFFFF), Grey-300 (#D6DADE) | — | — |
+| State=Activated | W×H 16×16 | **투명** | — | Grey-50 (#FFFFFF), Grey-900 (#000000) | — | — |
 
 ## 레이아웃 (오토레이아웃)
 
 전 variant 공통 — 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
 
-## 하위 구조 (대표 variant, 2~3레벨)
+## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
-`State=Hover` — 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
-- Radio (frame)
+`State=Hover` — 배경 **투명** · 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
+- Radio (frame) [크기 14×14] · 배경 Grey-50 (#FFFFFF), 선 Grey-900 (#000000)
 
 ## Variant 차이 (무엇이 바뀌나)
 
-- **State** (Activated / Hover / Inactive) 변화 시 → 달라짐: **fill, stroke** · 동일: 크기, 레이아웃, 텍스트, 이펙트
+- **State** (Activated / Hover / Inactive) 변화 시 → 달라짐: **자식 색** · 동일: 크기, 배경, 보더, 레이아웃, 텍스트, 이펙트
 
 ## 확인 필요
 
