@@ -44,6 +44,11 @@
 - **Varient** (Cell / Header) 변화 시 → 달라짐: **배경, 자식 색, 크기, 텍스트** · 동일: 보더, 레이아웃, 이펙트
 - **Type** (Button / Calendar / Checkbox / Icon / Input / Link / Radio / Tag / Text / Textlink) 변화 시 → 달라짐: **자식 색, 크기, 텍스트** · 동일: 배경, 보더, 레이아웃, 이펙트
 
+## 사용 규칙
+
+- **No.(번호) 컬럼:** 순번은 **순차 정수(1, 2, 3, 4, 5 …)** 로 표기한다. 주문번호·ID·역순 등 다른 형식으로 대체하지 않는다.
+- Header 텍스트는 `Caption1`(11px), Cell 본문은 `Body2`(13px). 행 구분은 `Grey-200` hairline.
+
 ## 확인 필요
 
 - 컬러/간격은 Figma **변수** 바인딩 → 값은 확정이나 변수 토큰명은 REST 미제공(위 값은 팔레트 매칭으로 표기).

@@ -101,6 +101,8 @@ for p in pages:w(p,"CANVAS",p["name"])
 # - layout_line(n): layoutMode 방향 + primaryAxis/counterAxis 정렬, SPACE_BETWEEN 명시
 # - tree(): 2~3레벨 하위 구조, 각 자식에 [sizing FIXED/HUG/FILL · grow · 크기 WxH] + 배경/선 색 + 텍스트(토큰·색) + 아이콘 이름
 # - variant_diff(): 속성별로 무엇이 달라지는지(크기/배경/보더/자식 색/레이아웃/텍스트/이펙트)
+# - preserve_sections(): 재생성 시 기존 문서의 **수기 유지 섹션 보존** — `## 사용 규칙`(Figma에 없는
+#   사용 규칙: No.컬럼 순차정수·카드 가로배열·일정 nowrap·Toast "닫기" 등), `## SVG 자산`(로고 인라인)
 # - COMPONENT_SET이면 자식 COMPONENT들을 variant로, 아니면 단일
 # ⚠️ 과거 결함: collect()가 전 서브트리 fill을 한 set으로 뭉개 배경/텍스트/아이콘 색이 구분 안 됨(Toast 다크 배경 누락).
 #    → own/child 분리 + tree 요소별 색·크기로 해결.
