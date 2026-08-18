@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/layouts.md. 직접 수정 금지. -->
-> **버전: 2026-08-13 / 생성 커밋: `f86998a`**
+> **버전: 2026-08-18 / 생성 커밋: `f25b38f`**
 > 자동 생성 파일 — 원본은 `design-system/layouts.md`. 직접 수정 금지.
 
 # Layouts — SIDIZ 화면 조립 레퍼런스
@@ -72,13 +72,15 @@
 
 | 상위 | 하위 구성 |
 |---|---|
-| **Sidebar** | Attention 로고 + 검색(Input, `grow 1`) + 메뉴(Tab / List, 항목 `fill`) |
-| **Header** | 좌측 `Icon/PanelLeft` + 우측 `Icon/Bell`·프로필(`Icon/ChevronDown`) |
+| **Sidebar** | **브랜드 심볼(로고)** + 검색(Input, `grow 1`) + 메뉴(Tab / List, 항목 `fill`) |
+| **Header** | 좌측 `Icon/PanelLeft`(+ 필요 시 로고) + 우측 `Icon/Bell`·프로필(`Icon/ChevronDown`) |
 | **Toast Popup** | 콘텐츠(아이콘+텍스트) + **Button 인스턴스**, `SPACE_BETWEEN`(양끝) |
 | **Input Case** | 라벨(`Body3`) + Input + 헬프/에러(`Body4`, 에러 `Red-600`) |
 | **필터 카드** | Input Case 여러 개 1행(가로 auto-layout) + 조회 버튼 |
 | **테이블 행** | Table Cell 조합(Type: Checkbox/Text/Link/Button/Tag/Calendar…), 상태는 `Tag`, 링크는 밑줄 |
 | **Dashboard Card** | `Tag`(상태) + 수치(`Title3`) |
+
+> **브랜드 심볼(로고)은 `Design.md` §6의 정본 로고 SVG(Attention 심볼 / Signature)를 그대로 사용한다.** 아이콘 세트(Lucide 등)의 아이콘으로 로고를 대체하지 않으며, 로고 아트워크를 임의로 지어내지 않는다. (사이드바 상단·헤더·인증 화면 Panel의 브랜드 심볼 모두 동일)
 
 > 화면 예시·목업은 **정본 컴포넌트의 인스턴스만으로** 조립한다(`design-principles.md` §8). 컴포넌트를 복제해 새 COMPONENT로 만들지 않는다.
 

@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-13 / 생성 커밋: `f86998a`**
+> **버전: 2026-08-18 / 생성 커밋: `f25b38f`**
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
 > **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
 
@@ -218,6 +218,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.13 Sidebar — 4 variant
 - **속성:** Varient(Favorite/Default) × States(Default/Extended/Hover). W256×H1080, padding 좌우 12, gap 24, **shadow/sm**.
 - 텍스트 Body1 + Title5(그룹 타이틀). Hover 활성 항목 **Blue-700** + 배경 Blue-100.
+- **로고:** 상단 브랜드 심볼은 **[§6 로고 SVG](#6-로고-svg-attention-심볼)(Attention)** 를 사용한다. Lucide 등 아이콘 세트로 대체 금지.
 - **사용 규칙:** 흰 배경 사이드바. 활성 메뉴만 포인트 색.
 
 ### 5.14 Breadcrumb — 1
@@ -230,13 +231,14 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.16 Header — 1
 - W1344×H50, padding 좌우 24, gap 10. 텍스트 Body1/Caption1/Caption2. 보더 하단 Grey-200.
-- **사용 규칙:** 흰색 헤더(다크/네이비 금지). 심볼 마크 로고 사용.
+- **사용 규칙:** 흰색 헤더(다크/네이비 금지). 심볼 마크는 **[§6 로고 SVG](#6-로고-svg-attention-심볼)** 사용(아이콘 세트 대체 금지).
 
 ### 5.17 Pagination — 1
 - W176×H20, gap 12. 텍스트 Body1(현재)/Body2. Chevron 좌우 아이콘. 현재 페이지 Grey-900.
 
 ### 5.18 Attention (로고) — 2 variant
 - **속성:** Sort=Attention × Color(Black/White). 60×84. Black=Grey-900, White=Grey-50.
+- 인라인 SVG는 **[§6 로고 SVG](#6-로고-svg-attention-심볼)** 참조. 브랜드 심볼로 이 SVG만 사용(아이콘 대체 금지).
 
 ### 5.19 Signature (로고) — 2 variant
 - **속성:** Sort=Signature × Color(Black/White). 200×59.
