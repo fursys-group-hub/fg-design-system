@@ -46,6 +46,7 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
   - `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">`
   - `body { font-family: 'Pretendard', sans-serif; }`
 - **로고 SVG 섹션(필수):** `design-system/assets/attention-black.svg`·`attention-white.svg`의 **인라인 SVG 코드**를 그대로 싣는다(배포본만 읽어도 로고를 쓸 수 있게). Black=밝은 배경, White=어두운 배경.
+  - **로고 참조 링크:** 브랜드 심볼을 쓰는 컴포넌트 명세(Sidebar·Header·Attention)에서 이 로고 SVG 섹션을 가리키는 안내를 넣는다 — "브랜드 심볼은 §N 로고 SVG 사용, 아이콘 세트로 대체 금지". (에이전트가 로고를 Lucide 아이콘으로 대체하는 실패 방지)
 - **컴포넌트 오토레이아웃 요약(필수):** 컴포넌트 명세에 각 컴포넌트의 **방향(가로/세로)·주축/교차 정렬**을 표로 싣는다(특히 `SPACE_BETWEEN`=양끝 배치는 명시). 화면이 제대로 안 나오는 주원인이 레이아웃 정보 누락이므로 생략 금지. 상세 하위 구조는 `components/*.md`(정본).
 - 상단에 **버전 스탬프**(원칙 참조) + `자동 생성 파일 — 원본은 design-system/` 명시 + 정본 덤프 기준(`lastModified`)을 남긴다.
 - **상단 참조 1줄:** 버전 스탬프 아래에 `화면 조립=design-principles.md · 아이콘=icons.md · 레이아웃=layouts.md 참조`를 넣는다(별도 파일).
@@ -66,6 +67,7 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
 
 Cowork 사용자용 지침 파일. 최상단에 **버전 스탬프**(원칙 참조) + 자동 생성 명시.
 
+- **최상단 ⚠️ 출력 위치 규칙(필수):** 버전 스탬프 바로 아래에 "모든 생성물(화면·HTML·목업)은 `~/Desktop/sidiz-output/`에 저장하고, 작업 폴더·배포물 폴더 안에는 생성물을 만들지 않는다(추론·예외 없이 항상 적용)"를 **강조 콜아웃**으로 넣는다.
 - 핵심 지시: **"이 폴더의 `Design.md`(값·규격)와 `design-principles.md`(화면 조립·판단 기준)를 항상 참조하고, 그 규격·원칙대로 화면을 만든다."**
 - 지켜야 할 원칙 명시:
   - **화면 조립은 `design-principles.md`** 를 따른다(레이아웃·위계·패턴). **값·규격은 `Design.md`.**
