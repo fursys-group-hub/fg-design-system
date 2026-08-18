@@ -89,15 +89,22 @@ for p in pages:w(p,"CANVAS",p["name"])
 
 **tokens/effect.md** — EFFECT 스타일 → x/y/blur/spread/color/용도.
 
-**components/[이름].md** — 각 단위마다: 노드 ID·페이지 / variant 속성·전체 목록 / variant별 크기·padding·radius·gap / 적용 텍스트·컬러(팔레트 매칭)·이펙트 토큰 / 하위 구조. 아래 생성기 사용:
+**components/[이름].md** — 각 단위마다: 노드 ID·페이지 / variant 속성·전체 목록 / variant별 크기·padding·radius·gap / **배경·보더·자식 색·텍스트 토큰·이펙트(역할별 귀속)** / **레이아웃(방향·정렬)** / **하위 구조(요소별 색·px 크기 포함)** / Variant 차이. 아래 생성기 사용:
 
 ```python
-# sources/gen_component.py 를 만들어 재사용. 핵심 로직:
-# - PAL: 팔레트 HEX→이름 매핑(Blue-700 #003EFF … Grey-50 #FFFFFF)으로 fill/stroke 표기
-# - collect(): variant 서브트리에서 styles.text/fill/effect 스타일명 + fills/strokes hex 수집
-# - geom(): absoluteBoundingBox W×H, padding(TRBL), cornerRadius/rectangleCornerRadii, itemSpacing
+# sources/gen_component.py 를 만들어 재사용. 핵심 로직 (★색·크기를 요소·역할별로 귀속):
+# - PAL: 팔레트 HEX→이름 매핑(Blue-700 #003EFF … Grey-50 #FFFFFF)으로 색 표기
+# - own_fills/own_strokes(n): 노드 "자체" fill/stroke → 컨테이너 배경/보더로 분리(자식 색과 섞지 않음)
+# - child_colors(node): 컨테이너 자체 색을 뺀 모든 자손(텍스트·아이콘·포인트)의 색 → 상태별 포인트 색이 드러남
+#   (Toast 예: 배경 Grey-900 다크 / 자식 색 Default=Blue-500·Error=Red-600·Alert=#F5CA1D)
+# - size_str(n): 컨테이너 W×H, padding(TRBL), radius, (gap은 레이아웃에서)
+# - layout_line(n): layoutMode 방향 + primaryAxis/counterAxis 정렬, SPACE_BETWEEN 명시
+# - tree(): 2~3레벨 하위 구조, 각 자식에 [sizing FIXED/HUG/FILL · grow · 크기 WxH] + 배경/선 색 + 텍스트(토큰·색) + 아이콘 이름
+# - variant_diff(): 속성별로 무엇이 달라지는지(크기/배경/보더/자식 색/레이아웃/텍스트/이펙트)
 # - COMPONENT_SET이면 자식 COMPONENT들을 variant로, 아니면 단일
-# 직전 sync의 sources/gen_component.py 가 있으면 재사용, 없으면 재작성.
+# ⚠️ 과거 결함: collect()가 전 서브트리 fill을 한 set으로 뭉개 배경/텍스트/아이콘 색이 구분 안 됨(Toast 다크 배경 누락).
+#    → own/child 분리 + tree 요소별 색·크기로 해결.
+# 직전 sync의 sources/gen_component.py 가 있으면 재사용, 없으면 위 로직으로 재작성.
 ```
 
 ## 5. 검증
