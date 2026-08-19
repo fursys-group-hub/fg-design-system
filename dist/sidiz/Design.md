@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-18 / 생성 커밋: `284772b`**
+> **버전: 2026-08-19 / 생성 커밋: `bd8d84e`**
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
 > **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
 
@@ -193,6 +193,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.7 Search Filter — 2 variant
 - **속성:** State(Default H91 / Extended H241). W1280, radius 4, gap 8, padding 상하 16.
 - 텍스트 Body1/Body2/Body3/Caption1. **사용 규칙:** 필터 확장 시 Extended.
+- **일정(기간) 필드:** 날짜 범위는 **한 줄 유지(nowrap), 줄바꿈 금지** — 좁으면 폭을 늘린다(기간 필드 min-width 348).
 
 ### 5.8 Tab — 2 variant
 - **속성:** Varient(Box/Line). H40, 텍스트 Title5(14/600), **shadow/sm**.
@@ -206,12 +207,13 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.10 Table Cell — 13 variant
 - **속성:** Varient(Header/Cell) × Type(Checkbox/Text/Link/Textlink/Radio/Icon/Button/Tag/Calendar/Input). H32(Header)/H38(Cell), padding 좌우 16.
 - Header 텍스트 Caption1, Cell 텍스트 Body2(Button 셀=Body3). 보더 Grey-200/Grey-300.
+- **No.(번호) 컬럼:** 순차 정수(1, 2, 3, 4, 5 …)로 표기. 주문번호·ID로 대체 금지.
 - **사용 규칙:** 표는 셀 타입 조합으로 구성. 구분은 hairline(Grey-200).
 
 ### 5.11 Toast Popup — 3 variant
 - **속성:** State(Default/Error/Alert). W520×H56, padding 12/32, radius 6, **Drop Shadow**.
 - **배경 = `Grey-900`(#000000) 다크. 텍스트 = 흰색(`Grey-50`).** (밝은 배경 아님 — 주의)
-- **구조(SPACE_BETWEEN):** 좌측 = 상태 아이콘 + 메시지(흰색 Body1) / 우측 = **"닫기" 텍스트 버튼(`Grey-400`)**.
+- **구조(SPACE_BETWEEN):** 좌측 = 상태 아이콘 + 메시지(흰색 Body1) / 우측 = **"닫기" 텍스트 버튼(`Grey-400`)만** — **X·아이콘 넣지 않음**(정본은 버튼 내 아이콘 HIDDEN).
 - **상태 아이콘(포인트 색):** Default = 파랑 체크(`Blue-500`) · Error = 빨강 X(`Red-600`) · Alert = 노랑 !(`#F5CA1D`, Toast 로컬 색).
 - **사용 규칙:** 떠 있는 알림 → 그림자. 상태색은 아이콘에만, 배경은 항상 다크.
 
@@ -230,6 +232,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.15 Dashboard Card — 1
 - W314×H65, padding 16/20, radius 4, 보더 Grey-200. 텍스트 Title3(수치)+Caption1(라벨). Tag 포함.
+- **배열:** 요약 카드는 **가로(HORIZONTAL) 1행**, 카드 간 **gap 8**. 세로(상하) 스택 금지.
 - **사용 규칙:** 그림자 없이 border로 구분. 수치는 Title3, 라벨은 Caption1.
 
 ### 5.16 Header — 1
