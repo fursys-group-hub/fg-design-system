@@ -1,8 +1,13 @@
-/* 버전: 2026-08-19 / 생성 커밋: bd8d84e */
+/* 버전: 2026-08-20 / 생성 커밋: 97f9461 */
 /* 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. */
 /* 정본 덤프 기준 lastModified: 2026-08-13T02:43:40Z */
 /* Pretendard 웹폰트: <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"> */
-/* SIDIZ 디자인 시스템 토큰. 정본 팔레트/타이포/스페이싱/이펙트만 포함. */
+
+/* ⚠️ 절대 원칙: 정본은 컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종뿐이다.
+   정본 밖 색·크기·굵기는 존재하지 않는다(근사·신규·중간 토큰 금지, 팔레트 확장 금지).
+   화면 제작 시 이 파일의 "컴포넌트 클래스/타이포 클래스"만 사용한다.
+   font-size·padding·height 등을 직접 지정하지 않는다. 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.
+   유일한 예외: 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)은 해당 컴포넌트 클래스 안에서만 허용. */
 
 :root {
   /* ===== Color — Primary (Blue) ===== */
@@ -26,15 +31,15 @@
   --sidiz-color-grey-100: #F5F6F7;
   --sidiz-color-grey-50:  #FFFFFF;
 
-  /* ===== 컴포넌트 로컬 색 (전역 토큰 아님 — 지정 컴포넌트 한정) ===== */
-  /* 저빈도 비변수화 색. 아래 컴포넌트 밖 사용 금지. 전역 팔레트에 넣지 않음. */
-  /* Tag Green:  #38BA77 (전경) / #E7F6E7 (배경) — Tag(Color=Green) 전용 */
-  /* Tag Yellow: #E8C32E (전경) / #FCF7DF (배경) — Tag(Color=Yellow) 전용 */
-  /* Alert:      #F5CA1D — Toast(State=Alert) 경고 아이콘 전용 로컬 색 */
+  /* ===== 컴포넌트 로컬 확장색 (전역 토큰 아님 — 지정 컴포넌트 클래스 한정) ===== */
+  /* 15색 기본 팔레트와 별도. 아래 컴포넌트 밖 사용 금지. 팔레트 확장 아님. */
+  /* Tag Green:  #38BA77 (전경) / #E7F6E7 (배경) — .tag-green 전용 */
+  /* Tag Yellow: #E8C32E (전경) / #FCF7DF (배경) — .tag-yellow 전용 */
+  /* Alert:      #F5CA1D — .toast__icon-alert 전용 */
 
   /* ===== Typography ===== */
   --sidiz-font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
-  --sidiz-font-line-height: 1.5;   /* 150% 공통 */
+  --sidiz-font-line-height: 1.5;       /* 150% 공통 */
   --sidiz-font-letter-spacing: 0.01em; /* 1% 공통 */
 
   --sidiz-font-weight-semibold: 600;
@@ -86,7 +91,23 @@
   --sidiz-shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
 }
 
-/* ===== Typography 조합 클래스 (14) ===== */
+/* ===== 전역 기본값 — 모든 텍스트 LH 150% · LS 1% 공통 (요소별 누락 방지) ===== */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  font-family: var(--sidiz-font-family);
+  line-height: var(--sidiz-font-line-height);
+  letter-spacing: var(--sidiz-font-letter-spacing);
+  color: var(--sidiz-color-grey-900);
+  background: var(--sidiz-color-grey-50);
+}
+/* 폼 요소는 폰트를 상속하지 않으므로 명시적으로 상속 */
+button, input, select, textarea {
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+/* ===== Typography 조합 클래스 (14) — size/weight + LH 150% + LS 1% ===== */
 .title1, .title2, .title3, .title4, .title5,
 .body1, .body2, .body3, .body4,
 .caption1, .caption2, .caption3, .caption4, .caption5 {
@@ -112,3 +133,173 @@
 /* caption4·5 (8·10px): 뱃지/태그/아이콘 라벨 전용. 본문 사용 금지 */
 .caption4 { font-size: var(--sidiz-font-size-caption4); font-weight: var(--sidiz-font-weight-semibold); }
 .caption5 { font-size: var(--sidiz-font-size-caption5); font-weight: var(--sidiz-font-weight-regular); }
+
+/* =====================================================================
+   컴포넌트 클래스 — 정본 components/*.md 값 반영. 화면은 이 클래스로만 조립.
+   (정본 토큰 변수만 사용. 임의 hex·px·radius 발명 금지.)
+   ===================================================================== */
+
+/* ----- 레이아웃 헬퍼 (layouts.md: 캔버스 1600 / Sidebar 256 / Contents 24·32·100) ----- */
+.app { display: flex; width: 1600px; margin: 0 auto; min-height: 100vh; }
+.app__main { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; }
+.app__contents { padding: var(--sidiz-space-24) var(--sidiz-space-32) var(--sidiz-space-100); }
+
+/* ----- Button (H32 · radius 4 · gap 8 · padding 0/12 · Body1) ----- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--sidiz-space-8);
+  height: 32px; padding: 0 var(--sidiz-space-12);
+  border: 1px solid transparent; border-radius: var(--sidiz-radius-4);
+  font-size: var(--sidiz-font-size-body1); font-weight: var(--sidiz-font-weight-semibold);
+  cursor: pointer;
+}
+.btn > svg { width: 16px; height: 16px; }
+.btn-primary   { background: var(--sidiz-color-grey-900); color: var(--sidiz-color-grey-50); }   /* 결정 버튼 — 화면당 1개 */
+.btn-secondary { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-grey-900); border-color: var(--sidiz-color-grey-200); }
+.btn-error     { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-red-600); border-color: var(--sidiz-color-red-600); }
+.btn-disabled  { background: var(--sidiz-color-grey-200); color: var(--sidiz-color-grey-400); cursor: not-allowed; }
+
+/* ----- Input (H36 · radius 4 · padding 0/12 · Body2 · Grey-200 보더) ----- */
+.input {
+  display: inline-flex; align-items: center; gap: var(--sidiz-space-8);
+  height: 36px; padding: 0 var(--sidiz-space-12);
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: var(--sidiz-radius-4);
+  background: var(--sidiz-color-grey-50);
+  font-size: var(--sidiz-font-size-body2); font-weight: var(--sidiz-font-weight-regular);
+  color: var(--sidiz-color-grey-900);
+}
+.input > svg { width: 16px; height: 16px; color: var(--sidiz-color-grey-400); flex: 0 0 auto; }
+.input > input, .input > select { border: 0; outline: 0; background: transparent; flex: 1; min-width: 0; font: inherit; color: inherit; }
+.input.is-active { border-color: var(--sidiz-color-grey-900); } /* focus/filled */
+
+/* ----- Header (1344×50 · padding 0/24 · SPACE_BETWEEN · 하단 Grey-200) ----- */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 50px; padding: 0 var(--sidiz-space-24);
+  background: var(--sidiz-color-grey-50);
+  border-bottom: 1px solid var(--sidiz-color-grey-200);
+}
+.header__side { display: flex; align-items: center; gap: var(--sidiz-space-10); }
+.header__profile { display: flex; align-items: center; gap: var(--sidiz-space-6);
+  padding: 0 var(--sidiz-space-8); height: 32px;
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: var(--sidiz-radius-4); } /* 프로필 보더 박스 필수 */
+
+/* ----- Sidebar (W256 · padding 좌우 12 · gap 24 · 항목 H34 · Body1) ----- */
+.sidebar {
+  width: 256px; flex: 0 0 256px;
+  display: flex; flex-direction: column; gap: var(--sidiz-space-24);
+  padding: var(--sidiz-space-24) var(--sidiz-space-12);
+  background: var(--sidiz-color-grey-50);
+  border-right: 1px solid var(--sidiz-color-grey-200);
+  box-shadow: var(--sidiz-shadow-sm);
+}
+.sidebar__brand { display: flex; align-items: center; gap: var(--sidiz-space-8); } /* Attention 로고 18×25 + 시스템명 Title5 */
+.sidebar-item {
+  display: flex; align-items: center; gap: var(--sidiz-space-8);
+  height: 34px; padding: 0 var(--sidiz-space-12);
+  border-radius: var(--sidiz-radius-4);
+  font-size: var(--sidiz-font-size-body1); font-weight: var(--sidiz-font-weight-semibold);
+  color: var(--sidiz-color-grey-900); cursor: pointer;
+}
+.sidebar-item > svg { width: 20px; height: 20px; }
+.sidebar-item.is-active { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-700); } /* 활성 메뉴만 포인트 */
+
+/* ----- Search Filter (세로 · gap 8 · Grey-200 보더 · radius 4 · 상하 padding 16) ----- */
+.search-filter {
+  display: flex; flex-direction: column; gap: var(--sidiz-space-8);
+  padding: var(--sidiz-space-16) 0;
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: var(--sidiz-radius-4);
+  background: var(--sidiz-color-grey-50);
+}
+.search-filter__row { display: flex; align-items: flex-end; gap: var(--sidiz-space-12); padding: 0 var(--sidiz-space-16); }
+.field { display: flex; flex-direction: column; gap: var(--sidiz-space-4); }
+.field > .field__label { font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-600); }
+/* 일정(기간) 필드: 한 줄 유지(nowrap), 폭 최소 348 (Search Filter 정본) */
+.filter-period { display: flex; align-items: center; gap: var(--sidiz-space-8); min-width: 348px; white-space: nowrap; }
+.filter-period .input { flex: 1; min-width: 0; }
+
+/* ----- Dashboard Card (314×65 고정 · 내부 가로 · gap 0 · padding 16/20 · Grey-200 보더) ----- */
+.dashboard-cards { display: flex; flex-direction: row; gap: var(--sidiz-space-8); } /* 가로 1행 · 세로 스택 금지 */
+.dashboard-card {
+  display: flex; flex-direction: row; align-items: center; gap: 0;
+  width: 314px; height: 65px;
+  padding: var(--sidiz-space-16) var(--sidiz-space-20);
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: var(--sidiz-radius-4);
+  background: var(--sidiz-color-grey-50); /* 그림자 없음 — border 구분 */
+}
+.dashboard-card__value { flex: 1; display: flex; align-items: baseline; gap: var(--sidiz-space-4); } /* 수치 Title3 + 단위 Caption1 */
+.dashboard-card__num { font-size: var(--sidiz-font-size-title3); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
+.dashboard-card__num--point { color: var(--sidiz-color-blue-700); } /* 상태 연동: 포인트 */
+.dashboard-card__num--error { color: var(--sidiz-color-red-600); }  /* 상태 연동: 에러 */
+.dashboard-card__unit { font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
+
+/* ----- Table (Header H32 Grey-100 Caption1 · Cell H38 Body2 · hairline Grey-200) ----- */
+.sidiz-table { width: 100%; border-collapse: collapse; }
+.table-header {
+  height: 32px; padding: 0 var(--sidiz-space-16); text-align: left;
+  background: var(--sidiz-color-grey-100);
+  font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold);
+  color: var(--sidiz-color-grey-400);
+  border-bottom: 1px solid var(--sidiz-color-grey-200);
+}
+.table-cell {
+  height: 38px; padding: 0 var(--sidiz-space-16);
+  font-size: var(--sidiz-font-size-body2); font-weight: var(--sidiz-font-weight-regular);
+  color: var(--sidiz-color-grey-900);
+  border-bottom: 1px solid var(--sidiz-color-grey-200); /* 행 구분 hairline */
+}
+.table-cell .tlink { color: var(--sidiz-color-grey-900); text-decoration: underline; cursor: pointer; } /* URL·상세 링크 밑줄 */
+
+/* ----- Tag (min 28×16 · padding 0/4 · radius 2 · Caption1) ----- */
+.tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 16px; padding: 0 var(--sidiz-space-4);
+  border-radius: var(--sidiz-radius-2);
+  font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold);
+  white-space: nowrap;
+}
+.tag-black       { background: var(--sidiz-color-grey-900); color: var(--sidiz-color-grey-50); }
+.tag-black-light { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-grey-900); border: 1px solid var(--sidiz-color-grey-200); }
+.tag-gray        { background: var(--sidiz-color-grey-100); color: var(--sidiz-color-grey-400); }
+.tag-blue        { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-500); }
+.tag-red         { background: var(--sidiz-color-red-100); color: var(--sidiz-color-red-600); }
+/* 로컬 확장색 — Tag 전용 (전역 토큰 아님, 다른 컴포넌트에서 사용 금지) */
+.tag-green  { background: #E7F6E7; color: #38BA77; }
+.tag-yellow { background: #FCF7DF; color: #E8C32E; }
+
+/* ----- Breadcrumb (gap 8 · Body2/Grey-400 · 현재 Body1/Grey-900 · chevron 12) ----- */
+.breadcrumb {
+  display: flex; align-items: center; gap: var(--sidiz-space-8);
+  font-size: var(--sidiz-font-size-body2); font-weight: var(--sidiz-font-weight-regular);
+  color: var(--sidiz-color-grey-400);
+}
+.breadcrumb > svg { width: 12px; height: 12px; }               /* chevron 아이콘 사용 — ·/• 금지 */
+.breadcrumb .is-current { font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
+
+/* ----- Pagination (gap 12 · 현재 Body1/Grey-900 · 나머지 Body2/Grey-400 · chevron 16) ----- */
+.pagination {
+  display: flex; align-items: center; gap: var(--sidiz-space-12);
+  font-size: var(--sidiz-font-size-body2); font-weight: var(--sidiz-font-weight-regular);
+  color: var(--sidiz-color-grey-400);
+}
+.pagination > svg { width: 16px; height: 16px; color: var(--sidiz-color-grey-900); }
+.pagination .is-current { font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
+
+/* ----- Toast Popup (520×56 · padding 12/32 · radius 6 · Grey-900 다크 · Drop Shadow · SPACE_BETWEEN) ----- */
+.toast {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 520px; height: 56px;
+  padding: var(--sidiz-space-12) var(--sidiz-space-32);
+  border-radius: var(--sidiz-radius-6);
+  background: var(--sidiz-color-grey-900);           /* 배경 항상 다크 */
+  box-shadow: var(--sidiz-shadow-dropshadow);
+}
+.toast__body { display: flex; align-items: center; gap: var(--sidiz-space-8);
+  color: var(--sidiz-color-grey-50); font-size: var(--sidiz-font-size-body1); font-weight: var(--sidiz-font-weight-semibold); }
+.toast__body > svg { width: 24px; height: 24px; }   /* 상태 아이콘 24×24 */
+.toast__icon-default { color: var(--sidiz-color-blue-500); }
+.toast__icon-error   { color: var(--sidiz-color-red-600); }
+.toast__icon-alert   { color: #F5CA1D; }             /* Toast 전용 로컬 확장색 */
+.toast__close { background: transparent; border: 0; cursor: pointer;
+  color: var(--sidiz-color-grey-400);                /* "닫기" 텍스트 버튼만 — X·아이콘 금지 */
+  font-size: var(--sidiz-font-size-body2); font-weight: var(--sidiz-font-weight-regular); }

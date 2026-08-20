@@ -1,10 +1,15 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-19 / 생성 커밋: `bd8d84e`**
+> **버전: 2026-08-20 / 생성 커밋: `97f9461`**
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지.
 
 > # ⚠️ 필수 — 생성물 저장 위치
 > **모든 생성물(화면·HTML·목업 등)은 `~/Desktop/sidiz-output/`에 저장한다.** 폴더가 없으면 만든다.
 > **작업 폴더·배포물 폴더 안에는 어떤 생성물도 만들지 않는다.** 추론·예외 없이 항상 적용한다.
+
+> # ⚠️ 절대 원칙 — 정본 15색 · 14종 (예외 없음)
+> 정본은 **컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종**뿐이다. 정본 밖 색·크기·굵기는 쓰지 않는다(근사값·신규·중간 토큰 금지, 팔레트 확장 금지).
+> **화면 제작 시 `tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스: `.btn-*`·`.table-header`·`.table-cell`·`.sidebar-item`·`.dashboard-card`·`.toast`·`.tag`·`.breadcrumb` 등)만 사용한다. `font-size`·`padding`·`height` 등을 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.
+> 유일한 예외: 문서화된 **컴포넌트 로컬 확장색**(Tag Green/Yellow·Toast Alert)뿐 — 해당 컴포넌트 안에서만.
 
 # SIDIZ 디자인 시스템 — 작업 지침 (Cowork)
 
@@ -12,7 +17,7 @@
 
 ## 반드시 지킬 원칙
 
-1. **정본 토큰만 사용한다.** 색·폰트·간격·radius는 `tokens.css`의 변수(`--sidiz-*`)와 클래스(`.title1`~`.caption5`)로만 지정한다. **임의 hex·폰트·radius·크기를 발명하지 않는다.** `Design.md`에 없는 값은 쓰지 않는다. **단, `Design.md`에 문서화된 "컴포넌트 로컬 색"(예: Tag의 Green/Yellow)은 해당 컴포넌트에 한해 허용**한다(전역 토큰 아님 → 다른 컴포넌트·위치에서 사용 금지).
+1. **정본 토큰·클래스만 사용한다.** 색·폰트·간격·radius는 `tokens.css`의 변수(`--sidiz-*`)와 클래스(타이포 `.title1`~`.caption5` + 컴포넌트 클래스 `.btn-*`·`.table-header`·`.table-cell`·`.sidebar-item`·`.dashboard-card`·`.toast`·`.tag`·`.breadcrumb` 등)로만 지정한다. **`font-size`·`padding`·`height`·임의 hex·radius를 직접 지정/발명하지 않는다.** 정본 밖 값(근사값 포함)은 쓰지 않는다. 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다. **단, 문서화된 "컴포넌트 로컬 확장색"(Tag Green/Yellow·Toast Alert)은 해당 컴포넌트 클래스에 한해 허용**한다(전역 토큰 아님 → 다른 위치 사용 금지).
 
 2. **폰트.** Pretendard 단일. 모든 텍스트 `line-height:150%`, `letter-spacing:1%`(토큰에 반영됨). Inter/Roboto/system 기본 폰트 금지.
 

@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-19 / 생성 커밋: `bd8d84e`**
+> **버전: 2026-08-20 / 생성 커밋: `97f9461`**
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
 > **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
 
@@ -12,6 +12,13 @@ AI/실무자가 이 문서만 읽고 SIDIZ 규격대로 화면을 만들 수 있
 ---
 
 ## 0. 개요 · 핵심 원칙
+
+> ### ⚠️ 절대 원칙 (예외 없음)
+> 시디즈 정본은 **컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다.
+> - 이 밖의 색·크기·굵기는 **존재하지 않는다.** 발견되면 오류이자 정본 토큰 교정 대상이다.
+> - **신규·근사·중간·예외 토큰 생성 금지. 팔레트 확장 금지.**
+> - **화면 제작 시 `tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스)만 사용한다. `font-size`·`padding`·`height` 등을 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.
+> - 유일한 예외: 문서화된 **컴포넌트 로컬 확장색**(Tag Green/Yellow·Toast Alert)뿐이며 해당 컴포넌트 안에서만 허용한다.
 
 - **폰트:** Pretendard 단일. 모든 텍스트 `line-height: 150%`, `letter-spacing: 1%(0.01em)`.
 - **브랜드 포인트 색:** `Blue-700 #003EFF` — 강조/선택/링크에만 **절제** 사용. 남용 금지.
@@ -213,8 +220,9 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.11 Toast Popup — 3 variant
 - **속성:** State(Default/Error/Alert). W520×H56, padding 12/32, radius 6, **Drop Shadow**.
 - **배경 = `Grey-900`(#000000) 다크. 텍스트 = 흰색(`Grey-50`).** (밝은 배경 아님 — 주의)
-- **구조(SPACE_BETWEEN):** 좌측 = 상태 아이콘 + 메시지(흰색 Body1) / 우측 = **"닫기" 텍스트 버튼(`Grey-400`)만** — **X·아이콘 넣지 않음**(정본은 버튼 내 아이콘 HIDDEN).
-- **상태 아이콘(포인트 색):** Default = 파랑 체크(`Blue-500`) · Error = 빨강 X(`Red-600`) · Alert = 노랑 !(`#F5CA1D`, Toast 로컬 색).
+- **구조(SPACE_BETWEEN):** 좌측 = 상태 아이콘(**24×24**) + 메시지(흰색 Body1) / 우측 = **"닫기" 텍스트 버튼(`Grey-400`, `Body2` 13/400)만** — **X·아이콘 넣지 않음**(정본은 버튼 내 아이콘 HIDDEN). CSS: `.toast`/`.toast__body`/`.toast__close`.
+- **상태 아이콘(포인트 색):** Default = 파랑 체크(`Blue-500`) · Error = 빨강 X(`Red-600`) · Alert = 노랑 !(`#F5CA1D`, Toast 로컬 확장색).
+- **금지:** 상태 아이콘 20×20, "닫기"를 `Body3`(12/600)로, 밝은 배경.
 - **사용 규칙:** 떠 있는 알림 → 그림자. 상태색은 아이콘에만, 배경은 항상 다크.
 
 ### 5.12 Carousel — 2 variant
@@ -222,22 +230,24 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.13 Sidebar — 4 variant
 - **속성:** Varient(Favorite/Default) × States(Default/Extended/Hover). W256×H1080, padding 좌우 12, gap 24, **shadow/sm**.
-- 텍스트 Body1 + Title5(그룹 타이틀). Hover 활성 항목 **Blue-700** + 배경 Blue-100.
-- **로고:** 상단 브랜드 심볼은 **[§6 로고 SVG](#6-로고-svg-attention-심볼)(Attention)** 를 사용한다. Lucide 등 아이콘 세트로 대체 금지.
-- **사용 규칙:** 흰 배경 사이드바. 활성 메뉴만 포인트 색.
+- **메뉴 항목(SidebarMenuButton) 높이 34**, **검색창 높이 38.** 텍스트 Body1 + Title5(그룹 타이틀). 검색 placeholder `Body1`(`Grey-400`). Hover 활성 항목 **Blue-700** + 배경 Blue-100.
+- **로고:** 상단 브랜드 심볼은 **[§6 로고 SVG](#6-로고-svg-attention-심볼)(Attention, 18×25)** + 우측 **시스템명(`Title5`) 필수.** Lucide 등 아이콘 세트로 대체 금지, 시스템명 생략 금지. CSS: `.sidebar`/`.sidebar-item`.
+- **사용 규칙:** 흰 배경 사이드바. 활성 메뉴만 포인트 색. **금지:** 항목 높이 40·검색 36·시스템명 누락·placeholder를 Body2로.
 
 ### 5.14 Breadcrumb — 1
 - W308×H20, gap 8. 텍스트 Body1(현재)/Body2. 구분자 ChevronRight 아이콘. 현재 위치 Grey-900, 상위 Grey-400.
 - **사용 규칙:** `·`/`•` 대신 chevron 아이콘 사용.
 
 ### 5.15 Dashboard Card — 1
-- W314×H65, padding 16/20, radius 4, 보더 Grey-200. 텍스트 Title3(수치)+Caption1(라벨). Tag 포함.
+- W314×H65 **고정**, padding 16/20, radius 4, 보더 Grey-200. **내부 가로(HORIZONTAL) auto-layout, gap 0.** CSS: `.dashboard-cards`/`.dashboard-card`.
+- **내부 구조(가로 1줄):** `Tag`(상태) + [수치 `Title3` + 단위 `Caption1`]. 수치·라벨을 **세로로 쌓지 않는다.** 수치 색 상태 연동(에러=Red-600, 포인트=Blue-700, 기본=Grey-900).
 - **배열:** 요약 카드는 **가로(HORIZONTAL) 1행**, 카드 간 **gap 8**. 세로(상하) 스택 금지.
-- **사용 규칙:** 그림자 없이 border로 구분. 수치는 Title3, 라벨은 Caption1.
+- **사용 규칙:** 그림자 없이 border로 구분. **금지:** 카드 내부 세로 스택·3줄 구성·gap≠0·높이 가변(65 초과).
 
 ### 5.16 Header — 1
-- W1344×H50, padding 좌우 24, gap 10. 텍스트 Body1/Caption1/Caption2. 보더 하단 Grey-200.
-- **사용 규칙:** 흰색 헤더(다크/네이비 금지). 심볼 마크는 **[§6 로고 SVG](#6-로고-svg-attention-심볼)** 사용(아이콘 세트 대체 금지).
+- W1344×H50, padding 좌우 24, gap 10, **SPACE_BETWEEN**. 텍스트 Body1/Caption1/Caption2. 보더 하단 Grey-200. CSS: `.header`/`.header__profile`.
+- **알림:** `Icon/Bell`(20×20)에 **알림 뱃지(`Red-600`) 필수.** **프로필:** 이름+`ChevronDown`을 **보더 박스(`Grey-200`)로 감싼다(필수).**
+- **사용 규칙:** 흰색 헤더(다크/네이비 금지). 심볼 마크는 **[§6 로고 SVG](#6-로고-svg-attention-심볼)** 사용(아이콘 세트 대체 금지). **금지:** 알림 뱃지·프로필 보더 박스 생략.
 
 ### 5.17 Pagination — 1
 - W176×H20, gap 12. 텍스트 Body1(현재)/Body2. Chevron 좌우 아이콘. 현재 페이지 Grey-900.
