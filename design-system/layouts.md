@@ -21,7 +21,7 @@
 
 모든 표준 화면은 3(+2) 레이어로 구성:
 
-1. **Sidebar**(고정, 256) — 로고 + 검색 + 메뉴
+1. **Sidebar**(고정, 256) — 로고 + 검색 + 메뉴. 검색창은 H38(클래스 `.sidebar-search` + `.input` 조합).
 2. **Header**(상단 바, 높이 50) — 좌측 `PanelLeft` 토글 · 우측 알림(`Bell`)·프로필
 3. **Contents**(본문, padding 24/32/100/32) — 페이지 타이틀 블록 → 본문
 4. **Floating**(떠 있는 레이어) — 드롭다운·토스트 등
@@ -90,13 +90,13 @@
 
 ### 필터 카드
 - 필드 5~6개 1행, 필드 간 gap 16. 라벨은 인풋 상단 `Caption1`(11/600/Grey-500) + 필수표시 `*` Red-600.
-- 우측 끝: "+ 상세 조회" 텍스트 버튼(`Body3`/Grey-900) + 조회 버튼(Primary/Grey-900, Round).
+- 우측 끝: "+ 상세 조회" 텍스트 버튼(`Body3`/Grey-900, 클래스 `.btn--text`) + 조회 버튼(Primary/Grey-900, Round, 클래스 `.btn-primary` + `.btn--round`).
 - 카드 하단 중앙에 접기 토글: 24×24 원형, Grey-200 보더, ChevronUp/Down 16.
 - 기간 필드는 드롭다운(프리셋) + 날짜 범위 인풋 조합, 한 줄 유지(줄바꿈 금지).
 
 ### 요약 카드 행 (현황 카드)
 - Dashboard Card 4~5개 가로 1행, gap 8. 카드 = 상태 태그 + 수치 + 단위(건).
-- 수치는 `Title3`, 색은 상태 태그 전경색 연동. 전체 카드는 `tag-black-light` + Grey-900.
+- 수치는 `Title3`, 색은 상태 태그 전경색 연동(클래스 `.dashboard-card__num--point` 완료 / `--error` 취소·실패 / `--hold` 보류 #E8C32E / `--progress` 진행중 #38BA77 / 대기=기본 Grey-900). 전체 카드는 `tag-black-light` + Grey-900.
 
 ### 섹션 타이틀 + 건수
 - 섹션 타이틀 `Title5`(14/600/Grey-900) + 건수 숫자 `Title5` 크기의 SemiBold, 색 Blue-700, gap 4.

@@ -24,6 +24,13 @@
 
 - **생성물은 반드시 `~/Desktop/sidiz-output/`에 저장한다** (문서 최상단 규칙). 저장소 안에 만들지 않는다.
 
+> ## ⚠️ 화면 HTML 생성 필수 3종 (경로 단절·규격 이탈 방지)
+> 생성물은 저장소 밖(`~/Desktop/sidiz-output/`)에 저장되므로 **상대경로 `<link href="tokens.css">`에 의존하지 않는다.** 화면 HTML을 만들 때 `<head>`에 반드시 아래를 포함한다.
+> 1. **tokens.css 전문을 `<style>`로 인라인** — `dist/sidiz/tokens.css` 내용을 그대로 `<style>…</style>`에 넣는다(외부 링크·복사본 의존 금지). 화면이 단독으로 규격을 유지한다.
+> 2. **Pretendard 웹폰트 `<link>`** — `Design.md`의 로드 1줄.
+> 3. **font-smoothing 규칙** — `body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }`.
+> 컴포넌트는 위 §정본 코드 조각을 그대로 복사해 조립하고, 새 CSS를 작성하지 않는다. 완성 후 `sources/compare_snippet.py`로 화면 속 각 컴포넌트가 피그마 기준 0건인지 확인한다.
+
 ## ⚠️ 정본 코드 조각(snippets) — 컴포넌트는 그대로 복사해 사용
 
 > **화면 생성 시 아래 정본 조각을 그대로 복사해 쓴다. 컴포넌트를 새로 그리거나 값을 임의로 바꾸지 않는다.**

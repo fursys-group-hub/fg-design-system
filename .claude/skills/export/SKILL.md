@@ -77,6 +77,7 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
 - **`[확인 필요]` 항목은 CSS에 넣지 않는다.** 대신 5단계 보고에 "CSS 제외 — 확인 필요" 목록으로 모아 보고한다.
 - 상단 주석에 **버전 스탬프**(원칙 참조) + `자동 생성 파일 — 원본은 design-system/` 명시.
 - **클래스 전용 원칙(주석으로 명시):** "화면 제작 시 이 파일의 클래스만 사용한다. font-size·padding·height 등을 직접 지정하지 않는다. 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다."
+- **화면 HTML 자기완결 규칙(주석으로 명시):** 생성물은 저장소 밖(`~/Desktop/sidiz-output/`)에 저장되므로, 화면 HTML은 `tokens.css`를 **상대경로로 링크하지 말고 `<style>`에 전문 인라인**한다. 추가로 Pretendard 웹폰트 `<link>`와 `body`의 font-smoothing(`-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`)을 필수 포함한다. 컴포넌트는 `design-system/snippets/*.html` 조각을 그대로 복사해 조립하고, 완성 후 `sources/compare_snippet.py`로 화면 속 각 컴포넌트를 피그마 기준 0건 확인한다.
 
 ## 3. `dist/sidiz/CLAUDE.md` 생성
 
