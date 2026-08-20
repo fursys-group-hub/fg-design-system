@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 정본 조각 — Tab</title>
+<!--
+  SIDIZ 정본 코드 조각 — Tab (node 66:2256)
+  Line: H40 · 탭 padding 0/8 · gap 8 · Title5 · 비활성 Grey-300 / 활성 Grey-900 + 밑줄 Blue-700 · 하단 트랙 Grey-200
+  Box : 배경 Grey-100 · radius 6 · padding 4 / 탭 H32 · padding 6/12 · radius 2 · 활성 배경 Grey-50 · radius 4
+  선택 탭만 포인트 색. ⚠️ 그대로 복사해 쓴다.
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
+<style>
+/* Line */
+.sidiz-tab{ display:flex; border-bottom:1px solid var(--sidiz-color-grey-200); }
+.sidiz-tab__item{
+  display:inline-flex; align-items:center; gap:var(--sidiz-space-8);
+  height:40px; padding:0 var(--sidiz-space-8);
+  border-bottom:2px solid transparent; margin-bottom:-1px;
+  font-size:var(--sidiz-font-size-title5); font-weight:var(--sidiz-font-weight-semibold);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-300); cursor:pointer;
+}
+.sidiz-tab__item svg{ width:16px; height:16px; }
+.sidiz-tab__item--active{ color:var(--sidiz-color-grey-900); border-bottom-color:var(--sidiz-color-blue-700); }
+.sidiz-tab__count{
+  font-size:var(--sidiz-font-size-title5); font-weight:var(--sidiz-font-weight-semibold);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-400);
+}
+/* Box */
+.sidiz-tab--box{
+  display:inline-flex; border-bottom:0;
+  padding:var(--sidiz-space-4); gap:0;
+  background:var(--sidiz-color-grey-100); border-radius:var(--sidiz-radius-6);
+}
+.sidiz-tab--box .sidiz-tab__item{
+  height:32px; padding:var(--sidiz-space-6) var(--sidiz-space-12);
+  border-bottom:0; margin-bottom:0; border-radius:var(--sidiz-radius-2);
+}
+.sidiz-tab--box .sidiz-tab__item--active{ background:var(--sidiz-color-grey-50); border-radius:var(--sidiz-radius-4); }
+</style>
+<!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
+
+<style>
+body{ background:var(--sidiz-color-grey-50); }
+.preview{ padding:var(--sidiz-space-40); display:flex; flex-direction:column; gap:var(--sidiz-space-24); }
+.preview .cap{ font-size:var(--sidiz-font-size-caption1); font-weight:600; color:var(--sidiz-color-grey-500); }
+</style>
+</head>
+<body>
+<div class="preview">
+  <span class="cap">Line</span>
+  <!-- ▼ 조각 마크업 (Line) ▼ -->
+  <nav class="sidiz-tab">
+    <span class="sidiz-tab__item sidiz-tab__item--active"><i data-lucide="sun"></i>선택 메뉴명<span class="sidiz-tab__count">100</span></span>
+    <span class="sidiz-tab__item"><i data-lucide="sun"></i>메뉴명</span>
+    <span class="sidiz-tab__item"><i data-lucide="sun"></i>메뉴명</span>
+  </nav>
+
+  <span class="cap">Box</span>
+  <!-- ▼ 조각 마크업 (Box) ▼ -->
+  <nav class="sidiz-tab sidiz-tab--box">
+    <span class="sidiz-tab__item sidiz-tab__item--active">전체</span>
+    <span class="sidiz-tab__item">진행중</span>
+    <span class="sidiz-tab__item">완료</span>
+  </nav>
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

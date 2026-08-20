@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 정본 조각 — Pagination</title>
+<!--
+  ============================================================================
+  SIDIZ 정본 코드 조각 — Pagination
+  ----------------------------------------------------------------------------
+  출처: Figma `시디즈_디자인 시스템` · 3. Component · Pagination (node 69:9226)
+
+  [컨테이너] 176×20 · 가로 · 교차 CENTER · gap 12 · 투명
+  [좌우] Icon/ChevronLeft·Right 16×16 · Grey-900
+  [숫자] gap 20 · 현재 페이지 Body1(13/600) Grey-900 / 나머지 Body2(13/400) Grey-400
+
+  ⚠️ 화면 생성 시 이 조각을 그대로 복사해 쓴다.
+  ============================================================================
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
+<style>
+.sidiz-pagination{
+  display:flex; align-items:center; gap:var(--sidiz-space-12);
+  background:transparent;
+}
+.sidiz-pagination svg{ width:16px; height:16px; color:var(--sidiz-color-grey-900); cursor:pointer; }
+.sidiz-pagination__numbers{ display:flex; align-items:center; gap:var(--sidiz-space-20); }
+.sidiz-pagination__page{
+  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-400); cursor:pointer;
+}
+.sidiz-pagination__page--current{
+  font-weight:var(--sidiz-font-weight-semibold);
+  color:var(--sidiz-color-grey-900);
+}
+</style>
+<!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
+
+<style>
+/* (미리보기 전용 — 조각 아님) */
+body{ background:var(--sidiz-color-grey-50); }
+.preview{ padding:var(--sidiz-space-40); }
+</style>
+</head>
+<body>
+<div class="preview">
+  <!-- ▼ 조각 마크업 — 그대로 복사 ▼ -->
+  <nav class="sidiz-pagination">
+    <i data-lucide="chevron-left"></i>
+    <span class="sidiz-pagination__numbers">
+      <span class="sidiz-pagination__page sidiz-pagination__page--current">1</span>
+      <span class="sidiz-pagination__page">2</span>
+      <span class="sidiz-pagination__page">3</span>
+      <span class="sidiz-pagination__page">4</span>
+      <span class="sidiz-pagination__page">5</span>
+    </span>
+    <i data-lucide="chevron-right"></i>
+  </nav>
+  <!-- ▲ 조각 마크업 끝 ▲ -->
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

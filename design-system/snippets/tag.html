@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 정본 조각 — Tag</title>
+<!--
+  ============================================================================
+  SIDIZ 정본 코드 조각 — Tag (node 69:6068)
+  28×16 · padding 0/4 · radius 2 · Caption1(11/600) · State(Light/Dark) × Color 6종
+  로컬 확장색: Green(#38BA77/#E7F6E7)·Yellow(#E8C32E/#FCF7DF) — Tag 전용.
+  ⚠️ 화면 생성 시 이 조각을 그대로 복사해 쓴다.
+  ============================================================================
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+
+<!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
+<style>
+.sidiz-tag{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:28px; height:16px; padding:0 var(--sidiz-space-4);
+  border:1px solid transparent; border-radius:var(--sidiz-radius-2);
+  font-size:var(--sidiz-font-size-caption1); font-weight:var(--sidiz-font-weight-semibold);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  white-space:nowrap;
+}
+/* Dark */
+.sidiz-tag--dark-black { background:var(--sidiz-color-grey-900); color:var(--sidiz-color-grey-50); }
+.sidiz-tag--dark-gray  { background:var(--sidiz-color-grey-400); color:var(--sidiz-color-grey-50); }
+.sidiz-tag--dark-blue  { background:var(--sidiz-color-blue-500); color:var(--sidiz-color-grey-50); }
+.sidiz-tag--dark-red   { background:var(--sidiz-color-red-600); color:var(--sidiz-color-grey-50); }
+.sidiz-tag--dark-green { background:#38BA77; color:var(--sidiz-color-grey-50); }
+.sidiz-tag--dark-yellow{ background:#E8C32E; color:var(--sidiz-color-grey-50); }
+/* Light */
+.sidiz-tag--light-black { background:var(--sidiz-color-grey-50); border-color:var(--sidiz-color-grey-200); color:var(--sidiz-color-grey-900); }
+.sidiz-tag--light-gray  { background:var(--sidiz-color-grey-100); color:var(--sidiz-color-grey-400); }
+.sidiz-tag--light-blue  { background:var(--sidiz-color-blue-100); color:var(--sidiz-color-blue-500); }
+.sidiz-tag--light-red   { background:var(--sidiz-color-red-100); color:var(--sidiz-color-red-600); }
+.sidiz-tag--light-green { background:#E7F6E7; color:#38BA77; }
+.sidiz-tag--light-yellow{ background:#FCF7DF; color:#E8C32E; }
+</style>
+<!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
+
+<style>
+body{ background:var(--sidiz-color-grey-50); }
+.preview{ padding:var(--sidiz-space-40); display:flex; flex-direction:column; gap:var(--sidiz-space-12); }
+.preview .row{ display:flex; gap:var(--sidiz-space-8); }
+.preview h1{ font-size:var(--sidiz-font-size-title3); font-weight:600; }
+</style>
+</head>
+<body>
+<div class="preview">
+  <h1 class="title3">Tag — 정본 조각 미리보기</h1>
+  <!-- ▼ 조각 마크업 예시 ▼ -->
+  <div class="row">
+    <span class="sidiz-tag sidiz-tag--light-black">전체</span>
+    <span class="sidiz-tag sidiz-tag--light-gray">대기</span>
+    <span class="sidiz-tag sidiz-tag--light-blue">결제완료</span>
+    <span class="sidiz-tag sidiz-tag--light-green">배송중</span>
+    <span class="sidiz-tag sidiz-tag--light-yellow">준비</span>
+    <span class="sidiz-tag sidiz-tag--light-red">취소</span>
+  </div>
+  <div class="row">
+    <span class="sidiz-tag sidiz-tag--dark-black">전체</span>
+    <span class="sidiz-tag sidiz-tag--dark-gray">대기</span>
+    <span class="sidiz-tag sidiz-tag--dark-blue">결제완료</span>
+    <span class="sidiz-tag sidiz-tag--dark-green">배송중</span>
+    <span class="sidiz-tag sidiz-tag--dark-yellow">준비</span>
+    <span class="sidiz-tag sidiz-tag--dark-red">취소</span>
+  </div>
+</div>
+</body>
+</html>

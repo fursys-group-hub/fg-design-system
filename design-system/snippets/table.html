@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 정본 조각 — Table (Table Cell)</title>
+<!--
+  ============================================================================
+  SIDIZ 정본 코드 조각 — Table (Table Cell)
+  ----------------------------------------------------------------------------
+  출처: Figma `시디즈_디자인 시스템` · 3. Component · Table Cell (node 66:1794)
+
+  [Header/Type=Text] 52×32 · padding 0/16 · 배경 Grey-100 · 보더 Grey-200
+        · 텍스트 Caption1(11/600) · Grey-400
+  [Cell/Type=Text]   66×38 · padding 0/16 · 배경 Grey-50 · 보더 Grey-200
+        · 텍스트 Body2(13/400) · Grey-900
+  [링크/상세]        Body2 · Grey-900 · 밑줄(design-principles)
+  [No. 컬럼]         순차 정수(1,2,3 …). 주문번호·ID로 대체 금지.
+
+  ⚠️ 화면 생성 시 이 조각을 그대로 복사해 쓴다. 상태 Tag는 Tag 조각을 사용.
+  ============================================================================
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+
+<!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
+<style>
+.sidiz-table{ width:100%; border-collapse:collapse; }
+.sidiz-table__th{
+  height:32px; padding:0 var(--sidiz-space-16); text-align:left;
+  background:var(--sidiz-color-grey-100);
+  border-bottom:1px solid var(--sidiz-color-grey-200);
+  font-size:var(--sidiz-font-size-caption1); font-weight:var(--sidiz-font-weight-semibold);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-400);
+}
+.sidiz-table__td{
+  height:38px; padding:0 var(--sidiz-space-16);
+  border-bottom:1px solid var(--sidiz-color-grey-200);
+  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-900);
+}
+.sidiz-table__link{ color:var(--sidiz-color-grey-900); text-decoration:underline; cursor:pointer; }
+</style>
+<!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
+
+<style>
+/* (미리보기 전용 — 조각 아님) */
+body{ background:var(--sidiz-color-grey-50); }
+.preview{ padding:var(--sidiz-space-40); display:flex; flex-direction:column; gap:var(--sidiz-space-16); }
+.preview h1{ font-size:var(--sidiz-font-size-title3); font-weight:600; }
+</style>
+</head>
+<body>
+<div class="preview">
+  <h1 class="title3">Table — 정본 조각 미리보기</h1>
+
+  <!-- ▼ 조각 마크업 — 그대로 복사 ▼ -->
+  <table class="sidiz-table">
+    <thead>
+      <tr>
+        <th class="sidiz-table__th">No.</th>
+        <th class="sidiz-table__th">주문번호</th>
+        <th class="sidiz-table__th">고객명</th>
+        <th class="sidiz-table__th">상태</th>
+        <th class="sidiz-table__th">결제금액</th>
+        <th class="sidiz-table__th">상세</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sidiz-table__td">1</td>
+        <td class="sidiz-table__td">ORD-20260819-0093</td>
+        <td class="sidiz-table__td">김서연</td>
+        <td class="sidiz-table__td"><span class="tag tag-blue">결제완료</span></td>
+        <td class="sidiz-table__td">1,290,000원</td>
+        <td class="sidiz-table__td"><span class="sidiz-table__link">보기</span></td>
+      </tr>
+      <tr>
+        <td class="sidiz-table__td">2</td>
+        <td class="sidiz-table__td">ORD-20260819-0088</td>
+        <td class="sidiz-table__td">이도현</td>
+        <td class="sidiz-table__td"><span class="tag tag-green">배송중</span></td>
+        <td class="sidiz-table__td">459,000원</td>
+        <td class="sidiz-table__td"><span class="sidiz-table__link">보기</span></td>
+      </tr>
+      <tr>
+        <td class="sidiz-table__td">3</td>
+        <td class="sidiz-table__td">ORD-20260819-0074</td>
+        <td class="sidiz-table__td">최민준</td>
+        <td class="sidiz-table__td"><span class="tag tag-red">취소</span></td>
+        <td class="sidiz-table__td">310,000원</td>
+        <td class="sidiz-table__td"><span class="sidiz-table__link">보기</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- ▲ 조각 마크업 끝 ▲ -->
+</div>
+</body>
+</html>

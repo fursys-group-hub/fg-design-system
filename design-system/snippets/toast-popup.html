@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 정본 조각 — Toast Popup</title>
+<!--
+  ============================================================================
+  SIDIZ 정본 코드 조각 — Toast Popup
+  ----------------------------------------------------------------------------
+  출처: Figma `시디즈_디자인 시스템` · 3. Component · Toast Popup (node 66:1681)
+  덤프 lastModified: 2026-08-13T07:54:52Z / 정본 값 그대로(피그마 실측).
+
+  [컨테이너] 520×56 · padding 12/32 · radius 6 · 배경 Grey-900(#000000)
+             · Drop Shadow · 가로 SPACE_BETWEEN · 교차 CENTER
+  [좌측] 콘텐츠 프레임: 가로 · CENTER · gap 16
+        - 상태 아이콘: 24×24 원(radius pill) + 상태색 배경 + 흰색 글리프(12)
+          · Default = Blue-500(#357FFF) + Check
+          · Error   = Red-600(#FF3A4A)  + X
+          · Alert   = #F5CA1D(Toast 로컬 확장색) + ! (CircleAlertFill)
+        - 메시지: Body1(13/600) · Grey-50(#FFFFFF)
+  [우측] "닫기" 버튼(Secondary/Text): 47×32 · padding 0/12 · radius pill
+        · 투명 배경 · Body2(13/400) · Grey-400(#A4AAB0) · 아이콘 없음(정본 HIDDEN)
+
+  ⚠️ 화면 생성 시 이 조각을 "그대로" 복사해 쓴다. 새로 그리거나 값을 바꾸지 않는다.
+  ============================================================================
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<!-- 토큰: 실제 화면에 붙일 때는 프로젝트의 tokens.css를 사용. 이 미리보기는 상대경로로 링크. -->
+<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+
+<!-- ▼▼▼ 조각 CSS (이 블록을 그대로 복사) ▼▼▼ -->
+<style>
+.sidiz-toast{
+  display:flex; align-items:center; justify-content:space-between;
+  width:520px; height:56px;
+  padding:var(--sidiz-space-12) var(--sidiz-space-32);
+  border-radius:var(--sidiz-radius-6);
+  background:var(--sidiz-color-grey-900);
+  box-shadow:var(--sidiz-shadow-dropshadow);
+}
+.sidiz-toast__content{ display:flex; align-items:center; gap:var(--sidiz-space-16); }
+.sidiz-toast__icon{
+  flex:0 0 auto; width:24px; height:24px;
+  border-radius:var(--sidiz-radius-pill);
+  display:flex; align-items:center; justify-content:center;
+}
+.sidiz-toast__icon svg{
+  width:14px; height:14px;
+  fill:none; stroke:var(--sidiz-color-grey-50); stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.sidiz-toast__message{
+  font-size:var(--sidiz-font-size-body1); font-weight:var(--sidiz-font-weight-semibold);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-50); white-space:nowrap;
+}
+.sidiz-toast__close{
+  flex:0 0 auto;
+  height:32px; padding:0 var(--sidiz-space-12);
+  display:inline-flex; align-items:center; justify-content:center;
+  border:0; border-radius:var(--sidiz-radius-pill);
+  background:transparent; cursor:pointer;
+  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-400);
+}
+/* 상태별 아이콘 원 배경(상태색) */
+.sidiz-toast--default .sidiz-toast__icon{ background:var(--sidiz-color-blue-500); }
+.sidiz-toast--error   .sidiz-toast__icon{ background:var(--sidiz-color-red-600); }
+.sidiz-toast--alert   .sidiz-toast__icon{ background:#F5CA1D; } /* Toast 전용 로컬 확장색 */
+</style>
+<!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
+
+<style>
+/* (미리보기 전용 — 조각 아님) */
+body{ background:var(--sidiz-color-grey-50); }
+.preview{ padding:var(--sidiz-space-40); display:flex; flex-direction:column; gap:var(--sidiz-space-24); }
+.preview h1{ font-size:var(--sidiz-font-size-title3); font-weight:600; }
+.preview .cap{ font-size:var(--sidiz-font-size-caption1); font-weight:600; color:var(--sidiz-color-grey-500); }
+.preview .row{ display:flex; flex-direction:column; gap:var(--sidiz-space-8); }
+</style>
+</head>
+<body>
+<div class="preview">
+  <h1 class="title3">Toast Popup — 정본 조각 미리보기</h1>
+
+  <div class="row">
+    <span class="cap">State = Default</span>
+    <!-- ▼ 조각 마크업 (Default) — 그대로 복사 ▼ -->
+    <div class="sidiz-toast sidiz-toast--default" role="status">
+      <div class="sidiz-toast__content">
+        <span class="sidiz-toast__icon">
+          <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+        </span>
+        <span class="sidiz-toast__message">선택하신 주문이 정상적으로 등록되었습니다.</span>
+      </div>
+      <button type="button" class="sidiz-toast__close">닫기</button>
+    </div>
+    <!-- ▲ 조각 마크업 (Default) 끝 ▲ -->
+  </div>
+
+  <div class="row">
+    <span class="cap">State = Error</span>
+    <div class="sidiz-toast sidiz-toast--error" role="alert">
+      <div class="sidiz-toast__content">
+        <span class="sidiz-toast__icon">
+          <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </span>
+        <span class="sidiz-toast__message">등록에 실패했습니다. 잠시 후 다시 시도해 주세요.</span>
+      </div>
+      <button type="button" class="sidiz-toast__close">닫기</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <span class="cap">State = Alert</span>
+    <div class="sidiz-toast sidiz-toast--alert" role="alert">
+      <div class="sidiz-toast__content">
+        <span class="sidiz-toast__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 7v6"/><path d="M12 17h.01"/></svg>
+        </span>
+        <span class="sidiz-toast__message">최초 로그인 시 비밀번호 재설정이 필요합니다.</span>
+      </div>
+      <button type="button" class="sidiz-toast__close">닫기</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

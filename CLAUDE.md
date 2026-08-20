@@ -24,6 +24,38 @@
 
 - **생성물은 반드시 `~/Desktop/sidiz-output/`에 저장한다** (문서 최상단 규칙). 저장소 안에 만들지 않는다.
 
+## ⚠️ 정본 코드 조각(snippets) — 컴포넌트는 그대로 복사해 사용
+
+> **화면 생성 시 아래 정본 조각을 그대로 복사해 쓴다. 컴포넌트를 새로 그리거나 값을 임의로 바꾸지 않는다.**
+> 각 조각은 Figma 정본에서 추출한 크기·padding·radius·색·레이아웃·타이포를 `tokens.css` 변수만으로 고정한 것이며, `sources/compare_snippet.py`로 Figma와 **불일치 0건** 검증을 통과했다. 문서 해석으로 값을 재구성하지 말고, 조각의 `<style>` 블록(마커 `▼ 조각 CSS`)과 마크업(`▼ 조각 마크업`)을 그대로 가져다 조립한다.
+
+- 위치: `design-system/snippets/<컴포넌트>.html` (18종)
+- 검증: `python sources/compare_snippet.py "<컴포넌트명>" <스니펫 경로>` → 불일치 0건이어야 한다. 조각을 수정하면 재실행해 0건을 확인한다.
+- 필요한 조각이 없거나 값이 애매하면 **임의 생성 금지** → 관리자에게 알린다.
+
+| 컴포넌트 | 조각 파일 |
+|---|---|
+| Toast Popup | `snippets/toast-popup.html` |
+| Dashboard Card | `snippets/dashboard-card.html` |
+| Table (Table Cell) | `snippets/table.html` |
+| Sidebar | `snippets/sidebar.html` |
+| Header | `snippets/header.html` |
+| Pagination | `snippets/pagination.html` |
+| Tag | `snippets/tag.html` |
+| Breadcrumb | `snippets/breadcrumb.html` |
+| Button | `snippets/button.html` |
+| Input | `snippets/input.html` |
+| Input Case | `snippets/input-case.html` |
+| Checkbox | `snippets/checkbox.html` |
+| Radio | `snippets/radio.html` |
+| Dropdown List | `snippets/dropdown-list.html` |
+| Tab | `snippets/tab.html` |
+| Search Filter | `snippets/search-filter.html` |
+| Carousel | `snippets/carousel.html` |
+| Attention (로고) | `snippets/attention.html` |
+
+> **Signature 로고 조각은 보류** — 벡터 소스(`assets/signature-*.svg`)가 없어 미생성. 필요 시 Figma에서 SVG를 export해 추가한다.
+
 > **옛 전역 플러그인/스킬은 폐기됐다.** `~/.claude/skills/sidiz-design-system` 및 그 규격(Centra 폰트, 좌측 아이콘 레일, gray-100 캔버스, admin-dashboard 스캐폴드 등)은 **더 이상 사용하지 않는다.** 옛 규격으로 화면을 만들지 않는다.
 
 ## 반드시 지킬 원칙 (요약 — 상세는 Design.md · design-principles.md)

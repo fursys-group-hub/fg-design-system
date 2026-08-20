@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 정본 조각 — Dropdown List</title>
+<!--
+  SIDIZ 정본 코드 조각 — Dropdown List / Single (node 66:2543)
+  W220 · radius 4 · 보더 Grey-200 · 배경 Grey-50 · Drop Shadow(떠 있는 목록)
+  검색 Input H36 · padding 8/12 · placeholder Body2 Grey-400
+  목록 padding 4 · 항목 H36 · padding 8 · Body2 Grey-900 · Hover 배경 Grey-100
+  ⚠️ 그대로 복사해 쓴다.
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
+<style>
+.sidiz-dropdown{
+  display:flex; flex-direction:column; width:220px;
+  border:1px solid var(--sidiz-color-grey-200); border-radius:var(--sidiz-radius-4);
+  background:var(--sidiz-color-grey-50); box-shadow:var(--sidiz-shadow-dropshadow);
+}
+.sidiz-dropdown__search{
+  display:flex; align-items:center; gap:var(--sidiz-space-8);
+  height:36px; padding:var(--sidiz-space-8) var(--sidiz-space-12);
+  border-bottom:1px solid var(--sidiz-color-grey-200);
+}
+.sidiz-dropdown__search svg{ width:16px; height:16px; color:var(--sidiz-color-grey-400); flex:0 0 auto; }
+.sidiz-dropdown__search input{
+  border:0; outline:0; background:transparent; flex:1; min-width:0;
+  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-900);
+}
+.sidiz-dropdown__search input::placeholder{ color:var(--sidiz-color-grey-400); }
+.sidiz-dropdown__list{ display:flex; flex-direction:column; padding:var(--sidiz-space-4); }
+.sidiz-dropdown__item{
+  display:flex; align-items:center; height:36px; padding:0 var(--sidiz-space-8);
+  border-radius:var(--sidiz-radius-4);
+  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-900); cursor:pointer;
+}
+.sidiz-dropdown__item--hover{ background:var(--sidiz-color-grey-100); }
+</style>
+<!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
+
+<style>
+body{ background:var(--sidiz-color-grey-50); }
+.preview{ padding:var(--sidiz-space-40); }
+</style>
+</head>
+<body>
+<div class="preview">
+  <!-- ▼ 조각 마크업 — 그대로 복사 ▼ -->
+  <div class="sidiz-dropdown">
+    <div class="sidiz-dropdown__search"><i data-lucide="search"></i><input placeholder="검색"></div>
+    <div class="sidiz-dropdown__list">
+      <div class="sidiz-dropdown__item">전체</div>
+      <div class="sidiz-dropdown__item sidiz-dropdown__item--hover">결제완료</div>
+      <div class="sidiz-dropdown__item">배송중</div>
+      <div class="sidiz-dropdown__item">취소</div>
+    </div>
+  </div>
+  <!-- ▲ 조각 마크업 끝 ▲ -->
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>
