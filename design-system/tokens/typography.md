@@ -42,3 +42,7 @@ LH 150% 실측 px = size×1.5 (40→60, 13→19.5, 8→12 …) 정확히 일치.
 
 - Foundation `2. Foundation` 페이지에 **구 세대 스타일 프레임이 아직 잔존**: `ko/*`(Pretendard), `en/*`(Centra No2), 레거시 `Pretendard JP`(Title 2·3/Bold, Body 1/Normal-*), px 명시 컴팩트(`Body/Body4-12-Regular`, `Caption/Caption2-10-Semibold` 등). **이들은 정본 아님** → 이 문서에서 제외.
 - `Body 1/Normal - Bold` — 파일 내 미적용, 값 추출 불가.
+
+> ⚠️ **동명이값(오선택 위험) — 2026-08-20 원본 실측:** 로컬에 정본과 **이름이 같으면서 값이 다른** 스타일 2종이 잔존한다. **구세대 브랜드용이므로 정본 아님**이며, 이름이 같아 오선택 위험이 있으니 스타일 선택 시 값을 확인한다.
+> - `Body/Body2-Regular` — **15px, LH 160%, LS -2%** (정본은 13px / LH 150% / LS 1%)
+> - `Body/Body4-Regular` — **13px, LH 120%, LS -2%** (정본은 12px / LH 150% / LS 1%)

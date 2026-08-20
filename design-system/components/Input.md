@@ -45,9 +45,12 @@
 
 ## 레이아웃 (오토레이아웃)
 
-- **Varient=Date, State=Disabled 외 11종**: 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · gap 12
-- **Varient=Search, State=Disabled 외 11종**: 방향 가로(H) · 주축 정렬 양끝(SPACE_BETWEEN) · 교차 정렬 가운데 · 자식 **양끝 배치(SPACE_BETWEEN)** (itemSpacing -는 최소 간격)
-- **Varient=Composite, State=Disabled 외 3종**: 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 끝 · gap 4
+2026-08-20 원본 실측 기준:
+- **Varient=Date 4종**: 방향 가로(H) · gap 12
+- **Varient=Search·Unit·Dropdown 12종**: 방향 가로(H) · 주축 정렬 양끝(SPACE_BETWEEN)
+- **Varient=Text 4종**: 방향 가로(H) · gap 0 · 시작 정렬
+- **Varient=Stepper 4종**: 방향 가로(H) · gap 0 · 좌측 패딩 12만
+- **Varient=Composite 4종**: 방향 가로(H) · gap 4
 
 ## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 

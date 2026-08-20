@@ -11,3 +11,13 @@
 ## 사용 규칙
 
 - 기본은 border 구분, 그림자는 떠 있는 표면에만. `Drop Shadow`는 2겹 합성.
+
+## 잔존 스타일 (정본 아님 — 2026-08-20 원본 실측)
+
+Internal Only Canvas의 **외부 라이브러리 잔재**(Switch, DropdownMenu)에서만 사용되는 스타일. **정본 아님** — 신규 화면에서 사용 금지.
+
+| 토큰 | 레이어 | x | y | blur | spread | color | 사용처(잔재) |
+|---|---|---|---|---|---|---|---|
+| `shadow/md` | 1 | 0 | 2 | 4 | -1 | #000000@0.06 | Switch, DropdownMenu (외부 라이브러리) |
+|  | 2 | 0 | 4 | 6 | -1 | #000000@0.10 |  |
+| `shadow/lg` | — | — | — | — | — | `Drop Shadow`와 동일 값 | Switch, DropdownMenu (외부 라이브러리) |
