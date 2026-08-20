@@ -1,4 +1,4 @@
-/* 버전: 2026-08-20 / 생성 커밋: 97f9461 */
+/* 버전: 2026-08-20 / 생성 커밋: 808ef0b */
 /* 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. */
 /* 정본 덤프 기준 lastModified: 2026-08-13T02:43:40Z */
 /* Pretendard 웹폰트: <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"> */
@@ -213,7 +213,7 @@ button, input, select, textarea {
 }
 .search-filter__row { display: flex; align-items: flex-end; gap: var(--sidiz-space-12); padding: 0 var(--sidiz-space-16); }
 .field { display: flex; flex-direction: column; gap: var(--sidiz-space-4); }
-.field > .field__label { font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-600); }
+.field > .field__label { font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-500); }
 /* 일정(기간) 필드: 한 줄 유지(nowrap), 폭 최소 348 (Search Filter 정본) */
 .filter-period { display: flex; align-items: center; gap: var(--sidiz-space-8); min-width: 348px; white-space: nowrap; }
 .filter-period .input { flex: 1; min-width: 0; }
@@ -266,6 +266,10 @@ button, input, select, textarea {
 /* 로컬 확장색 — Tag 전용 (전역 토큰 아님, 다른 컴포넌트에서 사용 금지) */
 .tag-green  { background: #E7F6E7; color: #38BA77; }
 .tag-yellow { background: #FCF7DF; color: #E8C32E; }
+/* Dark(채움) — 상태 태그 매핑용. green/yellow는 Tag 전용 로컬 확장색 */
+.tag-red-dark    { background: var(--sidiz-color-red-600); color: var(--sidiz-color-grey-50); }
+.tag-green-dark  { background: #38BA77; color: var(--sidiz-color-grey-50); }
+.tag-yellow-dark { background: #E8C32E; color: var(--sidiz-color-grey-50); }
 
 /* ----- Breadcrumb (gap 8 · Body2/Grey-400 · 현재 Body1/Grey-900 · chevron 12) ----- */
 .breadcrumb {
