@@ -14,7 +14,7 @@
 
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
-| Sort=Signature, Color=Black | W×H 200×59 | **투명** | — | #1D1D1B | — | — |
+| Sort=Signature, Color=Black | W×H 200×59 | **투명** | — | #1D1D1B (로고 아트워크) | — | — |
 | Sort=Signature, Color=White | W×H 200×59 | **투명** | — | Grey-50 (#FFFFFF) | — | — |
 
 ## 레이아웃 (오토레이아웃)
@@ -24,11 +24,11 @@
 ## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
 `Sort=Signature, Color=Black` — 배경 **투명** · 오토레이아웃 없음 — 자식은 절대좌표(자유배치)
-- Vector (vector) [크기 42×59] · 배경 #1D1D1B
-- Vector (vector) [크기 11×57] · 배경 #1D1D1B
-- Vector (vector) [크기 11×57] · 배경 #1D1D1B
-- Vector (vector) [크기 45×57] · 배경 #1D1D1B
-- Vector (vector) [크기 45×57] · 배경 #1D1D1B
+- Vector (vector) [크기 42×59] · 배경 #1D1D1B (로고 아트워크)
+- Vector (vector) [크기 11×57] · 배경 #1D1D1B (로고 아트워크)
+- Vector (vector) [크기 11×57] · 배경 #1D1D1B (로고 아트워크)
+- Vector (vector) [크기 45×57] · 배경 #1D1D1B (로고 아트워크)
+- Vector (vector) [크기 45×57] · 배경 #1D1D1B (로고 아트워크)
 
 ## Variant 차이 (무엇이 바뀌나)
 

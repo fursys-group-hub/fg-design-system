@@ -14,7 +14,7 @@
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
 | Varient=Text | W×H 124×44 | **투명** | — | Grey-500 (#7C8084), Grey-900 (#000000) | Body/Body3-SemiBold, Body/Body2-Regular | — |
-| Varient=Field | W×H 314×84 | **투명** | — | Grey-500 (#7C8084), Red-600 (#FF3A4A), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), #EF2E32 | Body/Body3-SemiBold, Body/Body2-Regular, Body/Body4-Regular | — |
+| Varient=Field | W×H 314×84 | **투명** | — | Grey-500 (#7C8084), Red-600 (#FF3A4A), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Red-600 (#FF3A4A) | Body/Body3-SemiBold, Body/Body2-Regular, Body/Body4-Regular | — |
 
 ## 레이아웃 (오토레이아웃)
 

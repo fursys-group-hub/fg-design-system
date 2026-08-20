@@ -9,7 +9,7 @@
 
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
-| Header | W×H 1344×50, padding(TRBL) -/24/-/24 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Red-600 (#FF3A4A), #FEFEFE, Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Caption/Caption2-SemiBold, Body/Body1-SemiBold, Caption/Caption1-SemiBold | — |
+| Header | W×H 1344×50, padding(TRBL) -/24/-/24 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Red-600 (#FF3A4A), Grey-50 (#FFFFFF), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Caption/Caption2-SemiBold, Body/Body1-SemiBold, Caption/Caption1-SemiBold | — |
 
 ## 레이아웃 (오토레이아웃)
 
@@ -27,6 +27,15 @@
   - Frame 1000007718 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug · 크기 147×32] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0)
     - Frame 1000007734 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug · 크기 99×20]
     - Icon / ChevronDown (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / ChevronDown
+
+## 사용 규칙
+
+- **크기:** 1344×50, 좌우 padding 24, 하단 `Grey-200` 보더. 배경 흰색(다크/네이비 금지).
+- **레이아웃:** 가로 **SPACE_BETWEEN** — 좌측 `Icon/PanelLeft`(20×20), 우측 알림·프로필.
+- **알림:** `Icon/Bell`(20×20)에 **알림 뱃지(`Red-600`) 필수**(미확인 알림 표시).
+- **프로필:** 프로필 영역은 **보더 박스(`Grey-200`) 필수** — 이름 + `Icon/ChevronDown`(16×16)을 감싼다.
+- **로고:** 심볼 마크는 Attention 로고 SVG 사용, 아이콘 세트 대체 금지.
+- **금지:** 알림 뱃지 생략, 프로필 보더 박스 생략, 다크 헤더.
 
 ## 확인 필요
 

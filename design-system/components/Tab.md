@@ -13,8 +13,8 @@
 
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
-| Varient=Line | W×H 570×40 | **투명** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Blue-700 (#003EFF), #18181B, Grey-900 (#000000), Grey-400 (#A4AAB0), #71717A, Grey-300 (#D6DADE) | Title/Title5-SemiBold | shadow/sm |
-| Varient=Box | W×H 608×40 | **투명** | — | Grey-100 (#F5F6F7), Grey-50 (#FFFFFF), #18181B, Grey-900 (#000000), #71717A, Grey-400 (#A4AAB0) | Title/Title5-SemiBold, Body/Body2-Regular | shadow/sm |
+| Varient=Line | W×H 570×40 | **투명** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Blue-700 (#003EFF), Grey-800 (#242526), Grey-900 (#000000), Grey-400 (#A4AAB0), Grey-500 (#7C8084), Grey-300 (#D6DADE) | Title/Title5-SemiBold | shadow/sm |
+| Varient=Box | W×H 608×40 | **투명** | — | Grey-100 (#F5F6F7), Grey-50 (#FFFFFF), Grey-800 (#242526), Grey-900 (#000000), Grey-500 (#7C8084), Grey-400 (#A4AAB0) | Title/Title5-SemiBold, Body/Body2-Regular | shadow/sm |
 
 ## 레이아웃 (오토레이아웃)
 
@@ -26,24 +26,24 @@
 `Varient=Line` — 배경 **투명** · 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 시작 · gap 0
 - Select (frame) [레이아웃 가로(H) · 가로 hug/세로 고정 · 크기 114×40] · 배경 Grey-50 (#FFFFFF), 선 Blue-700 (#003EFF)
   - Icon / Sun (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Sun
-    - Vector (vector) [크기 13×13] · 선 #18181B
+    - Vector (vector) [크기 13×13] · 선 Grey-800 (#242526)
   - 선택 메뉴명 (text) [가로 hug/세로 hug · 크기 65×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-900 (#000000)
   - 100 (text) [가로 hug/세로 hug · 크기 25×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-400 (#A4AAB0)
 - Default (instance) [레이아웃 가로(H) · 가로 고정/세로 고정 · 크기 114×40] · → Active=Off
   - Icon / Sun (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Sun
-    - Vector (vector) [크기 13×13] · 선 #71717A
+    - Vector (vector) [크기 13×13] · 선 Grey-500 (#7C8084)
   - Tabs Text (text) [가로 hug/세로 hug · 크기 37×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-300 (#D6DADE)
 - Default (instance) [레이아웃 가로(H) · 가로 고정/세로 고정 · 크기 114×40] · → Active=Off
   - Icon / Sun (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Sun
-    - Vector (vector) [크기 13×13] · 선 #71717A
+    - Vector (vector) [크기 13×13] · 선 Grey-500 (#7C8084)
   - Tabs Text (text) [가로 hug/세로 hug · 크기 37×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-300 (#D6DADE)
 - Default (instance) [레이아웃 가로(H) · 가로 고정/세로 고정 · 크기 114×40] · → Active=Off
   - Icon / Sun (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Sun
-    - Vector (vector) [크기 13×13] · 선 #71717A
+    - Vector (vector) [크기 13×13] · 선 Grey-500 (#7C8084)
   - Tabs Text (text) [가로 hug/세로 hug · 크기 37×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-300 (#D6DADE)
 - Default (instance) [레이아웃 가로(H) · 가로 고정/세로 고정 · 크기 114×40] · → Active=Off
   - Icon / Sun (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Sun
-    - Vector (vector) [크기 13×13] · 선 #71717A
+    - Vector (vector) [크기 13×13] · 선 Grey-500 (#7C8084)
   - Tabs Text (text) [가로 hug/세로 hug · 크기 37×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-300 (#D6DADE)
 
 ## Variant 차이 (무엇이 바뀌나)

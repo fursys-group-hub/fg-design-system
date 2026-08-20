@@ -14,7 +14,7 @@
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
 | Varient=Indicator | W×H 168×6 | **투명** | — | Grey-50 (#FFFFFF), Grey-50 (#FFFFFF@0.30) | — | — |
-| Varient=Navigator | W×H 80×30 | **투명** | — | Grey-50 (#FFFFFF@0.70), Grey-900 (#000000), #1A1A1A | — | — |
+| Varient=Navigator | W×H 80×30 | **투명** | — | Grey-50 (#FFFFFF@0.70), Grey-900 (#000000), Grey-800 (#242526) | — | — |
 
 ## 레이아웃 (오토레이아웃)
 

@@ -41,6 +41,7 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
 
 - tokens 4종 + components 19개를 **한 파일로 통합**.
 - **구조:** 개요 → **웹폰트 로드** → 컬러 → 타이포 → 스페이싱 → 이펙트 → 컴포넌트별 명세 → **로고 SVG**.
+- **⚠️ 절대 원칙 콜아웃(개요 최상단, 필수):** "정본은 **컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다. 이 밖의 색·크기·굵기는 존재하지 않으며, 발견되면 오류이자 정본 토큰 교정 대상이다. 신규·근사·중간·예외 토큰 생성 금지, 팔레트 확장 금지. 유일한 예외는 문서화된 **컴포넌트 로컬 확장색**(Tag Green/Yellow·Toast Alert)뿐이며 해당 컴포넌트 안에서만 허용한다. **화면 제작 시 `tokens.css`의 클래스만 사용하고 font-size·padding·height 등을 직접 지정하지 않는다.**"
 - 각 값에 **사용 규칙(언제 쓰고 언제 안 쓰는지)을 함께** 기재해 AI가 읽고 화면을 만들 수 있게 한다.
 - **Pretendard 웹폰트 로드 안내(필수):** 생성하는 HTML `<head>`에 아래 한 줄과 body 폰트 지정을 포함하라는 지침을 개요/폰트 섹션에 명시한다.
   - `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">`
@@ -54,20 +55,35 @@ description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)
 
 ## 2. `dist/sidiz/tokens.css` 생성
 
-정본 값을 CSS 커스텀 프로퍼티로 변환. `:root`에 정의한다.
+정본 값을 CSS 커스텀 프로퍼티 + **클래스**로 변환. `:root`에 토큰을 정의하고, 그 위에 타이포·**컴포넌트 클래스**를 얹는다.
 
-- **컬러:** `--sidiz-color-*` (예: `--sidiz-color-blue-700: #003EFF;`). 정본 팔레트만.
-- **타이포:** `--sidiz-font-*`(family/size/weight/line-height/letter-spacing) + **조합 클래스** `.title1 ~ .caption5`(14종).
+- **컬러:** `--sidiz-color-*` (예: `--sidiz-color-blue-700: #003EFF;`). **정본 15색만**(Blue 3 / Red 2 / Grey 10). 정본 밖 색·근사 색·신규 토큰 금지.
+- **타이포:** `--sidiz-font-*`(family/size/weight/line-height/letter-spacing) + **조합 클래스** `.title1 ~ .caption5`(14종). 각 클래스는 font-size/weight + **line-height 150% + letter-spacing 1%**를 전부 포함한다.
 - **스페이싱:** `--sidiz-space-*`(padding/gap 스케일), `--sidiz-radius-*`(radius 스케일).
 - **이펙트:** `--sidiz-shadow-*`(Drop Shadow 2겹 합성, shadow/sm).
+- **전역 기본값(필수):** `body`에 font-family·**line-height 150%·letter-spacing 1%**를 상속시키고, `button, input, select, textarea{font:inherit; line-height:inherit; letter-spacing:inherit}`로 폼 요소까지 상속시킨다. (요소에 font-size만 직접 박아 LH/LS가 누락되는 (b)유형 오차의 근본 차단)
+- **컴포넌트 클래스(필수, 근본 대책):** AI가 매번 CSS를 새로 짜서 정본과 어긋나는 것을 막기 위해, `components/*.md` 정본 값(크기·padding·radius·색·레이아웃 방향)을 그대로 반영한 클래스를 제공한다. 각 클래스는 **정본 토큰 변수만** 사용한다(원시 hex·px 최소화). 최소 다음을 포함:
+  - `.btn`/`.btn-primary`(Grey-900)·`.btn-secondary`(Grey-200 보더)·`.btn-error`·`.btn-disabled` — H32, radius 4, gap 8, padding 0/12, `.body1`
+  - `.sidiz-table`·`.table-header`(H32, Grey-100 배경, `Caption1`, Grey-400, 하단 Grey-200)·`.table-cell`(H38, `Body2`, Grey-900, 하단 Grey-200 hairline)
+  - `.sidebar`·`.sidebar-item`(H34, `Body1`, active=Blue-700+Blue-100)
+  - `.dashboard-cards`(가로 flex, gap 8)·`.dashboard-card`(314×65 고정, 내부 가로, gap 0, padding 16/20, radius 4, Grey-200 보더)
+  - `.toast`(520×56, padding 12/32, radius 6, Grey-900 배경, Drop Shadow, SPACE_BETWEEN)·`.toast__body`(아이콘 24, `Body1`)·`.toast__close`(`Body2`, Grey-400)·상태 아이콘 색 modifier
+  - `.tag`(min 28×16, padding 0/4, radius 2, `Caption1`) + 색 modifier(black/gray/blue/red + **로컬 확장색** green/yellow는 이 클래스 한정)
+  - `.breadcrumb`(gap 8, `Body2`/Grey-400, `.is-current`=`Body1`/Grey-900, chevron 12)
+  - `.pagination`(gap 12, `.is-current`=`Body1`/Grey-900, 나머지 `Body2`/Grey-400, chevron 16)
+  - `.input`(H36, radius 4, padding 0/12, `Body2`, Grey-200 보더)·`.header`(H50, padding 0/24, SPACE_BETWEEN, 하단 Grey-200)·`.search-filter`(세로, gap 8, Grey-200 보더, radius 4)·`.filter-period`(min-width 348, nowrap)
+  - 레이아웃 헬퍼 `.app`(1600, 가로)·`.app__main`·`.app__contents`(padding 24/32/100)
+  - **로컬 확장색은 컴포넌트 클래스 안에서만**(예: `.tag-green{background:#E7F6E7;color:#38BA77}`, `.toast__icon-alert{color:#F5CA1D}`) 원시 hex로 두고, 그 외 위치에서 쓰지 않도록 주석 표기.
 - **`[확인 필요]` 항목은 CSS에 넣지 않는다.** 대신 5단계 보고에 "CSS 제외 — 확인 필요" 목록으로 모아 보고한다.
 - 상단 주석에 **버전 스탬프**(원칙 참조) + `자동 생성 파일 — 원본은 design-system/` 명시.
+- **클래스 전용 원칙(주석으로 명시):** "화면 제작 시 이 파일의 클래스만 사용한다. font-size·padding·height 등을 직접 지정하지 않는다. 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다."
 
 ## 3. `dist/sidiz/CLAUDE.md` 생성
 
 Cowork 사용자용 지침 파일. 최상단에 **버전 스탬프**(원칙 참조) + 자동 생성 명시.
 
 - **최상단 ⚠️ 출력 위치 규칙(필수):** 버전 스탬프 바로 아래에 "모든 생성물(화면·HTML·목업)은 `~/Desktop/sidiz-output/`에 저장하고, 작업 폴더·배포물 폴더 안에는 생성물을 만들지 않는다(추론·예외 없이 항상 적용)"를 **강조 콜아웃**으로 넣는다.
+- **⚠️ 절대 원칙 콜아웃(출력 위치 규칙 바로 아래, 필수):** "정본은 **컬러 15색 + 타이포 14종**뿐이다. 정본 밖 색·크기·굵기는 쓰지 않는다(근사값·신규 토큰 금지, 팔레트 확장 금지). **`tokens.css`의 클래스만 사용하고 font-size·padding·height를 직접 지정하지 않는다. 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.** 유일한 예외는 문서화된 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)뿐."을 넣는다.
 - 핵심 지시: **"이 폴더의 `Design.md`(값·규격)와 `design-principles.md`(화면 조립·판단 기준)를 항상 참조하고, 그 규격·원칙대로 화면을 만든다."**
 - 지켜야 할 원칙 명시:
   - **화면 조립은 `design-principles.md`** 를 따른다(레이아웃·위계·패턴). **값·규격은 `Design.md`.**

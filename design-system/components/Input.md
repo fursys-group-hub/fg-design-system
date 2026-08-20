@@ -18,10 +18,10 @@
 | Varient=Date, State=Filled | W×H 218×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-900 (#000000) | Body/Body2-Regular | — |
 | Varient=Date, State=Hover | W×H 218×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
 | Varient=Date, State=Default | W×H 218×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
-| Varient=Stepper, State=Disabled | W×H 82×34, padding(TRBL) -/-/-/12, radius 4 | **Grey-200 (#EAEDF0)** | Grey-300 (#D6DADE) | Grey-400 (#A4AAB0), #ECECEC, #B3B3B3 | Body/Body4-Regular | — |
-| Varient=Stepper, State=Filled | W×H 82×34, padding(TRBL) -/-/-/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-900 (#000000), #ECECEC, #B3B3B3 | Body/Body4-Regular | — |
+| Varient=Stepper, State=Disabled | W×H 82×34, padding(TRBL) -/-/-/12, radius 4 | **Grey-200 (#EAEDF0)** | Grey-300 (#D6DADE) | Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0) | Body/Body4-Regular | — |
+| Varient=Stepper, State=Filled | W×H 82×34, padding(TRBL) -/-/-/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-900 (#000000), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0) | Body/Body4-Regular | — |
 | Varient=Stepper, State=Hover | W×H 82×34, padding(TRBL) -/-/-/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | Body/Body4-Regular | — |
-| Varient=Stepper, State=Default | W×H 82×34, padding(TRBL) -/-/-/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-400 (#A4AAB0), #ECECEC, #B3B3B3 | Body/Body4-Regular | — |
+| Varient=Stepper, State=Default | W×H 82×34, padding(TRBL) -/-/-/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-400 (#A4AAB0), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0) | Body/Body4-Regular | — |
 | Varient=Search, State=Disabled | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-200 (#EAEDF0)** | Grey-300 (#D6DADE) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
 | Varient=Search, State=Filled | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-900 (#000000) | Body/Body2-Regular | — |
 | Varient=Search, State=Hover | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
@@ -30,7 +30,7 @@
 | Varient=Unit, State=Filled | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-900 (#000000) | Body/Body2-Regular | — |
 | Varient=Unit, State=Hover | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
 | Varient=Unit, State=Default | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
-| Varient=Dropdown, State=Disabled | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-200 (#EAEDF0)** | Grey-300 (#D6DADE) | Grey-400 (#A4AAB0), #B3B3B3 | Body/Body2-Regular | — |
+| Varient=Dropdown, State=Disabled | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-200 (#EAEDF0)** | Grey-300 (#D6DADE) | Grey-400 (#A4AAB0), Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
 | Varient=Dropdown, State=Filled | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-900 (#000000) | Body/Body2-Regular | — |
 | Varient=Dropdown, State=Hover | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-900 (#000000) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
 | Varient=Dropdown, State=Default | W×H 314×36, padding(TRBL) 8/12/8/12, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-400 (#A4AAB0) | Body/Body2-Regular | — |

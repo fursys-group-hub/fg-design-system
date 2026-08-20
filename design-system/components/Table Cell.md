@@ -14,7 +14,7 @@
 
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
-| Varient=Header, Type=Text | W×H 52×32, padding(TRBL) -/16/-/16 | **Grey-100 (#F5F6F7)** | Grey-200 (#EAEDF0) | #B3B3B3, #ECECEC | Caption/Caption1-SemiBold | — |
+| Varient=Header, Type=Text | W×H 52×32, padding(TRBL) -/16/-/16 | **Grey-100 (#F5F6F7)** | Grey-200 (#EAEDF0) | Grey-400 (#A4AAB0), Grey-200 (#EAEDF0) | Caption/Caption1-SemiBold | — |
 | Varient=Header, Type=Radio | W×H 48×32, padding(TRBL) -/16/-/16 | **Grey-100 (#F5F6F7)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-300 (#D6DADE) | — | — |
 | Varient=Header, Type=Checkbox | W×H 48×32, padding(TRBL) -/16/-/16 | **Grey-100 (#F5F6F7)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-300 (#D6DADE) | — | — |
 | Varient=Cell, Type=Calendar | W×H 128×38, padding(TRBL) -/16/-/16 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0) | Body/Body2-Regular | — |
@@ -36,8 +36,8 @@
 
 `Varient=Header, Type=Text` — 배경 **Grey-100 (#F5F6F7)** · 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 가운데 · gap 0
 - Frame 1000007707 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug · 크기 20×17]
-  - 번호 (text) [가로 hug/세로 hug · 크기 20×17] · 텍스트 Caption/Caption1-SemiBold · 색 #B3B3B3
-- Line 1 (line) [가로 고정/세로 고정 · 크기 0×12] · 선 #ECECEC
+  - 번호 (text) [가로 hug/세로 hug · 크기 20×17] · 텍스트 Caption/Caption1-SemiBold · 색 Grey-400 (#A4AAB0)
+- Line 1 (line) [가로 고정/세로 고정 · 크기 0×12] · 선 Grey-200 (#EAEDF0)
 
 ## Variant 차이 (무엇이 바뀌나)
 

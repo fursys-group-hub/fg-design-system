@@ -37,7 +37,7 @@
 - 버튼 위계:
   - 보조 버튼은 `Secondary`로 여러 개 둘 수 있다.
   - **결정 버튼은 화면당 1개만** `Primary`(`Grey-900`).
-- 표 구성: 헤더=`Grey-100` 배경 + `Caption2`, 본문=`Body4`, 행 구분은 `Grey-200` hairline.
+- 표 구성: 헤더=`Grey-100` 배경 + `Caption1`, 본문=`Body2`, 행 구분은 `Grey-200` hairline. (값 정본=`components/Table Cell.md` — 헤더 `Caption1`(11px)·셀 `Body2`(13px))
 - 상태 표시는 `Tag` 컴포넌트로, URL·상세 진입은 밑줄 링크로 한다.
 - **마스터-디테일 패턴:** 상단 목록에서 행을 선택하면 하단에 상세 테이블을 표시한다(탭 전환 가능).
 

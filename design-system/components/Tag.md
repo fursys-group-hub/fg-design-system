@@ -20,10 +20,10 @@
 | State=Light, Color=Gray | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **Grey-100 (#F5F6F7)** | — | Grey-400 (#A4AAB0) | Caption/Caption1-SemiBold | — |
 | State=Dark, Color=Blue | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **Blue-500 (#357FFF)** | — | Grey-50 (#FFFFFF) | Caption/Caption1-SemiBold | — |
 | State=Light, Color=Blue | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **Blue-100 (#E3EDFF)** | — | Blue-500 (#357FFF) | Caption/Caption1-SemiBold | — |
-| State=Dark, Color=Green | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#38BA77** | — | Grey-50 (#FFFFFF) | Caption/Caption1-SemiBold | — |
-| State=Light, Color=Green | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#E7F6E7** | — | #38BA77 | Caption/Caption1-SemiBold | — |
-| State=Dark, Color=Yellow | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#E8C32E** | — | Grey-50 (#FFFFFF) | Caption/Caption1-SemiBold | — |
-| State=Light, Color=Yellow | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#FCF7DF** | — | #E8C32E | Caption/Caption1-SemiBold | — |
+| State=Dark, Color=Green | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#38BA77 (로컬 확장색)** | — | Grey-50 (#FFFFFF) | Caption/Caption1-SemiBold | — |
+| State=Light, Color=Green | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#E7F6E7 (로컬 확장색)** | — | #38BA77 (로컬 확장색) | Caption/Caption1-SemiBold | — |
+| State=Dark, Color=Yellow | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#E8C32E (로컬 확장색)** | — | Grey-50 (#FFFFFF) | Caption/Caption1-SemiBold | — |
+| State=Light, Color=Yellow | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **#FCF7DF (로컬 확장색)** | — | #E8C32E (로컬 확장색) | Caption/Caption1-SemiBold | — |
 | State=Dark, Color=Red | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **Red-600 (#FF3A4A)** | — | Grey-50 (#FFFFFF) | Caption/Caption1-SemiBold | — |
 | State=Light, Color=Red | W×H 28×16, padding(TRBL) -/4/-/4, radius 2 | **Red-100 (#FFECEE)** | — | Red-600 (#FF3A4A) | Caption/Caption1-SemiBold | — |
 
