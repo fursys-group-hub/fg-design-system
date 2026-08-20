@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/layouts.md. 직접 수정 금지. -->
-> **버전: 2026-08-20 / 생성 커밋: `97f9461`**
+> **버전: 2026-08-20 / 생성 커밋: `f4f7e35`**
 > 자동 생성 파일 — 원본은 `design-system/layouts.md`. 직접 수정 금지.
 
 # Layouts — SIDIZ 화면 조립 레퍼런스
@@ -83,6 +83,49 @@
 > **브랜드 심볼(로고)은 `Design.md` §6의 정본 로고 SVG(Attention 심볼 / Signature)를 그대로 사용한다.** 아이콘 세트(Lucide 등)의 아이콘으로 로고를 대체하지 않으며, 로고 아트워크를 임의로 지어내지 않는다. (사이드바 상단·헤더·인증 화면 Panel의 브랜드 심볼 모두 동일)
 
 > 화면 예시·목업은 **정본 컴포넌트의 인스턴스만으로** 조립한다(`design-principles.md` §8). 컴포넌트를 복제해 새 COMPONENT로 만들지 않는다.
+
+## 화면 패턴 상세
+
+> 관리자 콘솔(OMS류) 화면 구조 참고. **색·값은 전부 시디즈 정본으로 치환**했다. 값의 정본은 `tokens/`·`components/`.
+
+### 페이지 타이틀 블록
+- 좌측: 페이지 타이틀 `Title3`(22/600/Grey-900) + 우측 서브 설명 `Body4`(12/400/Grey-400), baseline 정렬, gap 8. 서브 설명은 한 줄, 선택 사항.
+- 우측 끝: Breadcrumb 우측 정렬(`Body2`/Grey-400, 현재 페이지 `Body1`/Grey-900).
+
+### 필터 카드
+- 필드 5~6개 1행, 필드 간 gap 16. 라벨은 인풋 상단 `Caption1`(11/600/Grey-500) + 필수표시 `*` Red-600.
+- 우측 끝: "+ 상세 조회" 텍스트 버튼(`Body3`/Grey-900) + 조회 버튼(Primary/Grey-900, Round).
+- 카드 하단 중앙에 접기 토글: 24×24 원형, Grey-200 보더, ChevronUp/Down 16.
+- 기간 필드는 드롭다운(프리셋) + 날짜 범위 인풋 조합, 한 줄 유지(줄바꿈 금지).
+
+### 요약 카드 행 (현황 카드)
+- Dashboard Card 4~5개 가로 1행, gap 8. 카드 = 상태 태그 + 수치 + 단위(건).
+- 수치는 `Title3`, 색은 상태 태그 전경색 연동. 전체 카드는 `tag-black-light` + Grey-900.
+
+### 섹션 타이틀 + 건수
+- 섹션 타이틀 `Title5`(14/600/Grey-900) + 건수 숫자 `Title5` 크기의 SemiBold, 색 Blue-700, gap 4.
+- 우측: 액션 버튼 그룹(Secondary Round/Square 나열), 최우선 액션 1개만 Primary(Grey-900).
+
+### 목록 테이블
+- Header: Grey-100 배경, `Caption1`/Grey-400, 컬럼 구분 hairline Grey-200.
+- Cell: `Body2`/Grey-900, 행 구분 Grey-200 hairline, 행 높이 38.
+- 체크박스 컬럼 좌측 고정, 상태 컬럼은 태그, URL과 상세 링크는 밑줄(Grey-900).
+- 합계 행: Grey-100 배경, `Body1`.
+- 하단 Pagination 중앙 정렬.
+
+### 마스터 디테일
+- 상하 분할: 상단 목록 + 하단 상세 섹션(탭 전환은 Tab/Line variant, 선택 탭 Grey-900 + 하단 Blue-700 2px).
+- 좌우 분할: 좌측 목록 + 우측 상세 폼 패널(Grey-200 보더 카드), 패널 우상단에 저장 Primary 버튼.
+- 상세 폼: 섹션 타이틀 `Title4`(16/600) 단위로 구분, 필드는 2열 그리드(Input Case), 읽기 전용 필드는 Grey-200 배경 + Grey-400 텍스트(Input Disabled와 동일).
+
+### 빈 상태 (조회 결과 없음)
+- 목록 영역 중앙: 아이콘(Lucide, 24~32, Grey-400) + "조회 결과가 없습니다" `Body1`/Grey-900 + 보조문 `Body4`/Grey-400. 목록이 0건이면 목록 액션 버튼은 Disabled 상태로.
+
+### 헤더 우측
+- 알림 Bell 20×20 + 미확인 뱃지(Red-600) + 프로필 보더 박스(이름 `Body1`/Grey-900, 역할 뱃지 `Caption1`/Grey-400 + Grey-100 배경, ChevronDown 16).
+
+### 플로팅 버튼
+- 우하단 원형 버튼(맨 위로 등): Grey-50 배경 + Grey-200 보더 또는 Grey-900 배경 + 흰 아이콘, 9999 라운드.
 
 ## 확인 필요
 

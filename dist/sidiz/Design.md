@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-20 / 생성 커밋: `97f9461`**
+> **버전: 2026-08-20 / 생성 커밋: `f4f7e35`**
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
 > **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
 
@@ -110,6 +110,10 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 > **최소 크기 규칙:** Caption4·5(8·10px)는 본문에 쓰지 않는다.
 
+> ⚠️ **동명이값 주의(정본 아님):** 로컬에 정본과 이름이 같으나 값이 다른 구세대 스타일 2종이 잔존해 오선택 위험이 있다. 값을 확인해 피한다.
+> - `Body/Body2-Regular` 구세대 = 15px / LH 160% / LS -2% (정본은 13px / 150% / 1%)
+> - `Body/Body4-Regular` 구세대 = 13px / LH 120% / LS -2% (정본은 12px / 150% / 1%)
+
 ---
 
 ## 3. 스페이싱 · Radius
@@ -135,6 +139,10 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 | Drop Shadow | `--sidiz-shadow-dropshadow` | `0 4px 6px -2px #000000@0.05, 0 10px 15px -3px #000000@0.10` (2겹) | 팝오버/드롭다운/카드/토스트 부양 |
 | shadow/sm | `--sidiz-shadow-sm` | `0 1px 2px 0 #000000@0.05` | 미세 상승(입력/작은 요소) |
 
+> **잔존 스타일(정본 아님 — 사용 금지):** Internal Only Canvas의 외부 라이브러리 잔재(Switch·DropdownMenu)에서만 쓰이는 그림자. `tokens.css`에 넣지 않았다.
+> - `shadow/md` = `0 2px 4px -1px #000000@0.06, 0 4px 6px -1px #000000@0.10` (2겹)
+> - `shadow/lg` = `Drop Shadow`와 동일 값
+
 ---
 
 ## 5. 컴포넌트 명세 (19)
@@ -149,15 +157,15 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 | 컴포넌트 | 방향 | 정렬(주축·교차) |
 |---|---|---|
-| Button | 가로 | 주축 가운데 · 교차 가운데 |
-| Input | 가로 | 주축 시작 · 교차 가운데 |
+| Button | 가로 | 주축 가운데 · 교차 가운데 · gap: Round/Square 8, Flat/Text 6 |
+| Input | 가로 | Date gap12 / Search·Unit·Dropdown SPACE_BETWEEN / Text gap0·시작 / Stepper gap0·좌패딩12 / Composite gap4 |
 | Input Case | 세로 | 주축 시작 · 교차 시작 |
 | Checkbox / Radio | 없음(자유배치) | — |
 | Dropdown List | 세로 | 주축 시작 · 교차 시작 |
 | Search Filter | 세로 | 주축 끝 · 교차 끝 |
 | Tab | 가로 | 주축 시작 · 교차 시작 |
 | Tag | 가로 | 주축 가운데 · 교차 가운데 |
-| Table Cell | 가로 | 주축 시작 · 교차 가운데 |
+| Table Cell | 가로 | 주축 시작 · 교차 가운데 · gap: Cell/Text 4, 나머지 12변형 0 |
 | **Toast Popup** | 가로 | **주축 양끝(SPACE_BETWEEN)** · 교차 가운데 |
 | Carousel | 가로 | 주축 가운데 · 교차 가운데 |
 | Sidebar | 세로 | 주축 시작 · 교차 시작 |
@@ -168,7 +176,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.1 Button — 12 variant
 - **속성:** Varient(Primary/Secondary/Disabled/Error) × Shape(Square/Round/Text/Flat)
-- **크기:** 대부분 H32, Flat은 H24. radius: Square=4, Round/Text/Flat=9999, gap 8, padding 좌우 12(Flat 10).
+- **크기:** 대부분 H32, Flat은 H24. radius: Square=4, Round/Text/Flat=9999, padding 좌우 12(Flat 10). **gap: Round/Square 8, Flat/Text 6.**
 - **텍스트:** Round/Square=Body1(13/600), Text/Flat=Body3(12/600).
 - **색 규칙:** Primary=Grey-900 배경/텍스트 강조, Secondary=Grey-900+Grey-200 보더, Disabled=Grey-400/Grey-200, Error=Red-600.
 - **사용 규칙:** 한 화면의 "결정 버튼"은 하나. 파란 채움 버튼을 기본으로 쓰지 않는다.
@@ -176,6 +184,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.2 Input — 28 variant
 - **속성:** Varient(Text/Search/Date/Stepper/Unit/Composite/Dropdown) × State(Default/Hover/Filled/Disabled)
 - **크기:** H36, radius 4, padding 8/12. 텍스트 Body2(13/400).
+- **레이아웃(gap 실측):** Date gap12 / Search·Unit·Dropdown 12종 SPACE_BETWEEN / Text gap0·시작 정렬 / Stepper gap0·좌측 패딩12만 / Composite gap4.
 - **색 규칙:** Default 보더 Grey-200, Hover/Filled 보더 Grey-900(활성), Disabled Grey-400/Grey-200.
 - **사용 규칙:** 상태별 보더색으로 포커스/입력 상태 표현. 배경은 흰색 기본.
 
@@ -210,10 +219,19 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 - **속성:** State(Light/Dark) × Color(Red/Green/Blue/Gray/Yellow/Black). 28×16, padding 좌우 4, **radius 2**, 텍스트 Caption1(11/600).
 - 정본 팔레트 매핑: Blue=Blue-500/Blue-100, Red=Red-600/Red-100, Gray=Grey-400/Grey-100, Black=Grey-900.
 - **컴포넌트 로컬 색:** Green(`#38BA77`/`#E7F6E7`)·Yellow(`#E8C32E`/`#FCF7DF`)는 Tag 전용 로컬 색(전역 토큰 아님). Tag 밖에서 사용 금지. (1장 "컴포넌트 로컬 색" 참조)
+- **상태 태그 매핑 (정본 규칙):** 상태값은 아래 **5범주**로만 매핑한다. **6번째 색 금지.** Light 태그 글자색은 같은 계열 전경색.
+
+| 상태 범주 | 포함 예 | 태그 클래스 | 배경 | 글자 |
+|---|---|---|---|---|
+| 대기 | 접수, 승인 대기, 요청 대기 | `tag-black-light` | Grey-50 + Grey-200 보더 | Grey-900 |
+| 보류 | 중지, 확인 필요 | `tag-yellow` | #FCF7DF | #E8C32E |
+| 취소/실패 | 취소, 실패, 반려, 오류, 미매핑 | `tag-red-dark` | Red-600 | Grey-50 |
+| 진행중 | 처리중, 배송중, 입고 진행, 조치중 | `tag-green` | #E7F6E7 | #38BA77 |
+| 완료 | 승인, 입고 완료, 매핑 완료 | `tag-blue` | Blue-100 | Blue-500 |
 
 ### 5.10 Table Cell — 13 variant
 - **속성:** Varient(Header/Cell) × Type(Checkbox/Text/Link/Textlink/Radio/Icon/Button/Tag/Calendar/Input). H32(Header)/H38(Cell), padding 좌우 16.
-- Header 텍스트 Caption1, Cell 텍스트 Body2(Button 셀=Body3). 보더 Grey-200/Grey-300.
+- Header 텍스트 Caption1, Cell 텍스트 Body2(Button 셀=Body3). 보더 Grey-200/Grey-300. **gap: Cell/Type=Text만 4, 나머지 12변형 0.**
 - **No.(번호) 컬럼:** 순차 정수(1, 2, 3, 4, 5 …)로 표기. 주문번호·ID로 대체 금지.
 - **사용 규칙:** 표는 셀 타입 조합으로 구성. 구분은 hairline(Grey-200).
 
@@ -240,7 +258,8 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.15 Dashboard Card — 1
 - W314×H65 **고정**, padding 16/20, radius 4, 보더 Grey-200. **내부 가로(HORIZONTAL) auto-layout, gap 0.** CSS: `.dashboard-cards`/`.dashboard-card`.
-- **내부 구조(가로 1줄):** `Tag`(상태) + [수치 `Title3` + 단위 `Caption1`]. 수치·라벨을 **세로로 쌓지 않는다.** 수치 색 상태 연동(에러=Red-600, 포인트=Blue-700, 기본=Grey-900).
+- **내부 구조(가로 1줄):** `Tag`(상태) + [수치 `Title3` + 단위 `Caption1`]. 수치·라벨을 **세로로 쌓지 않는다.**
+- **수치 색 = 상태 태그 전경색 연동**(§5.9 상태 태그 매핑): 대기 Grey-900 · 보류 #E8C32E · 취소/실패 Red-600 · 진행중 #38BA77 · 완료 Blue-500.
 - **배열:** 요약 카드는 **가로(HORIZONTAL) 1행**, 카드 간 **gap 8**. 세로(상하) 스택 금지.
 - **사용 규칙:** 그림자 없이 border로 구분. **금지:** 카드 내부 세로 스택·3줄 구성·gap≠0·높이 가변(65 초과).
 
