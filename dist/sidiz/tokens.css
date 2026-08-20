@@ -1,4 +1,4 @@
-/* 버전: 2026-08-20 / 생성 커밋: f4f7e35 */
+/* 버전: 2026-08-21 / 생성 커밋: c30def6 */
 /* 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. */
 /* 정본 덤프 기준 lastModified: 2026-08-13T02:43:40Z */
 /* Pretendard 웹폰트: <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"> */
@@ -158,6 +158,13 @@ button, input, select, textarea {
 .btn-secondary { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-grey-900); border-color: var(--sidiz-color-grey-200); }
 .btn-error     { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-red-600); border-color: var(--sidiz-color-red-600); }
 .btn-disabled  { background: var(--sidiz-color-grey-200); color: var(--sidiz-color-grey-400); cursor: not-allowed; }
+/* Shape 변형 — Variant(Primary/Secondary…)와 조합 */
+.btn--round { border-radius: var(--sidiz-radius-pill); } /* Round */
+.btn--text  { /* Shape=Text: 투명·Body3·radius pill */
+  background: transparent; border: 0; color: var(--sidiz-color-grey-900);
+  height: 32px; padding: 0 var(--sidiz-space-12); border-radius: var(--sidiz-radius-pill);
+  font-size: var(--sidiz-font-size-body3); font-weight: var(--sidiz-font-weight-semibold);
+}
 
 /* ----- Input (H36 · radius 4 · padding 0/12 · Body2 · Grey-200 보더) ----- */
 .input {
@@ -194,6 +201,7 @@ button, input, select, textarea {
   box-shadow: var(--sidiz-shadow-sm);
 }
 .sidebar__brand { display: flex; align-items: center; gap: var(--sidiz-space-8); } /* Attention 로고 18×25 + 시스템명 Title5 */
+.sidebar-search { height: 38px; } /* 사이드바 검색 — 정본 Sidebar 검색 H38(조각 sidebar.html과 일치). 내부는 .input 구성 유지 */
 .sidebar-item {
   display: flex; align-items: center; gap: var(--sidiz-space-8);
   height: 34px; padding: 0 var(--sidiz-space-12);
@@ -229,8 +237,10 @@ button, input, select, textarea {
 }
 .dashboard-card__value { flex: 1; display: flex; align-items: baseline; gap: var(--sidiz-space-4); } /* 수치 Title3 + 단위 Caption1 */
 .dashboard-card__num { font-size: var(--sidiz-font-size-title3); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
-.dashboard-card__num--point { color: var(--sidiz-color-blue-700); } /* 상태 연동: 포인트 */
-.dashboard-card__num--error { color: var(--sidiz-color-red-600); }  /* 상태 연동: 에러 */
+.dashboard-card__num--point { color: var(--sidiz-color-blue-700); } /* 상태 연동: 포인트(완료) */
+.dashboard-card__num--error { color: var(--sidiz-color-red-600); }  /* 상태 연동: 에러(취소/실패) */
+.dashboard-card__num--hold     { color: #E8C32E; } /* 보류 — Tag Yellow 전경색(로컬 확장색) */
+.dashboard-card__num--progress { color: #38BA77; } /* 진행중 — Tag Green 전경색(로컬 확장색) */
 .dashboard-card__unit { font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
 
 /* ----- Table (Header H32 Grey-100 Caption1 · Cell H38 Body2 · hairline Grey-200) ----- */
