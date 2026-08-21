@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/layouts.md. 직접 수정 금지. -->
-> **버전: 2026-08-21 / 생성 커밋: `c30def6`**
+> **버전: 2026-08-21 / 생성 커밋: `d992537`**
 > 자동 생성 파일 — 원본은 `design-system/layouts.md`. 직접 수정 금지.
 
 # Layouts — SIDIZ 화면 조립 레퍼런스
@@ -18,16 +18,31 @@
 | Header 높이 | **50** | 좌우 padding 24, 하단 `Grey-200` 보더 |
 | Contents padding | **top 24 / 좌우 32 / bottom 100** | |
 | 콘텐츠 내부 폭 | **1280** | = 1344 − 64 |
-| 배경 | **흰색(`Grey-50`)** | 회색 캔버스 금지(`design-principles.md`) |
-| 표면 구분 | `Grey-200` hairline 보더 | 그림자는 떠 있는 표면만 |
+| 본문(Contents) 배경 | **`Grey-100`** | v6: 본문은 회색 면 |
+| 콘텐츠 카드 표면 | **`Grey-50`(흰색) + `Grey-200` 보더** | 카드/표만 흰 면 |
+
+## 화면 레이아웃 (프레임·골격 클래스) — v6 정본
+
+| 항목 | 값 |
+|---|---|
+| 전체 화면 폭 | 1600 |
+| Sidebar 폭 | 256 (좌우 padding 12) |
+| 본문 영역 폭 | 1344 (= 1600 − 256) |
+| Contents padding | 상24 좌우32 하100 |
+| 콘텐츠 폭 | **1280** (= 1344 − 64). 본문 컴포넌트는 1280 안으로 |
+| 본문 배경 | **`Grey-100`** |
+| 콘텐츠 카드 표면 | `Grey-50`(흰색) + `Grey-200` 보더 |
+
+- 화면이 1600보다 넓어지면 콘텐츠는 1280 유지, **좌우 여백만 균등 증가**(`.sidiz-container`가 `max-width:1280px; margin:0 auto`).
+- **골격 클래스:** `sidiz-app` → `sidiz-sidebar` + `sidiz-main`(`sidiz-header` + `sidiz-contents` → `sidiz-container`). 값 정본=`CLAUDE.md`「화면 레이아웃 규칙」·CSS=`sidiz-components.css`.
 
 ## 화면 골격 (레이어)
 
 모든 표준 화면은 3(+2) 레이어로 구성:
 
-1. **Sidebar**(고정, 256) — 로고 + 검색 + 메뉴. 검색창은 H38(클래스 `.sidebar-search` + `.input` 조합).
+1. **Sidebar**(고정, 256) — 로고 + 검색 + 메뉴. 검색창 H38.
 2. **Header**(상단 바, 높이 50) — 좌측 `PanelLeft` 토글 · 우측 알림(`Bell`)·프로필
-3. **Contents**(본문, padding 24/32/100/32) — 페이지 타이틀 블록 → 본문
+3. **Contents**(본문, 배경 `Grey-100`, padding 24/32/100) → `sidiz-container`(1280 중앙) → 페이지 타이틀 블록 → 본문
 4. **Floating**(떠 있는 레이어) — 드롭다운·토스트 등
 5. **Dimmed + Modal**(모달 시) — 전체 오버레이 + 중앙 모달
 
@@ -37,12 +52,12 @@
 
 가장 흔한 관리자 화면. 조회 → 목록.
 
-**콘텐츠 순서** (`design-principles.md` §1과 동일):
-1. 페이지 타이틀(`Title3`) + 설명(`Body4`/`Grey-500`)
+**콘텐츠 순서** (`design-principles.md` §1과 동일 · 값 정본은 `CLAUDE.md`/`component-spec.md`):
+1. 페이지 타이틀(`Title4`) + 우측 서브 문구(`Body4`/`Grey-400`)
 2. 브레드크럼(우측 정렬)
-3. **필터 카드** — Input Case(라벨 상단 `Caption1`/`Body3`) 5~6개 1행 + 우측 조회 버튼(`Primary`/`Grey-900`)
+3. **필터 카드** — Input Case 필드 1행 + 우측 조회 버튼(**Secondary Round**) · 상세 조회(**Text**)
 4. (요약 카드) — 유형 3 참조
-5. **테이블 섹션** — 섹션 타이틀(`Title4`)+건수(`Blue-700`), 우측 액션 버튼 그룹 / Table Cell(Header=`Grey-100` 배경, Cell=`Body2`) + 상태 `Tag` + 하단 `Pagination`
+5. **테이블 섹션** — 섹션 타이틀(`Body1`)+건수(`Body1`/`Blue-700`, 단위 없음), 우측 액션 버튼 그룹 / Table(헤더 `Grey-100` 배경·`Caption1`, 셀 `Body2`, **No. 열 없음·첫 열 체크박스**) + 상태 `Tag` + 하단 `Pagination`(테이블 폭 기준 중앙)
 
 ## 유형 2. 상세형 (마스터-디테일)
 
@@ -50,7 +65,7 @@
 
 ## 유형 3. 대시보드형 (요약 카드)
 
-- 상태별 **요약 카드 4~5개를 가로(HORIZONTAL) 1행**으로 배열한다. **세로(상하) 스택 금지.** 카드 간 **gap 8px**. 각 카드 = 상태 `Tag` + 큰 수치(`Title3`). 수치 색은 상태 연동(에러=`Red-600`, 포인트=`Blue-700`, 기본=`Grey-900`).
+- 상태별 **요약 카드 4~5개를 가로(HORIZONTAL) 1행**으로 배열한다. **세로(상하) 스택 금지.** 카드 간 **gap 8px**. 각 카드 = 상태 `Tag` + 큰 수치(`Title3`) + 단위(`Caption1`). **수치·단위 색은 카드 태그의 진한 색과 같게 맞춘다**(카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여 시 자동. 상세 규칙=`CLAUDE.md` 상태 태그 5범주).
 - 카드 하단에 테이블/차트 섹션.
 
 ## 유형 4. 모달
@@ -76,9 +91,9 @@
 | **Header** | 좌측 `Icon/PanelLeft`(+ 필요 시 로고) + 우측 `Icon/Bell`·프로필(`Icon/ChevronDown`) |
 | **Toast Popup** | 콘텐츠(아이콘+텍스트) + **Button 인스턴스**, `SPACE_BETWEEN`(양끝) |
 | **Input Case** | 라벨(`Body3`) + Input + 헬프/에러(`Body4`, 에러 `Red-600`) |
-| **필터 카드** | Input Case 여러 개 1행(가로 auto-layout) + 조회 버튼 |
-| **테이블 행** | Table Cell 조합(Type: Checkbox/Text/Link/Button/Tag/Calendar…), 상태는 `Tag`, 링크는 밑줄 |
-| **Dashboard Card** | `Tag`(상태) + 수치(`Title3`) |
+| **필터 카드** | Input Case 여러 개 1행(가로 auto-layout) + 조회 버튼(**Secondary Round**)·상세 조회(**Text**) |
+| **테이블 행** | Table Cell 조합(Type: Checkbox/Text/Link/Button/Tag/Calendar…), **No. 열 없음·첫 열 체크박스**, 상태는 `Tag`, 링크는 밑줄 |
+| **Dashboard Card** | `Tag`(상태) + 수치(`Title3`) + 단위(`Caption1`) |
 
 > **브랜드 심볼(로고)은 `Design.md` §6의 정본 로고 SVG(Attention 심볼 / Signature)를 그대로 사용한다.** 아이콘 세트(Lucide 등)의 아이콘으로 로고를 대체하지 않으며, 로고 아트워크를 임의로 지어내지 않는다. (사이드바 상단·헤더·인증 화면 Panel의 브랜드 심볼 모두 동일)
 
@@ -86,25 +101,25 @@
 
 ## 화면 패턴 상세
 
-> 관리자 콘솔(OMS류) 화면 구조 참고. **색·값은 전부 시디즈 정본으로 치환**했다. 값의 정본은 `tokens/`·`components/`.
+> 관리자 콘솔(OMS류) 화면 구조. **마크업 정본은 `COMPONENTS.html`, CSS는 `sidiz-components.css`, 수치 근거는 `component-spec.md`, 값 규칙은 `CLAUDE.md`.** 아래는 배치 순서 요약이며, 값이 어긋나면 이 문서가 아니라 위 정본을 따른다.
 
 ### 페이지 타이틀 블록
-- 좌측: 페이지 타이틀 `Title3`(22/600/Grey-900) + 우측 서브 설명 `Body4`(12/400/Grey-400), baseline 정렬, gap 8. 서브 설명은 한 줄, 선택 사항.
+- 좌측: 페이지 타이틀 `Title4`(16/600/Grey-900) + 우측 서브 문구 `Body4`(12/400/Grey-400), baseline 정렬, gap 8. 서술형은 마침표로 끝낸다.
 - 우측 끝: Breadcrumb 우측 정렬(`Body2`/Grey-400, 현재 페이지 `Body1`/Grey-900).
 
 ### 필터 카드
-- 필드 5~6개 1행, 필드 간 gap 16. 라벨은 인풋 상단 `Caption1`(11/600/Grey-500) + 필수표시 `*` Red-600.
-- 우측 끝: "+ 상세 조회" 텍스트 버튼(`Body3`/Grey-900, 클래스 `.btn--text`) + 조회 버튼(Primary/Grey-900, Round, 클래스 `.btn-primary` + `.btn--round`).
-- 카드 하단 중앙에 접기 토글: 24×24 원형, Grey-200 보더, ChevronUp/Down 16.
-- 기간 필드는 드롭다운(프리셋) + 날짜 범위 인풋 조합, 한 줄 유지(줄바꿈 금지).
+- 필드 1행(폭은 가변 분배), 라벨은 인풋 상단 `Caption1`(11/600/Grey-500) + 필수표시 `*` Red-600.
+- 우측 끝: "상세 조회" **Text 버튼**(`Body3`) + 조회 **Secondary Round 버튼**(흰 배경+Grey-200 보더). **Primary 검정 아님.**
+- 카드 하단 중앙에 접기 토글: 24 원형, Grey-200 보더, ChevronUp/Down.
+- 기간 필드만 고정(프리셋 드롭다운 136 + gap4 + 날짜 범위 인풋 216), `0000/00/00 - 0000/00/00` 한 줄 유지(2개로 쪼개지 않음).
 
 ### 요약 카드 행 (현황 카드)
-- Dashboard Card 4~5개 가로 1행, gap 8. 카드 = 상태 태그 + 수치 + 단위(건).
-- 수치는 `Title3`, 색은 상태 태그 전경색 연동(클래스 `.dashboard-card__num--point` 완료 / `--error` 취소·실패 / `--hold` 보류 #E8C32E / `--progress` 진행중 #38BA77 / 대기=기본 Grey-900). 전체 카드는 `tag-black-light` + Grey-900.
+- Dashboard Card 4~5개 가로 1행, gap 8. 카드 = 상태 태그 + 수치(`Title3`) + 단위(`Caption1`).
+- **수치·단위 색은 카드 태그의 진한 색과 같게** 맞춘다(카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여 시 자동). 상세 규칙=`CLAUDE.md` 상태 태그 5범주.
 
 ### 섹션 타이틀 + 건수
-- 섹션 타이틀 `Title5`(14/600/Grey-900) + 건수 숫자 `Title5` 크기의 SemiBold, 색 Blue-700, gap 4.
-- 우측: 액션 버튼 그룹(Secondary Round/Square 나열), 최우선 액션 1개만 Primary(Grey-900).
+- 섹션 타이틀 `Body1`(13/600/Grey-900) + 건수 `Body1`(13/600/Blue-700), gap 4, **단위를 붙이지 않는다**.
+- 우측: 액션 버튼 그룹(Secondary 나열), 최우선 액션 1개만 Primary(Grey-900).
 
 ### 목록 테이블
 - Header: Grey-100 배경, `Caption1`/Grey-400, 컬럼 구분 hairline Grey-200.
@@ -116,7 +131,7 @@
 ### 마스터 디테일
 - 상하 분할: 상단 목록 + 하단 상세 섹션(탭 전환은 Tab/Line variant, 선택 탭 Grey-900 + 하단 Blue-700 2px).
 - 좌우 분할: 좌측 목록 + 우측 상세 폼 패널(Grey-200 보더 카드), 패널 우상단에 저장 Primary 버튼.
-- 상세 폼: 섹션 타이틀 `Title4`(16/600) 단위로 구분, 필드는 2열 그리드(Input Case), 읽기 전용 필드는 Grey-200 배경 + Grey-400 텍스트(Input Disabled와 동일).
+- 상세 폼: 섹션 타이틀 `Body1`(13/600) 단위로 구분, 필드는 2열 그리드(Input Case), 읽기 전용 필드는 Grey-200 배경 + Grey-400 텍스트(Input Disabled와 동일).
 
 ### 빈 상태 (조회 결과 없음)
 - 목록 영역 중앙: 아이콘(Lucide, 24~32, Grey-400) + "조회 결과가 없습니다" `Body1`/Grey-900 + 보조문 `Body4`/Grey-400. 목록이 0건이면 목록 액션 버튼은 Disabled 상태로.

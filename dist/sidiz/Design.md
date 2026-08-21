@@ -1,5 +1,6 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-21 / 생성 커밋: `c30def6`**
+> **버전: 2026-08-21 / 생성 커밋: `d992537`**
+> ⚠️ **v6 정본 우선:** 마크업=`COMPONENTS.html`, CSS=`sidiz-components.css`, 값 규칙=`CLAUDE.md`, 수치 근거=`component-spec.md`. 이 문서와 값이 다르면 그쪽을 따른다.
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
 > **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
 
@@ -95,8 +96,8 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 |---|---|---|---|---|
 | Title1 | 40px | 600 | `.title1` | 프로모션 대제목 |
 | Title2 | 26px | 600 | `.title2` | 프로모션 중제목 |
-| Title3 | 22px | 600 | `.title3` | 페이지 메인 타이틀 |
-| Title4 | 16px | 600 | `.title4` | 섹션 타이틀 |
+| Title3 | 22px | 600 | `.title3` | Dashboard Card 수치 |
+| Title4 | 16px | 600 | `.title4` | 페이지 타이틀 |
 | Title5 | 14px | 600 | `.title5` | Card/Modal 타이틀 |
 | Body1 | 13px | 600 | `.body1` | 그룹 타이틀 |
 | Body2 | 13px | 400 | `.body2` | 그룹 타이틀 보조 |
@@ -219,21 +220,14 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 - **속성:** State(Light/Dark) × Color(Red/Green/Blue/Gray/Yellow/Black). 28×16, padding 좌우 4, **radius 2**, 텍스트 Caption1(11/600).
 - 정본 팔레트 매핑: Blue=Blue-500/Blue-100, Red=Red-600/Red-100, Gray=Grey-400/Grey-100, Black=Grey-900.
 - **컴포넌트 로컬 색:** Green(`#38BA77`/`#E7F6E7`)·Yellow(`#E8C32E`/`#FCF7DF`)는 Tag 전용 로컬 색(전역 토큰 아님). Tag 밖에서 사용 금지. (1장 "컴포넌트 로컬 색" 참조)
-- **상태 태그 매핑 (정본 규칙):** 상태값은 아래 **5범주**로만 매핑한다. **6번째 색 금지.** Light 태그 글자색은 같은 계열 전경색.
-
-| 상태 범주 | 포함 예 | 태그 클래스 | 배경 | 글자 |
-|---|---|---|---|---|
-| 대기 | 접수, 승인 대기, 요청 대기 | `tag-black-light` | Grey-50 + Grey-200 보더 | Grey-900 |
-| 보류 | 중지, 확인 필요 | `tag-yellow` | #FCF7DF | #E8C32E |
-| 취소/실패 | 취소, 실패, 반려, 오류, 미매핑 | `tag-red-dark` | Red-600 | Grey-50 |
-| 진행중 | 처리중, 배송중, 입고 진행, 조치중 | `tag-green` | #E7F6E7 | #38BA77 |
-| 완료 | 승인, 입고 완료, 매핑 완료 | `tag-blue` | Blue-100 | Blue-500 |
+- **상태 태그 매핑:** 5범주(대기 black-light / 보류 yellow-light / 진행중 green-light / 완료 blue-light / 취소·실패 요약카드 red-dark·테이블 red-light)와 **라벨은 업무 용어 그대로**(결제완료→완료 금지), 6번째 색 금지 규칙은 **`CLAUDE.md` 「상태 태그 5범주 매핑」이 정본**이다.
 
 ### 5.10 Table Cell — 13 variant
 - **속성:** Varient(Header/Cell) × Type(Checkbox/Text/Link/Textlink/Radio/Icon/Button/Tag/Calendar/Input). H32(Header)/H38(Cell), padding 좌우 16.
 - Header 텍스트 Caption1, Cell 텍스트 Body2(Button 셀=Body3). 보더 Grey-200/Grey-300. **gap: Cell/Type=Text만 4, 나머지 12변형 0.**
-- **No.(번호) 컬럼:** 순차 정수(1, 2, 3, 4, 5 …)로 표기. 주문번호·ID로 대체 금지.
-- **사용 규칙:** 표는 셀 타입 조합으로 구성. 구분은 hairline(Grey-200).
+- **No.(번호) 열을 두지 않는다.** 첫 열은 체크박스 열(폭 48). (정본: `CLAUDE.md` Table 구조)
+- **테이블 전체를 `Grey-200` 외곽선 + radius 4 로 감싼다**(`sidiz-table-wrap`), 마지막 행 하단 보더 제거.
+- **사용 규칙:** 표는 셀 타입 조합으로 구성. 구분은 hairline(Grey-200). 상세 마크업 정본=`COMPONENTS.html`.
 
 ### 5.11 Toast Popup — 3 variant
 - **속성:** State(Default/Error/Alert). W520×H56, padding 12/32, radius 6, **Drop Shadow**.
@@ -259,7 +253,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.15 Dashboard Card — 1
 - W314×H65 **고정**, padding 16/20, radius 4, 보더 Grey-200. **내부 가로(HORIZONTAL) auto-layout, gap 0.** CSS: `.dashboard-cards`/`.dashboard-card`.
 - **내부 구조(가로 1줄):** `Tag`(상태) + [수치 `Title3` + 단위 `Caption1`]. 수치·라벨을 **세로로 쌓지 않는다.**
-- **수치 색 = 상태 태그 전경색 연동**(§5.9 상태 태그 매핑): 대기 Grey-900 · 보류 #E8C32E · 취소/실패 Red-600 · 진행중 #38BA77 · 완료 Blue-500.
+- **수치·단위 색 = 카드 태그의 진한 색과 동일**: 카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여 시 자동(정본: `CLAUDE.md` 상태 태그 5범주 · `sidiz-components.css`).
 - **배열:** 요약 카드는 **가로(HORIZONTAL) 1행**, 카드 간 **gap 8**. 세로(상하) 스택 금지.
 - **사용 규칙:** 그림자 없이 border로 구분. **금지:** 카드 내부 세로 스택·3줄 구성·gap≠0·높이 가변(65 초과).
 

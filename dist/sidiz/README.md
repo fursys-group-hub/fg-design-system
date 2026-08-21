@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-21 / 생성 커밋: `c30def6`**
+> **버전: 2026-08-21 / 생성 커밋: `d992537`**
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지.
 
 # SIDIZ 디자인 시스템 — 실무자 안내
@@ -12,13 +12,18 @@
 
 | 파일 | 용도 |
 |---|---|
-| `Design.md` | 사람·AI가 함께 읽는 통합 규격서(값 + 사용 규칙 + 컴포넌트 오토레이아웃) |
-| `design-principles.md` | **화면 조립·판단 기준**(레이아웃·위계·패턴). 값이 아니라 "어떻게 조립할지" |
-| `layouts.md` | 화면 유형(목록/상세/대시보드/모달/인증)·공통 치수·컴포넌트 조합 규칙 |
-| `icons.md` | Lucide 아이콘 세트(24×24·2px)·컴포넌트별 사용 아이콘 매핑 |
-| `tokens.css` | 화면에 바로 연결해 쓰는 CSS 변수·클래스 |
-| `CLAUDE.md` | Cowork·클로드 코드가 자동으로 따르는 작업 지침 |
+| **`COMPONENTS.html`** | **마크업 정본(최우선).** 화면 생성 시 이 마크업을 복사해 조립하고 텍스트만 교체 |
+| **`sidiz-components.css`** | **컴포넌트 CSS 정본**(피그마 실측). 폰트 스무딩·`svg{stroke-width:1.2}` 필수 블록 포함 |
+| `component-spec.md` | 피그마 실측 수치 원장(근거 확인용) |
+| `tokens.css` | 색·타이포 변수와 타이포 클래스 |
+| `CLAUDE.md` | 작업 지침·값 규칙 정본(값 충돌 시 기준) |
+| `Design.md` | 통합 규격 요약(값 다르면 위 정본 우선) |
+| `design-principles.md` | 화면 조립·판단 기준(레이아웃·위계·패턴) |
+| `layouts.md` | 화면 유형·배치 순서 |
+| `icons.md` | Lucide 아이콘 세트(24×24·**stroke 1.2**)·컴포넌트별 매핑 |
 | `README.md` | (이 문서) 안내 |
+
+> **우선순위:** `COMPONENTS.html` → `sidiz-components.css` → `tokens.css` → `component-spec.md` → `layouts.md`. 마크업을 새로 쓰지 말고 `COMPONENTS.html`을 복사해 조립하세요.
 
 `Design.md`(값·규격)와 `design-principles.md`(화면 조립 기준)를 함께 참조하시면 됩니다.
 
