@@ -108,15 +108,26 @@ Cowork 사용자용 지침 파일. 최상단에 **버전 스탬프**(원칙 참�
   6. **문의** — 관리자 연락처 `@커머스DX팀 이수지`.
 - **실제 값(반영됨):** 프로젝트 링크 = `https://claude.ai/project/019ff881-be01-75f1-921a-72c7db7b4f8e` · 관리자 연락처 = `@커머스DX팀 이수지`. 값이 바뀌면 이 규칙을 갱신한다.
 
-## 5. 참조 문서 독립 복사 (design-principles.md · icons.md · layouts.md)
+## 5. 참조 문서·정본 파일 독립 복사
 
-아래 정본 문서를 각각 `dist/sidiz/`로 **그대로 복사**한다(값 변환·요약 없음). **`Design.md`에 병합하지 않는다** — 조립·아이콘·레이아웃 규칙은 별도 파일로 유지한다.
+### 5-A. 마크업/CSS 정본 4종 (필수 — 그대로 복사, 스탬프·변환 없음)
 
-- `design-system/design-principles.md` → `dist/sidiz/design-principles.md` (화면 조립·판단 기준)
-- `design-system/icons.md` → `dist/sidiz/icons.md` (Lucide 아이콘 세트·컴포넌트별 매핑)
-- `design-system/layouts.md` → `dist/sidiz/layouts.md` (화면 유형·공통 치수·조합 규칙)
-- 각 복사본 **최상단에 버전 스탬프**(원칙 참조, 다른 산출물과 동일 날짜·해시) + `자동 생성 파일 — 원본은 design-system/<파일>` 명시.
-- 본문은 정본과 동일하게 유지(토큰·컴포넌트 이름 참조, 값 미기재).
+아래 4개는 **v5 최상위 정본**이다. `dist/sidiz/`로 **바이트 그대로 복사**한다. **COMPONENTS.html·sidiz-components.css는 반드시 포함**한다 — dist에 마크업 정본이 없어 생성기가 HTML을 새로 쓰던 문제를 막기 위함이다.
+
+- `design-system/COMPONENTS.html` → `dist/sidiz/COMPONENTS.html` (마크업 정본)
+- `design-system/sidiz-components.css` → `dist/sidiz/sidiz-components.css` (컴포넌트 CSS 정본 — 폰트 스무딩·`svg{stroke-width:1.2}` 필수 블록 포함)
+- `design-system/component-spec.md` → `dist/sidiz/component-spec.md` (피그마 실측 수치 원장)
+- `design-system/CLAUDE.md` → `dist/sidiz/CLAUDE.md` (작업 지침·값 규칙 정본. **아래 3-A의 기존 CLAUDE 생성 절 대신 이 파일을 그대로 복사한다**)
+- 이 4종은 HTML/CSS/원장이라 **버전 스탬프를 넣지 않는다**(원본 훼손 금지). `snippets/`는 폐기되어 `snippets/_deprecated/`에 있으며 **dist로 복사하지 않는다.**
+
+### 5-B. 참조 md 복사 (design-principles.md · icons.md · layouts.md)
+
+아래 정본 문서를 각각 `dist/sidiz/`로 **그대로 복사**한다(값 변환·요약 없음).
+
+- `design-system/design-principles.md` → `dist/sidiz/design-principles.md`
+- `design-system/icons.md` → `dist/sidiz/icons.md` (stroke 1.2 단일)
+- `design-system/layouts.md` → `dist/sidiz/layouts.md`
+- 각 복사본 **최상단에 버전 스탬프** + `자동 생성 파일 — 원본은 design-system/<파일>` 명시. 본문은 정본과 동일.
 
 ## 6. 루트 `CLAUDE.md` 동기화
 

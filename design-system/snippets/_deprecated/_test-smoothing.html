@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 테스트 — Toast font-smoothing / weight 비교</title>
+<!-- 테스트 전용 파일. 정본 조각(toast-popup.html)은 수정하지 않음. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+
+<!-- ▼▼▼ toast-popup.html 조각 CSS 그대로 복사 (수정 없음) ▼▼▼ -->
+<style>
+.sidiz-toast{
+  display:flex; align-items:center; justify-content:space-between;
+  width:520px; height:56px;
+  padding:var(--sidiz-space-12) var(--sidiz-space-32);
+  border-radius:var(--sidiz-radius-6);
+  background:var(--sidiz-color-grey-900);
+  box-shadow:var(--sidiz-shadow-dropshadow);
+}
+.sidiz-toast__content{ display:flex; align-items:center; gap:var(--sidiz-space-16); }
+.sidiz-toast__icon{
+  flex:0 0 auto; width:24px; height:24px;
+  border-radius:var(--sidiz-radius-pill);
+  display:flex; align-items:center; justify-content:center;
+}
+.sidiz-toast__icon svg{
+  width:14px; height:14px;
+  fill:none; stroke:var(--sidiz-color-grey-50); stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.sidiz-toast__message{
+  font-size:var(--sidiz-font-size-body1); font-weight:var(--sidiz-font-weight-semibold);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-50); white-space:nowrap;
+}
+.sidiz-toast__close{
+  flex:0 0 auto;
+  height:32px; padding:0 var(--sidiz-space-12);
+  display:inline-flex; align-items:center; justify-content:center;
+  border:0; border-radius:var(--sidiz-radius-pill);
+  background:transparent; cursor:pointer;
+  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
+  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
+  color:var(--sidiz-color-grey-400);
+}
+.sidiz-toast--default .sidiz-toast__icon{ background:var(--sidiz-color-blue-500); }
+.sidiz-toast--error   .sidiz-toast__icon{ background:var(--sidiz-color-red-600); }
+.sidiz-toast--alert   .sidiz-toast__icon{ background:#F5CA1D; }
+</style>
+<!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
+
+<!-- 테스트 전용 오버라이드 (조각 아님) -->
+<style>
+/* 오른쪽: 컨테이너에 두 줄만 추가 */
+.smooth{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 메시지 weight 비교용 */
+.msg-regular .sidiz-toast__message{ font-weight:var(--sidiz-font-weight-regular); }
+
+/* 미리보기 레이아웃 */
+body{ background:var(--sidiz-color-grey-50); }
+.wrap{ padding:var(--sidiz-space-40); display:flex; flex-direction:column; gap:var(--sidiz-space-40); }
+.wrap h1{ font-size:var(--sidiz-font-size-title3); font-weight:600; }
+.wrap h2{ font-size:var(--sidiz-font-size-title4); font-weight:600; }
+.grid{ display:flex; flex-wrap:wrap; gap:var(--sidiz-space-32); }
+.cell{ display:flex; flex-direction:column; gap:var(--sidiz-space-8); }
+.cell .cap{ font-size:var(--sidiz-font-size-caption1); font-weight:600; color:var(--sidiz-color-grey-500); }
+.sec{ display:flex; flex-direction:column; gap:var(--sidiz-space-16); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="title3">Toast — font-smoothing / weight 비교 테스트</h1>
+
+  <!-- ① font-smoothing 비교 -->
+  <section class="sec">
+    <h2 class="title4">① font-smoothing 비교</h2>
+    <div class="grid">
+      <div class="cell">
+        <span class="cap">기본 렌더링</span>
+        <div class="sidiz-toast sidiz-toast--default" role="status">
+          <div class="sidiz-toast__content">
+            <span class="sidiz-toast__icon">
+              <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <span class="sidiz-toast__message">선택하신 주문이 정상적으로 등록되었습니다.</span>
+          </div>
+          <button type="button" class="sidiz-toast__close">닫기</button>
+        </div>
+      </div>
+
+      <div class="cell">
+        <span class="cap">antialiased</span>
+        <div class="sidiz-toast sidiz-toast--default smooth" role="status">
+          <div class="sidiz-toast__content">
+            <span class="sidiz-toast__icon">
+              <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <span class="sidiz-toast__message">선택하신 주문이 정상적으로 등록되었습니다.</span>
+          </div>
+          <button type="button" class="sidiz-toast__close">닫기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 메시지 weight 비교 -->
+  <section class="sec">
+    <h2 class="title4">② 메시지 weight 비교</h2>
+    <div class="grid">
+      <div class="cell">
+        <span class="cap">Body1 SemiBold(현재)</span>
+        <div class="sidiz-toast sidiz-toast--default" role="status">
+          <div class="sidiz-toast__content">
+            <span class="sidiz-toast__icon">
+              <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <span class="sidiz-toast__message">선택하신 주문이 정상적으로 등록되었습니다.</span>
+          </div>
+          <button type="button" class="sidiz-toast__close">닫기</button>
+        </div>
+      </div>
+
+      <div class="cell msg-regular">
+        <span class="cap">Body1 Regular</span>
+        <div class="sidiz-toast sidiz-toast--default" role="status">
+          <div class="sidiz-toast__content">
+            <span class="sidiz-toast__icon">
+              <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <span class="sidiz-toast__message">선택하신 주문이 정상적으로 등록되었습니다.</span>
+          </div>
+          <button type="button" class="sidiz-toast__close">닫기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

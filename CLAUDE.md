@@ -7,7 +7,7 @@
 
 이 저장소는 **SIDIZ(시디즈) 디자인 시스템**의 정본(`design-system/`)과 실무자 배포물(`dist/sidiz/`)을 관리하는 곳이다.
 
-> 이 파일의 UI 지침·규칙 요약은 `/export` 시 `dist/sidiz/` 기준으로 동기화된다. 마지막 동기화: 2026-08-20.
+> 이 파일의 UI 지침·규칙 요약은 `/export` 시 `dist/sidiz/` 기준으로 동기화된다. 마지막 동기화: 2026-08-21 (v6).
 
 > ## ⚠️ 절대 원칙 — 정본 15색 · 14종 (예외 없음)
 > 정본은 **컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다. 이 밖의 색·크기·굵기는 존재하지 않는다(근사·신규·중간·예외 토큰 금지, 팔레트 확장 금지). 정본 밖 값이 발견되면 오류이자 정본 토큰 교정 대상이며, `design-qa`는 이를 "위반"으로 분류한다.
@@ -24,44 +24,13 @@
 
 - **생성물은 반드시 `~/Desktop/sidiz-output/`에 저장한다** (문서 최상단 규칙). 저장소 안에 만들지 않는다.
 
-> ## ⚠️ 화면 HTML 생성 필수 3종 (경로 단절·규격 이탈 방지)
-> 생성물은 저장소 밖(`~/Desktop/sidiz-output/`)에 저장되므로 **상대경로 `<link href="tokens.css">`에 의존하지 않는다.** 화면 HTML을 만들 때 `<head>`에 반드시 아래를 포함한다.
-> 1. **tokens.css 전문을 `<style>`로 인라인** — `dist/sidiz/tokens.css` 내용을 그대로 `<style>…</style>`에 넣는다(외부 링크·복사본 의존 금지). 화면이 단독으로 규격을 유지한다.
-> 2. **Pretendard 웹폰트 `<link>`** — `Design.md`의 로드 1줄.
-> 3. **font-smoothing 규칙** — `body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }`.
-> 컴포넌트는 위 §정본 코드 조각을 그대로 복사해 조립하고, 새 CSS를 작성하지 않는다. 완성 후 `sources/compare_snippet.py`로 화면 속 각 컴포넌트가 피그마 기준 0건인지 확인한다.
-
-## ⚠️ 정본 코드 조각(snippets) — 컴포넌트는 그대로 복사해 사용
-
-> **화면 생성 시 아래 정본 조각을 그대로 복사해 쓴다. 컴포넌트를 새로 그리거나 값을 임의로 바꾸지 않는다.**
-> 각 조각은 Figma 정본에서 추출한 크기·padding·radius·색·레이아웃·타이포를 `tokens.css` 변수만으로 고정한 것이며, `sources/compare_snippet.py`로 Figma와 **불일치 0건** 검증을 통과했다. 문서 해석으로 값을 재구성하지 말고, 조각의 `<style>` 블록(마커 `▼ 조각 CSS`)과 마크업(`▼ 조각 마크업`)을 그대로 가져다 조립한다.
-
-- 위치: `design-system/snippets/<컴포넌트>.html` (18종)
-- 검증: `python sources/compare_snippet.py "<컴포넌트명>" <스니펫 경로>` → 불일치 0건이어야 한다. 조각을 수정하면 재실행해 0건을 확인한다.
-- 필요한 조각이 없거나 값이 애매하면 **임의 생성 금지** → 관리자에게 알린다.
-
-| 컴포넌트 | 조각 파일 |
-|---|---|
-| Toast Popup | `snippets/toast-popup.html` |
-| Dashboard Card | `snippets/dashboard-card.html` |
-| Table (Table Cell) | `snippets/table.html` |
-| Sidebar | `snippets/sidebar.html` |
-| Header | `snippets/header.html` |
-| Pagination | `snippets/pagination.html` |
-| Tag | `snippets/tag.html` |
-| Breadcrumb | `snippets/breadcrumb.html` |
-| Button | `snippets/button.html` |
-| Input | `snippets/input.html` |
-| Input Case | `snippets/input-case.html` |
-| Checkbox | `snippets/checkbox.html` |
-| Radio | `snippets/radio.html` |
-| Dropdown List | `snippets/dropdown-list.html` |
-| Tab | `snippets/tab.html` |
-| Search Filter | `snippets/search-filter.html` |
-| Carousel | `snippets/carousel.html` |
-| Attention (로고) | `snippets/attention.html` |
-
-> **Signature 로고 조각은 보류** — 벡터 소스(`assets/signature-*.svg`)가 없어 미생성. 필요 시 Figma에서 SVG를 export해 추가한다.
+> ## ⚠️ 최우선 — HTML 을 새로 작성하지 않는다 (2026-08-21 v6)
+> 화면·컴포넌트를 만들 때 **마크업을 스스로 작성하지 않는다.** `dist/sidiz/COMPONENTS.html`(마크업 정본)을 **그대로 복사해 조립**하고 **텍스트만** 교체한다. 구조·클래스명·중첩·아이콘 위치를 바꾸지 않는다.
+> - 스타일은 `dist/sidiz/sidiz-components.css` + `tokens.css`의 클래스만 쓴다. `font-size`·`padding`·`height`·`stroke-width`·hex를 직접 지정하지 않는다(`width`만 예외).
+> - `sidiz-components.css`의 **폰트 스무딩(`html,body`)과 `svg{stroke-width:1.2}` 두 블록은 절대 지우지 않는다.**
+> - 값 규칙(타이포·색·상태 5범주·**No.열 없음**·조회 **Secondary Round** 등)의 정본은 `dist/sidiz/CLAUDE.md`다.
+> - 우선순위: **COMPONENTS.html → sidiz-components.css → tokens.css → component-spec.md → layouts.md**. 없는 구조가 필요하면 임의 생성 금지, 관리자에게 보고.
+> - **옛 `design-system/snippets/`(18 조각)와 "tokens.css 인라인" 방식은 폐기**되어 `snippets/_deprecated/`로 이동했다. 더 이상 쓰지 않는다.
 
 > **옛 전역 플러그인/스킬은 폐기됐다.** `~/.claude/skills/sidiz-design-system` 및 그 규격(Centra 폰트, 좌측 아이콘 레일, gray-100 캔버스, admin-dashboard 스캐폴드 등)은 **더 이상 사용하지 않는다.** 옛 규격으로 화면을 만들지 않는다.
 
@@ -71,7 +40,7 @@
 - **색:** 브랜드 포인트 `Blue-700(#003EFF)`은 강조/선택/링크에만 절제 사용. 에러 `Red-600`. 나머지는 Grey 10단계. 팔레트 밖 색(보라/그라데이션 등) 금지. **Blue를 버튼 채움 배경으로 쓰지 않는다.**
 - **버튼:** 결정 버튼은 화면당 1개, Primary=`Grey-900`. 파란 채움 버튼을 기본으로 쓰지 않는다.
 - **구분:** border 우선(hairline `Grey-200`). 그림자는 떠 있는 표면(드롭다운/토스트/팝오버/카드 부양)에만.
-- **배경:** 앱·페이지 배경은 **흰색(`Grey-50`)**. **회색 채움 캔버스(`Grey-100` 등) 금지** — `Grey-100`은 테이블 헤더 등 지정 표면에만.
+- **배경:** 본문(Contents) 배경은 **`Grey-100`**, 카드·표 등 콘텐츠 표면만 **흰색(`Grey-50`) + `Grey-200` 보더.** (v6 화면 레이아웃 규칙)
 - **radius:** 버튼/인풋 4~6px, 태그·칩·원형은 pill. 임의값 금지.
 - **최소 크기:** `Caption4·5`(8·10px)는 뱃지/태그/아이콘 라벨 전용, 본문 금지.
 - **컴포넌트 로컬 색**(Tag Green/Yellow, Toast Alert 노랑)은 `Design.md`에 문서화된 해당 컴포넌트 안에서만.

@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDIZ 컴포넌트 정본 마크업 v2 — 피그마 실측 1:1</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root{
+  --sidiz-color-blue-700:#003EFF; --sidiz-color-blue-500:#357FFF; --sidiz-color-blue-100:#E3EDFF;
+  --sidiz-color-red-600:#FF3A4A;  --sidiz-color-red-100:#FFECEE;
+  --sidiz-color-grey-900:#000000; --sidiz-color-grey-800:#242526; --sidiz-color-grey-700:#434548;
+  --sidiz-color-grey-600:#595C5E; --sidiz-color-grey-500:#7C8084; --sidiz-color-grey-400:#A4AAB0;
+  --sidiz-color-grey-300:#D6DADE; --sidiz-color-grey-200:#EAEDF0; --sidiz-color-grey-100:#F5F6F7;
+  --sidiz-color-grey-50:#FFFFFF;
+}
+*{ box-sizing:border-box; }
+
+</style>
+<!-- ▼▼▼ 아래 style 블록은 sidiz-components.css 와 완전히 동일하다 (같은 원본에서 생성) ▼▼▼ -->
+<style>
+/* ============================================================
+   SIDIZ 컴포넌트 CSS 정본  v2  (2026-08-21)
+   출처: 시디즈_디자인 시스템.fig 바이너리 실측 + 인스턴스 오버라이드 해석
+   이 파일의 값은 피그마와 1:1. 임의 수정 금지.
+   tokens.css 뒤에 로드한다.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   0. 전역 — 폰트 렌더링
+   ⚠️ 이 블록이 없으면 macOS 브라우저가 서브픽셀 안티에일리어싱으로
+      글자를 굵게 그린다. 피그마보다 굵어 보이는 원인이 이것이다.
+      절대 지우지 말 것.
+   ------------------------------------------------------------ */
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-900);
+}
+* { -webkit-font-smoothing: inherit; -moz-osx-font-smoothing: inherit; }
+
+/* ------------------------------------------------------------
+   1. 아이콘 — 컴포넌트 내 모든 아이콘 stroke 1.2 (예외 없음)
+      Lucide 기본값 2 를 덮어쓴다. 이 블록을 지우면 아이콘이 굵어진다.
+      피그마 원본에는 1.0~2.4 로 흩어진 값이 있으나 스케일 잔재이며
+      정본 규칙은 1.2 단일이다. 다른 규칙에서 stroke-width 를 지정하지 않는다.
+   ------------------------------------------------------------ */
+svg { stroke-width: 1.2; }
+svg[class*="lucide"], .sidiz-icon, [data-lucide] {
+  width: 16px; height: 16px;
+  flex: 0 0 auto;
+}
+
+/* ------------------------------------------------------------
+   2. Input — H36 · r4 · pad 0/12 · Body2(13/400) · 보더 Grey-200
+      Dropdown 과 Search 는 SPACE_BETWEEN → 아이콘이 우측 끝 고정
+   ------------------------------------------------------------ */
+.sidiz-input {
+  display: flex; align-items: center;
+  height: 36px; padding: 0 12px;
+  border: 1px solid var(--sidiz-color-grey-200);
+  border-radius: 4px;
+  background: var(--sidiz-color-grey-50);
+  font-size: 13px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-900);
+  box-sizing: border-box;
+}
+.sidiz-input > input, .sidiz-input > select {
+  flex: 1; min-width: 0;
+  border: 0; outline: 0; background: transparent;
+  font: inherit; color: inherit;
+  letter-spacing: inherit; line-height: inherit;
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+}
+.sidiz-input > input::placeholder { color: var(--sidiz-color-grey-400); }
+.sidiz-input > svg { color: var(--sidiz-color-grey-400); }
+.sidiz-input--dropdown, .sidiz-input--search { justify-content: space-between; gap: 0; }
+.sidiz-input--date { gap: 12px; }
+.sidiz-input--date .sidiz-input__range { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: flex-start; gap: 8px; white-space: nowrap; }
+.sidiz-input--date .sidiz-input__range > span { color: var(--sidiz-color-grey-400); }
+.sidiz-input--stepper { height: 34px; padding: 0 0 0 12px; }
+.sidiz-input--stepper svg { width: 12px; height: 12px; }
+.sidiz-input.is-filled, .sidiz-input.is-hover { border-color: var(--sidiz-color-grey-900); }
+.sidiz-input.is-disabled {
+  background: var(--sidiz-color-grey-200);
+  border-color: var(--sidiz-color-grey-300);
+  color: var(--sidiz-color-grey-400);
+}
+
+/* ------------------------------------------------------------
+   3. Input Case — 세로 gap6 · 라벨 Caption1(11/600) Grey-500 · 필수 Red-600
+      기간 필드 = 프리셋 136 + gap4 + 날짜범위 208 = 348
+   ------------------------------------------------------------ */
+.sidiz-field { display: flex; flex-direction: column; gap: 6px; }
+.sidiz-field__label {
+  display: flex; align-items: center;
+  font-size: 12px; font-weight: 600;      /* Input Case 단독 = Body3 12/600 */
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-500);
+}
+/* 필터 카드 안의 라벨은 Caption1 11/600 (피그마 Search Filter 실측 44건) */
+.sidiz-filter .sidiz-field__label { font-size: 11px; }
+.sidiz-field__req { color: var(--sidiz-color-red-600); }
+.sidiz-field__help {
+  font-size: 12px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400);
+}
+.sidiz-field__error { color: var(--sidiz-color-red-600); }
+.sidiz-field--period > .sidiz-field__body { display: flex; align-items: center; gap: 4px; }
+.sidiz-field--period { min-width: 356px; }   /* 프리셋136 + gap4 + 날짜216 */
+.sidiz-field--period .sidiz-input--dropdown { width: 136px; flex: 0 0 auto; }
+.sidiz-field--period .sidiz-input--date { flex: 0 0 auto; width: 216px; }
+
+/* ------------------------------------------------------------
+   4. Button
+      Square/Round : H32 · pad 0/12 · gap8 · Body1(13/600) · 아이콘16
+      Flat         : H24 · pad 0/10 · gap6 · Body3(12/600) · 아이콘12
+      Text         : H32 · pad 0/12 · gap6 · Body3(12/600) · 투명
+   ------------------------------------------------------------ */
+.sidiz-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 32px; padding: 0 12px; gap: 8px;
+  border: 1px solid transparent; border-radius: 4px;
+  font-size: 13px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  cursor: pointer; white-space: nowrap; box-sizing: border-box;
+}
+.sidiz-btn > svg { width: 16px; height: 16px; }
+.sidiz-btn--primary   { background: var(--sidiz-color-grey-900); color: var(--sidiz-color-grey-50); }
+.sidiz-btn--secondary { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-grey-900); border-color: var(--sidiz-color-grey-200); }
+.sidiz-btn--disabled  { background: var(--sidiz-color-grey-200); color: var(--sidiz-color-grey-400); cursor: not-allowed; }
+.sidiz-btn--error     { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-red-600); border-color: var(--sidiz-color-red-600); }
+.sidiz-btn--round { border-radius: 9999px; }
+.sidiz-btn--flat { height: 24px; padding: 0 10px; gap: 6px; border-radius: 9999px; font-size: 12px; }
+.sidiz-btn--flat > svg { width: 12px; height: 12px; }
+.sidiz-btn--text {
+  height: 32px; padding: 0 12px; gap: 6px; border-radius: 9999px;
+  background: transparent; border-color: transparent; font-size: 12px;
+}
+.sidiz-btn--text > svg { width: 12px; height: 12px; }
+
+/* ------------------------------------------------------------
+   5. Tag — min28 x H16 · pad 0/4 · r2 · Caption1(11/600)
+      5범주는 색 분류 기준. 라벨은 업무 용어를 그대로 쓴다.
+   ------------------------------------------------------------ */
+.sidiz-tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 16px; padding: 0 4px;
+  border: 1px solid transparent; border-radius: 2px;
+  font-size: 11px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  white-space: nowrap; box-sizing: border-box;
+}
+.sidiz-tag--black-light  { background: var(--sidiz-color-grey-50);  color: var(--sidiz-color-grey-900); border-color: var(--sidiz-color-grey-200); }
+.sidiz-tag--gray-light   { background: var(--sidiz-color-grey-100); color: var(--sidiz-color-grey-400); }
+.sidiz-tag--blue-light   { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-500); }
+.sidiz-tag--red-light    { background: var(--sidiz-color-red-100);  color: var(--sidiz-color-red-600); }
+.sidiz-tag--green-light  { background: #E7F6E7; color: #38BA77; }
+.sidiz-tag--yellow-light { background: #FCF7DF; color: #E8C32E; }
+.sidiz-tag--black-dark   { background: var(--sidiz-color-grey-900); color: var(--sidiz-color-grey-50); }
+.sidiz-tag--gray-dark    { background: var(--sidiz-color-grey-400); color: var(--sidiz-color-grey-50); }
+.sidiz-tag--blue-dark    { background: var(--sidiz-color-blue-500); color: var(--sidiz-color-grey-50); }
+.sidiz-tag--red-dark     { background: var(--sidiz-color-red-600);  color: var(--sidiz-color-grey-50); }
+.sidiz-tag--green-dark   { background: #38BA77; color: var(--sidiz-color-grey-50); }
+.sidiz-tag--yellow-dark  { background: #E8C32E; color: var(--sidiz-color-grey-50); }
+
+/* ------------------------------------------------------------
+   6. Dashboard Card — 314x65 · pad 16/20 · r4 · 가로 gap0 · 카드 간 gap8
+      수치와 단위 색 = 그 카드 태그의 전경색
+   ------------------------------------------------------------ */
+.sidiz-cards { display: flex; gap: 8px; }
+.sidiz-card {
+  display: flex; align-items: center;
+  width: 314px; height: 65px; padding: 16px 20px; gap: 0;
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: 4px;
+  background: var(--sidiz-color-grey-50);
+  box-sizing: border-box; flex: 0 0 auto;
+}
+.sidiz-card__value { flex: 1; display: flex; align-items: flex-end; justify-content: flex-end; gap: 4px; }
+.sidiz-card__num {
+  font-size: 22px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-900);
+}
+.sidiz-card__unit {
+  padding-bottom: 5px;
+  font-size: 11px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-900);
+}
+.sidiz-card--wait     .sidiz-card__num, .sidiz-card--wait     .sidiz-card__unit { color: var(--sidiz-color-grey-900); }
+.sidiz-card--hold     .sidiz-card__num, .sidiz-card--hold     .sidiz-card__unit { color: #E8C32E; }
+.sidiz-card--progress .sidiz-card__num, .sidiz-card--progress .sidiz-card__unit { color: #38BA77; }
+.sidiz-card--done     .sidiz-card__num, .sidiz-card--done     .sidiz-card__unit { color: var(--sidiz-color-blue-500); }
+.sidiz-card--fail     .sidiz-card__num, .sidiz-card--fail     .sidiz-card__unit { color: var(--sidiz-color-red-600); }
+
+/* ------------------------------------------------------------
+   7. Table — Header H32 Grey-100 Caption1 Grey-400 / Cell H38 Body2 Grey-900
+      No. 열을 두지 않는다. 첫 열은 체크박스 열(W48).
+      테이블 전체를 Grey-200 외곽선 + r4 로 감싼다. 마지막 행의 하단 보더는 제거.
+   ------------------------------------------------------------ */
+.sidiz-table-wrap {
+  border: 1px solid var(--sidiz-color-grey-200);
+  border-radius: 4px;
+  overflow: hidden;                      /* r4 모서리에 헤더 배경이 물리지 않게 */
+  background: var(--sidiz-color-grey-50);
+}
+.sidiz-table { width: 100%; border-collapse: collapse; }
+.sidiz-table tbody tr:last-child td { border-bottom: 0; }
+.sidiz-table th {
+  height: 32px; padding: 0 16px; text-align: left;
+  background: var(--sidiz-color-grey-100);
+  border-bottom: 1px solid var(--sidiz-color-grey-200);
+  font-size: 11px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400);
+  white-space: nowrap;
+}
+.sidiz-table td {
+  height: 38px; padding: 0 16px;
+  background: var(--sidiz-color-grey-50);
+  border-bottom: 1px solid var(--sidiz-color-grey-200);
+  font-size: 13px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-900);
+}
+.sidiz-table th.sidiz-col-check, .sidiz-table td.sidiz-col-check { width: 48px; }
+.sidiz-table .sidiz-link { color: var(--sidiz-color-grey-900); text-decoration: underline; cursor: pointer; }
+.sidiz-table tfoot td { background: var(--sidiz-color-grey-100); font-weight: 600; }
+
+/* ------------------------------------------------------------
+   8. Pagination — 가로 gap12 · 숫자 그룹 gap20
+      현재 Body1(13/600) Grey-900 · 나머지 Body2(13/400) Grey-400
+      테이블 가로 폭 기준 중앙 정렬
+   ------------------------------------------------------------ */
+.sidiz-pagination-wrap { display: flex; justify-content: center; width: 100%; }
+.sidiz-pagination {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400);
+}
+.sidiz-pagination > svg { width: 16px; height: 16px; color: var(--sidiz-color-grey-900); }
+.sidiz-pagination__nums { display: flex; align-items: center; gap: 20px; }
+.sidiz-pagination__nums > span { font-weight: 400; color: var(--sidiz-color-grey-400); }
+.sidiz-pagination__nums > span.is-current { font-weight: 600; color: var(--sidiz-color-grey-900); }
+
+/* ------------------------------------------------------------
+   9. Search Filter — W1280 · r4 · 상하 pad16 · 좌우 pad16
+      피그마 구조: 한 행(가로 gap16, 하단 정렬) 안에
+        [필드 컨테이너 = 가변폭, 세로 gap16, 각 행은 가로 gap16 + 줄바꿈 허용]
+        [버튼 그룹 = 고정폭 162, 가로 gap4]
+      액션: 상세 조회 = Text(투명), 조회 = Secondary Round(흰 배경 + Grey-200 보더)
+      필드가 한 줄에 다 안 들어가면 자동으로 다음 줄로 넘어간다.
+   ------------------------------------------------------------ */
+.sidiz-filter {
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 16px 0;
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: 4px;
+  background: var(--sidiz-color-grey-50);
+}
+.sidiz-filter__main {
+  display: flex; align-items: flex-end; gap: 16px;
+  padding: 0 16px;
+}
+.sidiz-filter__fields {
+  flex: 1 1 auto; min-width: 0;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.sidiz-filter__row {
+  display: flex; align-items: flex-start; gap: 16px;
+  flex-wrap: wrap;                       /* 여백 부족하면 다음 줄로 */
+}
+/* 필터 안의 필드는 가변 분배(피그마 fill). 기간만 고정폭 */
+.sidiz-filter .sidiz-field { flex: 1 1 0; min-width: 0; }
+.sidiz-filter .sidiz-field--period { flex: 0 0 auto; min-width: 0; }
+.sidiz-filter__actions {
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: flex-end; gap: 4px;
+}
+.sidiz-filter__toggle {
+  position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: 9999px;
+  background: var(--sidiz-color-grey-50); cursor: pointer;
+}
+.sidiz-filter__toggle > svg { width: 16px; height: 16px; color: var(--sidiz-color-grey-900); }
+
+/* ------------------------------------------------------------
+   10. Header — 1344x50 · pad 0/24 · SPACE_BETWEEN · 하단 보더 Grey-200
+   ------------------------------------------------------------ */
+.sidiz-header {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 50px; padding: 0 24px;
+  background: var(--sidiz-color-grey-50);
+  border-bottom: 1px solid var(--sidiz-color-grey-200);
+  box-sizing: border-box;
+}
+.sidiz-header__toggle { width: 20px; height: 20px; color: var(--sidiz-color-grey-900); }
+.sidiz-header__right { display: flex; align-items: center; gap: 24px; }
+.sidiz-bell { position: relative; width: 20px; height: 20px; }
+.sidiz-bell > svg { width: 20px; height: 20px; color: var(--sidiz-color-grey-900); }
+.sidiz-bell__badge {
+  position: absolute; left: 8px; top: -6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 16px; height: 15px; padding: 0 4px; border-radius: 9999px;
+  background: var(--sidiz-color-red-600); color: var(--sidiz-color-grey-50);
+  font-size: 8px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+}
+.sidiz-profile {
+  display: flex; align-items: center; gap: 4px;
+  height: 32px; padding: 6px 12px 6px 16px;
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: 9999px;
+  background: var(--sidiz-color-grey-50); box-sizing: border-box;
+}
+.sidiz-profile__name { display: flex; align-items: center; gap: 2px; }
+.sidiz-profile__name b { font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
+.sidiz-profile__name span { font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-400); }
+.sidiz-profile__role {
+  display: inline-flex; align-items: center; height: 17px; padding: 0 4px;
+  background: var(--sidiz-color-grey-100);
+  font-size: 11px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400);
+}
+.sidiz-profile > svg { width: 16px; height: 16px; color: var(--sidiz-color-grey-400); }
+
+/* ------------------------------------------------------------
+   11. Sidebar — W256 · 좌우 pad12 · 블록 간 gap24
+       브랜드: 로고 18x25.3 + 시스템명 Title5(14/600), gap16, 상단 pad24
+       검색: H38 r6 · 아이콘16 stroke1.2 Grey-400 · 텍스트 Body1(13/600) Grey-400
+       메뉴 항목: H34 · pad 0/12 · r6 · gap12 · Body1(13/600) Grey-900
+       하위 항목: H34 · pad 0/20 · 좌측 들여쓰기 20 · Body1 Grey-400 · 좌측 보더 Grey-200
+   ------------------------------------------------------------ */
+.sidiz-sidebar {
+  display: flex; flex-direction: column; gap: 24px;
+  width: 256px; padding: 0 12px;
+  background: var(--sidiz-color-grey-50);
+  border-right: 1px solid var(--sidiz-color-grey-200);
+  box-sizing: border-box;
+}
+.sidiz-sidebar__head { display: flex; flex-direction: column; gap: 20px; padding-top: 24px; }
+.sidiz-sidebar__brand { display: flex; align-items: center; gap: 16px; }
+.sidiz-sidebar__brand svg { width: 18px; height: 25.3px; }
+.sidiz-sidebar__brand b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
+.sidiz-sidebar__search {
+  display: flex; align-items: center; gap: 12px;
+  height: 38px; padding: 0 12px;
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: 6px;
+  background: var(--sidiz-color-grey-50);
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400); box-sizing: border-box;
+}
+.sidiz-sidebar__search > svg { color: var(--sidiz-color-grey-400); }
+.sidiz-sidebar__search > input {
+  flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+  font: inherit; color: inherit; letter-spacing: inherit;
+}
+.sidiz-sidebar__search > input::placeholder { color: var(--sidiz-color-grey-400); }
+.sidiz-sidebar__body { display: flex; flex-direction: column; gap: 16px; }
+.sidiz-sidebar__list { display: flex; flex-direction: column; gap: 2px; padding: 2px 0; }
+.sidiz-sidebar__item {
+  display: flex; align-items: center; gap: 12px;
+  height: 34px; padding: 0 12px; border-radius: 6px;
+  background: var(--sidiz-color-grey-50);
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-900); cursor: pointer; box-sizing: border-box;
+}
+.sidiz-sidebar__item > svg { color: var(--sidiz-color-grey-900); }
+.sidiz-sidebar__item.is-active { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-700); }
+.sidiz-sidebar__item.is-active > svg { color: var(--sidiz-color-blue-700); }
+.sidiz-sidebar__subwrap { display: flex; padding: 0 20px; }
+.sidiz-sidebar__sublist {
+  display: flex; flex-direction: column; gap: 2px; padding: 2px 0;
+  border-left: 1px solid var(--sidiz-color-grey-200); flex: 1;
+}
+.sidiz-sidebar__sub {
+  display: flex; align-items: center; gap: 12px;
+  height: 34px; padding: 0 20px; border-radius: 6px;
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400); cursor: pointer; box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------
+   12. Tab
+       Line: H40 · 하단 보더 Grey-200 · 항목 pad 0/8 gap8 · Title5(14/600)
+             선택 = 하단 Blue-700 2px + 흰 배경 + shadow-sm, 글자 Grey-900
+             미선택 = 글자 Grey-300
+       Box : 컨테이너 H40 r6 pad4 Grey-100 · 선택 r4 흰 배경 shadow-sm · 미선택 r2
+   ------------------------------------------------------------ */
+.sidiz-tab--line { display: flex; align-items: flex-start; border-bottom: 1px solid var(--sidiz-color-grey-200); }
+.sidiz-tab--line .sidiz-tab__item {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  height: 40px; padding: 0 8px;
+  font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-300); cursor: pointer; box-sizing: border-box;
+}
+.sidiz-tab--line .sidiz-tab__item .sidiz-tab__cnt { color: var(--sidiz-color-grey-400); }
+.sidiz-tab--line .sidiz-tab__item.is-active {
+  background: var(--sidiz-color-grey-50);
+  border-bottom: 2px solid var(--sidiz-color-blue-700);
+  color: var(--sidiz-color-grey-900);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+.sidiz-tab--box {
+  display: inline-flex; align-items: center; gap: 0;
+  height: 40px; padding: 4px; border-radius: 6px;
+  background: var(--sidiz-color-grey-100); box-sizing: border-box;
+}
+.sidiz-tab--box .sidiz-tab__item {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  height: 32px; padding: 6px 12px; border-radius: 2px;
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400); cursor: pointer; box-sizing: border-box;
+}
+.sidiz-tab--box .sidiz-tab__item.is-active {
+  border-radius: 4px; background: var(--sidiz-color-grey-50);
+  color: var(--sidiz-color-grey-900); box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+
+/* ------------------------------------------------------------
+   13. Dropdown List
+       Single/Multiple: W220 · r4 · 보더 Grey-200 · 검색행 H36 pad 0/12 하단 보더
+                        목록 pad4 · 항목 H36 pad 0/8 · Body2(13/400) Grey-900
+                        hover 항목 배경 Grey-100
+       Profile        : W195 · r4 · Drop Shadow · 3블록(프로필/설정/로그아웃) 각 pad20
+   ------------------------------------------------------------ */
+.sidiz-dropdown {
+  display: flex; flex-direction: column; gap: 0;
+  width: 220px; border: 1px solid var(--sidiz-color-grey-200); border-radius: 4px;
+  background: var(--sidiz-color-grey-50); box-sizing: border-box;
+}
+.sidiz-dropdown__search {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 36px; padding: 0 12px;
+  border-bottom: 1px solid var(--sidiz-color-grey-200);
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400); box-sizing: border-box;
+}
+.sidiz-dropdown__search > svg { color: var(--sidiz-color-grey-400); }
+.sidiz-dropdown__list { display: flex; flex-direction: column; padding: 4px; }
+.sidiz-dropdown__item {
+  display: flex; align-items: center; gap: 8px;
+  height: 36px; padding: 0 8px;
+  background: var(--sidiz-color-grey-50);
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-900); cursor: pointer; box-sizing: border-box;
+}
+.sidiz-dropdown__item.is-hover { background: var(--sidiz-color-grey-100); }
+.sidiz-dropdown--profile {
+  width: 195px;
+  box-shadow: 0 4px 6px -2px rgba(0,0,0,.05), 0 10px 15px -3px rgba(0,0,0,.10);
+}
+.sidiz-dropdown__profile {
+  display: flex; flex-direction: column; gap: 2px; padding: 20px;
+  border-bottom: 1px solid var(--sidiz-color-grey-200);
+}
+.sidiz-dropdown__prow { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.sidiz-dropdown__pname { display: flex; align-items: center; gap: 8px; }
+.sidiz-dropdown__pname b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
+.sidiz-dropdown__pbadge {
+  display: inline-flex; align-items: center; height: 17px; padding: 0 8px;
+  background: var(--sidiz-color-grey-100);
+  font-size: 11px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400);
+}
+.sidiz-dropdown__pmail { font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-400); }
+.sidiz-dropdown__settings { display: flex; flex-direction: column; gap: 20px; padding: 20px; }
+.sidiz-dropdown__slabel { font-size: 12px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-400); }
+.sidiz-dropdown__logout {
+  display: flex; align-items: center; gap: 8px; padding: 20px;
+  border-top: 1px solid var(--sidiz-color-grey-200);
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400); cursor: pointer;
+}
+.sidiz-dropdown__logout > svg { color: var(--sidiz-color-grey-400); }
+
+/* ------------------------------------------------------------
+   14. Carousel
+       Indicator: 점 6x6 · gap12 · 현재 Grey-50 100% · 나머지 Grey-50 30%
+       Navigator: 30x30 원 r9999 · 배경 Grey-50 70% · gap20 · 아이콘16
+       (어두운 배경 위에 올리는 컴포넌트)
+   ------------------------------------------------------------ */
+.sidiz-carousel-indicator { display: inline-flex; align-items: center; gap: 12px; }
+.sidiz-carousel-indicator > i {
+  width: 6px; height: 6px; border-radius: 9999px;
+  background: var(--sidiz-color-grey-50); opacity: .3;
+}
+.sidiz-carousel-indicator > i.is-current { opacity: 1; }
+.sidiz-carousel-nav { display: inline-flex; align-items: center; gap: 20px; }
+.sidiz-carousel-nav > button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; padding: 0;
+  border: 0; border-radius: 9999px;
+  background: rgba(255,255,255,.7); cursor: pointer;
+}
+.sidiz-carousel-nav > button > svg { width: 16px; height: 16px; color: var(--sidiz-color-grey-900); }
+
+/* ------------------------------------------------------------
+   15. Breadcrumb — gap8 · Body2 Grey-400 · 현재 Body1 Grey-900 · chevron12 stroke2.0
+   ------------------------------------------------------------ */
+.sidiz-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400);
+}
+.sidiz-breadcrumb > svg { width: 12px; height: 12px; color: var(--sidiz-color-grey-400); }
+.sidiz-breadcrumb .is-current { font-weight: 600; color: var(--sidiz-color-grey-900); }
+
+/* ------------------------------------------------------------
+   16. Toast — 520x56 · pad 12/32 · r6 · Grey-900 · SPACE_BETWEEN · 본문 gap16
+       상태 아이콘 = 24 원 안에 12px 글리프 stroke2.4
+       우측은 닫기 텍스트 버튼(Body2 13/400 Grey-400)
+   ------------------------------------------------------------ */
+.sidiz-toast {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 520px; height: 56px; padding: 12px 32px; border-radius: 6px;
+  background: var(--sidiz-color-grey-900);
+  box-shadow: 0 4px 6px -2px rgba(0,0,0,.05), 0 10px 15px -3px rgba(0,0,0,.10);
+  box-sizing: border-box;
+}
+.sidiz-toast__body {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-50);
+}
+.sidiz-toast__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 9999px; flex: 0 0 auto;
+}
+.sidiz-toast__icon > svg { width: 12px; height: 12px; color: var(--sidiz-color-grey-50); }
+/* Alert 는 원형 라인 없이 느낌표만 (피그마: 노란 원 + 흰 세로선) */
+.sidiz-toast__bang {
+  font-size: 12px; font-weight: 600; line-height: 1;
+  color: var(--sidiz-color-grey-50);
+}
+.sidiz-toast__icon--default { background: var(--sidiz-color-blue-500); }
+.sidiz-toast__icon--error   { background: var(--sidiz-color-red-600); }
+.sidiz-toast__icon--alert   { background: #F5CA1D; }
+.sidiz-toast__close {
+  height: 32px; padding: 0 12px; border: 0; border-radius: 9999px;
+  background: transparent;
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--sidiz-color-grey-400); cursor: pointer; white-space: nowrap;
+}
+
+/* ------------------------------------------------------------
+   17. Checkbox / Radio — 16 프레임 안 13 박스(r2) / 14 원
+   ------------------------------------------------------------ */
+.sidiz-check, .sidiz-radio {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; flex: 0 0 auto; cursor: pointer;
+}
+/* 5상태: Unchecked / Hover / Checked / Multiple Checked / Disabled
+   Unchecked  = 흰 배경 + Grey-300 보더
+   Hover      = 흰 배경 + Grey-900 보더
+   Checked    = Grey-900 배경 + 흰 체크
+   Multiple   = 흰 배경 + Grey-900 보더 + Grey-900 체크
+   Disabled   = Grey-300 배경 + 흰 마이너스, 클릭 불가 */
+.sidiz-check__box {
+  width: 13px; height: 13px; border-radius: 2px;
+  border: 1px solid var(--sidiz-color-grey-300);
+  background: var(--sidiz-color-grey-50);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box;
+}
+.sidiz-check__box > svg { width: 11px; height: 11px; display: none; }
+.sidiz-check:hover:not(.is-disabled):not(.is-checked):not(.is-multiple) .sidiz-check__box {
+  border-color: var(--sidiz-color-grey-900);
+}
+.sidiz-check.is-checked .sidiz-check__box {
+  background: var(--sidiz-color-grey-900); border-color: var(--sidiz-color-grey-900);
+  color: var(--sidiz-color-grey-50);
+}
+.sidiz-check.is-checked .sidiz-check__box > svg.sidiz-check-icon { display: block; }
+.sidiz-check.is-multiple .sidiz-check__box {
+  background: var(--sidiz-color-grey-50); border-color: var(--sidiz-color-grey-900);
+  color: var(--sidiz-color-grey-900);
+}
+.sidiz-check.is-multiple .sidiz-check__box > svg.sidiz-check-icon { display: block; }
+.sidiz-check.is-disabled { cursor: not-allowed; }
+.sidiz-check.is-disabled .sidiz-check__box {
+  background: var(--sidiz-color-grey-300); border-color: var(--sidiz-color-grey-300);
+  color: var(--sidiz-color-grey-50);
+}
+.sidiz-check.is-disabled .sidiz-check__box > svg.sidiz-minus-icon { display: block; }
+.sidiz-radio__dot {
+  width: 14px; height: 14px; border-radius: 9999px;
+  border: 1px solid var(--sidiz-color-grey-300);
+  background: var(--sidiz-color-grey-50);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box;
+}
+.sidiz-radio.is-active .sidiz-radio__dot { border-color: var(--sidiz-color-grey-900); }
+.sidiz-radio.is-active .sidiz-radio__dot::after {
+  content: ""; width: 9px; height: 9px; border-radius: 9999px;
+  background: var(--sidiz-color-grey-900);
+}
+
+/* ------------------------------------------------------------
+   18. 화면 레이아웃 — 전체 1600 · Sidebar 256 · 본문영역 1344 · 콘텐츠 1280
+       본문 배경 Grey-100 · 콘텐츠는 중앙 정렬, 좌우 여백 동일
+       1344 - 좌우 padding 32 = 1280 (정확히 일치)
+       화면이 더 넓어지면 콘텐츠는 1280 을 유지하고 좌우 여백만 균등 증가
+   ------------------------------------------------------------ */
+.sidiz-app { display: flex; min-height: 100vh; background: var(--sidiz-color-grey-100); }
+.sidiz-app > .sidiz-sidebar { flex: 0 0 256px; }
+.sidiz-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.sidiz-contents {
+  flex: 1 1 auto;
+  padding: 24px 32px 100px;              /* 상24 좌우32 하100 */
+  background: var(--sidiz-color-grey-100);
+}
+.sidiz-container {
+  width: 100%; max-width: 1280px; margin: 0 auto;   /* 중앙 정렬, 좌우 여백 균등 */
+  display: flex; flex-direction: column; gap: 16px;
+}
+/* 콘텐츠 안의 카드 표면은 흰색 */
+.sidiz-panel {
+  background: var(--sidiz-color-grey-50);
+  border: 1px solid var(--sidiz-color-grey-200); border-radius: 4px;
+}
+
+/* ------------------------------------------------------------
+   19. 페이지 타이틀 블록 / 섹션 타이틀
+       타이틀 Title3(22/600) Grey-900 + 서브 Body4(12/400) Grey-400, baseline gap8
+       서술형 서브 문구는 마침표로 끝낸다.
+       섹션 타이틀 Body1 13/600 + 건수 Blue-700. 건수에 단위를 붙이지 않는다.
+   ------------------------------------------------------------ */
+.sidiz-page-title { display: flex; align-items: baseline; gap: 8px; }
+.sidiz-page-title h1 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
+.sidiz-page-title p  { margin: 0; font-size: 12px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-400); }
+.sidiz-section-title { display: flex; align-items: center; gap: 4px; }
+.sidiz-section-title h2 { margin: 0; font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
+.sidiz-section-title .sidiz-count { font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-blue-700); }
+
+</style>
+<!-- ▲▲▲ 여기까지 sidiz-components.css ▲▲▲ -->
+<style>
+
+body{ margin:0; padding:40px; background:var(--sidiz-color-grey-50); }
+h2.doc{ font-size:22px; font-weight:600; margin:48px 0 4px; }
+h2.doc:first-of-type{ margin-top:0; }
+p.doc{ font-size:12px; font-weight:400; color:var(--sidiz-color-grey-400); margin:0 0 16px; }
+.demo{ padding:24px; border:1px solid var(--sidiz-color-grey-200); border-radius:4px; margin-bottom:8px; }
+.demo.dark{ background:#2D2E37; }
+.row{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+
+</style>
+</head>
+<body>
+
+<h2 class="doc">0. 화면 레이아웃 규칙</h2>
+<p class="doc">전체 1600 · Sidebar 256 · 본문 영역 1344 · 콘텐츠 1280<br>
+본문 배경 Grey-100, 콘텐츠 카드 표면은 흰색 · 콘텐츠 padding 상24 좌우32 하100<br>
+1344 에서 좌우 32 를 빼면 정확히 1280 · 화면이 더 넓어지면 콘텐츠는 1280 을 유지하고 좌우 여백만 균등 증가</p>
+<div class="demo" style="padding:0;overflow-x:auto">
+  <div class="sidiz-app" style="width:1600px;max-width:100%;min-height:420px">
+    <nav class="sidiz-sidebar">
+      <div class="sidiz-sidebar__head">
+        <div class="sidiz-sidebar__brand"><svg viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="currentColor"/></svg><b>(시스템명)</b></div>
+        <div class="sidiz-sidebar__search"><i data-lucide="search"></i><input placeholder="검색"></div>
+      </div>
+      <div class="sidiz-sidebar__body">
+        <div class="sidiz-sidebar__list">
+          <div class="sidiz-sidebar__item is-active"><i data-lucide="layout-dashboard"></i>대시 보드</div>
+          <div class="sidiz-sidebar__item"><i data-lucide="clipboard-list"></i>주문 관리</div>
+        </div>
+      </div>
+    </nav>
+    <div class="sidiz-main">
+      <div class="sidiz-header">
+        <i data-lucide="panel-left" class="sidiz-header__toggle"></i>
+        <div class="sidiz-header__right">
+          <span class="sidiz-bell"><i data-lucide="bell"></i><span class="sidiz-bell__badge">N</span></span>
+          <span class="sidiz-profile">
+            <span class="sidiz-profile__name"><b>담당자</b><span>님</span></span>
+            <span class="sidiz-profile__role">관리자</span>
+            <i data-lucide="chevron-down"></i>
+          </span>
+        </div>
+      </div>
+      <div class="sidiz-contents">
+        <div class="sidiz-container">
+          <div class="sidiz-page-title">
+            <h1>주문 관리</h1>
+            <p>기간과 상태별 주문 현황을 조회하고 처리합니다.</p>
+          </div>
+          <div class="sidiz-panel" style="height:88px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--sidiz-color-grey-400)">필터 카드 (폭 1280)</div>
+          <div class="sidiz-panel" style="height:120px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--sidiz-color-grey-400)">본문 (폭 1280)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="doc">1. 페이지 타이틀 블록</h2>
+<p class="doc">타이틀 Title4 16/600 Grey-900 · 서브 Body4 12/400 Grey-400 · baseline gap8 · 서술형은 마침표로 끝낸다</p>
+<div class="demo">
+  <div class="sidiz-page-title">
+    <h1>주문 관리</h1>
+    <p>기간과 상태별 주문 현황을 조회하고 처리합니다.</p>
+  </div>
+</div>
+
+<h2 class="doc">2. 섹션 타이틀 + 건수</h2>
+<p class="doc">Body1 13/600 Grey-900 · 건수 13/600 Blue-700 · gap4 · 건수에 단위를 붙이지 않는다</p>
+<div class="demo">
+  <div class="sidiz-section-title">
+    <h2>주문 목록</h2>
+    <span class="sidiz-count">1,410</span>
+  </div>
+</div>
+
+<h2 class="doc">3. Search Filter</h2>
+<p class="doc">W1280 r4 · 상하 pad16 · 좌우 pad16 · 필드 gap16 · 라벨 Caption1 11/600 Grey-500<br>
+피그마 구조: 한 행 안에 [필드 컨테이너(가변, 줄바꿈 허용)] + [버튼 그룹(고정 162, 하단 정렬)]<br>
+필드 폭은 fill 분배 결과다. 기간만 고정(프리셋 136 + gap4 + 날짜 216)<br>
+조회 = Secondary Round(흰 배경 + Grey-200 보더) · 상세 조회 = Text(투명) · 두 버튼 gap4</p>
+
+<p class="doc" style="margin-top:24px;color:var(--sidiz-color-grey-900);font-weight:600">State = Default</p>
+<p class="doc">필드 5개와 버튼이 모두 같은 줄에 있다</p>
+<div class="demo" style="overflow-x:auto">
+  <section class="sidiz-filter" style="width:1280px;max-width:100%">
+    <div class="sidiz-filter__main">
+    <div class="sidiz-filter__fields">
+    <div class="sidiz-filter__row">
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">고객사<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+      </div>
+      <div class="sidiz-field sidiz-field--period">
+        <span class="sidiz-field__label">기간<span class="sidiz-field__req">*</span></span>
+        <div class="sidiz-field__body">
+          <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+          <span class="sidiz-input sidiz-input--date">
+            <i data-lucide="calendar"></i>
+            <span class="sidiz-input__range"><span>0000/00/00</span><span>-</span><span>0000/00/00</span></span>
+          </span>
+        </div>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">품의 제목<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">작성자<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">상태<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+      </div>
+    </div>
+    </div>
+    <div class="sidiz-filter__actions">
+      <button class="sidiz-btn sidiz-btn--text"><i data-lucide="plus"></i>상세 조회</button>
+      <button class="sidiz-btn sidiz-btn--secondary sidiz-btn--round"><i data-lucide="search"></i>조회</button>
+    </div>
+    </div>
+    <button class="sidiz-filter__toggle"><i data-lucide="chevron-up"></i></button>
+  </section>
+</div>
+
+<p class="doc" style="margin-top:32px;color:var(--sidiz-color-grey-900);font-weight:600">State = Extended</p>
+<p class="doc">필드가 3줄로 넘어가고 버튼은 마지막 줄 오른쪽에 하단 정렬로 붙는다. 상세 조회 아이콘은 Minus</p>
+<div class="demo" style="overflow-x:auto">
+  <section class="sidiz-filter" style="width:1280px;max-width:100%">
+    <div class="sidiz-filter__main">
+    <div class="sidiz-filter__fields">
+    <div class="sidiz-filter__row">
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">고객사<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+      </div>
+      <div class="sidiz-field sidiz-field--period">
+        <span class="sidiz-field__label">기간<span class="sidiz-field__req">*</span></span>
+        <div class="sidiz-field__body">
+          <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+          <span class="sidiz-input sidiz-input--date">
+            <i data-lucide="calendar"></i>
+            <span class="sidiz-input__range"><span>0000/00/00</span><span>-</span><span>0000/00/00</span></span>
+          </span>
+        </div>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">품의 제목<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">작성자<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">상태<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input sidiz-input--dropdown"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+      </div>
+    </div>
+    <div class="sidiz-filter__row">
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+    </div>
+    <div class="sidiz-filter__row">
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+      <div class="sidiz-field">
+        <span class="sidiz-field__label">분류명<span class="sidiz-field__req">*</span></span>
+        <span class="sidiz-input"><input placeholder="텍스트 입력"></span>
+      </div>
+    </div>
+    </div>
+    <div class="sidiz-filter__actions">
+      <button class="sidiz-btn sidiz-btn--text"><i data-lucide="minus"></i>상세 조회</button>
+      <button class="sidiz-btn sidiz-btn--secondary sidiz-btn--round"><i data-lucide="search"></i>조회</button>
+    </div>
+    </div>
+    <button class="sidiz-filter__toggle"><i data-lucide="chevron-down"></i></button>
+  </section>
+</div>
+
+<h2 class="doc">4. Dashboard Card (상태 5범주)</h2>
+<p class="doc">314x65 · pad 16/20 · r4 · 가로 gap0 · 카드 간 gap8 · 수치와 단위 색 = 태그 전경색<br>
+라벨은 업무 용어를 그대로 쓴다. 색만 5범주를 따른다</p>
+<div class="demo">
+  <div class="sidiz-cards" style="flex-wrap:wrap">
+    <div class="sidiz-card sidiz-card--wait">
+      <span class="sidiz-tag sidiz-tag--black-light">대기</span>
+      <span class="sidiz-card__value"><span class="sidiz-card__num">128</span><span class="sidiz-card__unit">건</span></span>
+    </div>
+    <div class="sidiz-card sidiz-card--hold">
+      <span class="sidiz-tag sidiz-tag--yellow-light">배송준비</span>
+      <span class="sidiz-card__value"><span class="sidiz-card__num">21</span><span class="sidiz-card__unit">건</span></span>
+    </div>
+    <div class="sidiz-card sidiz-card--progress">
+      <span class="sidiz-tag sidiz-tag--green-light">배송중</span>
+      <span class="sidiz-card__value"><span class="sidiz-card__num">342</span><span class="sidiz-card__unit">건</span></span>
+    </div>
+    <div class="sidiz-card sidiz-card--done">
+      <span class="sidiz-tag sidiz-tag--blue-light">결제완료</span>
+      <span class="sidiz-card__value"><span class="sidiz-card__num">905</span><span class="sidiz-card__unit">건</span></span>
+    </div>
+    <div class="sidiz-card sidiz-card--fail">
+      <span class="sidiz-tag sidiz-tag--red-dark">취소</span>
+      <span class="sidiz-card__value"><span class="sidiz-card__num">14</span><span class="sidiz-card__unit">건</span></span>
+    </div>
+  </div>
+</div>
+
+<h2 class="doc">5. Tag 12변형</h2>
+<p class="doc">min28 x H16 · pad 0/4 · r2 · Caption1 11/600</p>
+<div class="demo">
+  <div class="row" style="margin-bottom:12px">
+    <span class="sidiz-tag sidiz-tag--red-light">태그</span>
+    <span class="sidiz-tag sidiz-tag--yellow-light">태그</span>
+    <span class="sidiz-tag sidiz-tag--green-light">태그</span>
+    <span class="sidiz-tag sidiz-tag--blue-light">태그</span>
+    <span class="sidiz-tag sidiz-tag--gray-light">태그</span>
+    <span class="sidiz-tag sidiz-tag--black-light">태그</span>
+  </div>
+  <div class="row">
+    <span class="sidiz-tag sidiz-tag--red-dark">태그</span>
+    <span class="sidiz-tag sidiz-tag--yellow-dark">태그</span>
+    <span class="sidiz-tag sidiz-tag--green-dark">태그</span>
+    <span class="sidiz-tag sidiz-tag--blue-dark">태그</span>
+    <span class="sidiz-tag sidiz-tag--gray-dark">태그</span>
+    <span class="sidiz-tag sidiz-tag--black-dark">태그</span>
+  </div>
+</div>
+
+<h2 class="doc">6. Header</h2>
+<p class="doc">1344x50 · pad 0/24 · SPACE_BETWEEN · PanelLeft 20 · Bell 20 · 뱃지 (8,-6) · 프로필 r9999 pad 좌16 우12</p>
+<div class="demo" style="padding:0">
+  <div class="sidiz-header">
+    <i data-lucide="panel-left" class="sidiz-header__toggle"></i>
+    <div class="sidiz-header__right">
+      <span class="sidiz-bell"><i data-lucide="bell"></i><span class="sidiz-bell__badge">N</span></span>
+      <span class="sidiz-profile">
+        <span class="sidiz-profile__name"><b>담당자</b><span>님</span></span>
+        <span class="sidiz-profile__role">관리자</span>
+        <i data-lucide="chevron-down"></i>
+      </span>
+    </div>
+  </div>
+</div>
+
+<h2 class="doc">7. Table + Pagination</h2>
+<p class="doc">첫 열은 체크박스 열(W48). No. 열을 두지 않는다<br>
+Header H32 Grey-100 Caption1 11/600 Grey-400 · Cell H38 Body2 13/400 Grey-900 · 셀 좌우 pad16(피그마 실측)<br>테이블은 컨테이너 폭에 맞춰 늘어난다. 아래는 실제 콘텐츠 폭 1280 기준<br>
+미선택 페이지 숫자는 Body2 13/400 Grey-400</p>
+<div class="demo" style="overflow-x:auto">
+  <div style="width:1280px;max-width:100%">
+  <div class="sidiz-table-wrap">
+  <table class="sidiz-table">
+    <thead>
+      <tr>
+        <th class="sidiz-col-check"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span></th>
+        <th>주문번호</th><th>고객사</th><th>주문 상태</th><th>결제금액</th><th>주문일시</th><th>상세</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sidiz-col-check"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span></td>
+        <td>ORD-20260821-0113</td><td>바이더하임</td>
+        <td><span class="sidiz-tag sidiz-tag--gray-light">대기</span></td>
+        <td>1,290,000원</td><td>2026-08-21 15:02</td><td><span class="sidiz-link">보기</span></td>
+      </tr>
+      <tr>
+        <td class="sidiz-col-check"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span></td>
+        <td>ORD-20260821-0109</td><td>데스커</td>
+        <td><span class="sidiz-tag sidiz-tag--green-light">배송중</span></td>
+        <td>459,000원</td><td>2026-08-21 14:41</td><td><span class="sidiz-link">보기</span></td>
+      </tr>
+      <tr>
+        <td class="sidiz-col-check"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span></td>
+        <td>ORD-20260821-0102</td><td>바이더하임</td>
+        <td><span class="sidiz-tag sidiz-tag--blue-light">결제완료</span></td>
+        <td>1,540,000원</td><td>2026-08-21 14:08</td><td><span class="sidiz-link">보기</span></td>
+      </tr>
+      <tr>
+        <td class="sidiz-col-check"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span></td>
+        <td>ORD-20260821-0098</td><td>시디즈</td>
+        <td><span class="sidiz-tag sidiz-tag--yellow-light">배송준비</span></td>
+        <td>872,000원</td><td>2026-08-21 13:55</td><td><span class="sidiz-link">보기</span></td>
+      </tr>
+      <tr>
+        <td class="sidiz-col-check"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span></td>
+        <td>ORD-20260821-0091</td><td>데스커</td>
+        <td><span class="sidiz-tag sidiz-tag--red-light">취소</span></td>
+        <td>310,000원</td><td>2026-08-21 13:20</td><td><span class="sidiz-link">보기</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="sidiz-pagination-wrap" style="margin-top:16px">
+    <nav class="sidiz-pagination">
+      <i data-lucide="chevron-left"></i>
+      <span class="sidiz-pagination__nums">
+        <span class="is-current">1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+      </span>
+      <i data-lucide="chevron-right"></i>
+    </nav>
+  </div>
+  </div>
+</div>
+
+<h2 class="doc">8. Input 변형</h2>
+<p class="doc">H36 r4 pad 0/12 Body2 · Dropdown과 Search는 아이콘 우측 끝 고정 · Date는 캘린더 왼쪽 gap12</p>
+<div class="demo">
+  <div class="row">
+    <span class="sidiz-input" style="width:314px"><input placeholder="텍스트를 입력해 주세요."></span>
+    <span class="sidiz-input sidiz-input--dropdown" style="width:314px"><select><option>옵션 선택</option></select><i data-lucide="chevron-down"></i></span>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <span class="sidiz-input sidiz-input--search" style="width:314px"><input placeholder="검색"><i data-lucide="search"></i></span>
+    <span class="sidiz-input sidiz-input--date" style="width:218px"><i data-lucide="calendar"></i><span class="sidiz-input__range"><span>0000/00/00</span><span>-</span><span>0000/00/00</span></span></span>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <span class="sidiz-input is-filled" style="width:200px"><input value="입력 완료"></span>
+    <span class="sidiz-input is-disabled" style="width:200px"><input value="입력 불가" disabled></span>
+  </div>
+</div>
+
+<h2 class="doc">9. Button 변형</h2>
+<p class="doc">Square와 Round는 H32 Body1 아이콘16 · Flat은 H24 Body3 아이콘12 · Text는 투명 · 아이콘 stroke 전부 1.2</p>
+<div class="demo">
+  <div class="row">
+    <button class="sidiz-btn sidiz-btn--primary"><i data-lucide="search"></i>버튼명</button>
+    <button class="sidiz-btn sidiz-btn--secondary"><i data-lucide="search"></i>버튼명</button>
+    <button class="sidiz-btn sidiz-btn--disabled"><i data-lucide="search"></i>버튼명</button>
+    <button class="sidiz-btn sidiz-btn--error"><i data-lucide="search"></i>버튼명</button>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <button class="sidiz-btn sidiz-btn--primary sidiz-btn--round"><i data-lucide="search"></i>버튼명</button>
+    <button class="sidiz-btn sidiz-btn--secondary sidiz-btn--round"><i data-lucide="search"></i>버튼명</button>
+    <button class="sidiz-btn sidiz-btn--primary sidiz-btn--flat"><i data-lucide="plus"></i>버튼명</button>
+    <button class="sidiz-btn sidiz-btn--text"><i data-lucide="plus"></i>버튼명</button>
+  </div>
+</div>
+
+<h2 class="doc">10. Breadcrumb</h2>
+<p class="doc">gap8 · Body2 Grey-400 · 현재 Body1 Grey-900 · chevron 12</p>
+<div class="demo">
+  <nav class="sidiz-breadcrumb">
+    <span>홈</span><i data-lucide="chevron-right"></i>
+    <span>주문</span><i data-lucide="chevron-right"></i>
+    <span class="is-current">주문 관리</span>
+  </nav>
+</div>
+
+<h2 class="doc">11. Checkbox 5상태</h2>
+<p class="doc">16 프레임 안 13 박스 r2 · 체크와 마이너스 11px<br>
+Unchecked 흰 배경 + Grey-300 보더 · Hover 흰 배경 + Grey-900 보더 · Checked Grey-900 배경 + 흰 체크<br>
+Multiple Checked 흰 배경 + Grey-900 보더 + Grey-900 체크 · Disabled Grey-300 배경 + 흰 마이너스<br>
+클릭하면 토글된다. 테이블 헤더 체크박스는 전체 선택과 해제로 동작한다</p>
+<div class="demo">
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="sidiz-check is-checked"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span>
+      <span style="font-size:12px;color:var(--sidiz-color-grey-400)">Checked</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="sidiz-check "><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span>
+      <span style="font-size:12px;color:var(--sidiz-color-grey-400)">Unchecked (마우스 올리면 Hover)</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="sidiz-check is-multiple"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span>
+      <span style="font-size:12px;color:var(--sidiz-color-grey-400)">Multiple Checked</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span class="sidiz-check is-disabled"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span>
+      <span style="font-size:12px;color:var(--sidiz-color-grey-400)">Disabled</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="doc">12. Toast</h2>
+<p class="doc">520x56 · pad 12/32 · r6 · Grey-900 · SPACE_BETWEEN · 본문 gap16 Body1 13/600 흰색<br>
+상태 아이콘 24 원 · Default는 체크, Error는 X, Alert는 느낌표만(원형 라인 없음) · 닫기는 Body2 13/400 Grey-400</p>
+<div class="demo dark">
+  <div class="sidiz-toast" style="margin-bottom:12px">
+    <span class="sidiz-toast__body">
+      <span class="sidiz-toast__icon sidiz-toast__icon--default"><i data-lucide="check"></i></span>
+      선택하신 주문이 정상적으로 등록되었습니다.
+    </span>
+    <button class="sidiz-toast__close">닫기</button>
+  </div>
+  <div class="sidiz-toast" style="margin-bottom:12px">
+    <span class="sidiz-toast__body">
+      <span class="sidiz-toast__icon sidiz-toast__icon--error"><i data-lucide="x"></i></span>
+      등록에 실패했습니다. 잠시 후 다시 시도해 주세요.
+    </span>
+    <button class="sidiz-toast__close">닫기</button>
+  </div>
+  <div class="sidiz-toast">
+    <span class="sidiz-toast__body">
+      <span class="sidiz-toast__icon sidiz-toast__icon--alert"><span class="sidiz-toast__bang">!</span></span>
+      최초 로그인 시 비밀번호 재설정이 필요합니다.
+    </span>
+    <button class="sidiz-toast__close">닫기</button>
+  </div>
+</div>
+
+<h2 class="doc">13. Sidebar (신규 추가)</h2>
+<p class="doc">W256 · 좌우 pad12 · 블록 간 gap24 · 로고 18x25.3 + 시스템명 Title5, gap16, 상단 pad24<br>
+검색 H38 r6 텍스트 Body1 13/600 Grey-400 · 메뉴 항목 H34 pad 0/12 r6 gap12 Body1 Grey-900<br>
+활성 항목 배경 Blue-100 글자와 아이콘 Blue-700 · 하위 항목 Body1 Grey-400, 좌측 보더 Grey-200</p>
+<div class="demo" style="padding:0;display:flex">
+  <nav class="sidiz-sidebar" style="height:520px">
+    <div class="sidiz-sidebar__head">
+      <div class="sidiz-sidebar__brand"><svg viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="currentColor"/></svg><b>(시스템명)</b></div>
+      <div class="sidiz-sidebar__search"><i data-lucide="search"></i><input placeholder="검색"></div>
+    </div>
+    <div class="sidiz-sidebar__body">
+      <div class="sidiz-tab--box" style="width:100%">
+        <span class="sidiz-tab__item is-active" style="flex:1">전체 메뉴</span>
+        <span class="sidiz-tab__item" style="flex:1">즐겨찾기</span>
+      </div>
+      <div class="sidiz-sidebar__list">
+        <div class="sidiz-sidebar__item is-active"><i data-lucide="layout-dashboard"></i>대시 보드</div>
+        <div class="sidiz-sidebar__item"><i data-lucide="volume-2"></i>공지 사항</div>
+        <div class="sidiz-sidebar__item"><i data-lucide="settings"></i>시스템 관리</div>
+        <div class="sidiz-sidebar__item"><i data-lucide="folder-search"></i>기준 관리</div>
+        <div class="sidiz-sidebar__subwrap">
+          <div class="sidiz-sidebar__sublist">
+            <div class="sidiz-sidebar__sub">품목 관리</div>
+            <div class="sidiz-sidebar__sub">용역료 관리</div>
+          </div>
+        </div>
+        <div class="sidiz-sidebar__item"><i data-lucide="clipboard-list"></i>주문 관리</div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<h2 class="doc">14. Tab (신규 추가)</h2>
+<p class="doc">Line: H40 Title5 14/600 · 하단 보더 Grey-200 · 선택은 하단 Blue-700 2px + 흰 배경 + shadow-sm, 글자 Grey-900 · 미선택 Grey-300 · 아이콘 없음<br>
+Box: 컨테이너 H40 r6 pad4 Grey-100 · 항목 Body1 13/600 · 선택 r4 흰 배경 shadow-sm · 미선택 r2</p>
+<div class="demo">
+  <div class="sidiz-tab--line" style="margin-bottom:24px">
+    <span class="sidiz-tab__item is-active">선택 메뉴명<span class="sidiz-tab__cnt">100</span></span>
+    <span class="sidiz-tab__item">메뉴명</span>
+    <span class="sidiz-tab__item">메뉴명</span>
+    <span class="sidiz-tab__item">메뉴명</span>
+  </div>
+  <div class="sidiz-tab--box">
+    <span class="sidiz-tab__item is-active">탭 메뉴</span>
+    <span class="sidiz-tab__item">탭 메뉴</span>
+    <span class="sidiz-tab__item">탭 메뉴</span>
+    <span class="sidiz-tab__item">탭 메뉴</span>
+  </div>
+</div>
+
+<h2 class="doc">15. Dropdown List (신규 추가)</h2>
+<p class="doc">Single/Multiple: W220 r4 보더 Grey-200 · 검색행 H36 pad 0/12 하단 보더 · 목록 pad4 · 항목 H36 pad 0/8 Body2 Grey-900 · hover 배경 Grey-100<br>
+Profile: W195 r4 Drop Shadow · 3블록 각 pad20 · 담당자명 Title5 + 역할 뱃지 Caption1 Grey-100 · 메일 Body2 Grey-400</p>
+<div class="demo">
+  <div class="row" style="align-items:flex-start;gap:40px">
+    <div class="sidiz-dropdown">
+      <div class="sidiz-dropdown__search">검색<i data-lucide="search"></i></div>
+      <div class="sidiz-dropdown__list">
+        <div class="sidiz-dropdown__item">전체</div>
+        <div class="sidiz-dropdown__item">드롭다운 텍스트</div>
+        <div class="sidiz-dropdown__item is-hover">드롭다운 텍스트</div>
+        <div class="sidiz-dropdown__item">드롭다운 텍스트</div>
+        <div class="sidiz-dropdown__item">드롭다운 텍스트</div>
+      </div>
+    </div>
+    <div class="sidiz-dropdown">
+      <div class="sidiz-dropdown__search">검색<i data-lucide="search"></i></div>
+      <div class="sidiz-dropdown__list">
+        <div class="sidiz-dropdown__item">전체</div>
+        <div class="sidiz-dropdown__item"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span>드롭다운 텍스트</div>
+        <div class="sidiz-dropdown__item is-hover"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span>드롭다운 텍스트</div>
+        <div class="sidiz-dropdown__item"><span class="sidiz-check"><span class="sidiz-check__box"><i data-lucide="check" class="sidiz-check-icon"></i><i data-lucide="minus" class="sidiz-minus-icon"></i></span></span>드롭다운 텍스트</div>
+      </div>
+    </div>
+    <div class="sidiz-dropdown sidiz-dropdown--profile">
+      <div class="sidiz-dropdown__profile">
+        <div class="sidiz-dropdown__prow">
+          <span class="sidiz-dropdown__pname"><b>담당자명</b><span class="sidiz-dropdown__pbadge">관리자</span></span>
+          <i data-lucide="settings"></i>
+        </div>
+        <span class="sidiz-dropdown__pmail">email_adress@fursys.com</span>
+      </div>
+      <div class="sidiz-dropdown__settings">
+        <div class="sidiz-field">
+          <span class="sidiz-dropdown__slabel">언어</span>
+          <span class="sidiz-input sidiz-input--dropdown"><select><option>한국어</option></select><i data-lucide="chevron-down"></i></span>
+        </div>
+      </div>
+      <div class="sidiz-dropdown__logout"><i data-lucide="log-out"></i>로그아웃</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="doc">16. Carousel (신규 추가)</h2>
+<p class="doc">Indicator: 점 6x6 gap12 · 현재 흰색 100%, 나머지 30%<br>
+Navigator: 30x30 원 r9999 배경 흰색 70% gap20 · 아이콘 16 Grey-900<br>
+어두운 배경 위에 올리는 컴포넌트다</p>
+<div class="demo dark">
+  <div class="sidiz-carousel-indicator" style="margin-bottom:24px">
+    <i class="is-current"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+  <div class="sidiz-carousel-nav">
+    <button><i data-lucide="chevron-left"></i></button>
+    <button><i data-lucide="chevron-right"></i></button>
+  </div>
+</div>
+
+<script>
+lucide.createIcons();
+/* 체크박스 토글. 테이블 헤더 체크박스는 전체 선택/해제 */
+document.addEventListener('click', function (e) {
+  var box = e.target.closest('.sidiz-check');
+  if (!box || box.classList.contains('is-disabled')) return;
+  var thead = box.closest('thead');
+  if (thead) {
+    var table = thead.closest('table');
+    var on = !(box.classList.contains('is-checked') || box.classList.contains('is-multiple'));
+    box.classList.remove('is-multiple');
+    box.classList.toggle('is-checked', on);
+    table.querySelectorAll('tbody .sidiz-check').forEach(function (c) {
+      if (!c.classList.contains('is-disabled')) c.classList.toggle('is-checked', on);
+    });
+    return;
+  }
+  box.classList.remove('is-multiple');
+  box.classList.toggle('is-checked');
+  var table2 = box.closest('table');
+  if (table2) {
+    var all = Array.prototype.slice.call(table2.querySelectorAll('tbody .sidiz-check'));
+    var n = all.filter(function (c) { return c.classList.contains('is-checked'); }).length;
+    var head = table2.querySelector('thead .sidiz-check');
+    if (head) {
+      head.classList.remove('is-checked', 'is-multiple');
+      if (n === all.length && n > 0) head.classList.add('is-checked');
+      else if (n > 0) head.classList.add('is-multiple');
+    }
+  }
+});
+</script>
+</body>
+</html>

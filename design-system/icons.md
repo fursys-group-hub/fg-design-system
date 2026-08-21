@@ -8,11 +8,11 @@
 |---|---|---|
 | 세트 | **Lucide** (`lucide.dev`) | 오픈소스 아이콘. 전체 1469종 사용 가능 |
 | 크기 | **24×24** | 기본 프레임 24×24. 축소 시 비율 유지 |
-| stroke | **2px** | 1px stroke로 얇게 바꾸지 않는다. 채움(fill) 아이콘 예외 |
+| stroke | **1.2** | 컴포넌트 안 모든 아이콘 stroke 1.2 단일(예외 없음). 전역 `svg{stroke-width:1.2}`로 적용하고 개별 재지정 금지. 채움(fill) 아이콘 예외 |
 | 이름 규칙 | `Icon / <PascalCase>` | Figma 인스턴스명 = Lucide 아이콘명 PascalCase (예: `Icon / ChevronDown` = Lucide `chevron-down`) |
 | 색 | `currentColor` 권장 | 색은 팔레트 토큰으로: 기본 `Grey-900`/무채색, 상태 아이콘은 상태색(경고=`Red-600`, 포인트=`Blue-700`). 임의 색 금지 |
 
-- **이모지 아이콘 금지.** 아이콘은 반드시 위 Lucide SVG(24×24·2px stroke)로 렌더한다.
+- **이모지 아이콘 금지.** 아이콘은 반드시 위 Lucide SVG(24×24 프레임·**stroke 1.2**)로 렌더한다.
 - 아이콘 원본 SVG는 `lucide.dev`에서 이름으로 받아 그대로 사용한다(별도 자산 파일 미보관).
 
 ## 컴포넌트별 사용 아이콘 (매핑)
