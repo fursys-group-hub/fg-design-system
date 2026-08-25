@@ -92,8 +92,8 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 |---|---|
 | 페이지 타이틀 | Title4 16/600 Grey-900 |
 | 페이지 타이틀 우측 서브 문구 | Body4 12/400 Grey-400, baseline 정렬, gap8, 서술형은 마침표로 끝낸다 |
-| 섹션 타이틀 | Body1 13/600 Grey-900 |
-| 섹션 건수 | Body1 13/600 Blue-700, gap4, **단위를 붙이지 않는다** |
+| 섹션 타이틀 | Title5 14/600 Grey-900 |
+| 섹션 건수 | Title5 14/600 Blue-700, gap4, **단위를 붙이지 않는다** |
 | Table 헤더 | Caption1 11/600 Grey-400 |
 | Table 셀 | Body2 13/400 Grey-900 |
 | Input placeholder 와 입력값 | Body2 13/400 (Stepper 만 Body4 12/400) |
@@ -187,7 +187,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 # Tab
 
 - Line 형에는 **아이콘을 넣지 않는다.**
-- 선택 탭은 하단 Blue-700 2px + 흰 배경 + shadow-sm, 글자 Grey-900. 미선택은 Grey-300.
+- 선택 탭은 하단 Blue-700 2px + 투명 배경 + shadow-sm, 글자 Grey-900. 미선택은 Grey-300.
 - Box 형은 컨테이너 r6 padding4 Grey-100, 선택 r4 흰 배경 shadow-sm, 미선택 r2.
 
 # 화면 레이아웃 규칙
@@ -201,6 +201,11 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 | 콘텐츠 폭 | **1280** (= 1344 - 64). 본문 안의 모든 컴포넌트는 1280 안으로 들어온다 |
 | 본문 배경 | **Grey-100** |
 | 콘텐츠 카드 표면 | Grey-50 (흰색) + Grey-200 보더 |
+| 기본 그룹 간격 | 32 |
+| 섹션 타이틀 다음 | 8 |
+| 탭(Line) 다음 | 8 |
+| 표와 페이지네이션 사이 | 16 |
+| Dashboard Card 한 줄 개수 | 최대 4개, 5번째부터 다음 줄, 폭은 균등 분배 |
 
 화면이 1600 보다 넓어지면 콘텐츠는 1280 을 유지하고 **좌우 여백만 균등하게** 늘어난다.
 `sidiz-container` 가 `max-width: 1280px; margin: 0 auto` 로 이 규칙을 담당한다.
@@ -212,7 +217,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 1. Sidebar 폭 256, 항목 H34, 검색 H38, 로고 18x25.3
 2. Header 높이 50, 좌우 padding 24, 하단 Grey-200 보더
 3. Contents 배경 Grey-100, padding 상24 좌우32 하100
-4. Container 폭 1280 중앙 정렬, 블록 간 gap 16
+4. Container 폭 1280 중앙 정렬
 5. 페이지 타이틀 블록 → 필터 카드 → 요약 카드 행 → 섹션 타이틀과 건수 → 목록 테이블 → 페이지네이션
 6. Floating 레이어(드롭다운, 토스트)
 

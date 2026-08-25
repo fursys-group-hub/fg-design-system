@@ -177,13 +177,14 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
    6. Dashboard Card — 314x65 · pad 16/20 · r4 · 가로 gap0 · 카드 간 gap8
       수치와 단위 색 = 그 카드 태그의 전경색
    ------------------------------------------------------------ */
-.sidiz-cards { display: flex; gap: 8px; }
+.sidiz-cards { display: flex; flex-wrap: wrap; gap: 8px; }
 .sidiz-card {
   display: flex; align-items: center;
-  width: 314px; height: 65px; padding: 16px 20px; gap: 0;
+  flex: 0 0 calc((100% - 24px) / 4);
+  min-width: 0; height: 65px; padding: 16px 20px; gap: 0;
   border: 1px solid var(--sidiz-color-grey-200); border-radius: 4px;
   background: var(--sidiz-color-grey-50);
-  box-sizing: border-box; flex: 0 0 auto;
+  box-sizing: border-box;
 }
 .sidiz-card__value { flex: 1; display: flex; align-items: flex-end; justify-content: flex-end; gap: 4px; }
 .sidiz-card__num {
@@ -407,7 +408,7 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
 }
 .sidiz-tab--line .sidiz-tab__item .sidiz-tab__cnt { color: var(--sidiz-color-grey-400); }
 .sidiz-tab--line .sidiz-tab__item.is-active {
-  background: var(--sidiz-color-grey-50);
+  background: transparent;
   border-bottom: 2px solid var(--sidiz-color-blue-700);
   color: var(--sidiz-color-grey-900);
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
@@ -553,6 +554,14 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
   font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
   color: var(--sidiz-color-grey-400); cursor: pointer; white-space: nowrap;
 }
+/* Toast Layer — 본문 영역(.sidiz-main) 상단 기준 top 72(=Header 50 + 22)에 가로 중앙 부유.
+   .sidiz-main 에 position:relative 필요. 레이어는 클릭을 통과시키고 토스트만 클릭받는다. */
+.sidiz-toast-layer {
+  position: absolute; top: 72px; left: 0; right: 0;
+  display: flex; justify-content: center;
+  pointer-events: none; z-index: 100;
+}
+.sidiz-toast-layer > * { pointer-events: auto; }
 
 /* ------------------------------------------------------------
    17. Checkbox / Radio — 16 프레임 안 13 박스(r2) / 14 원
@@ -615,16 +624,20 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
    ------------------------------------------------------------ */
 .sidiz-app { display: flex; min-height: 100vh; background: var(--sidiz-color-grey-100); }
 .sidiz-app > .sidiz-sidebar { flex: 0 0 256px; }
-.sidiz-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.sidiz-main { position: relative; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
 .sidiz-contents {
   flex: 1 1 auto;
   padding: 24px 32px 100px;              /* 상24 좌우32 하100 */
   background: var(--sidiz-color-grey-100);
 }
 .sidiz-container {
-  width: 100%; max-width: 1280px; margin: 0 auto;   /* 중앙 정렬, 좌우 여백 균등 */
-  display: flex; flex-direction: column; gap: 16px;
+  width: 100%; max-width: 1280px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 0;
 }
+.sidiz-container > * + *                                   { margin-top: 32px; }
+.sidiz-container > .sidiz-section-title + *                { margin-top: 8px; }
+.sidiz-container > .sidiz-tab--line + *                    { margin-top: 8px; }
+.sidiz-container > .sidiz-table-wrap + .sidiz-pagination-wrap { margin-top: 16px; }
 /* 콘텐츠 안의 카드 표면은 흰색 */
 .sidiz-panel {
   background: var(--sidiz-color-grey-50);
@@ -641,8 +654,8 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
 .sidiz-page-title h1 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
 .sidiz-page-title p  { margin: 0; font-size: 12px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-400); }
 .sidiz-section-title { display: flex; align-items: center; gap: 4px; }
-.sidiz-section-title h2 { margin: 0; font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
-.sidiz-section-title .sidiz-count { font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-blue-700); }
+.sidiz-section-title h2 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
+.sidiz-section-title .sidiz-count { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-blue-700); }
 
 </style>
 <!-- ▲▲▲ 여기까지 sidiz-components.css ▲▲▲ -->
@@ -698,6 +711,15 @@ p.doc{ font-size:12px; font-weight:400; color:var(--sidiz-color-grey-400); margi
           </div>
           <div class="sidiz-panel" style="height:88px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--sidiz-color-grey-400)">필터 카드 (폭 1280)</div>
           <div class="sidiz-panel" style="height:120px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--sidiz-color-grey-400)">본문 (폭 1280)</div>
+        </div>
+      </div>
+      <div class="sidiz-toast-layer">
+        <div class="sidiz-toast">
+          <span class="sidiz-toast__body">
+            <span class="sidiz-toast__icon sidiz-toast__icon--default"><i data-lucide="check"></i></span>
+            선택하신 주문이 정상적으로 등록되었습니다.
+          </span>
+          <button class="sidiz-toast__close">닫기</button>
         </div>
       </div>
     </div>

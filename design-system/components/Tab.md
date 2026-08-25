@@ -24,7 +24,7 @@
 ## 하위 구조 (대표 variant, 2~3레벨 · 요소별 색·크기)
 
 `Varient=Line` — 배경 **투명** · 방향 가로(H) · 주축 정렬 시작 · 교차 정렬 시작 · gap 0
-- Select (frame) [레이아웃 가로(H) · 가로 hug/세로 고정 · 크기 114×40] · 배경 Grey-50 (#FFFFFF), 선 Blue-700 (#003EFF)
+- Select (frame) [레이아웃 가로(H) · 가로 hug/세로 고정 · 크기 114×40] · 배경 투명(Transparent), 선 Blue-700 (#003EFF)
   - Icon / Sun (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Sun
     - Vector (vector) [크기 13×13] · 선 Grey-800 (#242526)
   - 선택 메뉴명 (text) [가로 hug/세로 hug · 크기 65×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-900 (#000000)
