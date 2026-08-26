@@ -3,11 +3,12 @@
 /* 정본 덤프 기준 lastModified: 2026-08-13T02:43:40Z */
 /* Pretendard 웹폰트: <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"> */
 
-/* ⚠️ 절대 원칙: 정본은 컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종뿐이다.
+/* ⚠️ 절대 원칙: 정본은 컬러 22색(Primary 2톤 · System 10 · Grey Scale 10) + 타이포 14종뿐이다.
+   Primary(600/200 2톤)는 9개 브랜드마다 다르고, System·Grey Scale 은 9브랜드 공통이다.
    정본 밖 색·크기·굵기는 존재하지 않는다(근사·신규·중간 토큰 금지, 팔레트 확장 금지).
    화면 제작 시 이 파일의 "컴포넌트 클래스/타이포 클래스"만 사용한다.
    font-size·padding·height 등을 직접 지정하지 않는다. 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.
-   유일한 예외: 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)은 해당 컴포넌트 클래스 안에서만 허용. */
+   브랜드 전환은 <html data-brand="..."> (기본: 그룹사 공통). */
 
 /* ⚠️ 절대 지우지 않는다 — 전역 폰트 스무딩. 없으면 macOS 브라우저가 글자를 피그마보다 굵게 그린다. */
 html, body {
@@ -16,16 +17,20 @@ html, body {
 }
 
 :root {
-  /* ===== Color — Primary (Blue) ===== */
-  --sidiz-color-blue-700: #003EFF; /* 브랜드 포인트: 강조/선택/링크. 남용 금지 */
-  --sidiz-color-blue-500: #357FFF; /* 보조/hover */
-  --sidiz-color-blue-100: #E3EDFF; /* 선택·활성 배경 */
+  /* ===== Color — Primary (브랜드별 2톤 · 기본: 그룹사 공통) =====
+     600 = 버튼 배경·사이드바 활성·라인탭 밑줄·섹션 건수 / 200 = 사이드바 활성 배경
+     브랜드 전환은 아래 [data-brand="..."] + <html data-brand="..."> */
+  --sidiz-color-primary-600: #6725F3;
+  --sidiz-color-primary-200: #F0E9FE;
 
-  /* ===== Color — System (Red) ===== */
-  --sidiz-color-red-600: #FF3A4A; /* 에러·경고 텍스트/보더 */
-  --sidiz-color-red-100: #FFECEE; /* 에러 배경 */
+  /* ===== Color — System (9브랜드 공통 · 각 600/100) ===== */
+  --sidiz-color-red-600: #EF2E32;    --sidiz-color-red-100: #FBE7E7; /* 취소/실패·에러 */
+  --sidiz-color-yellow-600: #D4A300; --sidiz-color-yellow-100: #F9F1D9; /* 보류 */
+  --sidiz-color-green-600: #2AA75E;  --sidiz-color-green-100: #DFF2E7; /* 진행중 */
+  --sidiz-color-blue-600: #3769DE;   --sidiz-color-blue-100: #EBF0FC; /* 완료 */
+  --sidiz-color-gray-600: #909090;   --sidiz-color-gray-100: #F0F0F0; /* System 무채(Grey Scale 와 별개) */
 
-  /* ===== Color — Grey (10) ===== */
+  /* ===== Color — Grey Scale (10 · 공통, 변경 없음) ===== */
   --sidiz-color-grey-900: #000000;
   --sidiz-color-grey-800: #242526;
   --sidiz-color-grey-700: #434548;
@@ -36,12 +41,6 @@ html, body {
   --sidiz-color-grey-200: #EAEDF0;
   --sidiz-color-grey-100: #F5F6F7;
   --sidiz-color-grey-50:  #FFFFFF;
-
-  /* ===== 컴포넌트 로컬 확장색 (전역 토큰 아님 — 지정 컴포넌트 클래스 한정) ===== */
-  /* 15색 기본 팔레트와 별도. 아래 컴포넌트 밖 사용 금지. 팔레트 확장 아님. */
-  /* Tag Green:  #38BA77 (전경) / #E7F6E7 (배경) — .tag-green 전용 */
-  /* Tag Yellow: #E8C32E (전경) / #FCF7DF (배경) — .tag-yellow 전용 */
-  /* Alert:      #F5CA1D — .toast__icon-alert 전용 */
 
   /* ===== Typography ===== */
   --sidiz-font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -96,6 +95,17 @@ html, body {
   --sidiz-shadow-dropshadow: 0 4px 6px -2px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.10);
   --sidiz-shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
 }
+
+/* ===== 브랜드별 Primary (2톤) — <html data-brand="..."> 로 전환. System·Grey 는 위 :root 공통 ===== */
+[data-brand="sidiz"]     { --sidiz-color-primary-600: #003EFF; --sidiz-color-primary-200: #E3EDFF; } /* 시디즈 */
+[data-brand="fursys"]    { --sidiz-color-primary-600: #E3001C; --sidiz-color-primary-200: #FCE5E8; } /* 퍼시스 */
+[data-brand="iloom"]     { --sidiz-color-primary-600: #D60707; --sidiz-color-primary-200: #FEDADA; } /* 일룸 */
+[data-brand="desker"]    { --sidiz-color-primary-600: #272727; --sidiz-color-primary-200: #E9E9E9; } /* 데스커 */
+[data-brand="alloso"]    { --sidiz-color-primary-600: #B14E3F; --sidiz-color-primary-200: #F7EDEC; } /* 알로소 */
+[data-brand="slowbed"]   { --sidiz-color-primary-600: #0D207C; --sidiz-color-primary-200: #D7E4F0; } /* 슬로우베드 */
+[data-brand="letters"]   { --sidiz-color-primary-600: #FF5C39; --sidiz-color-primary-200: #FFF3ED; } /* 레터스 */
+[data-brand="purplesix"] { --sidiz-color-primary-600: #7800F5; --sidiz-color-primary-200: #F4E8FF; } /* 퍼플식스 */
+[data-brand="group"]     { --sidiz-color-primary-600: #6725F3; --sidiz-color-primary-200: #F0E9FE; } /* 그룹사 공통 (기본) */
 
 /* ===== 전역 기본값 — 모든 텍스트 LH 150% · LS 1% 공통 (요소별 누락 방지) ===== */
 *, *::before, *::after { box-sizing: border-box; }
@@ -216,7 +226,7 @@ button, input, select, textarea {
   color: var(--sidiz-color-grey-900); cursor: pointer;
 }
 .sidebar-item > svg { width: 20px; height: 20px; }
-.sidebar-item.is-active { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-700); } /* 활성 메뉴만 포인트 */
+.sidebar-item.is-active { background: var(--sidiz-color-primary-200); color: var(--sidiz-color-primary-600); } /* 활성 메뉴만 포인트 */
 
 /* ----- Search Filter (세로 · gap 8 · Grey-200 보더 · radius 4 · 상하 padding 16) ----- */
 .search-filter {
@@ -243,10 +253,10 @@ button, input, select, textarea {
 }
 .dashboard-card__value { flex: 1; display: flex; align-items: baseline; gap: var(--sidiz-space-4); } /* 수치 Title3 + 단위 Caption1 */
 .dashboard-card__num { font-size: var(--sidiz-font-size-title3); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
-.dashboard-card__num--point { color: var(--sidiz-color-blue-700); } /* 상태 연동: 포인트(완료) */
+.dashboard-card__num--point { color: var(--sidiz-color-blue-600); } /* 상태 연동: 포인트(완료) = System Blue */
 .dashboard-card__num--error { color: var(--sidiz-color-red-600); }  /* 상태 연동: 에러(취소/실패) */
-.dashboard-card__num--hold     { color: #E8C32E; } /* 보류 — Tag Yellow 전경색(로컬 확장색) */
-.dashboard-card__num--progress { color: #38BA77; } /* 진행중 — Tag Green 전경색(로컬 확장색) */
+.dashboard-card__num--hold     { color: var(--sidiz-color-yellow-600); } /* 보류 — Tag Yellow 전경색(로컬 확장색) */
+.dashboard-card__num--progress { color: var(--sidiz-color-green-600); } /* 진행중 — Tag Green 전경색(로컬 확장색) */
 .dashboard-card__unit { font-size: var(--sidiz-font-size-caption1); font-weight: var(--sidiz-font-weight-semibold); color: var(--sidiz-color-grey-900); }
 
 /* ----- Table (Header H32 Grey-100 Caption1 · Cell H38 Body2 · hairline Grey-200) ----- */
@@ -277,15 +287,15 @@ button, input, select, textarea {
 .tag-black       { background: var(--sidiz-color-grey-900); color: var(--sidiz-color-grey-50); }
 .tag-black-light { background: var(--sidiz-color-grey-50); color: var(--sidiz-color-grey-900); border: 1px solid var(--sidiz-color-grey-200); }
 .tag-gray        { background: var(--sidiz-color-grey-100); color: var(--sidiz-color-grey-400); }
-.tag-blue        { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-500); }
+.tag-blue        { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-600); }
 .tag-red         { background: var(--sidiz-color-red-100); color: var(--sidiz-color-red-600); }
 /* 로컬 확장색 — Tag 전용 (전역 토큰 아님, 다른 컴포넌트에서 사용 금지) */
-.tag-green  { background: #E7F6E7; color: #38BA77; }
-.tag-yellow { background: #FCF7DF; color: #E8C32E; }
+.tag-green  { background: var(--sidiz-color-green-100); color: var(--sidiz-color-green-600); }
+.tag-yellow { background: var(--sidiz-color-yellow-100); color: var(--sidiz-color-yellow-600); }
 /* Dark(채움) — 상태 태그 매핑용. green/yellow는 Tag 전용 로컬 확장색 */
 .tag-red-dark    { background: var(--sidiz-color-red-600); color: var(--sidiz-color-grey-50); }
-.tag-green-dark  { background: #38BA77; color: var(--sidiz-color-grey-50); }
-.tag-yellow-dark { background: #E8C32E; color: var(--sidiz-color-grey-50); }
+.tag-green-dark  { background: var(--sidiz-color-green-600); color: var(--sidiz-color-grey-50); }
+.tag-yellow-dark { background: var(--sidiz-color-yellow-600); color: var(--sidiz-color-grey-50); }
 
 /* ----- Breadcrumb (gap 8 · Body2/Grey-400 · 현재 Body1/Grey-900 · chevron 12) ----- */
 .breadcrumb {
@@ -317,9 +327,9 @@ button, input, select, textarea {
 .toast__body { display: flex; align-items: center; gap: var(--sidiz-space-8);
   color: var(--sidiz-color-grey-50); font-size: var(--sidiz-font-size-body1); font-weight: var(--sidiz-font-weight-semibold); }
 .toast__body > svg { width: 24px; height: 24px; }   /* 상태 아이콘 24×24 */
-.toast__icon-default { color: var(--sidiz-color-blue-500); }
+.toast__icon-default { color: var(--sidiz-color-blue-600); }
 .toast__icon-error   { color: var(--sidiz-color-red-600); }
-.toast__icon-alert   { color: #F5CA1D; }             /* Toast 전용 로컬 확장색 */
+.toast__icon-alert   { color: var(--sidiz-color-yellow-600); }             /* Toast 전용 로컬 확장색 */
 .toast__close { background: transparent; border: 0; cursor: pointer;
   color: var(--sidiz-color-grey-400);                /* "닫기" 텍스트 버튼만 — X·아이콘 금지 */
   font-size: var(--sidiz-font-size-body2); font-weight: var(--sidiz-font-weight-regular); }

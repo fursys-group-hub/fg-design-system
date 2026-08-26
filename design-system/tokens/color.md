@@ -3,24 +3,46 @@
 정본: Figma `시디즈_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`) → **`2. Foundation` 페이지 Color 프레임**.
 Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`)은 구 세대 잔존물이므로 이 문서에서 제외한다.
 
-## Primary Colors
+## Primary Colors (브랜드별 · 2톤)
 
-*용도:* Blue-700이 브랜드 포인트. 선택/링크/강조에만 절제 사용. Blue-100은 선택·활성 배경.
+*용도:* Primary-600 이 브랜드 포인트(버튼 배경·사이드바 활성·라인탭 밑줄·섹션 건수). Primary-200 은 사이드바 활성 배경.
+**9개 브랜드마다 값이 다르며 600/200 두 톤만** 쓴다. `<html data-brand="...">` 로 전환(기본: 그룹사 공통).
+
+| 토큰 | CSS 변수 | 용도·규칙 |
+|---|---|---|
+| `Primary-600` | `--sidiz-color-primary-600` | 브랜드 포인트. 강조/선택/링크/건수에만 절제 사용 |
+| `Primary-200` | `--sidiz-color-primary-200` | 브랜드 강조 **배경**(사이드바 활성 배경) |
+
+### 브랜드별 Primary 값 (9)
+
+| 브랜드 | data-brand | Primary-600 | Primary-200 |
+|---|---|---|---|
+| 시디즈 | `sidiz` | `#003EFF` | `#E3EDFF` |
+| 퍼시스 | `fursys` | `#E3001C` | `#FCE5E8` |
+| 일룸 | `iloom` | `#D60707` | `#FEDADA` |
+| 데스커 | `desker` | `#272727` | `#E9E9E9` |
+| 알로소 | `alloso` | `#B14E3F` | `#F7EDEC` |
+| 슬로우베드 | `slowbed` | `#0D207C` | `#D7E4F0` |
+| 레터스 | `letters` | `#FF5C39` | `#FFF3ED` |
+| 퍼플식스 | `purplesix` | `#7800F5` | `#F4E8FF` |
+| 그룹사 공통(기본) | `group` | `#6725F3` | `#F0E9FE` |
+
+## System Colors (9브랜드 공통 · 각 600/100)
+
+*용도:* 상태 색. 600=전경/채움, 100=연한 배경. 완료=Blue, 진행중=Green, 보류=Yellow, 취소/실패·에러=Red.
 
 | 토큰 | 값 | 용도·규칙 |
 |---|---|---|
-| `Blue-700` | `#003EFF` | 브랜드 포인트(강조/선택/링크). 남용 금지 |
-| `Blue-500` | `#357FFF` | 보조/hover 상태 |
-| `Blue-100` | `#E3EDFF` | 선택·활성 **배경**(연한 파랑) |
-
-## System Colors
-
-*용도:* 에러·경고 전용. 기능 표기로만 소량 사용.
-
-| 토큰 | 값 | 용도·규칙 |
-|---|---|---|
-| `Red-600` | `#FF3A4A` | 에러·경고 텍스트/보더 |
-| `Red-100` | `#FFECEE` | 에러 **배경**(연한) |
+| `Red-600` | `#EF2E32` | 취소/실패·에러 텍스트/보더/채움 |
+| `Red-100` | `#FBE7E7` | 취소/실패·에러 **배경**(연한) |
+| `Yellow-600` | `#D4A300` | 보류 전경/채움 |
+| `Yellow-100` | `#F9F1D9` | 보류 **배경**(연한) |
+| `Green-600` | `#2AA75E` | 진행중 전경/채움 |
+| `Green-100` | `#DFF2E7` | 진행중 **배경**(연한) |
+| `Blue-600` | `#3769DE` | 완료 전경/채움 |
+| `Blue-100` | `#EBF0FC` | 완료 **배경**(연한) |
+| `Gray-600` | `#909090` | System 무채 전경(Grey Scale 와 별개) |
+| `Gray-100` | `#F0F0F0` | System 무채 배경 |
 
 ## Grey Scale
 
@@ -39,20 +61,17 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 | `Grey-100` | `#F5F6F7` |
 | `Grey-50` | `#FFFFFF` |
 
-## 컴포넌트 로컬 색 (Component-local — 변수화 제외)
+## 컴포넌트 로컬 색 — 폐지 (System 으로 편입)
 
-*저빈도로 사용되어 의도적으로 전역 변수/토큰에서 제외한 색(디자이너 확정: 비변수화). 아래 **지정 컴포넌트에서만** 사용하며, 다른 컴포넌트·위치에서 쓰면 위반이다.*
+기존 로컬 확장색(Tag Green/Yellow·Toast Alert)은 **System 색으로 편입되어 더 이상 로컬 색이 아니다.** 컴포넌트에서 아래 System 변수로 참조한다.
 
-| 토큰(별칭) | 값 | 사용 컴포넌트 (한정) | 용도 |
-|---|---|---|---|
-| Tag Green | `#38BA77` | **Tag** (Color=Green) | Green 태그 전경(Dark 배경 채움 / Light 글자) |
-| Tag Green BG | `#E7F6E7` | **Tag** (Color=Green, State=Light) | Green Light 태그 배경 |
-| Tag Yellow | `#E8C32E` | **Tag** (Color=Yellow) | Yellow 태그 전경 |
-| Tag Yellow BG | `#FCF7DF` | **Tag** (Color=Yellow, State=Light) | Yellow Light 태그 배경 |
-| Alert Yellow | `#F5CA1D` | **Toast** (State=Alert) | Alert 토스트 경고 아이콘 |
+| 옛 로컬 색 | 대체 System 토큰 |
+|---|---|
+| Tag Green 전경 `#38BA77` / 배경 `#E7F6E7` | `Green-600` `#2AA75E` / `Green-100` `#DFF2E7` |
+| Tag Yellow 전경 `#E8C32E` / 배경 `#FCF7DF` | `Yellow-600` `#D4A300` / `Yellow-100` `#F9F1D9` |
+| Toast Alert `#F5CA1D` | `Yellow-600` `#D4A300` |
 
-> 이 색들은 Figma에서 변수 바인딩 없이 컴포넌트 로컬로 지정됨(의도적 비변수화). **지정 컴포넌트 외 사용 금지.** 신규 화면에서 초록/노랑이 필요하면 먼저 팔레트 확장을 검토한다.
-> ⚠️ 2026-08-13 sync: Tag Green `#10C266→#38BA77`, Tag Yellow `#F5CA1D→#E8C32E` 변경. Toast Alert 노랑은 `#F5CA1D` 유지(Tag와 분리됨).
+> ⚠️ 2026-08 색 구조 개편: Primary(브랜드별 2톤) + System 10 + Grey Scale 10 = **22색**. 기존 단일 브랜드 Blue(`Blue-700/500/100`)는 폐지되고 Primary(브랜드별)로 대체됐다. 이 변경은 Figma **변수 모드** 기반이라 `/sync`(REST)로 읽지 못해 **수기 반영**했다(추후 변수 모드 동기화 가능해지면 sync 로 재생성).
 
 ## 로고 자산 색 (Logo asset — UI 색 아님)
 

@@ -15,14 +15,14 @@ AI/실무자가 이 문서만 읽고 SIDIZ 규격대로 화면을 만들 수 있
 ## 0. 개요 · 핵심 원칙
 
 > ### ⚠️ 절대 원칙 (예외 없음)
-> 시디즈 정본은 **컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다.
+> 시디즈 정본은 **컬러 22색(Primary 2톤·브랜드별 / System 10·공통 / Grey Scale 10·공통) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다. Primary 는 9개 브랜드마다 다르다.
 > - 이 밖의 색·크기·굵기는 **존재하지 않는다.** 발견되면 오류이자 정본 토큰 교정 대상이다.
 > - **신규·근사·중간·예외 토큰 생성 금지. 팔레트 확장 금지.**
 > - **화면 제작 시 `tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스)만 사용한다. `font-size`·`padding`·`height` 등을 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.
-> - 유일한 예외: 문서화된 **컴포넌트 로컬 확장색**(Tag Green/Yellow·Toast Alert)뿐이며 해당 컴포넌트 안에서만 허용한다.
+> - 옛 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)은 **System(Green/Yellow)으로 편입**되어 더 이상 예외가 아니다. 초록=`Green-600/100`, 노랑=`Yellow-600/100`.
 
 - **폰트:** Pretendard 단일. 모든 텍스트 `line-height: 150%`, `letter-spacing: 1%(0.01em)`.
-- **브랜드 포인트 색:** `Blue-700 #003EFF` — 강조/선택/링크에만 **절제** 사용. 남용 금지.
+- **브랜드 포인트 색:** `Primary-600`(브랜드별, 기본 그룹사 `#6725F3`) — 강조/선택/링크/건수에만 **절제** 사용. 남용 금지. 브랜드 전환은 `<html data-brand="...">`.
 - **무채색 기반:** Grey 10단계(50=흰색 ~ 900=검정)로 텍스트·보더·배경 구성. 임의 회색 발명 금지.
 - **구분은 border 우선.** 그림자는 떠 있는 표면(팝오버/드롭다운/토스트)에만.
 - **radius:** 버튼/인풋 4~6px, pill(태그/칩/원형) `9999`. 임의값 금지.
@@ -43,20 +43,31 @@ body { font-family: 'Pretendard', sans-serif; }
 
 ## 1. 컬러
 
-용도: Blue-700이 브랜드 포인트. System(Red)은 에러·경고 전용. Grey는 기반 무채색.
+용도: Primary(브랜드별 2톤)가 브랜드 포인트. System 10은 상태 색(완료/진행중/보류/취소·에러). Grey는 기반 무채색. 총 **22색**.
 
-### Primary (Blue)
+### Primary (브랜드별 · 2톤 · 기본 그룹사 공통)
+`<html data-brand="...">` 로 전환. 600=브랜드 포인트(버튼 배경·사이드바 활성·라인탭 밑줄·섹션 건수), 200=사이드바 활성 배경.
+
+| 토큰 | CSS 변수 | 용도·규칙 |
+|---|---|---|
+| Primary-600 | `--sidiz-color-primary-600` | 브랜드 포인트. 강조/선택/링크/건수에만 절제 사용 |
+| Primary-200 | `--sidiz-color-primary-200` | 브랜드 강조 **배경**(사이드바 활성 배경) |
+
+**브랜드별 값(9):** 시디즈 `#003EFF`/`#E3EDFF` · 퍼시스 `#E3001C`/`#FCE5E8` · 일룸 `#D60707`/`#FEDADA` · 데스커 `#272727`/`#E9E9E9` · 알로소 `#B14E3F`/`#F7EDEC` · 슬로우베드 `#0D207C`/`#D7E4F0` · 레터스 `#FF5C39`/`#FFF3ED` · 퍼플식스 `#7800F5`/`#F4E8FF` · 그룹사 공통(기본) `#6725F3`/`#F0E9FE`
+
+### System (9브랜드 공통 · 각 600/100)
 | 토큰 | 값 | CSS 변수 | 용도·규칙 |
 |---|---|---|---|
-| Blue-700 | `#003EFF` | `--sidiz-color-blue-700` | 브랜드 포인트(강조/선택/링크). 남용 금지 |
-| Blue-500 | `#357FFF` | `--sidiz-color-blue-500` | 보조/hover |
-| Blue-100 | `#E3EDFF` | `--sidiz-color-blue-100` | 선택·활성 **배경**(연한 파랑) |
-
-### System (Red)
-| 토큰 | 값 | CSS 변수 | 용도·규칙 |
-|---|---|---|---|
-| Red-600 | `#FF3A4A` | `--sidiz-color-red-600` | 에러·경고 텍스트/보더 |
-| Red-100 | `#FFECEE` | `--sidiz-color-red-100` | 에러 **배경**(연한) |
+| Red-600 | `#EF2E32` | `--sidiz-color-red-600` | 취소/실패·에러 텍스트/보더/채움 |
+| Red-100 | `#FBE7E7` | `--sidiz-color-red-100` | 취소/실패·에러 **배경**(연한) |
+| Yellow-600 | `#D4A300` | `--sidiz-color-yellow-600` | 보류 전경/채움 |
+| Yellow-100 | `#F9F1D9` | `--sidiz-color-yellow-100` | 보류 **배경**(연한) |
+| Green-600 | `#2AA75E` | `--sidiz-color-green-600` | 진행중 전경/채움 |
+| Green-100 | `#DFF2E7` | `--sidiz-color-green-100` | 진행중 **배경**(연한) |
+| Blue-600 | `#3769DE` | `--sidiz-color-blue-600` | 완료 전경/채움 |
+| Blue-100 | `#EBF0FC` | `--sidiz-color-blue-100` | 완료 **배경**(연한) |
+| Gray-600 | `#909090` | `--sidiz-color-gray-600` | System 무채 전경(Grey Scale 와 별개) |
+| Gray-100 | `#F0F0F0` | `--sidiz-color-gray-100` | System 무채 배경 |
 
 ### Grey (10단계)
 | 토큰 | 값 | CSS 변수 |
@@ -72,16 +83,14 @@ body { font-family: 'Pretendard', sans-serif; }
 | Grey-100 | `#F5F6F7` | `--sidiz-color-grey-100` |
 | Grey-50 | `#FFFFFF` | `--sidiz-color-grey-50` |
 
-### 컴포넌트 로컬 색 (변수화 제외 — 지정 컴포넌트 한정)
-저빈도로 의도적으로 전역 토큰에서 제외한 색. **아래 지정 컴포넌트에서만** 사용하고, 다른 곳에서는 쓰지 않는다.
+### 컴포넌트 로컬 색 — 폐지 (System 으로 편입)
+기존 로컬 확장색(Tag Green/Yellow·Toast Alert)은 **System 색으로 편입**되어 더 이상 로컬 색이 아니다.
 
-| 값 | 사용 컴포넌트 | 용도 |
-|---|---|---|
-| `#38BA77` | Tag (Color=Green) | Green 태그 전경 |
-| `#E7F6E7` | Tag (Color=Green, Light) | Green 태그 배경 |
-| `#E8C32E` | Tag (Color=Yellow) | Yellow 태그 전경 |
-| `#FCF7DF` | Tag (Color=Yellow, Light) | Yellow 태그 배경 |
-| `#F5CA1D` | Toast (State=Alert) | Alert 토스트 경고 아이콘 |
+| 옛 로컬 색 | 대체 System 토큰 |
+|---|---|
+| Tag Green `#38BA77`/`#E7F6E7` | `Green-600` `#2AA75E` / `Green-100` `#DFF2E7` |
+| Tag Yellow `#E8C32E`/`#FCF7DF` | `Yellow-600` `#D4A300` / `Yellow-100` `#F9F1D9` |
+| Toast Alert `#F5CA1D` | `Yellow-600` `#D4A300` |
 
 > **로고 전용:** `#1D1D1B`는 Signature 로고 아트워크 색으로, UI(텍스트·배경·보더)에는 쓰지 않는다.
 > 그 밖의 팔레트 밖 색(그라데이션·보라 등)은 정본이 아닙니다. 사용하지 마세요.
@@ -214,11 +223,11 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.8 Tab — 2 variant
 - **속성:** Varient(Box/Line). H40, 텍스트 Title5(14/600), **shadow/sm**.
-- Line 탭 활성 밑줄 **Blue-700**. **사용 규칙:** 선택 탭만 포인트 색.
+- Line 탭 활성 밑줄 **Primary-600**. **사용 규칙:** 선택 탭만 포인트 색.
 
 ### 5.9 Tag — 12 variant
 - **속성:** State(Light/Dark) × Color(Red/Green/Blue/Gray/Yellow/Black). 28×16, padding 좌우 4, **radius 2**, 텍스트 Caption1(11/600).
-- 정본 팔레트 매핑: Blue=Blue-500/Blue-100, Red=Red-600/Red-100, Gray=Grey-400/Grey-100, Black=Grey-900.
+- 정본 팔레트 매핑: Blue=Blue-600/Blue-100, Red=Red-600/Red-100, Gray=Grey-400/Grey-100, Black=Grey-900.
 - **컴포넌트 로컬 색:** Green(`#38BA77`/`#E7F6E7`)·Yellow(`#E8C32E`/`#FCF7DF`)는 Tag 전용 로컬 색(전역 토큰 아님). Tag 밖에서 사용 금지. (1장 "컴포넌트 로컬 색" 참조)
 - **상태 태그 매핑:** 5범주(대기 black-light / 보류 yellow-light / 진행중 green-light / 완료 blue-light / 취소·실패 요약카드 red-dark·테이블 red-light)와 **라벨은 업무 용어 그대로**(결제완료→완료 금지), 6번째 색 금지 규칙은 **`CLAUDE.md` 「상태 태그 5범주 매핑」이 정본**이다.
 
@@ -233,7 +242,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 - **속성:** State(Default/Error/Alert). W520×H56, padding 12/32, radius 6, **Drop Shadow**.
 - **배경 = `Grey-900`(#000000) 다크. 텍스트 = 흰색(`Grey-50`).** (밝은 배경 아님 — 주의)
 - **구조(SPACE_BETWEEN):** 좌측 = 상태 아이콘(**24×24**) + 메시지(흰색 Body1) / 우측 = **"닫기" 텍스트 버튼(`Grey-400`, `Body2` 13/400)만** — **X·아이콘 넣지 않음**(정본은 버튼 내 아이콘 HIDDEN). CSS: `.toast`/`.toast__body`/`.toast__close`.
-- **상태 아이콘(포인트 색):** Default = 파랑 체크(`Blue-500`) · Error = 빨강 X(`Red-600`) · Alert = 노랑 !(`#F5CA1D`, Toast 로컬 확장색).
+- **상태 아이콘(포인트 색):** Default = 파랑 체크(`Blue-600`) · Error = 빨강 X(`Red-600`) · Alert = 노랑 !(`Yellow-600`).
 - **금지:** 상태 아이콘 20×20, "닫기"를 `Body3`(12/600)로, 밝은 배경.
 - **사용 규칙:** 떠 있는 알림 → 그림자. 상태색은 아이콘에만, 배경은 항상 다크.
 
@@ -242,7 +251,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.13 Sidebar — 4 variant
 - **속성:** Varient(Favorite/Default) × States(Default/Extended/Hover). W256×H1080, padding 좌우 12, gap 24, **shadow/sm**.
-- **메뉴 항목(SidebarMenuButton) 높이 34**, **검색창 높이 38.** 텍스트 Body1 + Title5(그룹 타이틀). 검색 placeholder `Body1`(`Grey-400`). Hover 활성 항목 **Blue-700** + 배경 Blue-100.
+- **메뉴 항목(SidebarMenuButton) 높이 34**, **검색창 높이 38.** 텍스트 Body1 + Title5(그룹 타이틀). 검색 placeholder `Body1`(`Grey-400`). Hover 활성 항목 **Primary-600** + 배경 Primary-200.
 - **로고:** 상단 브랜드 심볼은 **[§6 로고 SVG](#6-로고-svg-attention-심볼)(Attention, 18×25)** + 우측 **시스템명(`Title5`) 필수.** Lucide 등 아이콘 세트로 대체 금지, 시스템명 생략 금지. CSS: `.sidebar`/`.sidebar-item`.
 - **사용 규칙:** 흰 배경 사이드바. 활성 메뉴만 포인트 색. **금지:** 항목 높이 40·검색 36·시스템명 누락·placeholder를 Body2로.
 

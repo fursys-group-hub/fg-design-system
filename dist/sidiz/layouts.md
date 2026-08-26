@@ -57,7 +57,7 @@
 2. 브레드크럼(우측 정렬)
 3. **필터 카드** — Input Case 필드 1행 + 우측 조회 버튼(**Secondary Round**) · 상세 조회(**Text**)
 4. (요약 카드) — 유형 3 참조
-5. **테이블 섹션** — 섹션 타이틀(`Title5`)+건수(`Title5`/`Blue-700`, 단위 없음), 우측 액션 버튼 그룹 / Table(헤더 `Grey-100` 배경·`Caption1`, 셀 `Body2`, **No. 열 없음·첫 열 체크박스**) + 상태 `Tag` + 하단 `Pagination`(테이블 폭 기준 중앙)
+5. **테이블 섹션** — 섹션 타이틀(`Title5`)+건수(`Title5`/`Primary-600`, 단위 없음), 우측 액션 버튼 그룹 / Table(헤더 `Grey-100` 배경·`Caption1`, 셀 `Body2`, **No. 열 없음·첫 열 체크박스**) + 상태 `Tag` + 하단 `Pagination`(테이블 폭 기준 중앙)
 
 ## 유형 2. 상세형 (마스터-디테일)
 
@@ -118,7 +118,7 @@
 - **수치·단위 색은 카드 태그의 진한 색과 같게** 맞춘다(카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여 시 자동). 상세 규칙=`CLAUDE.md` 상태 태그 5범주.
 
 ### 섹션 타이틀 + 건수
-- 섹션 타이틀 `Title5`(14/600/Grey-900) + 건수 `Title5`(14/600/Blue-700), gap 4, **단위를 붙이지 않는다**.
+- 섹션 타이틀 `Title5`(14/600/Grey-900) + 건수 `Title5`(14/600/Primary-600), gap 4, **단위를 붙이지 않는다**.
 - 우측: 액션 버튼 그룹(Secondary 나열), 최우선 액션 1개만 Primary(Grey-900).
 
 ### 목록 테이블
@@ -129,7 +129,7 @@
 - 하단 Pagination 중앙 정렬.
 
 ### 마스터 디테일
-- 상하 분할: 상단 목록 + 하단 상세 섹션(탭 전환은 Tab/Line variant, 선택 탭 Grey-900 + 하단 Blue-700 2px).
+- 상하 분할: 상단 목록 + 하단 상세 섹션(탭 전환은 Tab/Line variant, 선택 탭 Grey-900 + 하단 Primary-600 2px).
 - 좌우 분할: 좌측 목록 + 우측 상세 폼 패널(Grey-200 보더 카드), 패널 우상단에 저장 Primary 버튼.
 - 상세 폼: 섹션 타이틀 `Title5`(14/600) 단위로 구분, 필드는 2열 그리드(Input Case), 읽기 전용 필드는 Grey-200 배경 + Grey-400 텍스트(Input Disabled와 동일).
 

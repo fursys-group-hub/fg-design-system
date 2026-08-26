@@ -53,7 +53,7 @@
 
 | 문서 | 한 줄 설명 |
 |---|---|
-| [tokens/color.md](tokens/color.md) | Foundation 팔레트 — Primary(Blue) / System(Red) / Grey 10단계. 브랜드 `Blue-700 #003EFF`. |
+| [tokens/color.md](tokens/color.md) | 팔레트 22색 — Primary(브랜드별 2톤) / System 10(공통) / Grey Scale 10(공통). 9개 브랜드, `data-brand` 전환. |
 | [tokens/typography.md](tokens/typography.md) | Pretendard 단일, Title1~5 / Body1~4 / Caption1~5 (LH 150% · LS 1%). 스타일명+별칭+용도. |
 | [tokens/spacing.md](tokens/spacing.md) | 컴포넌트 변수에서 집계한 radius / padding / gap 스케일. |
 | [tokens/effect.md](tokens/effect.md) | 그림자 2종(Drop Shadow, shadow/sm). 기본은 border, 그림자는 떠있는 표면만. |

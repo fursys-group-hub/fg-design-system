@@ -61,21 +61,45 @@ Lucide 기본값은 2 라서 이 줄이 없으면 모든 아이콘이 굵어진�
 크기는 기본 16, Header 의 PanelLeft 와 Bell 은 20, Breadcrumb 과 Button Flat/Text 안은 12,
 Checkbox 안은 11 이다.
 
-색은 인풋 계열 Grey-400, 사이드바 메뉴 Grey-900(활성 Blue-700),
+색은 인풋 계열 Grey-400, 사이드바 메뉴 Grey-900(활성 Primary-600),
 Header PanelLeft 와 Bell 은 Grey-900, 버튼 안은 버튼 글자색을 따른다. 이모지 금지.
 
 # 색
 
-정본은 **15색**뿐이다.
-Blue 700 `#003EFF` / 500 `#357FFF` / 100 `#E3EDFF`
-Red 600 `#FF3A4A` / 100 `#FFECEE`
+정본은 **22색**뿐이다: **Primary 2톤(브랜드별) + System 10(공통) + Grey Scale 10(공통).**
+Primary 는 **9개 브랜드마다 다르며 600/200 두 톤**만 쓴다. System·Grey 는 9브랜드 공통이다.
+
+**Primary (브랜드별 · 기본 그룹사 공통)**
+Primary-600 `#6725F3` — 브랜드 포인트: 버튼 배경·사이드바 활성·라인탭 밑줄·섹션 건수
+Primary-200 `#F0E9FE` — 브랜드 강조 배경: 사이드바 활성 배경
+
+**System (9브랜드 공통 · 각 600/100)**
+Red 600 `#EF2E32` / 100 `#FBE7E7` · Yellow 600 `#D4A300` / 100 `#F9F1D9` · Green 600 `#2AA75E` / 100 `#DFF2E7`
+Blue 600 `#3769DE` / 100 `#EBF0FC` · Gray 600 `#909090` / 100 `#F0F0F0`
+
+**Grey Scale (10 · 공통)**
 Grey 900 `#000000` / 800 `#242526` / 700 `#434548` / 600 `#595C5E` / 500 `#7C8084`
 Grey 400 `#A4AAB0` / 300 `#D6DADE` / 200 `#EAEDF0` / 100 `#F5F6F7` / 50 `#FFFFFF`
 
-유일한 예외는 **컴포넌트 로컬 확장색 5종**이며 지정 컴포넌트 안에서만 쓴다.
-Tag Green `#38BA77` / `#E7F6E7`, Tag Yellow `#E8C32E` / `#FCF7DF`, Toast Alert `#F5CA1D`.
+## 브랜드별 Primary (9)
 
-Blue-700 은 강조, 선택, 링크, 건수 표기에만 절제해서 쓴다.
+`<html data-brand="...">` 로 전환한다. 미지정 시 기본은 그룹사 공통.
+
+| 브랜드 한글명 | 슬러그 | Primary-600 | Primary-200 |
+|---|---|---|---|
+| 시디즈 | `sidiz` | `#003EFF` | `#E3EDFF` |
+| 퍼시스 | `fursys` | `#E3001C` | `#FCE5E8` |
+| 일룸 | `iloom` | `#D60707` | `#FEDADA` |
+| 데스커 | `desker` | `#272727` | `#E9E9E9` |
+| 알로소 | `alloso` | `#B14E3F` | `#F7EDEC` |
+| 슬로우베드 | `slowbed` | `#0D207C` | `#D7E4F0` |
+| 레터스 | `letters` | `#FF5C39` | `#FFF3ED` |
+| 퍼플식스 | `purplesix` | `#7800F5` | `#F4E8FF` |
+| 그룹사 공통(기본) | `group` | `#6725F3` | `#F0E9FE` |
+
+상태 색: 완료=System `Blue-600`, 진행중=`Green-600`, 보류=`Yellow-600`, 취소/실패=`Red-600`.
+**옛 로컬 확장색(Tag Green/Yellow·Toast Alert)은 System 으로 편입되어 사라졌다.**
+Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 
 # 타이포
 
@@ -93,7 +117,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 | 페이지 타이틀 | Title4 16/600 Grey-900 |
 | 페이지 타이틀 우측 서브 문구 | Body4 12/400 Grey-400, baseline 정렬, gap8, 서술형은 마침표로 끝낸다 |
 | 섹션 타이틀 | Title5 14/600 Grey-900 |
-| 섹션 건수 | Title5 14/600 Blue-700, gap4, **단위를 붙이지 않는다** |
+| 섹션 건수 | Title5 14/600 Primary-600, gap4, **단위를 붙이지 않는다** |
 | Table 헤더 | Caption1 11/600 Grey-400 |
 | Table 셀 | Body2 13/400 Grey-900 |
 | Input placeholder 와 입력값 | Body2 13/400 (Stepper 만 Body4 12/400) |
@@ -187,7 +211,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 # Tab
 
 - Line 형에는 **아이콘을 넣지 않는다.**
-- 선택 탭은 하단 Blue-700 2px + 투명 배경 + shadow-sm, 글자 Grey-900. 미선택은 Grey-300.
+- 선택 탭은 하단 Primary-600 2px + 투명 배경 + shadow-sm, 글자 Grey-900. 미선택은 Grey-300.
 - Box 형은 컨테이너 r6 padding4 Grey-100, 선택 r4 흰 배경 shadow-sm, 미선택 r2.
 
 # 화면 레이아웃 규칙

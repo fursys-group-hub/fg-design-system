@@ -8,8 +8,15 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
 :root{
-  --sidiz-color-blue-700:#003EFF; --sidiz-color-blue-500:#357FFF; --sidiz-color-blue-100:#E3EDFF;
-  --sidiz-color-red-600:#FF3A4A;  --sidiz-color-red-100:#FFECEE;
+  /* Primary — 기본: 그룹사 공통. 브랜드 전환은 tokens.css 의 [data-brand] + <html data-brand="..."> */
+  --sidiz-color-primary-600:#6725F3; --sidiz-color-primary-200:#F0E9FE;
+  /* System (9브랜드 공통 · 각 600/100) */
+  --sidiz-color-red-600:#EF2E32;    --sidiz-color-red-100:#FBE7E7;
+  --sidiz-color-yellow-600:#D4A300; --sidiz-color-yellow-100:#F9F1D9;
+  --sidiz-color-green-600:#2AA75E;  --sidiz-color-green-100:#DFF2E7;
+  --sidiz-color-blue-600:#3769DE;   --sidiz-color-blue-100:#EBF0FC;
+  --sidiz-color-gray-600:#909090;   --sidiz-color-gray-100:#F0F0F0;
+  /* Grey Scale (10 · 공통, 변경 없음) */
   --sidiz-color-grey-900:#000000; --sidiz-color-grey-800:#242526; --sidiz-color-grey-700:#434548;
   --sidiz-color-grey-600:#595C5E; --sidiz-color-grey-500:#7C8084; --sidiz-color-grey-400:#A4AAB0;
   --sidiz-color-grey-300:#D6DADE; --sidiz-color-grey-200:#EAEDF0; --sidiz-color-grey-100:#F5F6F7;
@@ -162,16 +169,16 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
 }
 .sidiz-tag--black-light  { background: var(--sidiz-color-grey-50);  color: var(--sidiz-color-grey-900); border-color: var(--sidiz-color-grey-200); }
 .sidiz-tag--gray-light   { background: var(--sidiz-color-grey-100); color: var(--sidiz-color-grey-400); }
-.sidiz-tag--blue-light   { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-500); }
+.sidiz-tag--blue-light   { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-600); }
 .sidiz-tag--red-light    { background: var(--sidiz-color-red-100);  color: var(--sidiz-color-red-600); }
-.sidiz-tag--green-light  { background: #E7F6E7; color: #38BA77; }
-.sidiz-tag--yellow-light { background: #FCF7DF; color: #E8C32E; }
+.sidiz-tag--green-light  { background: var(--sidiz-color-green-100); color: var(--sidiz-color-green-600); }
+.sidiz-tag--yellow-light { background: var(--sidiz-color-yellow-100); color: var(--sidiz-color-yellow-600); }
 .sidiz-tag--black-dark   { background: var(--sidiz-color-grey-900); color: var(--sidiz-color-grey-50); }
 .sidiz-tag--gray-dark    { background: var(--sidiz-color-grey-400); color: var(--sidiz-color-grey-50); }
-.sidiz-tag--blue-dark    { background: var(--sidiz-color-blue-500); color: var(--sidiz-color-grey-50); }
+.sidiz-tag--blue-dark    { background: var(--sidiz-color-blue-600); color: var(--sidiz-color-grey-50); }
 .sidiz-tag--red-dark     { background: var(--sidiz-color-red-600);  color: var(--sidiz-color-grey-50); }
-.sidiz-tag--green-dark   { background: #38BA77; color: var(--sidiz-color-grey-50); }
-.sidiz-tag--yellow-dark  { background: #E8C32E; color: var(--sidiz-color-grey-50); }
+.sidiz-tag--green-dark   { background: var(--sidiz-color-green-600); color: var(--sidiz-color-grey-50); }
+.sidiz-tag--yellow-dark  { background: var(--sidiz-color-yellow-600); color: var(--sidiz-color-grey-50); }
 
 /* ------------------------------------------------------------
    6. Dashboard Card — 314x65 · pad 16/20 · r4 · 가로 gap0 · 카드 간 gap8
@@ -199,9 +206,9 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
   color: var(--sidiz-color-grey-900);
 }
 .sidiz-card--wait     .sidiz-card__num, .sidiz-card--wait     .sidiz-card__unit { color: var(--sidiz-color-grey-900); }
-.sidiz-card--hold     .sidiz-card__num, .sidiz-card--hold     .sidiz-card__unit { color: #E8C32E; }
-.sidiz-card--progress .sidiz-card__num, .sidiz-card--progress .sidiz-card__unit { color: #38BA77; }
-.sidiz-card--done     .sidiz-card__num, .sidiz-card--done     .sidiz-card__unit { color: var(--sidiz-color-blue-500); }
+.sidiz-card--hold     .sidiz-card__num, .sidiz-card--hold     .sidiz-card__unit { color: var(--sidiz-color-yellow-600); }
+.sidiz-card--progress .sidiz-card__num, .sidiz-card--progress .sidiz-card__unit { color: var(--sidiz-color-green-600); }
+.sidiz-card--done     .sidiz-card__num, .sidiz-card--done     .sidiz-card__unit { color: var(--sidiz-color-blue-600); }
 .sidiz-card--fail     .sidiz-card__num, .sidiz-card--fail     .sidiz-card__unit { color: var(--sidiz-color-red-600); }
 
 /* ------------------------------------------------------------
@@ -378,8 +385,8 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
   color: var(--sidiz-color-grey-900); cursor: pointer; box-sizing: border-box;
 }
 .sidiz-sidebar__item > svg { color: var(--sidiz-color-grey-900); }
-.sidiz-sidebar__item.is-active { background: var(--sidiz-color-blue-100); color: var(--sidiz-color-blue-700); }
-.sidiz-sidebar__item.is-active > svg { color: var(--sidiz-color-blue-700); }
+.sidiz-sidebar__item.is-active { background: var(--sidiz-color-primary-200); color: var(--sidiz-color-primary-600); }
+.sidiz-sidebar__item.is-active > svg { color: var(--sidiz-color-primary-600); }
 .sidiz-sidebar__subwrap { display: flex; padding: 0 20px; }
 .sidiz-sidebar__sublist {
   display: flex; flex-direction: column; gap: 2px; padding: 2px 0;
@@ -409,7 +416,7 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
 .sidiz-tab--line .sidiz-tab__item .sidiz-tab__cnt { color: var(--sidiz-color-grey-400); }
 .sidiz-tab--line .sidiz-tab__item.is-active {
   background: transparent;
-  border-bottom: 2px solid var(--sidiz-color-blue-700);
+  border-bottom: 2px solid var(--sidiz-color-primary-600);
   color: var(--sidiz-color-grey-900);
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
 }
@@ -545,9 +552,9 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
   font-size: 12px; font-weight: 600; line-height: 1;
   color: var(--sidiz-color-grey-50);
 }
-.sidiz-toast__icon--default { background: var(--sidiz-color-blue-500); }
+.sidiz-toast__icon--default { background: var(--sidiz-color-blue-600); }
 .sidiz-toast__icon--error   { background: var(--sidiz-color-red-600); }
-.sidiz-toast__icon--alert   { background: #F5CA1D; }
+.sidiz-toast__icon--alert   { background: var(--sidiz-color-yellow-600); }
 .sidiz-toast__close {
   height: 32px; padding: 0 12px; border: 0; border-radius: 9999px;
   background: transparent;
@@ -655,7 +662,7 @@ svg[class*="lucide"], .sidiz-icon, [data-lucide] {
 .sidiz-page-title p  { margin: 0; font-size: 12px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-400); }
 .sidiz-section-title { display: flex; align-items: center; gap: 4px; }
 .sidiz-section-title h2 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-grey-900); }
-.sidiz-section-title .sidiz-count { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-blue-700); }
+.sidiz-section-title .sidiz-count { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--sidiz-color-primary-600); }
 
 </style>
 <!-- ▲▲▲ 여기까지 sidiz-components.css ▲▲▲ -->
