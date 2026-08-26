@@ -103,7 +103,7 @@ html, body {
 [data-brand="desker"]    { --sidiz-color-primary-600: #272727; --sidiz-color-primary-200: #E9E9E9; } /* 데스커 */
 [data-brand="alloso"]    { --sidiz-color-primary-600: #B14E3F; --sidiz-color-primary-200: #F7EDEC; } /* 알로소 */
 [data-brand="slowbed"]   { --sidiz-color-primary-600: #0D207C; --sidiz-color-primary-200: #D7E4F0; } /* 슬로우베드 */
-[data-brand="letters"]   { --sidiz-color-primary-600: #FF5C39; --sidiz-color-primary-200: #FFF3ED; } /* 레터스 */
+[data-brand="letus"]   { --sidiz-color-primary-600: #FF5C39; --sidiz-color-primary-200: #FFF3ED; } /* 레터스 */
 [data-brand="purplesix"] { --sidiz-color-primary-600: #7800F5; --sidiz-color-primary-200: #F4E8FF; } /* 퍼플식스 */
 [data-brand="group"]     { --sidiz-color-primary-600: #6725F3; --sidiz-color-primary-200: #F0E9FE; } /* 그룹사 공통 (기본) */
 
