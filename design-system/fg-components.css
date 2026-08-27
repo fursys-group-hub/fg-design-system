@@ -640,3 +640,20 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 .fg-section-title { display: flex; align-items: center; gap: 4px; }
 .fg-section-title h2 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
 .fg-section-title .fg-count { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-primary-600); }
+
+/* ------------------------------------------------------------
+   20. 인터랙션 지원 — 스크립트가 토글하는 상태 클래스
+   ------------------------------------------------------------ */
+/* Search Filter 접기 */
+.fg-filter.is-collapsed .fg-filter__fields { display: none; }
+.fg-filter__toggle > svg { transition: transform .15s ease; }
+.fg-filter.is-collapsed .fg-filter__toggle > svg { transform: rotate(180deg); }
+/* Sidebar 하위 메뉴 접기 (caret 는 우측, 펼침 시 90도 회전) */
+.fg-sidebar__caret { margin-left: auto; transition: transform .15s ease; }
+.fg-sidebar__item.is-open .fg-sidebar__caret { transform: rotate(90deg); }
+.fg-sidebar__item:not(.is-open) + .fg-sidebar__subwrap { display: none; }
+/* 커스텀 드롭다운 (.fg-select) — 트리거 + 팝오버 목록 */
+.fg-select { position: relative; }
+.fg-select__trigger { cursor: pointer; }
+.fg-select > .fg-dropdown { position: absolute; top: calc(100% + 4px); left: 0; display: none; z-index: 50; }
+.fg-select.is-open > .fg-dropdown { display: flex; }

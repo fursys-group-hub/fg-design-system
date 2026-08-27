@@ -674,6 +674,23 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 .fg-section-title h2 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
 .fg-section-title .fg-count { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-primary-600); }
 
+/* ------------------------------------------------------------
+   20. 인터랙션 지원 — 스크립트가 토글하는 상태 클래스
+   ------------------------------------------------------------ */
+/* Search Filter 접기 */
+.fg-filter.is-collapsed .fg-filter__fields { display: none; }
+.fg-filter__toggle > svg { transition: transform .15s ease; }
+.fg-filter.is-collapsed .fg-filter__toggle > svg { transform: rotate(180deg); }
+/* Sidebar 하위 메뉴 접기 (caret 는 우측, 펼침 시 90도 회전) */
+.fg-sidebar__caret { margin-left: auto; transition: transform .15s ease; }
+.fg-sidebar__item.is-open .fg-sidebar__caret { transform: rotate(90deg); }
+.fg-sidebar__item:not(.is-open) + .fg-sidebar__subwrap { display: none; }
+/* 커스텀 드롭다운 (.fg-select) — 트리거 + 팝오버 목록 */
+.fg-select { position: relative; }
+.fg-select__trigger { cursor: pointer; }
+.fg-select > .fg-dropdown { position: absolute; top: calc(100% + 4px); left: 0; display: none; z-index: 50; }
+.fg-select.is-open > .fg-dropdown { display: flex; }
+
 </style>
 <!-- ▲▲▲ 여기까지 fg-components.css ▲▲▲ -->
 <style>
@@ -1148,7 +1165,7 @@ Multiple Checked 흰 배경 + Grey-900 보더 + Grey-900 체크 · Disabled Grey
         <div class="fg-sidebar__item is-active"><i data-lucide="layout-dashboard"></i>대시 보드</div>
         <div class="fg-sidebar__item"><i data-lucide="volume-2"></i>공지 사항</div>
         <div class="fg-sidebar__item"><i data-lucide="settings"></i>시스템 관리</div>
-        <div class="fg-sidebar__item"><i data-lucide="folder-search"></i>기준 관리</div>
+        <div class="fg-sidebar__item is-open"><i data-lucide="folder-search"></i>기준 관리<i data-lucide="chevron-right" class="fg-sidebar__caret"></i></div>
         <div class="fg-sidebar__subwrap">
           <div class="fg-sidebar__sublist">
             <div class="fg-sidebar__sub">품목 관리</div>
@@ -1184,6 +1201,17 @@ Box: 컨테이너 H40 r6 pad4 Grey-100 · 항목 Body1 13/600 · 선택 r4 흰 �
 Profile: W195 r4 Drop Shadow · 3블록 각 pad20 · 담당자명 Title5 + 역할 뱃지 Caption1 Grey-100 · 메일 Body2 Grey-400</p>
 <div class="demo">
   <div class="row" style="align-items:flex-start;gap:40px">
+    <div class="fg-select" style="width:220px">
+      <span class="fg-input fg-input--dropdown fg-select__trigger"><span class="fg-select__value">옵션 선택</span><i data-lucide="chevron-down"></i></span>
+      <div class="fg-dropdown">
+        <div class="fg-dropdown__list">
+          <div class="fg-dropdown__item">전체</div>
+          <div class="fg-dropdown__item">옵션 A</div>
+          <div class="fg-dropdown__item">옵션 B</div>
+          <div class="fg-dropdown__item">옵션 C</div>
+        </div>
+      </div>
+    </div>
     <div class="fg-dropdown">
       <div class="fg-dropdown__search">검색<i data-lucide="search"></i></div>
       <div class="fg-dropdown__list">
@@ -1238,34 +1266,107 @@ Navigator: 30x30 원 r9999 배경 흰색 70% gap20 · 아이콘 16 Grey-900<br>
 
 <script>
 lucide.createIcons();
-/* 체크박스 토글. 테이블 헤더 체크박스는 전체 선택/해제 */
+/* ============================================================
+   정본 인터랙션 — document 클릭 위임 하나로 처리(요소별 리스너 없음).
+   화면에 해당 컴포넌트가 없어도 오류 없이 통과한다.
+   ⚠️ 화면을 만들 때 이 <script> 블록을 반드시 함께 복사한다.
+   ============================================================ */
 document.addEventListener('click', function (e) {
+  /* 0) 체크박스 토글 (테이블 헤더는 전체 선택/해제) */
   var box = e.target.closest('.fg-check');
-  if (!box || box.classList.contains('is-disabled')) return;
-  var thead = box.closest('thead');
-  if (thead) {
-    var table = thead.closest('table');
-    var on = !(box.classList.contains('is-checked') || box.classList.contains('is-multiple'));
+  if (box && !box.classList.contains('is-disabled')) {
+    var thead = box.closest('thead');
+    if (thead) {
+      var table = thead.closest('table');
+      var on = !(box.classList.contains('is-checked') || box.classList.contains('is-multiple'));
+      box.classList.remove('is-multiple');
+      box.classList.toggle('is-checked', on);
+      table.querySelectorAll('tbody .fg-check').forEach(function (c) {
+        if (!c.classList.contains('is-disabled')) c.classList.toggle('is-checked', on);
+      });
+      return;
+    }
     box.classList.remove('is-multiple');
-    box.classList.toggle('is-checked', on);
-    table.querySelectorAll('tbody .fg-check').forEach(function (c) {
-      if (!c.classList.contains('is-disabled')) c.classList.toggle('is-checked', on);
-    });
+    box.classList.toggle('is-checked');
+    var t2 = box.closest('table');
+    if (t2) {
+      var all = Array.prototype.slice.call(t2.querySelectorAll('tbody .fg-check'));
+      var n = all.filter(function (c) { return c.classList.contains('is-checked'); }).length;
+      var head = t2.querySelector('thead .fg-check');
+      if (head) {
+        head.classList.remove('is-checked', 'is-multiple');
+        if (n === all.length && n > 0) head.classList.add('is-checked');
+        else if (n > 0) head.classList.add('is-multiple');
+      }
+    }
     return;
   }
-  box.classList.remove('is-multiple');
-  box.classList.toggle('is-checked');
-  var table2 = box.closest('table');
-  if (table2) {
-    var all = Array.prototype.slice.call(table2.querySelectorAll('tbody .fg-check'));
-    var n = all.filter(function (c) { return c.classList.contains('is-checked'); }).length;
-    var head = table2.querySelector('thead .fg-check');
-    if (head) {
-      head.classList.remove('is-checked', 'is-multiple');
-      if (n === all.length && n > 0) head.classList.add('is-checked');
-      else if (n > 0) head.classList.add('is-multiple');
+
+  /* 1) 토스트 닫기 */
+  var tclose = e.target.closest('.fg-toast__close');
+  if (tclose) { var toast = tclose.closest('.fg-toast'); if (toast) toast.remove(); return; }
+
+  /* 2·3) 탭 전환 — Line·Box 공통(사이드바 전체메뉴/즐겨찾기 포함). data-panel 있으면 패널 전환 */
+  var tab = e.target.closest('.fg-tab__item');
+  if (tab) {
+    var bar = tab.closest('.fg-tab--line, .fg-tab--box');
+    if (bar) {
+      bar.querySelectorAll('.fg-tab__item').forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+      var key = tab.getAttribute('data-panel');
+      if (key && bar.parentNode) {
+        bar.parentNode.querySelectorAll(':scope > [data-panel]').forEach(function (p) {
+          p.style.display = (p.getAttribute('data-panel') === key) ? '' : 'none';
+        });
+      }
     }
+    return;
   }
+
+  /* 4) 페이지네이션 — 숫자 클릭/화살표 이동(양끝에서 비활성) */
+  var pag = e.target.closest('.fg-pagination');
+  if (pag) {
+    var num = e.target.closest('.fg-pagination__nums > span');
+    if (num) {
+      pag.querySelectorAll('.fg-pagination__nums > span').forEach(function (s) { s.classList.toggle('is-current', s === num); });
+      return;
+    }
+    var arrow = e.target.closest('svg, i');
+    if (arrow && arrow.parentElement === pag) {
+      var nums = Array.prototype.slice.call(pag.querySelectorAll('.fg-pagination__nums > span'));
+      var cur = pag.querySelector('.fg-pagination__nums > span.is-current');
+      var idx = nums.indexOf(cur);
+      var wrap = pag.querySelector('.fg-pagination__nums');
+      var left = wrap && !!(arrow.compareDocumentPosition(wrap) & Node.DOCUMENT_POSITION_FOLLOWING);
+      var ni = left ? idx - 1 : idx + 1;
+      if (idx >= 0 && ni >= 0 && ni < nums.length) nums.forEach(function (s, i) { s.classList.toggle('is-current', i === ni); });
+    }
+    return;
+  }
+
+  /* 5) Search Filter 접기/펼치기 */
+  var ftoggle = e.target.closest('.fg-filter__toggle');
+  if (ftoggle) { var filter = ftoggle.closest('.fg-filter'); if (filter) filter.classList.toggle('is-collapsed'); return; }
+
+  /* 6) 사이드바 하위 메뉴 접기 (다음 형제가 subwrap 인 항목만) */
+  var sItem = e.target.closest('.fg-sidebar__item');
+  if (sItem) {
+    var sub = sItem.nextElementSibling;
+    if (sub && sub.classList && sub.classList.contains('fg-sidebar__subwrap')) { sItem.classList.toggle('is-open'); return; }
+  }
+
+  /* 7) 드롭다운(.fg-select): 항목 선택→값 반영·닫기 / 트리거→열기 / 바깥→닫기 */
+  var pick = e.target.closest('.fg-select .fg-dropdown__item');
+  if (pick) {
+    var sel = pick.closest('.fg-select');
+    var val = sel && sel.querySelector('.fg-select__value');
+    if (val) val.textContent = pick.textContent.trim();
+    if (sel) sel.classList.remove('is-open');
+    return;
+  }
+  var trigger = e.target.closest('.fg-select__trigger');
+  var owner = trigger ? trigger.closest('.fg-select') : null;
+  document.querySelectorAll('.fg-select.is-open').forEach(function (s) { if (s !== owner) s.classList.remove('is-open'); });
+  if (owner) owner.classList.toggle('is-open');
 });
 </script>
 </body>
