@@ -18,46 +18,46 @@
   ============================================================================
 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<link rel="stylesheet" href="../../dist/fg/tokens.css">
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
 <style>
-.sidiz-pagination{
-  display:flex; align-items:center; gap:var(--sidiz-space-12);
+.fg-pagination{
+  display:flex; align-items:center; gap:var(--fg-space-12);
   background:transparent;
 }
-.sidiz-pagination svg{ width:16px; height:16px; color:var(--sidiz-color-grey-900); cursor:pointer; }
-.sidiz-pagination__numbers{ display:flex; align-items:center; gap:var(--sidiz-space-20); }
-.sidiz-pagination__page{
-  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-400); cursor:pointer;
+.fg-pagination svg{ width:16px; height:16px; color:var(--fg-color-grey-900); cursor:pointer; }
+.fg-pagination__numbers{ display:flex; align-items:center; gap:var(--fg-space-20); }
+.fg-pagination__page{
+  font-size:var(--fg-font-size-body2); font-weight:var(--fg-font-weight-regular);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-400); cursor:pointer;
 }
-.sidiz-pagination__page--current{
-  font-weight:var(--sidiz-font-weight-semibold);
-  color:var(--sidiz-color-grey-900);
+.fg-pagination__page--current{
+  font-weight:var(--fg-font-weight-semibold);
+  color:var(--fg-color-grey-900);
 }
 </style>
 <!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
 
 <style>
 /* (미리보기 전용 — 조각 아님) */
-body{ background:var(--sidiz-color-grey-50); }
-.preview{ padding:var(--sidiz-space-40); }
+body{ background:var(--fg-color-grey-50); }
+.preview{ padding:var(--fg-space-40); }
 </style>
 </head>
 <body>
 <div class="preview">
   <!-- ▼ 조각 마크업 — 그대로 복사 ▼ -->
-  <nav class="sidiz-pagination">
+  <nav class="fg-pagination">
     <i data-lucide="chevron-left"></i>
-    <span class="sidiz-pagination__numbers">
-      <span class="sidiz-pagination__page sidiz-pagination__page--current">1</span>
-      <span class="sidiz-pagination__page">2</span>
-      <span class="sidiz-pagination__page">3</span>
-      <span class="sidiz-pagination__page">4</span>
-      <span class="sidiz-pagination__page">5</span>
+    <span class="fg-pagination__numbers">
+      <span class="fg-pagination__page fg-pagination__page--current">1</span>
+      <span class="fg-pagination__page">2</span>
+      <span class="fg-pagination__page">3</span>
+      <span class="fg-pagination__page">4</span>
+      <span class="fg-pagination__page">5</span>
     </span>
     <i data-lucide="chevron-right"></i>
   </nav>

@@ -27,58 +27,58 @@
 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <!-- 토큰: 실제 화면에 붙일 때는 프로젝트의 tokens.css를 사용. 이 미리보기는 상대경로로 링크. -->
-<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<link rel="stylesheet" href="../../dist/fg/tokens.css">
 
 <!-- ▼▼▼ 조각 CSS (이 블록을 그대로 복사) ▼▼▼ -->
 <style>
-.sidiz-toast{
+.fg-toast{
   display:flex; align-items:center; justify-content:space-between;
   width:520px; height:56px;
-  padding:var(--sidiz-space-12) var(--sidiz-space-32);
-  border-radius:var(--sidiz-radius-6);
-  background:var(--sidiz-color-grey-900);
-  box-shadow:var(--sidiz-shadow-dropshadow);
+  padding:var(--fg-space-12) var(--fg-space-32);
+  border-radius:var(--fg-radius-6);
+  background:var(--fg-color-grey-900);
+  box-shadow:var(--fg-shadow-dropshadow);
 }
-.sidiz-toast__content{ display:flex; align-items:center; gap:var(--sidiz-space-16); }
-.sidiz-toast__icon{
+.fg-toast__content{ display:flex; align-items:center; gap:var(--fg-space-16); }
+.fg-toast__icon{
   flex:0 0 auto; width:24px; height:24px;
-  border-radius:var(--sidiz-radius-pill);
+  border-radius:var(--fg-radius-pill);
   display:flex; align-items:center; justify-content:center;
 }
-.sidiz-toast__icon svg{
+.fg-toast__icon svg{
   width:14px; height:14px;
-  fill:none; stroke:var(--sidiz-color-grey-50); stroke-width:2;
+  fill:none; stroke:var(--fg-color-grey-50); stroke-width:2;
   stroke-linecap:round; stroke-linejoin:round;
 }
-.sidiz-toast__message{
-  font-size:var(--sidiz-font-size-body1); font-weight:var(--sidiz-font-weight-semibold);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-50); white-space:nowrap;
+.fg-toast__message{
+  font-size:var(--fg-font-size-body1); font-weight:var(--fg-font-weight-semibold);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-50); white-space:nowrap;
 }
-.sidiz-toast__close{
+.fg-toast__close{
   flex:0 0 auto;
-  height:32px; padding:0 var(--sidiz-space-12);
+  height:32px; padding:0 var(--fg-space-12);
   display:inline-flex; align-items:center; justify-content:center;
-  border:0; border-radius:var(--sidiz-radius-pill);
+  border:0; border-radius:var(--fg-radius-pill);
   background:transparent; cursor:pointer;
-  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-400);
+  font-size:var(--fg-font-size-body2); font-weight:var(--fg-font-weight-regular);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-400);
 }
 /* 상태별 아이콘 원 배경(상태색) */
-.sidiz-toast--default .sidiz-toast__icon{ background:var(--sidiz-color-blue-500); }
-.sidiz-toast--error   .sidiz-toast__icon{ background:var(--sidiz-color-red-600); }
-.sidiz-toast--alert   .sidiz-toast__icon{ background:#F5CA1D; } /* Toast 전용 로컬 확장색 */
+.fg-toast--default .fg-toast__icon{ background:var(--fg-color-blue-500); }
+.fg-toast--error   .fg-toast__icon{ background:var(--fg-color-red-600); }
+.fg-toast--alert   .fg-toast__icon{ background:#F5CA1D; } /* Toast 전용 로컬 확장색 */
 </style>
 <!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
 
 <style>
 /* (미리보기 전용 — 조각 아님) */
-body{ background:var(--sidiz-color-grey-50); }
-.preview{ padding:var(--sidiz-space-40); display:flex; flex-direction:column; gap:var(--sidiz-space-24); }
-.preview h1{ font-size:var(--sidiz-font-size-title3); font-weight:600; }
-.preview .cap{ font-size:var(--sidiz-font-size-caption1); font-weight:600; color:var(--sidiz-color-grey-500); }
-.preview .row{ display:flex; flex-direction:column; gap:var(--sidiz-space-8); }
+body{ background:var(--fg-color-grey-50); }
+.preview{ padding:var(--fg-space-40); display:flex; flex-direction:column; gap:var(--fg-space-24); }
+.preview h1{ font-size:var(--fg-font-size-title3); font-weight:600; }
+.preview .cap{ font-size:var(--fg-font-size-caption1); font-weight:600; color:var(--fg-color-grey-500); }
+.preview .row{ display:flex; flex-direction:column; gap:var(--fg-space-8); }
 </style>
 </head>
 <body>
@@ -88,41 +88,41 @@ body{ background:var(--sidiz-color-grey-50); }
   <div class="row">
     <span class="cap">State = Default</span>
     <!-- ▼ 조각 마크업 (Default) — 그대로 복사 ▼ -->
-    <div class="sidiz-toast sidiz-toast--default" role="status">
-      <div class="sidiz-toast__content">
-        <span class="sidiz-toast__icon">
+    <div class="fg-toast fg-toast--default" role="status">
+      <div class="fg-toast__content">
+        <span class="fg-toast__icon">
           <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
         </span>
-        <span class="sidiz-toast__message">선택하신 주문이 정상적으로 등록되었습니다.</span>
+        <span class="fg-toast__message">선택하신 주문이 정상적으로 등록되었습니다.</span>
       </div>
-      <button type="button" class="sidiz-toast__close">닫기</button>
+      <button type="button" class="fg-toast__close">닫기</button>
     </div>
     <!-- ▲ 조각 마크업 (Default) 끝 ▲ -->
   </div>
 
   <div class="row">
     <span class="cap">State = Error</span>
-    <div class="sidiz-toast sidiz-toast--error" role="alert">
-      <div class="sidiz-toast__content">
-        <span class="sidiz-toast__icon">
+    <div class="fg-toast fg-toast--error" role="alert">
+      <div class="fg-toast__content">
+        <span class="fg-toast__icon">
           <svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </span>
-        <span class="sidiz-toast__message">등록에 실패했습니다. 잠시 후 다시 시도해 주세요.</span>
+        <span class="fg-toast__message">등록에 실패했습니다. 잠시 후 다시 시도해 주세요.</span>
       </div>
-      <button type="button" class="sidiz-toast__close">닫기</button>
+      <button type="button" class="fg-toast__close">닫기</button>
     </div>
   </div>
 
   <div class="row">
     <span class="cap">State = Alert</span>
-    <div class="sidiz-toast sidiz-toast--alert" role="alert">
-      <div class="sidiz-toast__content">
-        <span class="sidiz-toast__icon">
+    <div class="fg-toast fg-toast--alert" role="alert">
+      <div class="fg-toast__content">
+        <span class="fg-toast__icon">
           <svg viewBox="0 0 24 24"><path d="M12 7v6"/><path d="M12 17h.01"/></svg>
         </span>
-        <span class="sidiz-toast__message">최초 로그인 시 비밀번호 재설정이 필요합니다.</span>
+        <span class="fg-toast__message">최초 로그인 시 비밀번호 재설정이 필요합니다.</span>
       </div>
-      <button type="button" class="sidiz-toast__close">닫기</button>
+      <button type="button" class="fg-toast__close">닫기</button>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@
 
 - 구조, 클래스명, 중첩 순서, 아이콘 위치를 바꾸지 않는다.
 - `COMPONENTS.html` 에 없는 구조가 필요하면 **임의로 만들지 않고 관리자에게 보고**한다.
-- 스타일은 `sidiz-components.css` 와 `tokens.css` 의 클래스만 쓴다.
+- 스타일은 `fg-components.css` 와 `tokens.css` 의 클래스만 쓴다.
   `font-size`, `padding`, `height`, `stroke-width`, hex 색을 직접 지정하지 않는다.
   `width` 지정만 예외로 허용한다.
 
@@ -20,7 +20,7 @@
 | 순위 | 파일 | 역할 |
 |---|---|---|
 | 1 | `COMPONENTS.html` | **마크업 정본.** 복사해서 조립할 원본 |
-| 2 | `sidiz-components.css` | **컴포넌트 CSS 정본.** 피그마 실측. 수정 금지 |
+| 2 | `fg-components.css` | **컴포넌트 CSS 정본.** 피그마 실측. 수정 금지 |
 | 3 | `tokens.css` | 색과 타이포 변수, 타이포 클래스 |
 | 4 | `component-spec.md` | 피그마 실측 수치 원장. 근거 확인용 |
 | 5 | `layouts.md` | 화면 유형별 골격과 배치 순서 |
@@ -160,7 +160,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 새 상태값은 반드시 위 5범주 중 의미가 가장 가까운 곳에 넣는다. 6번째 색을 만들지 않는다.
 
 **Dashboard Card 의 수치와 단위 글자색은 그 카드 태그의 진한 색과 같게 맞춘다.**
-카드에 `sidiz-card--wait` / `--hold` / `--progress` / `--done` / `--fail` 중 하나를 붙이면 자동 적용된다.
+카드에 `fg-card--wait` / `--hold` / `--progress` / `--done` / `--fail` 중 하나를 붙이면 자동 적용된다.
 
 # Search Filter 구조
 
@@ -177,12 +177,12 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 # Table 구조
 
 - **No. 열을 두지 않는다.** 첫 열은 체크박스 열(폭 48)이다.
-- **테이블 전체를 Grey-200 외곽선 + radius 4 로 감싼다.** `sidiz-table-wrap` 으로 감싸며,
+- **테이블 전체를 Grey-200 외곽선 + radius 4 로 감싼다.** `fg-table-wrap` 으로 감싸며,
   마지막 행의 하단 보더는 제거한다. 외곽선을 빼면 표가 배경에 떠 보인다.
 - 헤더 H32 Grey-100 배경, 셀 H38, 좌우 padding 16, 행 구분은 Grey-200 hairline.
 - 링크와 URL 은 밑줄, 색은 Grey-900.
 - 테이블은 컨테이너 폭에 맞춰 늘어난다. 콘텐츠 폭 기준은 1280.
-- 페이지네이션은 **테이블 가로 폭 기준 중앙 정렬**이다. `sidiz-pagination-wrap` 으로 감싼다.
+- 페이지네이션은 **테이블 가로 폭 기준 중앙 정렬**이다. `fg-pagination-wrap` 으로 감싼다.
 
 # Toast
 
@@ -232,9 +232,9 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 | Dashboard Card 한 줄 개수 | 최대 4개, 5번째부터 다음 줄, 폭은 균등 분배 |
 
 화면이 1600 보다 넓어지면 콘텐츠는 1280 을 유지하고 **좌우 여백만 균등하게** 늘어난다.
-`sidiz-container` 가 `max-width: 1280px; margin: 0 auto` 로 이 규칙을 담당한다.
+`fg-container` 가 `max-width: 1280px; margin: 0 auto` 로 이 규칙을 담당한다.
 
-골격 클래스는 `sidiz-app` → `sidiz-sidebar` + `sidiz-main`(`sidiz-header` + `sidiz-contents` → `sidiz-container`) 이다.
+골격 클래스는 `fg-app` → `fg-sidebar` + `fg-main`(`fg-header` + `fg-contents` → `fg-container`) 이다.
 
 ## 조립 순서
 

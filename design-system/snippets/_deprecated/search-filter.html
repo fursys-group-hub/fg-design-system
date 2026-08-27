@@ -13,59 +13,59 @@
   ⚠️ 그대로 복사해 쓴다.
 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<link rel="stylesheet" href="../../dist/fg/tokens.css">
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
 <style>
-.sidiz-search-filter{
-  display:flex; flex-direction:column; gap:var(--sidiz-space-8);
-  padding:var(--sidiz-space-16) 0;
-  border:1px solid var(--sidiz-color-grey-200); border-radius:var(--sidiz-radius-4);
-  background:var(--sidiz-color-grey-50);
+.fg-search-filter{
+  display:flex; flex-direction:column; gap:var(--fg-space-8);
+  padding:var(--fg-space-16) 0;
+  border:1px solid var(--fg-color-grey-200); border-radius:var(--fg-radius-4);
+  background:var(--fg-color-grey-50);
 }
-.sidiz-search-filter__row{ display:flex; align-items:flex-end; gap:var(--sidiz-space-12); padding:0 var(--sidiz-space-16); }
-.sidiz-search-filter__actions{ display:flex; justify-content:flex-end; gap:var(--sidiz-space-8); padding:0 var(--sidiz-space-16); }
-.sidiz-search-filter__field{ display:flex; flex-direction:column; gap:var(--sidiz-space-4); }
-.sidiz-search-filter__label{
-  font-size:var(--sidiz-font-size-caption1); font-weight:var(--sidiz-font-weight-semibold);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-500);
+.fg-search-filter__row{ display:flex; align-items:flex-end; gap:var(--fg-space-12); padding:0 var(--fg-space-16); }
+.fg-search-filter__actions{ display:flex; justify-content:flex-end; gap:var(--fg-space-8); padding:0 var(--fg-space-16); }
+.fg-search-filter__field{ display:flex; flex-direction:column; gap:var(--fg-space-4); }
+.fg-search-filter__label{
+  font-size:var(--fg-font-size-caption1); font-weight:var(--fg-font-weight-semibold);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-500);
 }
-.sidiz-search-filter__period{ display:flex; align-items:center; gap:var(--sidiz-space-8); min-width:348px; white-space:nowrap; }
-.sidiz-search-filter__period .input{ flex:1; min-width:0; }
-.sidiz-search-filter__tilde{
-  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-400);
+.fg-search-filter__period{ display:flex; align-items:center; gap:var(--fg-space-8); min-width:348px; white-space:nowrap; }
+.fg-search-filter__period .input{ flex:1; min-width:0; }
+.fg-search-filter__tilde{
+  font-size:var(--fg-font-size-body2); font-weight:var(--fg-font-weight-regular);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-400);
 }
 </style>
 <!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
 
 <style>
-body{ background:var(--sidiz-color-grey-50); }
-.preview{ padding:var(--sidiz-space-40); }
+body{ background:var(--fg-color-grey-50); }
+.preview{ padding:var(--fg-space-40); }
 </style>
 </head>
 <body>
 <div class="preview">
   <!-- ▼ 조각 마크업 — 그대로 복사 (Input/Button은 tokens.css .input/.btn 사용) ▼ -->
-  <section class="sidiz-search-filter">
-    <div class="sidiz-search-filter__row">
-      <div class="sidiz-search-filter__field">
-        <span class="sidiz-search-filter__label">일정 (주문일)</span>
-        <div class="sidiz-search-filter__period">
+  <section class="fg-search-filter">
+    <div class="fg-search-filter__row">
+      <div class="fg-search-filter__field">
+        <span class="fg-search-filter__label">일정 (주문일)</span>
+        <div class="fg-search-filter__period">
           <span class="input"><i data-lucide="calendar"></i><input value="2026-08-01"></span>
-          <span class="sidiz-search-filter__tilde">~</span>
+          <span class="fg-search-filter__tilde">~</span>
           <span class="input"><i data-lucide="calendar"></i><input value="2026-08-19"></span>
         </div>
       </div>
-      <div class="sidiz-search-filter__field">
-        <span class="sidiz-search-filter__label">주문 상태</span>
+      <div class="fg-search-filter__field">
+        <span class="fg-search-filter__label">주문 상태</span>
         <span class="input"><select><option>전체</option></select><i data-lucide="chevron-down"></i></span>
       </div>
     </div>
-    <div class="sidiz-search-filter__actions">
+    <div class="fg-search-filter__actions">
       <button class="btn btn-secondary">초기화</button>
       <button class="btn btn-primary"><i data-lucide="search"></i>조회</button>
     </div>

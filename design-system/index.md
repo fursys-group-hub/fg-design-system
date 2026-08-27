@@ -11,7 +11,7 @@
 | 순위 | 파일 | 역할 |
 |---|---|---|
 | 1 | [COMPONENTS.html](COMPONENTS.html) | **마크업 정본** — 복사·조립 원본 |
-| 2 | [sidiz-components.css](sidiz-components.css) | **컴포넌트 CSS 정본**(피그마 실측, 수정 금지) — 폰트 스무딩·`svg{stroke-width:1.2}` 필수 블록 포함 |
+| 2 | [fg-components.css](fg-components.css) | **컴포넌트 CSS 정본**(피그마 실측, 수정 금지) — 폰트 스무딩·`svg{stroke-width:1.2}` 필수 블록 포함 |
 | 3 | [component-spec.md](component-spec.md) | 피그마 실측 수치 원장(근거) |
 | 4 | [layouts.md](layouts.md) | 화면 유형 골격·배치 순서 |
 | — | [CLAUDE.md](CLAUDE.md) | 작업 지침·규칙(값 충돌 시 판단 기준) |

@@ -1,0 +1,636 @@
+/* ============================================================
+   SIDIZ 컴포넌트 CSS 정본  v2  (2026-08-21)
+   출처: 시디즈_디자인 시스템.fig 바이너리 실측 + 인스턴스 오버라이드 해석
+   이 파일의 값은 피그마와 1:1. 임의 수정 금지.
+   tokens.css 뒤에 로드한다.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   0. 전역 — 폰트 렌더링
+   ⚠️ 이 블록이 없으면 macOS 브라우저가 서브픽셀 안티에일리어싱으로
+      글자를 굵게 그린다. 피그마보다 굵어 보이는 원인이 이것이다.
+      절대 지우지 말 것.
+   ------------------------------------------------------------ */
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--fg-color-grey-900);
+}
+* { -webkit-font-smoothing: inherit; -moz-osx-font-smoothing: inherit; }
+
+/* ------------------------------------------------------------
+   1. 아이콘 — 컴포넌트 내 모든 아이콘 stroke 1.2 (예외 없음)
+      Lucide 기본값 2 를 덮어쓴다. 이 블록을 지우면 아이콘이 굵어진다.
+      피그마 원본에는 1.0~2.4 로 흩어진 값이 있으나 스케일 잔재이며
+      정본 규칙은 1.2 단일이다. 다른 규칙에서 stroke-width 를 지정하지 않는다.
+   ------------------------------------------------------------ */
+svg { stroke-width: 1.2; }
+svg[class*="lucide"], .fg-icon, [data-lucide] {
+  width: 16px; height: 16px;
+  flex: 0 0 auto;
+}
+
+/* ------------------------------------------------------------
+   2. Input — H36 · r4 · pad 0/12 · Body2(13/400) · 보더 Grey-200
+      Dropdown 과 Search 는 SPACE_BETWEEN → 아이콘이 우측 끝 고정
+   ------------------------------------------------------------ */
+.fg-input {
+  display: flex; align-items: center;
+  height: 36px; padding: 0 12px;
+  border: 1px solid var(--fg-color-grey-200);
+  border-radius: 4px;
+  background: var(--fg-color-grey-50);
+  font-size: 13px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-900);
+  box-sizing: border-box;
+}
+.fg-input > input, .fg-input > select {
+  flex: 1; min-width: 0;
+  border: 0; outline: 0; background: transparent;
+  font: inherit; color: inherit;
+  letter-spacing: inherit; line-height: inherit;
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+}
+.fg-input > input::placeholder { color: var(--fg-color-grey-400); }
+.fg-input > svg { color: var(--fg-color-grey-400); }
+.fg-input--dropdown, .fg-input--search { justify-content: space-between; gap: 0; }
+.fg-input--date { gap: 12px; }
+.fg-input--date .fg-input__range { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: flex-start; gap: 8px; white-space: nowrap; }
+.fg-input--date .fg-input__range > span { color: var(--fg-color-grey-400); }
+.fg-input--stepper { height: 34px; padding: 0 0 0 12px; }
+.fg-input--stepper svg { width: 12px; height: 12px; }
+.fg-input.is-filled, .fg-input.is-hover { border-color: var(--fg-color-grey-900); }
+.fg-input.is-disabled {
+  background: var(--fg-color-grey-200);
+  border-color: var(--fg-color-grey-300);
+  color: var(--fg-color-grey-400);
+}
+
+/* ------------------------------------------------------------
+   3. Input Case — 세로 gap6 · 라벨 Caption1(11/600) Grey-500 · 필수 Red-600
+      기간 필드 = 프리셋 136 + gap4 + 날짜범위 208 = 348
+   ------------------------------------------------------------ */
+.fg-field { display: flex; flex-direction: column; gap: 6px; }
+.fg-field__label {
+  display: flex; align-items: center;
+  font-size: 12px; font-weight: 600;      /* Input Case 단독 = Body3 12/600 */
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-500);
+}
+/* 필터 카드 안의 라벨은 Caption1 11/600 (피그마 Search Filter 실측 44건) */
+.fg-filter .fg-field__label { font-size: 11px; }
+.fg-field__req { color: var(--fg-color-red-600); }
+.fg-field__help {
+  font-size: 12px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400);
+}
+.fg-field__error { color: var(--fg-color-red-600); }
+.fg-field--period > .fg-field__body { display: flex; align-items: center; gap: 4px; }
+.fg-field--period { min-width: 356px; }   /* 프리셋136 + gap4 + 날짜216 */
+.fg-field--period .fg-input--dropdown { width: 136px; flex: 0 0 auto; }
+.fg-field--period .fg-input--date { flex: 0 0 auto; width: 216px; }
+
+/* ------------------------------------------------------------
+   4. Button
+      Square/Round : H32 · pad 0/12 · gap8 · Body1(13/600) · 아이콘16
+      Flat         : H24 · pad 0/10 · gap6 · Body3(12/600) · 아이콘12
+      Text         : H32 · pad 0/12 · gap6 · Body3(12/600) · 투명
+   ------------------------------------------------------------ */
+.fg-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 32px; padding: 0 12px; gap: 8px;
+  border: 1px solid transparent; border-radius: 4px;
+  font-size: 13px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  cursor: pointer; white-space: nowrap; box-sizing: border-box;
+}
+.fg-btn > svg { width: 16px; height: 16px; }
+.fg-btn--primary   { background: var(--fg-color-grey-900); color: var(--fg-color-grey-50); }
+.fg-btn--secondary { background: var(--fg-color-grey-50); color: var(--fg-color-grey-900); border-color: var(--fg-color-grey-200); }
+.fg-btn--disabled  { background: var(--fg-color-grey-200); color: var(--fg-color-grey-400); cursor: not-allowed; }
+.fg-btn--error     { background: var(--fg-color-grey-50); color: var(--fg-color-red-600); border-color: var(--fg-color-red-600); }
+.fg-btn--round { border-radius: 9999px; }
+.fg-btn--flat { height: 24px; padding: 0 10px; gap: 6px; border-radius: 9999px; font-size: 12px; }
+.fg-btn--flat > svg { width: 12px; height: 12px; }
+.fg-btn--text {
+  height: 32px; padding: 0 12px; gap: 6px; border-radius: 9999px;
+  background: transparent; border-color: transparent; font-size: 12px;
+}
+.fg-btn--text > svg { width: 12px; height: 12px; }
+
+/* ------------------------------------------------------------
+   5. Tag — min28 x H16 · pad 0/4 · r2 · Caption1(11/600)
+      5범주는 색 분류 기준. 라벨은 업무 용어를 그대로 쓴다.
+   ------------------------------------------------------------ */
+.fg-tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 28px; height: 16px; padding: 0 4px;
+  border: 1px solid transparent; border-radius: 2px;
+  font-size: 11px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  white-space: nowrap; box-sizing: border-box;
+}
+.fg-tag--black-light  { background: var(--fg-color-grey-50);  color: var(--fg-color-grey-900); border-color: var(--fg-color-grey-200); }
+.fg-tag--gray-light   { background: var(--fg-color-grey-100); color: var(--fg-color-grey-400); }
+.fg-tag--blue-light   { background: var(--fg-color-blue-100); color: var(--fg-color-blue-600); }
+.fg-tag--red-light    { background: var(--fg-color-red-100);  color: var(--fg-color-red-600); }
+.fg-tag--green-light  { background: var(--fg-color-green-100); color: var(--fg-color-green-600); }
+.fg-tag--yellow-light { background: var(--fg-color-yellow-100); color: var(--fg-color-yellow-600); }
+.fg-tag--black-dark   { background: var(--fg-color-grey-900); color: var(--fg-color-grey-50); }
+.fg-tag--gray-dark    { background: var(--fg-color-grey-400); color: var(--fg-color-grey-50); }
+.fg-tag--blue-dark    { background: var(--fg-color-blue-600); color: var(--fg-color-grey-50); }
+.fg-tag--red-dark     { background: var(--fg-color-red-600);  color: var(--fg-color-grey-50); }
+.fg-tag--green-dark   { background: var(--fg-color-green-600); color: var(--fg-color-grey-50); }
+.fg-tag--yellow-dark  { background: var(--fg-color-yellow-600); color: var(--fg-color-grey-50); }
+
+/* ------------------------------------------------------------
+   6. Dashboard Card — 314x65 · pad 16/20 · r4 · 가로 gap0 · 카드 간 gap8
+      수치와 단위 색 = 그 카드 태그의 전경색
+   ------------------------------------------------------------ */
+.fg-cards { display: flex; flex-wrap: wrap; gap: 8px; }
+.fg-card {
+  display: flex; align-items: center;
+  flex: 0 0 calc((100% - 24px) / 4);
+  min-width: 0; height: 65px; padding: 16px 20px; gap: 0;
+  border: 1px solid var(--fg-color-grey-200); border-radius: 4px;
+  background: var(--fg-color-grey-50);
+  box-sizing: border-box;
+}
+.fg-card__value { flex: 1; display: flex; align-items: flex-end; justify-content: flex-end; gap: 4px; }
+.fg-card__num {
+  font-size: 22px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-900);
+}
+.fg-card__unit {
+  padding-bottom: 5px;
+  font-size: 11px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-900);
+}
+.fg-card--wait     .fg-card__num, .fg-card--wait     .fg-card__unit { color: var(--fg-color-grey-900); }
+.fg-card--hold     .fg-card__num, .fg-card--hold     .fg-card__unit { color: var(--fg-color-yellow-600); }
+.fg-card--progress .fg-card__num, .fg-card--progress .fg-card__unit { color: var(--fg-color-green-600); }
+.fg-card--done     .fg-card__num, .fg-card--done     .fg-card__unit { color: var(--fg-color-blue-600); }
+.fg-card--fail     .fg-card__num, .fg-card--fail     .fg-card__unit { color: var(--fg-color-red-600); }
+
+/* ------------------------------------------------------------
+   7. Table — Header H32 Grey-100 Caption1 Grey-400 / Cell H38 Body2 Grey-900
+      No. 열을 두지 않는다. 첫 열은 체크박스 열(W48).
+      테이블 전체를 Grey-200 외곽선 + r4 로 감싼다. 마지막 행의 하단 보더는 제거.
+   ------------------------------------------------------------ */
+.fg-table-wrap {
+  border: 1px solid var(--fg-color-grey-200);
+  border-radius: 4px;
+  overflow: hidden;                      /* r4 모서리에 헤더 배경이 물리지 않게 */
+  background: var(--fg-color-grey-50);
+}
+.fg-table { width: 100%; border-collapse: collapse; }
+.fg-table tbody tr:last-child td { border-bottom: 0; }
+.fg-table th {
+  height: 32px; padding: 0 16px; text-align: left;
+  background: var(--fg-color-grey-100);
+  border-bottom: 1px solid var(--fg-color-grey-200);
+  font-size: 11px; font-weight: 600;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400);
+  white-space: nowrap;
+}
+.fg-table td {
+  height: 38px; padding: 0 16px;
+  background: var(--fg-color-grey-50);
+  border-bottom: 1px solid var(--fg-color-grey-200);
+  font-size: 13px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-900);
+}
+.fg-table th.fg-col-check, .fg-table td.fg-col-check { width: 48px; }
+.fg-table .fg-link { color: var(--fg-color-grey-900); text-decoration: underline; cursor: pointer; }
+.fg-table tfoot td { background: var(--fg-color-grey-100); font-weight: 600; }
+
+/* ------------------------------------------------------------
+   8. Pagination — 가로 gap12 · 숫자 그룹 gap20
+      현재 Body1(13/600) Grey-900 · 나머지 Body2(13/400) Grey-400
+      테이블 가로 폭 기준 중앙 정렬
+   ------------------------------------------------------------ */
+.fg-pagination-wrap { display: flex; justify-content: center; width: 100%; }
+.fg-pagination {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400);
+}
+.fg-pagination > svg { width: 16px; height: 16px; color: var(--fg-color-grey-900); }
+.fg-pagination__nums { display: flex; align-items: center; gap: 20px; }
+.fg-pagination__nums > span { font-weight: 400; color: var(--fg-color-grey-400); }
+.fg-pagination__nums > span.is-current { font-weight: 600; color: var(--fg-color-grey-900); }
+
+/* ------------------------------------------------------------
+   9. Search Filter — W1280 · r4 · 상하 pad16 · 좌우 pad16
+      피그마 구조: 한 행(가로 gap16, 하단 정렬) 안에
+        [필드 컨테이너 = 가변폭, 세로 gap16, 각 행은 가로 gap16 + 줄바꿈 허용]
+        [버튼 그룹 = 고정폭 162, 가로 gap4]
+      액션: 상세 조회 = Text(투명), 조회 = Secondary Round(흰 배경 + Grey-200 보더)
+      필드가 한 줄에 다 안 들어가면 자동으로 다음 줄로 넘어간다.
+   ------------------------------------------------------------ */
+.fg-filter {
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 16px 0;
+  border: 1px solid var(--fg-color-grey-200); border-radius: 4px;
+  background: var(--fg-color-grey-50);
+}
+.fg-filter__main {
+  display: flex; align-items: flex-end; gap: 16px;
+  padding: 0 16px;
+}
+.fg-filter__fields {
+  flex: 1 1 auto; min-width: 0;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.fg-filter__row {
+  display: flex; align-items: flex-start; gap: 16px;
+  flex-wrap: wrap;                       /* 여백 부족하면 다음 줄로 */
+}
+/* 필터 안의 필드는 가변 분배(피그마 fill). 기간만 고정폭 */
+.fg-filter .fg-field { flex: 1 1 0; min-width: 0; }
+.fg-filter .fg-field--period { flex: 0 0 auto; min-width: 0; }
+.fg-filter__actions {
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: flex-end; gap: 4px;
+}
+.fg-filter__toggle {
+  position: absolute; left: 50%; bottom: -12px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  border: 1px solid var(--fg-color-grey-200); border-radius: 9999px;
+  background: var(--fg-color-grey-50); cursor: pointer;
+}
+.fg-filter__toggle > svg { width: 16px; height: 16px; color: var(--fg-color-grey-900); }
+
+/* ------------------------------------------------------------
+   10. Header — 1344x50 · pad 0/24 · SPACE_BETWEEN · 하단 보더 Grey-200
+   ------------------------------------------------------------ */
+.fg-header {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 50px; padding: 0 24px;
+  background: var(--fg-color-grey-50);
+  border-bottom: 1px solid var(--fg-color-grey-200);
+  box-sizing: border-box;
+}
+.fg-header__toggle { width: 20px; height: 20px; color: var(--fg-color-grey-900); }
+.fg-header__right { display: flex; align-items: center; gap: 24px; }
+.fg-bell { position: relative; width: 20px; height: 20px; }
+.fg-bell > svg { width: 20px; height: 20px; color: var(--fg-color-grey-900); }
+.fg-bell__badge {
+  position: absolute; left: 8px; top: -6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 16px; height: 15px; padding: 0 4px; border-radius: 9999px;
+  background: var(--fg-color-red-600); color: var(--fg-color-grey-50);
+  font-size: 8px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+}
+.fg-profile {
+  display: flex; align-items: center; gap: 4px;
+  height: 32px; padding: 6px 12px 6px 16px;
+  border: 1px solid var(--fg-color-grey-200); border-radius: 9999px;
+  background: var(--fg-color-grey-50); box-sizing: border-box;
+}
+.fg-profile__name { display: flex; align-items: center; gap: 2px; }
+.fg-profile__name b { font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
+.fg-profile__name span { font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-400); }
+.fg-profile__role {
+  display: inline-flex; align-items: center; height: 17px; padding: 0 4px;
+  background: var(--fg-color-grey-100);
+  font-size: 11px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400);
+}
+.fg-profile > svg { width: 16px; height: 16px; color: var(--fg-color-grey-400); }
+
+/* ------------------------------------------------------------
+   11. Sidebar — W256 · 좌우 pad12 · 블록 간 gap24
+       브랜드: 로고 18x25.3 + 시스템명 Title5(14/600), gap16, 상단 pad24
+       검색: H38 r6 · 아이콘16 stroke1.2 Grey-400 · 텍스트 Body1(13/600) Grey-400
+       메뉴 항목: H34 · pad 0/12 · r6 · gap12 · Body1(13/600) Grey-900
+       하위 항목: H34 · pad 0/20 · 좌측 들여쓰기 20 · Body1 Grey-400 · 좌측 보더 Grey-200
+   ------------------------------------------------------------ */
+.fg-sidebar {
+  display: flex; flex-direction: column; gap: 24px;
+  width: 256px; padding: 0 12px;
+  background: var(--fg-color-grey-50);
+  border-right: 1px solid var(--fg-color-grey-200);
+  box-sizing: border-box;
+}
+.fg-sidebar__head { display: flex; flex-direction: column; gap: 20px; padding-top: 24px; }
+.fg-sidebar__brand { display: flex; align-items: center; gap: 16px; }
+.fg-sidebar__brand svg { width: 18px; height: 25.3px; }
+.fg-sidebar__brand b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
+.fg-sidebar__search {
+  display: flex; align-items: center; gap: 12px;
+  height: 38px; padding: 0 12px;
+  border: 1px solid var(--fg-color-grey-200); border-radius: 6px;
+  background: var(--fg-color-grey-50);
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400); box-sizing: border-box;
+}
+.fg-sidebar__search > svg { color: var(--fg-color-grey-400); }
+.fg-sidebar__search > input {
+  flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+  font: inherit; color: inherit; letter-spacing: inherit;
+}
+.fg-sidebar__search > input::placeholder { color: var(--fg-color-grey-400); }
+.fg-sidebar__body { display: flex; flex-direction: column; gap: 16px; }
+.fg-sidebar__list { display: flex; flex-direction: column; gap: 2px; padding: 2px 0; }
+.fg-sidebar__item {
+  display: flex; align-items: center; gap: 12px;
+  height: 34px; padding: 0 12px; border-radius: 6px;
+  background: var(--fg-color-grey-50);
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-900); cursor: pointer; box-sizing: border-box;
+}
+.fg-sidebar__item > svg { color: var(--fg-color-grey-900); }
+.fg-sidebar__item.is-active { background: var(--fg-color-primary-200); color: var(--fg-color-primary-600); }
+.fg-sidebar__item.is-active > svg { color: var(--fg-color-primary-600); }
+.fg-sidebar__subwrap { display: flex; padding: 0 20px; }
+.fg-sidebar__sublist {
+  display: flex; flex-direction: column; gap: 2px; padding: 2px 0;
+  border-left: 1px solid var(--fg-color-grey-200); flex: 1;
+}
+.fg-sidebar__sub {
+  display: flex; align-items: center; gap: 12px;
+  height: 34px; padding: 0 20px; border-radius: 6px;
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400); cursor: pointer; box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------
+   12. Tab
+       Line: H40 · 하단 보더 Grey-200 · 항목 pad 0/8 gap8 · Title5(14/600)
+             선택 = 하단 Blue-700 2px + 흰 배경 + shadow-sm, 글자 Grey-900
+             미선택 = 글자 Grey-300
+       Box : 컨테이너 H40 r6 pad4 Grey-100 · 선택 r4 흰 배경 shadow-sm · 미선택 r2
+   ------------------------------------------------------------ */
+.fg-tab--line { display: flex; align-items: flex-start; border-bottom: 1px solid var(--fg-color-grey-200); }
+.fg-tab--line .fg-tab__item {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  height: 40px; padding: 0 8px;
+  font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-300); cursor: pointer; box-sizing: border-box;
+}
+.fg-tab--line .fg-tab__item .fg-tab__cnt { color: var(--fg-color-grey-400); }
+.fg-tab--line .fg-tab__item.is-active {
+  background: transparent;
+  border-bottom: 2px solid var(--fg-color-primary-600);
+  color: var(--fg-color-grey-900);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+.fg-tab--box {
+  display: inline-flex; align-items: center; gap: 0;
+  height: 40px; padding: 4px; border-radius: 6px;
+  background: var(--fg-color-grey-100); box-sizing: border-box;
+}
+.fg-tab--box .fg-tab__item {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  height: 32px; padding: 6px 12px; border-radius: 2px;
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400); cursor: pointer; box-sizing: border-box;
+}
+.fg-tab--box .fg-tab__item.is-active {
+  border-radius: 4px; background: var(--fg-color-grey-50);
+  color: var(--fg-color-grey-900); box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+
+/* ------------------------------------------------------------
+   13. Dropdown List
+       Single/Multiple: W220 · r4 · 보더 Grey-200 · 검색행 H36 pad 0/12 하단 보더
+                        목록 pad4 · 항목 H36 pad 0/8 · Body2(13/400) Grey-900
+                        hover 항목 배경 Grey-100
+       Profile        : W195 · r4 · Drop Shadow · 3블록(프로필/설정/로그아웃) 각 pad20
+   ------------------------------------------------------------ */
+.fg-dropdown {
+  display: flex; flex-direction: column; gap: 0;
+  width: 220px; border: 1px solid var(--fg-color-grey-200); border-radius: 4px;
+  background: var(--fg-color-grey-50); box-sizing: border-box;
+}
+.fg-dropdown__search {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 36px; padding: 0 12px;
+  border-bottom: 1px solid var(--fg-color-grey-200);
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400); box-sizing: border-box;
+}
+.fg-dropdown__search > svg { color: var(--fg-color-grey-400); }
+.fg-dropdown__list { display: flex; flex-direction: column; padding: 4px; }
+.fg-dropdown__item {
+  display: flex; align-items: center; gap: 8px;
+  height: 36px; padding: 0 8px;
+  background: var(--fg-color-grey-50);
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-900); cursor: pointer; box-sizing: border-box;
+}
+.fg-dropdown__item.is-hover { background: var(--fg-color-grey-100); }
+.fg-dropdown--profile {
+  width: 195px;
+  box-shadow: 0 4px 6px -2px rgba(0,0,0,.05), 0 10px 15px -3px rgba(0,0,0,.10);
+}
+.fg-dropdown__profile {
+  display: flex; flex-direction: column; gap: 2px; padding: 20px;
+  border-bottom: 1px solid var(--fg-color-grey-200);
+}
+.fg-dropdown__prow { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.fg-dropdown__pname { display: flex; align-items: center; gap: 8px; }
+.fg-dropdown__pname b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
+.fg-dropdown__pbadge {
+  display: inline-flex; align-items: center; height: 17px; padding: 0 8px;
+  background: var(--fg-color-grey-100);
+  font-size: 11px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400);
+}
+.fg-dropdown__pmail { font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-400); }
+.fg-dropdown__settings { display: flex; flex-direction: column; gap: 20px; padding: 20px; }
+.fg-dropdown__slabel { font-size: 12px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-400); }
+.fg-dropdown__logout {
+  display: flex; align-items: center; gap: 8px; padding: 20px;
+  border-top: 1px solid var(--fg-color-grey-200);
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400); cursor: pointer;
+}
+.fg-dropdown__logout > svg { color: var(--fg-color-grey-400); }
+
+/* ------------------------------------------------------------
+   14. Carousel
+       Indicator: 점 6x6 · gap12 · 현재 Grey-50 100% · 나머지 Grey-50 30%
+       Navigator: 30x30 원 r9999 · 배경 Grey-50 70% · gap20 · 아이콘16
+       (어두운 배경 위에 올리는 컴포넌트)
+   ------------------------------------------------------------ */
+.fg-carousel-indicator { display: inline-flex; align-items: center; gap: 12px; }
+.fg-carousel-indicator > i {
+  width: 6px; height: 6px; border-radius: 9999px;
+  background: var(--fg-color-grey-50); opacity: .3;
+}
+.fg-carousel-indicator > i.is-current { opacity: 1; }
+.fg-carousel-nav { display: inline-flex; align-items: center; gap: 20px; }
+.fg-carousel-nav > button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; padding: 0;
+  border: 0; border-radius: 9999px;
+  background: rgba(255,255,255,.7); cursor: pointer;
+}
+.fg-carousel-nav > button > svg { width: 16px; height: 16px; color: var(--fg-color-grey-900); }
+
+/* ------------------------------------------------------------
+   15. Breadcrumb — gap8 · Body2 Grey-400 · 현재 Body1 Grey-900 · chevron12 stroke2.0
+   ------------------------------------------------------------ */
+.fg-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400);
+}
+.fg-breadcrumb > svg { width: 12px; height: 12px; color: var(--fg-color-grey-400); }
+.fg-breadcrumb .is-current { font-weight: 600; color: var(--fg-color-grey-900); }
+
+/* ------------------------------------------------------------
+   16. Toast — 520x56 · pad 12/32 · r6 · Grey-900 · SPACE_BETWEEN · 본문 gap16
+       상태 아이콘 = 24 원 안에 12px 글리프 stroke2.4
+       우측은 닫기 텍스트 버튼(Body2 13/400 Grey-400)
+   ------------------------------------------------------------ */
+.fg-toast {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 520px; height: 56px; padding: 12px 32px; border-radius: 6px;
+  background: var(--fg-color-grey-900);
+  box-shadow: 0 4px 6px -2px rgba(0,0,0,.05), 0 10px 15px -3px rgba(0,0,0,.10);
+  box-sizing: border-box;
+}
+.fg-toast__body {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 13px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-50);
+}
+.fg-toast__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 9999px; flex: 0 0 auto;
+}
+.fg-toast__icon > svg { width: 12px; height: 12px; color: var(--fg-color-grey-50); }
+/* Alert 는 원형 라인 없이 느낌표만 (피그마: 노란 원 + 흰 세로선) */
+.fg-toast__bang {
+  font-size: 12px; font-weight: 600; line-height: 1;
+  color: var(--fg-color-grey-50);
+}
+.fg-toast__icon--default { background: var(--fg-color-blue-600); }
+.fg-toast__icon--error   { background: var(--fg-color-red-600); }
+.fg-toast__icon--alert   { background: var(--fg-color-yellow-600); }
+.fg-toast__close {
+  height: 32px; padding: 0 12px; border: 0; border-radius: 9999px;
+  background: transparent;
+  font-size: 13px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em;
+  color: var(--fg-color-grey-400); cursor: pointer; white-space: nowrap;
+}
+/* Toast Layer — 본문 영역(.fg-main) 상단 기준 top 72(=Header 50 + 22)에 가로 중앙 부유.
+   .fg-main 에 position:relative 필요. 레이어는 클릭을 통과시키고 토스트만 클릭받는다. */
+.fg-toast-layer {
+  position: absolute; top: 72px; left: 0; right: 0;
+  display: flex; justify-content: center;
+  pointer-events: none; z-index: 100;
+}
+.fg-toast-layer > * { pointer-events: auto; }
+
+/* ------------------------------------------------------------
+   17. Checkbox / Radio — 16 프레임 안 13 박스(r2) / 14 원
+   ------------------------------------------------------------ */
+.fg-check, .fg-radio {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; flex: 0 0 auto; cursor: pointer;
+}
+/* 5상태: Unchecked / Hover / Checked / Multiple Checked / Disabled
+   Unchecked  = 흰 배경 + Grey-300 보더
+   Hover      = 흰 배경 + Grey-900 보더
+   Checked    = Grey-900 배경 + 흰 체크
+   Multiple   = 흰 배경 + Grey-900 보더 + Grey-900 체크
+   Disabled   = Grey-300 배경 + 흰 마이너스, 클릭 불가 */
+.fg-check__box {
+  width: 13px; height: 13px; border-radius: 2px;
+  border: 1px solid var(--fg-color-grey-300);
+  background: var(--fg-color-grey-50);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box;
+}
+.fg-check__box > svg { width: 11px; height: 11px; display: none; }
+.fg-check:hover:not(.is-disabled):not(.is-checked):not(.is-multiple) .fg-check__box {
+  border-color: var(--fg-color-grey-900);
+}
+.fg-check.is-checked .fg-check__box {
+  background: var(--fg-color-grey-900); border-color: var(--fg-color-grey-900);
+  color: var(--fg-color-grey-50);
+}
+.fg-check.is-checked .fg-check__box > svg.fg-check-icon { display: block; }
+.fg-check.is-multiple .fg-check__box {
+  background: var(--fg-color-grey-50); border-color: var(--fg-color-grey-900);
+  color: var(--fg-color-grey-900);
+}
+.fg-check.is-multiple .fg-check__box > svg.fg-check-icon { display: block; }
+.fg-check.is-disabled { cursor: not-allowed; }
+.fg-check.is-disabled .fg-check__box {
+  background: var(--fg-color-grey-300); border-color: var(--fg-color-grey-300);
+  color: var(--fg-color-grey-50);
+}
+.fg-check.is-disabled .fg-check__box > svg.fg-minus-icon { display: block; }
+.fg-radio__dot {
+  width: 14px; height: 14px; border-radius: 9999px;
+  border: 1px solid var(--fg-color-grey-300);
+  background: var(--fg-color-grey-50);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box;
+}
+.fg-radio.is-active .fg-radio__dot { border-color: var(--fg-color-grey-900); }
+.fg-radio.is-active .fg-radio__dot::after {
+  content: ""; width: 9px; height: 9px; border-radius: 9999px;
+  background: var(--fg-color-grey-900);
+}
+
+/* ------------------------------------------------------------
+   18. 화면 레이아웃 — 전체 1600 · Sidebar 256 · 본문영역 1344 · 콘텐츠 1280
+       본문 배경 Grey-100 · 콘텐츠는 중앙 정렬, 좌우 여백 동일
+       1344 - 좌우 padding 32 = 1280 (정확히 일치)
+       화면이 더 넓어지면 콘텐츠는 1280 을 유지하고 좌우 여백만 균등 증가
+   ------------------------------------------------------------ */
+.fg-app { display: flex; min-height: 100vh; background: var(--fg-color-grey-100); }
+.fg-app > .fg-sidebar { flex: 0 0 256px; }
+.fg-main { position: relative; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.fg-contents {
+  flex: 1 1 auto;
+  padding: 24px 32px 100px;              /* 상24 좌우32 하100 */
+  background: var(--fg-color-grey-100);
+}
+.fg-container {
+  width: 100%; max-width: 1280px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 0;
+}
+.fg-container > * + *                                   { margin-top: 32px; }
+.fg-container > .fg-section-title + *                { margin-top: 8px; }
+.fg-container > .fg-tab--line + *                    { margin-top: 8px; }
+.fg-container > .fg-table-wrap + .fg-pagination-wrap { margin-top: 16px; }
+/* 콘텐츠 안의 카드 표면은 흰색 */
+.fg-panel {
+  background: var(--fg-color-grey-50);
+  border: 1px solid var(--fg-color-grey-200); border-radius: 4px;
+}
+
+/* ------------------------------------------------------------
+   19. 페이지 타이틀 블록 / 섹션 타이틀
+       타이틀 Title3(22/600) Grey-900 + 서브 Body4(12/400) Grey-400, baseline gap8
+       서술형 서브 문구는 마침표로 끝낸다.
+       섹션 타이틀 Body1 13/600 + 건수 Blue-700. 건수에 단위를 붙이지 않는다.
+   ------------------------------------------------------------ */
+.fg-page-title { display: flex; align-items: baseline; gap: 8px; }
+.fg-page-title h1 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
+.fg-page-title p  { margin: 0; font-size: 12px; font-weight: 400; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-400); }
+.fg-section-title { display: flex; align-items: center; gap: 4px; }
+.fg-section-title h2 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
+.fg-section-title .fg-count { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-primary-600); }

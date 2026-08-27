@@ -20,80 +20,80 @@
   ============================================================================
 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<link rel="stylesheet" href="../../dist/fg/tokens.css">
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
 <style>
-.sidiz-sidebar{
+.fg-sidebar{
   width:256px;
-  display:flex; flex-direction:column; gap:var(--sidiz-space-24);
-  padding:0 var(--sidiz-space-12);
-  background:var(--sidiz-color-grey-50);
-  border-right:1px solid var(--sidiz-color-grey-200);
-  box-shadow:var(--sidiz-shadow-sm);
+  display:flex; flex-direction:column; gap:var(--fg-space-24);
+  padding:0 var(--fg-space-12);
+  background:var(--fg-color-grey-50);
+  border-right:1px solid var(--fg-color-grey-200);
+  box-shadow:var(--fg-shadow-sm);
 }
-.sidiz-sidebar__brand{ display:flex; align-items:center; gap:var(--sidiz-space-16); }
-.sidiz-sidebar__logo{ width:18px; height:25px; flex:0 0 auto; }
-.sidiz-sidebar__title{
-  font-size:var(--sidiz-font-size-title5); font-weight:var(--sidiz-font-weight-semibold);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-900);
+.fg-sidebar__brand{ display:flex; align-items:center; gap:var(--fg-space-16); }
+.fg-sidebar__logo{ width:18px; height:25px; flex:0 0 auto; }
+.fg-sidebar__title{
+  font-size:var(--fg-font-size-title5); font-weight:var(--fg-font-weight-semibold);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-900);
 }
-.sidiz-sidebar__search{
-  display:flex; align-items:center; gap:var(--sidiz-space-12);
-  height:38px; padding:0 var(--sidiz-space-12);
-  border:1px solid var(--sidiz-color-grey-200); border-radius:var(--sidiz-radius-4);
-  background:var(--sidiz-color-grey-50);
+.fg-sidebar__search{
+  display:flex; align-items:center; gap:var(--fg-space-12);
+  height:38px; padding:0 var(--fg-space-12);
+  border:1px solid var(--fg-color-grey-200); border-radius:var(--fg-radius-4);
+  background:var(--fg-color-grey-50);
 }
-.sidiz-sidebar__search svg{ width:16px; height:16px; color:var(--sidiz-color-grey-400); flex:0 0 auto; }
-.sidiz-sidebar__search input{
+.fg-sidebar__search svg{ width:16px; height:16px; color:var(--fg-color-grey-400); flex:0 0 auto; }
+.fg-sidebar__search input{
   border:0; outline:0; background:transparent; flex:1; min-width:0;
-  font-size:var(--sidiz-font-size-body1); font-weight:var(--sidiz-font-weight-semibold);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-900);
+  font-size:var(--fg-font-size-body1); font-weight:var(--fg-font-weight-semibold);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-900);
 }
-.sidiz-sidebar__search input::placeholder{ color:var(--sidiz-color-grey-400); }
-.sidiz-sidebar__menu{ display:flex; flex-direction:column; gap:var(--sidiz-space-2); }
-.sidiz-sidebar__item{
-  display:flex; align-items:center; gap:var(--sidiz-space-12);
-  height:34px; padding:0 var(--sidiz-space-12);
-  border-radius:var(--sidiz-radius-4);
+.fg-sidebar__search input::placeholder{ color:var(--fg-color-grey-400); }
+.fg-sidebar__menu{ display:flex; flex-direction:column; gap:var(--fg-space-2); }
+.fg-sidebar__item{
+  display:flex; align-items:center; gap:var(--fg-space-12);
+  height:34px; padding:0 var(--fg-space-12);
+  border-radius:var(--fg-radius-4);
   background:transparent;
-  font-size:var(--sidiz-font-size-body1); font-weight:var(--sidiz-font-weight-semibold);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-900); cursor:pointer;
+  font-size:var(--fg-font-size-body1); font-weight:var(--fg-font-weight-semibold);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-900); cursor:pointer;
 }
-.sidiz-sidebar__item svg{ width:16px; height:16px; flex:0 0 auto; }
-.sidiz-sidebar__item--active{ background:var(--sidiz-color-blue-100); color:var(--sidiz-color-blue-700); }
+.fg-sidebar__item svg{ width:16px; height:16px; flex:0 0 auto; }
+.fg-sidebar__item--active{ background:var(--fg-color-blue-100); color:var(--fg-color-blue-700); }
 </style>
 <!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
 
 <style>
 /* (미리보기 전용 — 조각 아님) */
-body{ background:var(--sidiz-color-grey-50); }
-.preview{ display:flex; gap:var(--sidiz-space-40); padding:var(--sidiz-space-40); }
-.preview .sidiz-sidebar{ padding-top:var(--sidiz-space-24); padding-bottom:var(--sidiz-space-24); }
+body{ background:var(--fg-color-grey-50); }
+.preview{ display:flex; gap:var(--fg-space-40); padding:var(--fg-space-40); }
+.preview .fg-sidebar{ padding-top:var(--fg-space-24); padding-bottom:var(--fg-space-24); }
 </style>
 </head>
 <body>
 <div class="preview">
   <!-- ▼ 조각 마크업 — 그대로 복사 ▼ -->
-  <aside class="sidiz-sidebar">
-    <div class="sidiz-sidebar__brand">
-      <svg class="sidiz-sidebar__logo" viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="black"/></svg>
-      <span class="sidiz-sidebar__title">SIDIZ ADMIN</span>
+  <aside class="fg-sidebar">
+    <div class="fg-sidebar__brand">
+      <svg class="fg-sidebar__logo" viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="black"/></svg>
+      <span class="fg-sidebar__title">SIDIZ ADMIN</span>
     </div>
-    <div class="sidiz-sidebar__search">
+    <div class="fg-sidebar__search">
       <i data-lucide="search"></i>
       <input placeholder="검색">
     </div>
-    <nav class="sidiz-sidebar__menu">
-      <div class="sidiz-sidebar__item sidiz-sidebar__item--active"><i data-lucide="clipboard-list"></i>주문 관리</div>
-      <div class="sidiz-sidebar__item"><i data-lucide="layout-dashboard"></i>대시보드</div>
-      <div class="sidiz-sidebar__item"><i data-lucide="package"></i>상품 관리</div>
-      <div class="sidiz-sidebar__item"><i data-lucide="bar-chart-big"></i>매출 통계</div>
-      <div class="sidiz-sidebar__item"><i data-lucide="settings"></i>설정</div>
+    <nav class="fg-sidebar__menu">
+      <div class="fg-sidebar__item fg-sidebar__item--active"><i data-lucide="clipboard-list"></i>주문 관리</div>
+      <div class="fg-sidebar__item"><i data-lucide="layout-dashboard"></i>대시보드</div>
+      <div class="fg-sidebar__item"><i data-lucide="package"></i>상품 관리</div>
+      <div class="fg-sidebar__item"><i data-lucide="bar-chart-big"></i>매출 통계</div>
+      <div class="fg-sidebar__item"><i data-lucide="settings"></i>설정</div>
     </nav>
   </aside>
   <!-- ▲ 조각 마크업 끝 ▲ -->

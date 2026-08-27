@@ -38,7 +38,7 @@
 
 상태 5범주 매핑(대기/보류/진행중/완료/취소·실패)과 **라벨은 업무 용어 그대로**라는 규칙, 요약 카드 vs 테이블 색 차이(취소/실패만 카드=red-dark·테이블=red-light)는 **`CLAUDE.md` 「상태 태그 5범주 매핑」이 정본**이다. 여기서 값을 중복 정의하지 않는다.
 
-- 카드 수치·단위 색은 카드 태그의 진한 색과 같게 맞춘다 → 카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여(자동 적용, `sidiz-components.css`).
+- 카드 수치·단위 색은 카드 태그의 진한 색과 같게 맞춘다 → 카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여(자동 적용, `fg-components.css`).
 
 ## 확인 필요
 

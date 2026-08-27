@@ -33,7 +33,7 @@
 ## 3. 요약 카드
 
 - 상태별 **4~5개 카드를 1행**으로. 각 카드는 상태 태그 + 큰 수치(`Title3`) + 단위(`Caption1`).
-- **수치·단위 색은 카드 태그의 진한 색과 같게** 맞춘다(`sidiz-card--wait/--hold/--progress/--done/--fail`). 상세=`CLAUDE.md` 상태 태그 5범주.
+- **수치·단위 색은 카드 태그의 진한 색과 같게** 맞춘다(`fg-card--wait/--hold/--progress/--done/--fail`). 상세=`CLAUDE.md` 상태 태그 5범주.
 
 ## 4. 테이블 섹션
 

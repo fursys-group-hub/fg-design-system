@@ -5,31 +5,31 @@
 > **저장소 내부(루트·`design-system/`·`dist/`)에는 어떤 생성물도 만들지 않는다.**
 > 이 규칙은 **추론·예외 없이 항상** 적용한다. 다른 위치가 자연스러워 보여도 위 경로를 쓴다.
 
-이 저장소는 **SIDIZ(시디즈) 디자인 시스템**의 정본(`design-system/`)과 실무자 배포물(`dist/sidiz/`)을 관리하는 곳이다.
+이 저장소는 **SIDIZ(시디즈) 디자인 시스템**의 정본(`design-system/`)과 실무자 배포물(`dist/fg/`)을 관리하는 곳이다.
 
-> 이 파일의 UI 지침·규칙 요약은 `/export` 시 `dist/sidiz/` 기준으로 동기화된다. 마지막 동기화: 2026-08-21 (v6).
+> 이 파일의 UI 지침·규칙 요약은 `/export` 시 `dist/fg/` 기준으로 동기화된다. 마지막 동기화: 2026-08-21 (v6).
 
 > ## ⚠️ 절대 원칙 — 정본 15색 · 14종 (예외 없음)
 > 정본은 **컬러 15색(Blue 3 / Red 2 / Grey 10) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다. 이 밖의 색·크기·굵기는 존재하지 않는다(근사·신규·중간·예외 토큰 금지, 팔레트 확장 금지). 정본 밖 값이 발견되면 오류이자 정본 토큰 교정 대상이며, `design-qa`는 이를 "위반"으로 분류한다.
-> **화면 제작 시 `dist/sidiz/tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스)만 사용하고 `font-size`·`padding`·`height`를 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다. 유일한 예외: 문서화된 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)뿐.
+> **화면 제작 시 `dist/fg/tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스)만 사용하고 `font-size`·`padding`·`height`를 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다. 유일한 예외: 문서화된 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)뿐.
 
 ## UI/화면을 생성·수정할 때 (필수)
 
 화면·컴포넌트·스타일 등 UI가 포함된 결과물을 만들거나 고칠 때는 **반드시 아래 두 문서를 먼저 읽고 그대로 따른다.**
 
-- **`dist/sidiz/Design.md`** — 값·규격(색·타이포·스페이싱·이펙트·컴포넌트 명세)의 통합 규격서.
-- **`dist/sidiz/design-principles.md`** — 화면 조립·판단 기준(레이아웃·위계·패턴).
+- **`dist/fg/Design.md`** — 값·규격(색·타이포·스페이싱·이펙트·컴포넌트 명세)의 통합 규격서.
+- **`dist/fg/design-principles.md`** — 화면 조립·판단 기준(레이아웃·위계·패턴).
 
-스타일은 `dist/sidiz/tokens.css`의 CSS 변수·클래스로만 적용한다. HTML 생성 시 `Design.md`의 **Pretendard 웹폰트 로드 1줄**을 반드시 포함한다.
+스타일은 `dist/fg/tokens.css`의 CSS 변수·클래스로만 적용한다. HTML 생성 시 `Design.md`의 **Pretendard 웹폰트 로드 1줄**을 반드시 포함한다.
 
 - **생성물은 반드시 `~/Desktop/sidiz-output/`에 저장한다** (문서 최상단 규칙). 저장소 안에 만들지 않는다.
 
 > ## ⚠️ 최우선 — HTML 을 새로 작성하지 않는다 (2026-08-21 v6)
-> 화면·컴포넌트를 만들 때 **마크업을 스스로 작성하지 않는다.** `dist/sidiz/COMPONENTS.html`(마크업 정본)을 **그대로 복사해 조립**하고 **텍스트만** 교체한다. 구조·클래스명·중첩·아이콘 위치를 바꾸지 않는다.
-> - 스타일은 `dist/sidiz/sidiz-components.css` + `tokens.css`의 클래스만 쓴다. `font-size`·`padding`·`height`·`stroke-width`·hex를 직접 지정하지 않는다(`width`만 예외).
-> - `sidiz-components.css`의 **폰트 스무딩(`html,body`)과 `svg{stroke-width:1.2}` 두 블록은 절대 지우지 않는다.**
-> - 값 규칙(타이포·색·상태 5범주·**No.열 없음**·조회 **Secondary Round** 등)의 정본은 `dist/sidiz/CLAUDE.md`다.
-> - 우선순위: **COMPONENTS.html → sidiz-components.css → tokens.css → component-spec.md → layouts.md**. 없는 구조가 필요하면 임의 생성 금지, 관리자에게 보고.
+> 화면·컴포넌트를 만들 때 **마크업을 스스로 작성하지 않는다.** `dist/fg/COMPONENTS.html`(마크업 정본)을 **그대로 복사해 조립**하고 **텍스트만** 교체한다. 구조·클래스명·중첩·아이콘 위치를 바꾸지 않는다.
+> - 스타일은 `dist/fg/fg-components.css` + `tokens.css`의 클래스만 쓴다. `font-size`·`padding`·`height`·`stroke-width`·hex를 직접 지정하지 않는다(`width`만 예외).
+> - `fg-components.css`의 **폰트 스무딩(`html,body`)과 `svg{stroke-width:1.2}` 두 블록은 절대 지우지 않는다.**
+> - 값 규칙(타이포·색·상태 5범주·**No.열 없음**·조회 **Secondary Round** 등)의 정본은 `dist/fg/CLAUDE.md`다.
+> - 우선순위: **COMPONENTS.html → fg-components.css → tokens.css → component-spec.md → layouts.md**. 없는 구조가 필요하면 임의 생성 금지, 관리자에게 보고.
 > - **옛 `design-system/snippets/`(18 조각)와 "tokens.css 인라인" 방식은 폐기**되어 `snippets/_deprecated/`로 이동했다. 더 이상 쓰지 않는다.
 
 > **옛 전역 플러그인/스킬은 폐기됐다.** `~/.claude/skills/sidiz-design-system` 및 그 규격(Centra 폰트, 좌측 아이콘 레일, gray-100 캔버스, admin-dashboard 스캐폴드 등)은 **더 이상 사용하지 않는다.** 옛 규격으로 화면을 만들지 않는다.
@@ -50,14 +50,14 @@
 ## 저장소 구조
 
 - `design-system/` — **정본(source of truth).** Figma에서 추출한 토큰(`tokens/`)·컴포넌트(`components/`)·화면 조립 원칙(`design-principles.md`)·라우터(`index.md`). 값의 최종 원본은 Figma `시디즈_디자인 시스템`.
-- `dist/sidiz/` — **실무자 배포물**(정본에서 `/export`로 생성). `Design.md`·`design-principles.md`·`tokens.css`·`CLAUDE.md`·`README.md`. **자동 생성물이므로 직접 수정 금지** — 값 변경은 정본에서 하고 다시 export 한다.
+- `dist/fg/` — **실무자 배포물**(정본에서 `/export`로 생성). `Design.md`·`design-principles.md`·`tokens.css`·`CLAUDE.md`·`README.md`. **자동 생성물이므로 직접 수정 금지** — 값 변경은 정본에서 하고 다시 export 한다.
 - 정본과 배포물이 다르면 **정본이 우선.**
 
 ## 스킬
 
 - `/sync` — Figma 재덤프 → `design-system/` 정본 갱신(local/remote 분리 검사 포함).
 - `/design-qa` — 피그마·결과물이 정본 규격을 지키는지 검사(팔레트·타이포·컴포넌트·스페이싱).
-- `/export` — 정본 → `dist/sidiz/` 배포물 생성 + **루트 CLAUDE.md 동기화**.
+- `/export` — 정본 → `dist/fg/` 배포물 생성 + **루트 CLAUDE.md 동기화**.
 
 ## design-system/ 문서 편집 원칙 (관리자용)
 

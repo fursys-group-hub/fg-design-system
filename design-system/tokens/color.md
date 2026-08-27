@@ -10,8 +10,8 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 
 | 토큰 | CSS 변수 | 용도·규칙 |
 |---|---|---|
-| `Primary-600` | `--sidiz-color-primary-600` | 브랜드 포인트. 강조/선택/링크/건수에만 절제 사용 |
-| `Primary-200` | `--sidiz-color-primary-200` | 브랜드 강조 **배경**(사이드바 활성 배경) |
+| `Primary-600` | `--fg-color-primary-600` | 브랜드 포인트. 강조/선택/링크/건수에만 절제 사용 |
+| `Primary-200` | `--fg-color-primary-200` | 브랜드 강조 **배경**(사이드바 활성 배경) |
 
 ### 브랜드별 Primary 값 (9)
 

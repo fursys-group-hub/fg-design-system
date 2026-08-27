@@ -51,7 +51,7 @@
 ## 사용 규칙
 
 - **No.(번호) 열을 두지 않는다.** 첫 열은 체크박스 열(폭 48)이다. (정본: `CLAUDE.md` Table 구조)
-- **테이블 전체를 `Grey-200` 외곽선 + radius 4 로 감싼다**(`sidiz-table-wrap`). 마지막 행의 하단 보더는 제거한다. 외곽선을 빼면 표가 배경에 떠 보인다.
+- **테이블 전체를 `Grey-200` 외곽선 + radius 4 로 감싼다**(`fg-table-wrap`). 마지막 행의 하단 보더는 제거한다. 외곽선을 빼면 표가 배경에 떠 보인다.
 - Header 텍스트는 `Caption1`(11px)/Grey-400, Cell 본문은 `Body2`(13px)/Grey-900. 헤더 H32·Grey-100 배경, 셀 H38, 좌우 padding 16, 행 구분은 `Grey-200` hairline. 링크·URL은 밑줄(Grey-900).
 - 상세 수치·마크업 정본은 `COMPONENTS.html`·`component-spec.md`.
 

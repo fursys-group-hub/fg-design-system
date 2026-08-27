@@ -11,36 +11,36 @@
   ⚠️ 그대로 복사해 쓴다.
 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<link rel="stylesheet" href="../../dist/fg/tokens.css">
 
 <!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
 <style>
-.sidiz-checkbox{ display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; cursor:pointer; }
-.sidiz-checkbox__box{
+.fg-checkbox{ display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; cursor:pointer; }
+.fg-checkbox__box{
   display:inline-flex; align-items:center; justify-content:center;
   width:13px; height:13px;
-  border:1px solid var(--sidiz-color-grey-300); border-radius:var(--sidiz-radius-2);
-  background:var(--sidiz-color-grey-50);
+  border:1px solid var(--fg-color-grey-300); border-radius:var(--fg-radius-2);
+  background:var(--fg-color-grey-50);
 }
-.sidiz-checkbox__box svg{ width:11px; height:11px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.sidiz-checkbox--checked .sidiz-checkbox__box{ background:var(--sidiz-color-grey-900); border-color:var(--sidiz-color-grey-900); }
-.sidiz-checkbox--checked .sidiz-checkbox__box svg{ stroke:var(--sidiz-color-grey-50); }
-.sidiz-checkbox--indeterminate .sidiz-checkbox__box{ border-color:var(--sidiz-color-grey-900); }
-.sidiz-checkbox--indeterminate .sidiz-checkbox__box svg{ stroke:var(--sidiz-color-grey-900); }
+.fg-checkbox__box svg{ width:11px; height:11px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.fg-checkbox--checked .fg-checkbox__box{ background:var(--fg-color-grey-900); border-color:var(--fg-color-grey-900); }
+.fg-checkbox--checked .fg-checkbox__box svg{ stroke:var(--fg-color-grey-50); }
+.fg-checkbox--indeterminate .fg-checkbox__box{ border-color:var(--fg-color-grey-900); }
+.fg-checkbox--indeterminate .fg-checkbox__box svg{ stroke:var(--fg-color-grey-900); }
 </style>
 <!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
 
 <style>
-body{ background:var(--sidiz-color-grey-50); }
-.preview{ padding:var(--sidiz-space-40); display:flex; gap:var(--sidiz-space-16); }
+body{ background:var(--fg-color-grey-50); }
+.preview{ padding:var(--fg-space-40); display:flex; gap:var(--fg-space-16); }
 </style>
 </head>
 <body>
 <div class="preview">
   <!-- ▼ 조각 마크업 — 그대로 복사 ▼ -->
-  <span class="sidiz-checkbox"><span class="sidiz-checkbox__box"></span></span>
-  <span class="sidiz-checkbox sidiz-checkbox--checked"><span class="sidiz-checkbox__box"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
-  <span class="sidiz-checkbox sidiz-checkbox--indeterminate"><span class="sidiz-checkbox__box"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></span></span>
+  <span class="fg-checkbox"><span class="fg-checkbox__box"></span></span>
+  <span class="fg-checkbox fg-checkbox--checked"><span class="fg-checkbox__box"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></span>
+  <span class="fg-checkbox fg-checkbox--indeterminate"><span class="fg-checkbox__box"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></span></span>
   <!-- ▲ 조각 마크업 끝 ▲ -->
 </div>
 </body>

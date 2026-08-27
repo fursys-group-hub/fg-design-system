@@ -21,35 +21,35 @@
   ============================================================================
 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="../../dist/sidiz/tokens.css">
+<link rel="stylesheet" href="../../dist/fg/tokens.css">
 
 <!-- ▼▼▼ 조각 CSS (그대로 복사) ▼▼▼ -->
 <style>
-.sidiz-table{ width:100%; border-collapse:collapse; }
-.sidiz-table__th{
-  height:32px; padding:0 var(--sidiz-space-16); text-align:left;
-  background:var(--sidiz-color-grey-100);
-  border-bottom:1px solid var(--sidiz-color-grey-200);
-  font-size:var(--sidiz-font-size-caption1); font-weight:var(--sidiz-font-weight-semibold);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-400);
+.fg-table{ width:100%; border-collapse:collapse; }
+.fg-table__th{
+  height:32px; padding:0 var(--fg-space-16); text-align:left;
+  background:var(--fg-color-grey-100);
+  border-bottom:1px solid var(--fg-color-grey-200);
+  font-size:var(--fg-font-size-caption1); font-weight:var(--fg-font-weight-semibold);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-400);
 }
-.sidiz-table__td{
-  height:38px; padding:0 var(--sidiz-space-16);
-  border-bottom:1px solid var(--sidiz-color-grey-200);
-  font-size:var(--sidiz-font-size-body2); font-weight:var(--sidiz-font-weight-regular);
-  line-height:var(--sidiz-font-line-height); letter-spacing:var(--sidiz-font-letter-spacing);
-  color:var(--sidiz-color-grey-900);
+.fg-table__td{
+  height:38px; padding:0 var(--fg-space-16);
+  border-bottom:1px solid var(--fg-color-grey-200);
+  font-size:var(--fg-font-size-body2); font-weight:var(--fg-font-weight-regular);
+  line-height:var(--fg-font-line-height); letter-spacing:var(--fg-font-letter-spacing);
+  color:var(--fg-color-grey-900);
 }
-.sidiz-table__link{ color:var(--sidiz-color-grey-900); text-decoration:underline; cursor:pointer; }
+.fg-table__link{ color:var(--fg-color-grey-900); text-decoration:underline; cursor:pointer; }
 </style>
 <!-- ▲▲▲ 조각 CSS 끝 ▲▲▲ -->
 
 <style>
 /* (미리보기 전용 — 조각 아님) */
-body{ background:var(--sidiz-color-grey-50); }
-.preview{ padding:var(--sidiz-space-40); display:flex; flex-direction:column; gap:var(--sidiz-space-16); }
-.preview h1{ font-size:var(--sidiz-font-size-title3); font-weight:600; }
+body{ background:var(--fg-color-grey-50); }
+.preview{ padding:var(--fg-space-40); display:flex; flex-direction:column; gap:var(--fg-space-16); }
+.preview h1{ font-size:var(--fg-font-size-title3); font-weight:600; }
 </style>
 </head>
 <body>
@@ -57,41 +57,41 @@ body{ background:var(--sidiz-color-grey-50); }
   <h1 class="title3">Table — 정본 조각 미리보기</h1>
 
   <!-- ▼ 조각 마크업 — 그대로 복사 ▼ -->
-  <table class="sidiz-table">
+  <table class="fg-table">
     <thead>
       <tr>
-        <th class="sidiz-table__th">No.</th>
-        <th class="sidiz-table__th">주문번호</th>
-        <th class="sidiz-table__th">고객명</th>
-        <th class="sidiz-table__th">상태</th>
-        <th class="sidiz-table__th">결제금액</th>
-        <th class="sidiz-table__th">상세</th>
+        <th class="fg-table__th">No.</th>
+        <th class="fg-table__th">주문번호</th>
+        <th class="fg-table__th">고객명</th>
+        <th class="fg-table__th">상태</th>
+        <th class="fg-table__th">결제금액</th>
+        <th class="fg-table__th">상세</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="sidiz-table__td">1</td>
-        <td class="sidiz-table__td">ORD-20260819-0093</td>
-        <td class="sidiz-table__td">김서연</td>
-        <td class="sidiz-table__td"><span class="tag tag-blue">결제완료</span></td>
-        <td class="sidiz-table__td">1,290,000원</td>
-        <td class="sidiz-table__td"><span class="sidiz-table__link">보기</span></td>
+        <td class="fg-table__td">1</td>
+        <td class="fg-table__td">ORD-20260819-0093</td>
+        <td class="fg-table__td">김서연</td>
+        <td class="fg-table__td"><span class="tag tag-blue">결제완료</span></td>
+        <td class="fg-table__td">1,290,000원</td>
+        <td class="fg-table__td"><span class="fg-table__link">보기</span></td>
       </tr>
       <tr>
-        <td class="sidiz-table__td">2</td>
-        <td class="sidiz-table__td">ORD-20260819-0088</td>
-        <td class="sidiz-table__td">이도현</td>
-        <td class="sidiz-table__td"><span class="tag tag-green">배송중</span></td>
-        <td class="sidiz-table__td">459,000원</td>
-        <td class="sidiz-table__td"><span class="sidiz-table__link">보기</span></td>
+        <td class="fg-table__td">2</td>
+        <td class="fg-table__td">ORD-20260819-0088</td>
+        <td class="fg-table__td">이도현</td>
+        <td class="fg-table__td"><span class="tag tag-green">배송중</span></td>
+        <td class="fg-table__td">459,000원</td>
+        <td class="fg-table__td"><span class="fg-table__link">보기</span></td>
       </tr>
       <tr>
-        <td class="sidiz-table__td">3</td>
-        <td class="sidiz-table__td">ORD-20260819-0074</td>
-        <td class="sidiz-table__td">최민준</td>
-        <td class="sidiz-table__td"><span class="tag tag-red">취소</span></td>
-        <td class="sidiz-table__td">310,000원</td>
-        <td class="sidiz-table__td"><span class="sidiz-table__link">보기</span></td>
+        <td class="fg-table__td">3</td>
+        <td class="fg-table__td">ORD-20260819-0074</td>
+        <td class="fg-table__td">최민준</td>
+        <td class="fg-table__td"><span class="tag tag-red">취소</span></td>
+        <td class="fg-table__td">310,000원</td>
+        <td class="fg-table__td"><span class="fg-table__link">보기</span></td>
       </tr>
     </tbody>
   </table>

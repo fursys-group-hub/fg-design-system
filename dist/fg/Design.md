@@ -1,6 +1,6 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
 > **버전: 2026-08-21 / 생성 커밋: `d992537`**
-> ⚠️ **v6 정본 우선:** 마크업=`COMPONENTS.html`, CSS=`sidiz-components.css`, 값 규칙=`CLAUDE.md`, 수치 근거=`component-spec.md`. 이 문서와 값이 다르면 그쪽을 따른다.
+> ⚠️ **v6 정본 우선:** 마크업=`COMPONENTS.html`, CSS=`fg-components.css`, 값 규칙=`CLAUDE.md`, 수치 근거=`component-spec.md`. 이 문서와 값이 다르면 그쪽을 따른다.
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
 > **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
 
@@ -50,38 +50,38 @@ body { font-family: 'Pretendard', sans-serif; }
 
 | 토큰 | CSS 변수 | 용도·규칙 |
 |---|---|---|
-| Primary-600 | `--sidiz-color-primary-600` | 브랜드 포인트. 강조/선택/링크/건수에만 절제 사용 |
-| Primary-200 | `--sidiz-color-primary-200` | 브랜드 강조 **배경**(사이드바 활성 배경) |
+| Primary-600 | `--fg-color-primary-600` | 브랜드 포인트. 강조/선택/링크/건수에만 절제 사용 |
+| Primary-200 | `--fg-color-primary-200` | 브랜드 강조 **배경**(사이드바 활성 배경) |
 
 **브랜드별 값(9):** 시디즈 `#003EFF`/`#E3EDFF` · 퍼시스 `#E3001C`/`#FCE5E8` · 일룸 `#D60707`/`#FEDADA` · 데스커 `#272727`/`#E9E9E9` · 알로소 `#B14E3F`/`#F7EDEC` · 슬로우베드 `#0D207C`/`#D7E4F0` · 레터스 `#FF5C39`/`#FFF3ED` · 퍼플식스 `#7800F5`/`#F4E8FF` · 그룹사 공통(기본) `#6725F3`/`#F0E9FE`
 
 ### System (9브랜드 공통 · 각 600/100)
 | 토큰 | 값 | CSS 변수 | 용도·규칙 |
 |---|---|---|---|
-| Red-600 | `#EF2E32` | `--sidiz-color-red-600` | 취소/실패·에러 텍스트/보더/채움 |
-| Red-100 | `#FBE7E7` | `--sidiz-color-red-100` | 취소/실패·에러 **배경**(연한) |
-| Yellow-600 | `#D4A300` | `--sidiz-color-yellow-600` | 보류 전경/채움 |
-| Yellow-100 | `#F9F1D9` | `--sidiz-color-yellow-100` | 보류 **배경**(연한) |
-| Green-600 | `#2AA75E` | `--sidiz-color-green-600` | 진행중 전경/채움 |
-| Green-100 | `#DFF2E7` | `--sidiz-color-green-100` | 진행중 **배경**(연한) |
-| Blue-600 | `#3769DE` | `--sidiz-color-blue-600` | 완료 전경/채움 |
-| Blue-100 | `#EBF0FC` | `--sidiz-color-blue-100` | 완료 **배경**(연한) |
-| Gray-600 | `#909090` | `--sidiz-color-gray-600` | System 무채 전경(Grey Scale 와 별개) |
-| Gray-100 | `#F0F0F0` | `--sidiz-color-gray-100` | System 무채 배경 |
+| Red-600 | `#EF2E32` | `--fg-color-red-600` | 취소/실패·에러 텍스트/보더/채움 |
+| Red-100 | `#FBE7E7` | `--fg-color-red-100` | 취소/실패·에러 **배경**(연한) |
+| Yellow-600 | `#D4A300` | `--fg-color-yellow-600` | 보류 전경/채움 |
+| Yellow-100 | `#F9F1D9` | `--fg-color-yellow-100` | 보류 **배경**(연한) |
+| Green-600 | `#2AA75E` | `--fg-color-green-600` | 진행중 전경/채움 |
+| Green-100 | `#DFF2E7` | `--fg-color-green-100` | 진행중 **배경**(연한) |
+| Blue-600 | `#3769DE` | `--fg-color-blue-600` | 완료 전경/채움 |
+| Blue-100 | `#EBF0FC` | `--fg-color-blue-100` | 완료 **배경**(연한) |
+| Gray-600 | `#909090` | `--fg-color-gray-600` | System 무채 전경(Grey Scale 와 별개) |
+| Gray-100 | `#F0F0F0` | `--fg-color-gray-100` | System 무채 배경 |
 
 ### Grey (10단계)
 | 토큰 | 값 | CSS 변수 |
 |---|---|---|
-| Grey-900 | `#000000` | `--sidiz-color-grey-900` |
-| Grey-800 | `#242526` | `--sidiz-color-grey-800` |
-| Grey-700 | `#434548` | `--sidiz-color-grey-700` |
-| Grey-600 | `#595C5E` | `--sidiz-color-grey-600` |
-| Grey-500 | `#7C8084` | `--sidiz-color-grey-500` |
-| Grey-400 | `#A4AAB0` | `--sidiz-color-grey-400` |
-| Grey-300 | `#D6DADE` | `--sidiz-color-grey-300` |
-| Grey-200 | `#EAEDF0` | `--sidiz-color-grey-200` |
-| Grey-100 | `#F5F6F7` | `--sidiz-color-grey-100` |
-| Grey-50 | `#FFFFFF` | `--sidiz-color-grey-50` |
+| Grey-900 | `#000000` | `--fg-color-grey-900` |
+| Grey-800 | `#242526` | `--fg-color-grey-800` |
+| Grey-700 | `#434548` | `--fg-color-grey-700` |
+| Grey-600 | `#595C5E` | `--fg-color-grey-600` |
+| Grey-500 | `#7C8084` | `--fg-color-grey-500` |
+| Grey-400 | `#A4AAB0` | `--fg-color-grey-400` |
+| Grey-300 | `#D6DADE` | `--fg-color-grey-300` |
+| Grey-200 | `#EAEDF0` | `--fg-color-grey-200` |
+| Grey-100 | `#F5F6F7` | `--fg-color-grey-100` |
+| Grey-50 | `#FFFFFF` | `--fg-color-grey-50` |
 
 ### 컴포넌트 로컬 색 — 폐지 (System 으로 편입)
 기존 로컬 확장색(Tag Green/Yellow·Toast Alert)은 **System 색으로 편입**되어 더 이상 로컬 색이 아니다.
@@ -130,11 +130,11 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 컴포넌트 변수 바인딩 값에서 집계한 실사용 스케일. (변수 토큰명은 정본에서 `[확인 필요]` — 값은 확정)
 
-### Padding / Gap 스케일 (`--sidiz-space-{n}`)
+### Padding / Gap 스케일 (`--fg-space-{n}`)
 `2 · 4 · 5 · 6 · 8 · 10 · 12 · 16 · 20 · 24 · 32 · 40 · 64 · 80 · 100` (px)
 - 주력은 **8·12px**. 큰 값(64·80)은 섹션/레이아웃 여백.
 
-### Corner Radius (`--sidiz-radius-{n}`)
+### Corner Radius (`--fg-radius-{n}`)
 `2 · 4 · 5 · 6 · 32 · 40 · 9999` (px)
 - 버튼/인풋 기본 **4·6**, 큰 곡률 32·40, `9999`=pill(태그/칩/원형).
 
@@ -146,8 +146,8 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 | 토큰 | CSS 변수 | 값 | 용도 |
 |---|---|---|---|
-| Drop Shadow | `--sidiz-shadow-dropshadow` | `0 4px 6px -2px #000000@0.05, 0 10px 15px -3px #000000@0.10` (2겹) | 팝오버/드롭다운/카드/토스트 부양 |
-| shadow/sm | `--sidiz-shadow-sm` | `0 1px 2px 0 #000000@0.05` | 미세 상승(입력/작은 요소) |
+| Drop Shadow | `--fg-shadow-dropshadow` | `0 4px 6px -2px #000000@0.05, 0 10px 15px -3px #000000@0.10` (2겹) | 팝오버/드롭다운/카드/토스트 부양 |
+| shadow/sm | `--fg-shadow-sm` | `0 1px 2px 0 #000000@0.05` | 미세 상승(입력/작은 요소) |
 
 > **잔존 스타일(정본 아님 — 사용 금지):** Internal Only Canvas의 외부 라이브러리 잔재(Switch·DropdownMenu)에서만 쓰이는 그림자. `tokens.css`에 넣지 않았다.
 > - `shadow/md` = `0 2px 4px -1px #000000@0.06, 0 4px 6px -1px #000000@0.10` (2겹)
@@ -235,7 +235,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 - **속성:** Varient(Header/Cell) × Type(Checkbox/Text/Link/Textlink/Radio/Icon/Button/Tag/Calendar/Input). H32(Header)/H38(Cell), padding 좌우 16.
 - Header 텍스트 Caption1, Cell 텍스트 Body2(Button 셀=Body3). 보더 Grey-200/Grey-300. **gap: Cell/Type=Text만 4, 나머지 12변형 0.**
 - **No.(번호) 열을 두지 않는다.** 첫 열은 체크박스 열(폭 48). (정본: `CLAUDE.md` Table 구조)
-- **테이블 전체를 `Grey-200` 외곽선 + radius 4 로 감싼다**(`sidiz-table-wrap`), 마지막 행 하단 보더 제거.
+- **테이블 전체를 `Grey-200` 외곽선 + radius 4 로 감싼다**(`fg-table-wrap`), 마지막 행 하단 보더 제거.
 - **사용 규칙:** 표는 셀 타입 조합으로 구성. 구분은 hairline(Grey-200). 상세 마크업 정본=`COMPONENTS.html`.
 
 ### 5.11 Toast Popup — 3 variant
@@ -262,7 +262,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 ### 5.15 Dashboard Card — 1
 - W314×H65 **고정**, padding 16/20, radius 4, 보더 Grey-200. **내부 가로(HORIZONTAL) auto-layout, gap 0.** CSS: `.dashboard-cards`/`.dashboard-card`.
 - **내부 구조(가로 1줄):** `Tag`(상태) + [수치 `Title3` + 단위 `Caption1`]. 수치·라벨을 **세로로 쌓지 않는다.**
-- **수치·단위 색 = 카드 태그의 진한 색과 동일**: 카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여 시 자동(정본: `CLAUDE.md` 상태 태그 5범주 · `sidiz-components.css`).
+- **수치·단위 색 = 카드 태그의 진한 색과 동일**: 카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여 시 자동(정본: `CLAUDE.md` 상태 태그 5범주 · `fg-components.css`).
 - **배열:** 요약 카드는 **가로(HORIZONTAL) 1행**, 카드 간 **gap 8**. 세로(상하) 스택 금지.
 - **사용 규칙:** 그림자 없이 border로 구분. **금지:** 카드 내부 세로 스택·3줄 구성·gap≠0·높이 가변(65 초과).
 

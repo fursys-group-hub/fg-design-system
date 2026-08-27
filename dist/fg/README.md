@@ -13,7 +13,7 @@
 | 파일 | 용도 |
 |---|---|
 | **`COMPONENTS.html`** | **마크업 정본(최우선).** 화면 생성 시 이 마크업을 복사해 조립하고 텍스트만 교체 |
-| **`sidiz-components.css`** | **컴포넌트 CSS 정본**(피그마 실측). 폰트 스무딩·`svg{stroke-width:1.2}` 필수 블록 포함 |
+| **`fg-components.css`** | **컴포넌트 CSS 정본**(피그마 실측). 폰트 스무딩·`svg{stroke-width:1.2}` 필수 블록 포함 |
 | `component-spec.md` | 피그마 실측 수치 원장(근거 확인용) |
 | `tokens.css` | 색·타이포 변수와 타이포 클래스 |
 | `CLAUDE.md` | 작업 지침·값 규칙 정본(값 충돌 시 기준) |
@@ -23,7 +23,7 @@
 | `icons.md` | Lucide 아이콘 세트(24×24·**stroke 1.2**)·컴포넌트별 매핑 |
 | `README.md` | (이 문서) 안내 |
 
-> **우선순위:** `COMPONENTS.html` → `sidiz-components.css` → `tokens.css` → `component-spec.md` → `layouts.md`. 마크업을 새로 쓰지 말고 `COMPONENTS.html`을 복사해 조립하세요.
+> **우선순위:** `COMPONENTS.html` → `fg-components.css` → `tokens.css` → `component-spec.md` → `layouts.md`. 마크업을 새로 쓰지 말고 `COMPONENTS.html`을 복사해 조립하세요.
 
 `Design.md`(값·규격)와 `design-principles.md`(화면 조립 기준)를 함께 참조하시면 됩니다.
 
@@ -71,14 +71,14 @@
 
 Cowork에서 사용하시는 방법입니다.
 
-- 이 `dist/sidiz/` 폴더를 **작업 폴더로 지정**해 주세요.
+- 이 `dist/fg/` 폴더를 **작업 폴더로 지정**해 주세요.
 - 같은 폴더의 `CLAUDE.md`가 자동으로 적용되어, `Design.md`(값·규격)와 `design-principles.md`(화면 조립 기준)대로 작업이 진행됩니다. 추가 설정 없이 바로 요청하시면 됩니다.
 
 ---
 
 ## 공통 규칙 (모든 환경에서 지켜 주세요)
 
-- **정본 토큰만 사용해 주세요.** 색·폰트·간격·radius는 `tokens.css`의 변수(`--sidiz-*`)와 클래스(`.title1`~`.caption5`)로만 지정해 주세요. 문서에 없는 임의의 색·크기·radius는 사용하지 말아 주세요.
+- **정본 토큰만 사용해 주세요.** 색·폰트·간격·radius는 `tokens.css`의 변수(`--fg-*`)와 클래스(`.title1`~`.caption5`)로만 지정해 주세요. 문서에 없는 임의의 색·크기·radius는 사용하지 말아 주세요.
 - **문서를 직접 수정하지 말아 주세요.** 이 폴더의 파일은 자동 생성물입니다. 규격 변경이 필요하시면 직접 고치지 마시고 **디자인 시스템 관리자에게 요청**해 주세요. (관리자가 정본을 고친 뒤 다시 배포해 드립니다.)
 - **색은 22색(Primary 2톤·브랜드별 / System 10 / Grey 10)만 사용해 주세요.** 옛 로컬 색(Tag Green·Yellow, Toast Alert 노랑)은 이제 System(`Green-600/100`·`Yellow-600/100`)으로 편입됐습니다. 브랜드 포인트는 `Primary-600`이며 `<html data-brand="...">`로 전환합니다(기본: 그룹사 공통).
 

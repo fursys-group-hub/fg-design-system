@@ -33,8 +33,8 @@
 | 본문 배경 | **`Grey-100`** |
 | 콘텐츠 카드 표면 | `Grey-50`(흰색) + `Grey-200` 보더 |
 
-- 화면이 1600보다 넓어지면 콘텐츠는 1280 유지, **좌우 여백만 균등 증가**(`.sidiz-container`가 `max-width:1280px; margin:0 auto`).
-- **골격 클래스:** `sidiz-app` → `sidiz-sidebar` + `sidiz-main`(`sidiz-header` + `sidiz-contents` → `sidiz-container`). 값 정본=`CLAUDE.md`「화면 레이아웃 규칙」·CSS=`sidiz-components.css`.
+- 화면이 1600보다 넓어지면 콘텐츠는 1280 유지, **좌우 여백만 균등 증가**(`.fg-container`가 `max-width:1280px; margin:0 auto`).
+- **골격 클래스:** `fg-app` → `fg-sidebar` + `fg-main`(`fg-header` + `fg-contents` → `fg-container`). 값 정본=`CLAUDE.md`「화면 레이아웃 규칙」·CSS=`fg-components.css`.
 
 ## 화면 골격 (레이어)
 
@@ -42,7 +42,7 @@
 
 1. **Sidebar**(고정, 256) — 로고 + 검색 + 메뉴. 검색창 H38.
 2. **Header**(상단 바, 높이 50) — 좌측 `PanelLeft` 토글 · 우측 알림(`Bell`)·프로필
-3. **Contents**(본문, 배경 `Grey-100`, padding 24/32/100) → `sidiz-container`(1280 중앙) → 페이지 타이틀 블록 → 본문
+3. **Contents**(본문, 배경 `Grey-100`, padding 24/32/100) → `fg-container`(1280 중앙) → 페이지 타이틀 블록 → 본문
 4. **Floating**(떠 있는 레이어) — 드롭다운·토스트 등
 5. **Dimmed + Modal**(모달 시) — 전체 오버레이 + 중앙 모달
 
@@ -65,7 +65,7 @@
 
 ## 유형 3. 대시보드형 (요약 카드)
 
-- 상태별 **요약 카드 4~5개를 가로(HORIZONTAL) 1행**으로 배열한다. **세로(상하) 스택 금지.** 카드 간 **gap 8px**. 각 카드 = 상태 `Tag` + 큰 수치(`Title3`) + 단위(`Caption1`). **수치·단위 색은 카드 태그의 진한 색과 같게 맞춘다**(카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여 시 자동. 상세 규칙=`CLAUDE.md` 상태 태그 5범주).
+- 상태별 **요약 카드 4~5개를 가로(HORIZONTAL) 1행**으로 배열한다. **세로(상하) 스택 금지.** 카드 간 **gap 8px**. 각 카드 = 상태 `Tag` + 큰 수치(`Title3`) + 단위(`Caption1`). **수치·단위 색은 카드 태그의 진한 색과 같게 맞춘다**(카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여 시 자동. 상세 규칙=`CLAUDE.md` 상태 태그 5범주).
 - 카드 하단에 테이블/차트 섹션.
 
 ## 유형 4. 모달
@@ -101,7 +101,7 @@
 
 ## 화면 패턴 상세
 
-> 관리자 콘솔(OMS류) 화면 구조. **마크업 정본은 `COMPONENTS.html`, CSS는 `sidiz-components.css`, 수치 근거는 `component-spec.md`, 값 규칙은 `CLAUDE.md`.** 아래는 배치 순서 요약이며, 값이 어긋나면 이 문서가 아니라 위 정본을 따른다.
+> 관리자 콘솔(OMS류) 화면 구조. **마크업 정본은 `COMPONENTS.html`, CSS는 `fg-components.css`, 수치 근거는 `component-spec.md`, 값 규칙은 `CLAUDE.md`.** 아래는 배치 순서 요약이며, 값이 어긋나면 이 문서가 아니라 위 정본을 따른다.
 
 ### 페이지 타이틀 블록
 - 좌측: 페이지 타이틀 `Title4`(16/600/Grey-900) + 우측 서브 문구 `Body4`(12/400/Grey-400), baseline 정렬, gap 8. 서술형은 마침표로 끝낸다.
@@ -115,7 +115,7 @@
 
 ### 요약 카드 행 (현황 카드)
 - Dashboard Card 4~5개 가로 1행, gap 8. 카드 = 상태 태그 + 수치(`Title3`) + 단위(`Caption1`).
-- **수치·단위 색은 카드 태그의 진한 색과 같게** 맞춘다(카드에 `sidiz-card--wait/--hold/--progress/--done/--fail` 부여 시 자동). 상세 규칙=`CLAUDE.md` 상태 태그 5범주.
+- **수치·단위 색은 카드 태그의 진한 색과 같게** 맞춘다(카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여 시 자동). 상세 규칙=`CLAUDE.md` 상태 태그 5범주.
 
 ### 섹션 타이틀 + 건수
 - 섹션 타이틀 `Title5`(14/600/Grey-900) + 건수 `Title5`(14/600/Primary-600), gap 4, **단위를 붙이지 않는다**.
