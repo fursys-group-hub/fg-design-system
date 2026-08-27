@@ -22,7 +22,7 @@
 > | 일룸 | `iloom` | `#D60707` | `#FEDADA` |
 > | 데스커 | `desker` | `#272727` | `#E9E9E9` |
 > | 알로소 | `alloso` | `#B14E3F` | `#F7EDEC` |
-> | 슬로우베드 | `slowbed` | `#0D207C` | `#D7E4F0` |
+> | 슬로우베드 | `sloubed` | `#0D207C` | `#D7E4F0` |
 > | 레터스 | `letus` | `#FF5C39` | `#FFF3ED` |
 > | 퍼플식스 | `purplesix` | `#7800F5` | `#F4E8FF` |
 > | 그룹사 공통(기본) | `group` | `#6725F3` | `#F0E9FE` |
