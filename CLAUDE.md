@@ -49,6 +49,26 @@
 
 > **옛 전역 플러그인/스킬은 폐기됐다.** `~/.claude/skills/sidiz-design-system` 및 그 규격(Centra 폰트, 좌측 아이콘 레일, gray-100 캔버스, admin-dashboard 스캐폴드 등)은 **더 이상 사용하지 않는다.** 옛 규격으로 화면을 만들지 않는다.
 
+## 인터랙션
+
+`COMPONENTS.html` 하단의 `<script>` 는 **document 클릭 위임 하나**로 아래 동작을 처리한다. 요소마다 리스너를 붙이지 않으며, 화면에 해당 컴포넌트가 없어도 오류가 나지 않는다.
+
+> **화면(HTML)을 만들 때 이 `<script>` 블록을 반드시 함께 복사한다.** 복사하지 않으면 버튼·탭·페이지네이션·드롭다운 등이 눌러도 반응하지 않는다.
+
+| # | 동작 | 트리거 | 결과 |
+|---|---|---|---|
+| 0 | 체크박스 토글 | `.fg-check` 클릭 | 체크 토글. 테이블 헤더는 전체 선택·해제, 일부 선택 시 `is-multiple` |
+| 1 | 토스트 닫기 | `.fg-toast__close` 클릭 | 그 `.fg-toast` 를 화면에서 제거 |
+| 2 | 라인형 탭 전환 | `.fg-tab--line .fg-tab__item` 클릭 | 그 탭 `is-active`, 나머지 해제. `data-panel` 있으면 해당 패널만 표시 |
+| 3 | 박스형 탭 전환 | `.fg-tab--box .fg-tab__item` 클릭(사이드바 전체메뉴/즐겨찾기 포함) | 위와 동일 |
+| 4 | 페이지네이션 | `.fg-pagination__nums > span` 숫자 / 좌우 화살표 | 숫자=현재 페이지 지정. 화살표=앞뒤 한 칸 이동(첫·끝에서 비활성) |
+| 5 | Search Filter 접기 | `.fg-filter__toggle` 클릭 | `.fg-filter` 에 `is-collapsed` 토글(필드 접힘 + 화살표 뒤집힘) |
+| 6 | 사이드바 하위 메뉴 접기 | 하위 메뉴가 있는 `.fg-sidebar__item` 클릭 | 다음 `.fg-sidebar__subwrap` 접힘/펼침 + caret 회전 |
+| 7 | 드롭다운 열고 닫기 | `.fg-select__trigger` 클릭 / `.fg-dropdown__item` 선택 / 바깥 클릭 | 목록 열림 / 값 반영 후 닫힘 / 닫힘 |
+
+- **탭 패널 연결:** 탭 항목에 `data-panel="X"`, 패널 요소에 같은 `data-panel="X"`(탭 바 부모의 직속 자식)를 둔다.
+- **드롭다운:** `.fg-select`(트리거 `.fg-select__trigger` + 값 `.fg-select__value` + 목록 `.fg-dropdown`) 패턴. 필터의 네이티브 `<select>` 는 브라우저 기본 동작을 그대로 쓴다.
+
 ## 반드시 지킬 원칙 (요약 — 상세는 Design.md · design-principles.md)
 
 - **폰트:** Pretendard 단일. LH 150%, LS 1%. Centra/Inter/Roboto/system 기본 폰트 금지.
