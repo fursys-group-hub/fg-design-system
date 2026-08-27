@@ -24,7 +24,7 @@
 > | 알로소 | `alloso` | `#B14E3F` | `#F7EDEC` |
 > | 슬로우베드 | `sloubed` | `#0D207C` | `#D7E4F0` |
 > | 레터스 | `letus` | `#FF5C39` | `#FFF3ED` |
-> | 퍼플식스 | `purplesix` | `#7800F5` | `#F4E8FF` |
+> | 퍼플식스 | `p6` | `#7800F5` | `#F4E8FF` |
 > | 그룹사 공통(기본) | `group` | `#6725F3` | `#F0E9FE` |
 > **화면 제작 시 `dist/fg/tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스)만 사용하고 `font-size`·`padding`·`height`를 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다. 유일한 예외: 문서화된 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)뿐.
 

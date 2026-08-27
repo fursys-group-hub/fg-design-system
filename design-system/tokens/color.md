@@ -24,7 +24,7 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 | 알로소 | `alloso` | `#B14E3F` | `#F7EDEC` |
 | 슬로우베드 | `sloubed` | `#0D207C` | `#D7E4F0` |
 | 레터스 | `letus` | `#FF5C39` | `#FFF3ED` |
-| 퍼플식스 | `purplesix` | `#7800F5` | `#F4E8FF` |
+| 퍼플식스 | `p6` | `#7800F5` | `#F4E8FF` |
 | 그룹사 공통(기본) | `group` | `#6725F3` | `#F0E9FE` |
 
 ## System Colors (9브랜드 공통 · 각 600/100)
