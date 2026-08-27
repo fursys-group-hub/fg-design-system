@@ -10,6 +10,10 @@
 :root{
   /* Primary — 기본: 그룹사 공통. 브랜드 전환은 tokens.css 의 [data-brand] + <html data-brand="..."> */
   --fg-color-primary-600:#6725F3; --fg-color-primary-200:#F0E9FE;
+  /* 기본 로고 — 그룹사 공통 심볼 (data-brand 로 브랜드별 전환) */
+  --fg-logo: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiByeD0iMTYiIGZpbGw9IiM2NzI2RjMiLz4KPHBhdGggZD0iTTc3LjQ1MzEgNDQuNjcxOVY1MUg3MC45MTQxVjgwLjAzOTFDNzMuNzI2NiA3OS44MjgxIDc2LjUzOTEgNzkuNTgyIDc5LjIxMDkgNzkuMjY1Nkw3OS42MzI4IDg0Ljg5MDZDNjYuNzY1NiA4Ny4wNzAzIDUyIDg3LjM1MTYgNDEuMDMxMiA4Ny4zNTE2TDQwLjI1NzggODAuODgyOEw0Ny44NTE2IDgwLjgxMjVWNTFINDIuMDg1OVY0NC42NzE5SDc3LjQ1MzFaTTkzLjkwNjIgMzguNjk1M1YxMDIuMjU4SDg2LjE3MTlWNjguNDM3NUg3NS40ODQ0VjYyLjEwOTRIODYuMTcxOVYzOC42OTUzSDkzLjkwNjJaTTU1LjUxNTYgODAuNjcxOUM1OC4xMTcyIDgwLjYzNjcgNjAuNzUzOSA4MC41NjY0IDYzLjM5MDYgODAuNDYwOVY1MUg1NS41MTU2VjgwLjY3MTlaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K");
+  --fg-logo-white: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiByeD0iMTYiIGZpbGw9IiM2NzI2RjMiLz4KPHBhdGggZD0iTTc3LjQ1MzEgNDQuNjcxOVY1MUg3MC45MTQxVjgwLjAzOTFDNzMuNzI2NiA3OS44MjgxIDc2LjUzOTEgNzkuNTgyIDc5LjIxMDkgNzkuMjY1Nkw3OS42MzI4IDg0Ljg5MDZDNjYuNzY1NiA4Ny4wNzAzIDUyIDg3LjM1MTYgNDEuMDMxMiA4Ny4zNTE2TDQwLjI1NzggODAuODgyOEw0Ny44NTE2IDgwLjgxMjVWNTFINDIuMDg1OVY0NC42NzE5SDc3LjQ1MzFaTTkzLjkwNjIgMzguNjk1M1YxMDIuMjU4SDg2LjE3MTlWNjguNDM3NUg3NS40ODQ0VjYyLjEwOTRIODYuMTcxOVYzOC42OTUzSDkzLjkwNjJaTTU1LjUxNTYgODAuNjcxOUM1OC4xMTcyIDgwLjYzNjcgNjAuNzUzOSA4MC41NjY0IDYzLjM5MDYgODAuNDYwOVY1MUg1NS41MTU2VjgwLjY3MTlaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K");
+  --fg-logo-w: 25px; --fg-logo-h: 25px;
   /* System (9브랜드 공통 · 각 600/100) */
   --fg-color-red-600:#EF2E32;    --fg-color-red-100:#FBE7E7;
   --fg-color-yellow-600:#D4A300; --fg-color-yellow-100:#F9F1D9;
@@ -359,7 +363,13 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 }
 .fg-sidebar__head { display: flex; flex-direction: column; gap: 20px; padding-top: 24px; }
 .fg-sidebar__brand { display: flex; align-items: center; gap: 16px; }
-.fg-sidebar__brand svg { width: 18px; height: 25.3px; }
+.fg-sidebar__brand .fg-logo {
+  display: block;
+  width: var(--fg-logo-w);
+  height: var(--fg-logo-h);
+  background: var(--fg-logo) center / contain no-repeat;
+  flex: 0 0 auto;
+}
 .fg-sidebar__brand b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
 .fg-sidebar__search {
   display: flex; align-items: center; gap: 12px;
@@ -688,7 +698,7 @@ p.doc{ font-size:12px; font-weight:400; color:var(--fg-color-grey-400); margin:0
   <div class="fg-app" style="width:1600px;max-width:100%;min-height:420px">
     <nav class="fg-sidebar">
       <div class="fg-sidebar__head">
-        <div class="fg-sidebar__brand"><svg viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="currentColor"/></svg><b>(시스템명)</b></div>
+        <div class="fg-sidebar__brand"><span class="fg-logo"></span><b>(시스템명)</b></div>
         <div class="fg-sidebar__search"><i data-lucide="search"></i><input placeholder="검색"></div>
       </div>
       <div class="fg-sidebar__body">
@@ -1126,7 +1136,7 @@ Multiple Checked 흰 배경 + Grey-900 보더 + Grey-900 체크 · Disabled Grey
 <div class="demo" style="padding:0;display:flex">
   <nav class="fg-sidebar" style="height:520px">
     <div class="fg-sidebar__head">
-      <div class="fg-sidebar__brand"><svg viewBox="0 0 60 84.3129" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60 0L0 15.5146V37.2516C0 37.7216 0.30934 38.1321 0.755503 38.2451L45.3896 49.7858L0 61.5289V84.3129L60 68.7983V47.1148C60 46.6449 59.6907 46.2344 59.2445 46.1214L14.5033 34.5509L60 22.7841V0Z" fill="currentColor"/></svg><b>(시스템명)</b></div>
+      <div class="fg-sidebar__brand"><span class="fg-logo"></span><b>(시스템명)</b></div>
       <div class="fg-sidebar__search"><i data-lucide="search"></i><input placeholder="검색"></div>
     </div>
     <div class="fg-sidebar__body">

@@ -330,7 +330,13 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 }
 .fg-sidebar__head { display: flex; flex-direction: column; gap: 20px; padding-top: 24px; }
 .fg-sidebar__brand { display: flex; align-items: center; gap: 16px; }
-.fg-sidebar__brand svg { width: 18px; height: 25.3px; }
+.fg-sidebar__brand .fg-logo {
+  display: block;
+  width: var(--fg-logo-w);
+  height: var(--fg-logo-h);
+  background: var(--fg-logo) center / contain no-repeat;
+  flex: 0 0 auto;
+}
 .fg-sidebar__brand b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
 .fg-sidebar__search {
   display: flex; align-items: center; gap: 12px;

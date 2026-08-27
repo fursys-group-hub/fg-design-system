@@ -101,6 +101,15 @@ Grey 400 `#A4AAB0` / 300 `#D6DADE` / 200 `#EAEDF0` / 100 `#F5F6F7` / 50 `#FFFFFF
 **옛 로컬 확장색(Tag Green/Yellow·Toast Alert)은 System 으로 편입되어 사라졌다.**
 Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 
+# 로고
+
+브랜드마다 로고가 다르며 `<html data-brand="...">` 로 **자동 전환**된다(색과 같은 방식). tokens.css 의 브랜드 블록이 로고 4변수를 제공한다: `--fg-logo`(기본), `--fg-logo-white`(반전용), `--fg-logo-w`, `--fg-logo-h`.
+
+- **심볼을 쓰는 브랜드:** 시디즈 · 퍼시스 · 슬로우베드 · 그룹사 공통(공통 심볼). 심볼 높이 25 기준으로 폭 계산.
+- **워드마크를 쓰는 브랜드:** 일룸 · 데스커 · 알로소 · 레터스 · 퍼플식스(심볼이 없어 워드마크). 높이 20 기준.
+- 기본색 black, 반전용 white(`--fg-logo-white`). 예외: **일룸**은 black 이 없어 red 가 기본, **그룹사 공통**은 white 가 없어 black 으로 폴백.
+- **로고를 마크업에 직접 넣지 않는다.** 사이드바 브랜드 자리에는 `<span class="fg-logo"></span>` 만 두고, 실제 이미지는 `.fg-sidebar__brand .fg-logo` 가 `data-brand` 에 따라 배경으로 그린다. 시디즈 심볼 SVG 를 하드코딩하지 않는다.
+
 # 타이포
 
 Pretendard 단일. 모든 텍스트 `line-height: 150%`, `letter-spacing: 1%`.
