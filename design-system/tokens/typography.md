@@ -33,6 +33,20 @@
 | `Caption/Caption4-SemiBold` | Caption4 | 8px | SemiBold (600) | 150% | 1% | 최소 표기 강조 |
 | `Caption/Caption5-Regular` | Caption5 | 8px | Regular (400) | 150% | 1% | 최소 표기 |
 
+## Display · Body0 (고객 화면 전용)
+
+업무 14종과 **별개**다. **고객 화면(랜딩·브랜드·프로모션)에서만** 쓴다. 변수는 `tokens.css` 의 `--fg-font-display1~3`·`--fg-font-body0`(값 = `weight size/line-height`).
+
+| 토큰 | CSS 변수 | Size | Weight | LH | LS | 용도 |
+|---|---|---|---|---|---|---|
+| Display1 | `--fg-font-display1` | 64px | SemiBold (600) | 130% | -1% | 키비주얼(히어로) 타이틀 |
+| Display2 | `--fg-font-display2` | 48px | SemiBold (600) | 130% | -1% | 큰 섹션 타이틀 |
+| Display3 | `--fg-font-display3` | 32px | SemiBold (600) | 140% | -1% | 섹션 타이틀 |
+| Body0 | `--fg-font-body0` | 16px | Regular (400) | 170% | 1% | 서브 카피 · 큰 본문 |
+
+> 정본 굵기는 **600·400 두 가지뿐이다. 700 은 정본에 없다.** Display 계열도 600 을 쓴다.
+> 모바일(≤768): Display1 36 / Display2 28 / Display3 22 로 축소(`fg-customer.css`).
+
 ## 확정 체계 대조
 
 사용자 확정 체계와 Figma 적용 스타일 **14종 전부 일치** (Pretendard / LH 150% / LS 1%, size·weight 동일). 불일치 없음.

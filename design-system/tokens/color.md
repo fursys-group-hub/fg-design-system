@@ -61,6 +61,126 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 | `Grey-100` | `#F5F6F7` |
 | `Grey-50` | `#FFFFFF` |
 
+## Secondary Colors (고객 화면 전용 · 브랜드별)
+
+*용도:* 고객 화면(랜딩·브랜드·프로모션)의 **섹션 배경·보조 강조 전용.** **업무 시스템 화면에서 쓰지 않는다.** 변수는 `--fg-secondary-{계열}-{번호}`(계열 소문자, 두 단어는 하이픈: `purple-gray`·`silver-sand`). 정본 값은 `dist/fg/tokens.css` 의 `[data-brand]` 블록.
+
+- **숫자는 Grey Scale 의 밝기 위치**를 뜻한다. `Primary-500` 과 `Secondary-500` 은 같은 밝기다.
+- 예외: **일룸의 Yellow·Blue 는 10단계 램프**로 브랜드 가이드의 원래 번호를 그대로 쓴다(밝기 기준이 아니다).
+- 브랜드마다 **개수와 계열이 다르며, 없는 브랜드도 있다.**
+
+### 시디즈 (sidiz) — 1개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| blue | 500 | `#357FFF` |
+
+### 퍼시스 (fursys) — 11개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| orange | 400 | `#F47018` |
+| yellow | 400 | `#FFAF05` |
+| olive | 500 | `#828705` |
+| green | 500 | `#309F2E` |
+| cornflower | 500 | `#6B8FE5` |
+| lilac | 400 | `#C6AEE0` |
+| brown | 700 | `#4F360D` |
+| slate | 500 | `#37847D` |
+| mint | 300 | `#A5D3CE` |
+| sky | 400 | `#67C0FF` |
+| blue | 500 | `#0075EA` |
+
+### 일룸 (iloom) — 20개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| yellow | 900 | `#A77300` |
+| yellow | 800 | `#CC9514` |
+| yellow | 700 | `#E5AF33` |
+| yellow | 600 | `#F6C351` |
+| yellow | 500 | `#FFD176` |
+| yellow | 400 | `#FFD86D` |
+| yellow | 300 | `#FFE087` |
+| yellow | 200 | `#FFEAA7` |
+| yellow | 100 | `#FFF3CC` |
+| yellow | 50 | `#FFFAEA` |
+| blue | 900 | `#184AA6` |
+| blue | 800 | `#1857C2` |
+| blue | 700 | `#1A64DA` |
+| blue | 600 | `#2172EB` |
+| blue | 500 | `#3182F6` |
+| blue | 400 | `#4593FC` |
+| blue | 300 | `#64A8FF` |
+| blue | 200 | `#90C2FF` |
+| blue | 100 | `#C9E2FF` |
+| blue | 50 | `#E8F3FF` |
+
+### 데스커 (desker) — 5개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| blue | 600 | `#285FE5` |
+| yellow | 300 | `#FFDC1D` |
+| red | 500 | `#F72A35` |
+| green | 400 | `#00B441` |
+| coral | 500 | `#FF5948` |
+
+### 알로소 (alloso) — 19개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| wine | 800 | `#492829` |
+| wine | 700 | `#714042` |
+| wine | 300 | `#DAD0CE` |
+| purple-gray | 600 | `#616273` |
+| purple-gray | 400 | `#9A9AA6` |
+| purple-gray | 300 | `#CECDD0` |
+| butter | 500 | `#907A62` |
+| butter | 400 | `#D0BE9B` |
+| butter | 300 | `#EBDFCF` |
+| forest | 700 | `#304442` |
+| forest | 600 | `#4F5B5A` |
+| forest | 300 | `#CDD4CF` |
+| cozy | 600 | `#786156` |
+| cozy | 400 | `#B9AB9C` |
+| cozy | 300 | `#DFD9CD` |
+| silver-sand | 500 | `#8A9397` |
+| silver-sand | 400 | `#B4B9BC` |
+| silver-sand | 300 | `#DBDEE0` |
+| silver-sand | 200 | `#EDEFF2` |
+
+### 슬로우베드 (sloubed) — 1개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| brown | 500 | `#9A7859` |
+
+### 레터스 (letus) — 2개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| navy | 800 | `#003054` |
+| navy | 200 | `#DBE4F2` |
+
+### 퍼플식스 (p6) — 2개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| green | 300 | `#23F364` |
+| green | 100 | `#F3FFDA` |
+
+### 그룹사 공통 (group) — 4개
+
+| 계열 | 번호 | HEX |
+|---|---|---|
+| green | 500 | `#008051` |
+| green | 400 | `#01C979` |
+| green | 300 | `#48E8A8` |
+| orange | 500 | `#FF480E` |
+
+> 합계 **65개** (sidiz 1·fursys 11·iloom 20·desker 5·alloso 19·sloubed 1·letus 2·p6 2·group 4).
+
 ## 컴포넌트 로컬 색 — 폐지 (System 으로 편입)
 
 기존 로컬 확장색(Tag Green/Yellow·Toast Alert)은 **System 색으로 편입되어 더 이상 로컬 색이 아니다.** 컴포넌트에서 아래 System 변수로 참조한다.
