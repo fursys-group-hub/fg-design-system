@@ -82,6 +82,14 @@
 - **화면 조립**(화면 골격·필터·요약 카드·테이블·모달·피드백·색 사용)은 `design-principles.md`를 따른다.
 - **로고**는 `Design.md`의 인라인 SVG(Attention)/Signature를 사용하고, "SIDIZ" 워드마크 텍스트로 대체하지 않는다.
 
+## Secondary 색 (마케팅 전용)
+
+- **Secondary 는 마케팅 페이지 전용이다. 업무 시스템 화면에서 쓰지 않는다.**
+- 변수는 `--fg-secondary-{계열}-{번호}` 형식이다(계열 소문자, 두 단어는 하이픈: `purple-gray`·`silver-sand`). 각 브랜드의 `[data-brand]` 블록 안에 있다.
+- **Secondary 의 숫자는 Grey Scale 의 밝기 위치**를 뜻한다. `Primary-500` 과 `Secondary-500` 은 같은 밝기다.
+- 예외: **일룸의 Yellow·Blue 는 10단계 램프**로, 브랜드 가이드의 원래 번호를 그대로 쓴다(밝기 기준이 아니다).
+- 브랜드마다 Secondary **개수와 계열이 다르며, 없는 브랜드도 있다.**
+
 ## 저장소 구조
 
 - `design-system/` — **정본(source of truth).** Figma에서 추출한 토큰(`tokens/`)·컴포넌트(`components/`)·화면 조립 원칙(`design-principles.md`)·라우터(`index.md`). 값의 최종 원본은 Figma `시디즈_디자인 시스템`.
