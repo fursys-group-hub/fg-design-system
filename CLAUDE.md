@@ -28,6 +28,16 @@
 > | 그룹사 공통(기본) | `group` | `#6725F3` | `#F0E9FE` |
 > **화면 제작 시 `dist/fg/tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스)만 사용하고 `font-size`·`padding`·`height`를 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다. 유일한 예외: 문서화된 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)뿐.
 
+## 화면 유형 먼저 확인 (internal / customer)
+
+화면을 만들기 전에 **유형을 먼저 확인한다.**
+
+- **업무 시스템**(관리자 콘솔·OMS 류)이면 이 문서(`CLAUDE.md`)의 규칙을 그대로 따른다.
+- **고객 화면**(랜딩·브랜드·프로모션)면 `CLAUDE-customer.md` 와 `fg-customer.css` 를 읽고 그 기준을 따른다.
+- 사용자가 유형을 말하지 않았으면 **추측하지 말고 물어본다.**
+
+**유형 표시:** 화면을 만들면 `<html>` 태그에 유형을 표시한다. 업무 화면은 `data-type="internal"`, 고객 화면은 `data-type="customer"`. `data-brand` 와 나란히 붙인다 — 예: `<html data-brand="fursys" data-type="internal">`. 이 표시로 나중에 검사 도구가 유형을 판단한다.
+
 ## UI/화면을 생성·수정할 때 (필수)
 
 화면·컴포넌트·스타일 등 UI가 포함된 결과물을 만들거나 고칠 때는 **반드시 아래 두 문서를 먼저 읽고 그대로 따른다.**
@@ -82,9 +92,9 @@
 - **화면 조립**(화면 골격·필터·요약 카드·테이블·모달·피드백·색 사용)은 `design-principles.md`를 따른다.
 - **로고**는 `Design.md`의 인라인 SVG(Attention)/Signature를 사용하고, "SIDIZ" 워드마크 텍스트로 대체하지 않는다.
 
-## Secondary 색 (마케팅 전용)
+## Secondary 색 (고객 화면 전용)
 
-- **Secondary 는 마케팅 페이지 전용이다. 업무 시스템 화면에서 쓰지 않는다.**
+- **Secondary 는 고객 화면 전용이다. 업무 시스템 화면에서 쓰지 않는다.**
 - 변수는 `--fg-secondary-{계열}-{번호}` 형식이다(계열 소문자, 두 단어는 하이픈: `purple-gray`·`silver-sand`). 각 브랜드의 `[data-brand]` 블록 안에 있다.
 - **Secondary 의 숫자는 Grey Scale 의 밝기 위치**를 뜻한다. `Primary-500` 과 `Secondary-500` 은 같은 밝기다.
 - 예외: **일룸의 Yellow·Blue 는 10단계 램프**로, 브랜드 가이드의 원래 번호를 그대로 쓴다(밝기 기준이 아니다).

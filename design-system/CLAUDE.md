@@ -1,6 +1,16 @@
 <!-- SIDIZ 디자인 시스템 작업 지침 — 2026-08-21 전면 개정 (v5) -->
 <!-- 이 파일이 최신 정본이다. 이전 버전의 지침 문구와 충돌하면 이 파일을 따른다. -->
 
+# 화면 유형 먼저 확인 (internal / customer)
+
+화면을 만들기 전에 **유형을 먼저 확인한다.**
+
+- **업무 시스템**(관리자 콘솔·OMS 류)이면 이 문서의 규칙을 그대로 따른다.
+- **고객 화면**(랜딩·브랜드·프로모션)면 `CLAUDE-customer.md` 와 `fg-customer.css` 를 읽고 그 기준을 따른다.
+- 사용자가 유형을 말하지 않았으면 **추측하지 말고 물어본다.**
+
+**유형 표시:** 화면을 만들면 `<html>` 태그에 유형을 표시한다. 업무 화면은 `data-type="internal"`, 고객 화면은 `data-type="customer"`. `data-brand` 와 나란히 붙인다 — 예: `<html data-brand="fursys" data-type="internal">`. 이 표시로 나중에 검사 도구가 유형을 판단한다.
+
 # 최우선 원칙 — HTML 을 새로 작성하지 않는다
 
 화면이나 컴포넌트를 만들 때 **마크업을 스스로 작성하지 않는다.**
@@ -101,9 +111,9 @@ Grey 400 `#A4AAB0` / 300 `#D6DADE` / 200 `#EAEDF0` / 100 `#F5F6F7` / 50 `#FFFFFF
 **옛 로컬 확장색(Tag Green/Yellow·Toast Alert)은 System 으로 편입되어 사라졌다.**
 Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 
-# Secondary 색 (마케팅 전용)
+# Secondary 색 (고객 화면 전용)
 
-- **Secondary 는 마케팅 페이지 전용이다. 업무 시스템 화면에서 쓰지 않는다.**
+- **Secondary 는 고객 화면 전용이다. 업무 시스템 화면에서 쓰지 않는다.**
 - 변수는 `--fg-secondary-{계열}-{번호}` 형식이다(계열 소문자, 두 단어는 하이픈: `purple-gray`·`silver-sand`). 각 브랜드의 `[data-brand]` 블록 안에 있다.
 - **Secondary 의 숫자는 Grey Scale 의 밝기 위치**를 뜻한다. `Primary-500` 과 `Secondary-500` 은 같은 밝기다.
 - 예외: **일룸의 Yellow·Blue 는 10단계 램프**로, 브랜드 가이드의 원래 번호를 그대로 쓴다(밝기 기준이 아니다).
