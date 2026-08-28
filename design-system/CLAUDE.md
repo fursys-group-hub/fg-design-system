@@ -101,6 +101,14 @@ Grey 400 `#A4AAB0` / 300 `#D6DADE` / 200 `#EAEDF0` / 100 `#F5F6F7` / 50 `#FFFFFF
 **옛 로컬 확장색(Tag Green/Yellow·Toast Alert)은 System 으로 편입되어 사라졌다.**
 Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 
+# Secondary 색 (마케팅 전용)
+
+- **Secondary 는 마케팅 페이지 전용이다. 업무 시스템 화면에서 쓰지 않는다.**
+- 변수는 `--fg-secondary-{계열}-{번호}` 형식이다(계열 소문자, 두 단어는 하이픈: `purple-gray`·`silver-sand`). 각 브랜드의 `[data-brand]` 블록 안에 있다.
+- **Secondary 의 숫자는 Grey Scale 의 밝기 위치**를 뜻한다. `Primary-500` 과 `Secondary-500` 은 같은 밝기다.
+- 예외: **일룸의 Yellow·Blue 는 10단계 램프**로, 브랜드 가이드의 원래 번호를 그대로 쓴다(밝기 기준이 아니다).
+- 브랜드마다 Secondary **개수와 계열이 다르며, 없는 브랜드도 있다.**
+
 # 로고
 
 브랜드마다 로고가 다르며 `<html data-brand="...">` 로 **자동 전환**된다(색과 같은 방식). tokens.css 의 브랜드 블록이 로고 4변수를 제공한다: `--fg-logo`(기본), `--fg-logo-white`(반전용), `--fg-logo-w`, `--fg-logo-h`.
