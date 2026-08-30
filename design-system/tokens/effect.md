@@ -1,6 +1,6 @@
 # Effect — SIDIZ 그림자 토큰
 
-원본: Figma `시디즈_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`). EFFECT 스타일 2종.
+원본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`). EFFECT 스타일 2종.
 
 | 토큰 | 레이어 | x | y | blur | spread | color | 용도 |
 |---|---|---|---|---|---|---|---|

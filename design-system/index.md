@@ -18,7 +18,7 @@
 
 > 값 규칙(타이포·색·상태 5범주·No.열 없음·조회 Secondary Round 등)의 정본은 `CLAUDE.md`다. `layouts.md`·`components/*.md`·`design-principles.md`는 배치·맥락 요약이며 값이 어긋나면 위 정본을 따른다.
 
-- 값의 최종 원본은 Figma `시디즈_디자인 시스템` (`figma.com/design/UsCx1wPybDpRRBglYY5Nmx`), 로컬 덤프 `sources/figma-raw.json`.
+- 값의 최종 원본은 Figma `퍼시스그룹_디자인 시스템` (`figma.com/design/UsCx1wPybDpRRBglYY5Nmx`), 로컬 덤프 `sources/figma-raw.json`.
 - 이 폴더 문서는 Figma 값을 옮긴 기준서다. `tokens.css` 등 코드 파일은 여기서 변환해 만들며 지금은 만들지 않는다.
 
 ---

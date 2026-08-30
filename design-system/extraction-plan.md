@@ -1,6 +1,6 @@
 # Extraction Plan — Figma → design-system 문서 검수
 
-원본: Figma `시디즈_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`), 로컬 덤프 `sources/figma-raw.json` (REST, 5.4MB, 2026-08-12 재수신).
+원본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`), 로컬 덤프 `sources/figma-raw.json` (REST, 5.4MB, 2026-08-12 재수신).
 ※ 파일이 전면 개편됨: 실제 SIDIZ UI 컴포넌트 + Foundation 팔레트 구성.
 
 **상태:** ✅ 완료 · 🔄 진행중 · ⬜ 미착수 · ⚠️ 확인 필요

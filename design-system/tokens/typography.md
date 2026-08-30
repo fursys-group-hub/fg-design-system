@@ -1,6 +1,6 @@
 # Typography — SIDIZ 타이포그래피 토큰
 
-정본: Figma `시디즈_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`, 2026-08-12 재수신) → **`2. Foundation` Typography**.
+정본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`, 2026-08-12 재수신) → **`2. Foundation` Typography**.
 **Pretendard 단일 · line-height 150% · letter-spacing 1%** 공통. 14종 체계.
 주 토큰명 = 실제 Figma 스타일명, `별칭`·용도 병기.
 
