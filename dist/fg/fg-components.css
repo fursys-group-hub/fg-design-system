@@ -190,7 +190,8 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 .fg-table-wrap {
   border: 1px solid var(--fg-color-grey-200);
   border-radius: 4px;
-  overflow: hidden;                      /* r4 모서리에 헤더 배경이 물리지 않게 */
+  overflow-x: auto;                      /* 표가 콘텐츠 폭을 넘으면 가로 스크롤. r4 모서리 클립 유지 */
+  overflow-y: hidden;                    /* 세로 스크롤 없음 — 세로는 페이지 스크롤로 본다 */
   background: var(--fg-color-grey-50);
 }
 .fg-table { width: 100%; border-collapse: collapse; }
@@ -211,6 +212,7 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   font-size: 13px; font-weight: 400;
   line-height: 1.5; letter-spacing: 0.01em;
   color: var(--fg-color-grey-900);
+  white-space: nowrap;
 }
 .fg-table th.fg-col-check, .fg-table td.fg-col-check { width: 48px; }
 .fg-table .fg-link { color: var(--fg-color-grey-900); text-decoration: underline; cursor: pointer; }
