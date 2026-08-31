@@ -1,5 +1,5 @@
 <!-- 자동 생성 파일 — 원본은 design-system/. 직접 수정 금지. -->
-> **버전: 2026-08-21 / 생성 커밋: `d992537`**
+> **버전: 2026-08-31 / 생성 커밋: `4bad7b8`**
 > ⚠️ **v6 정본 우선:** 마크업=`COMPONENTS.html`, CSS=`fg-components.css`, 값 규칙=`CLAUDE.md`, 수치 근거=`component-spec.md`. 이 문서와 값이 다르면 그쪽을 따른다.
 > 자동 생성 파일 — 원본은 `design-system/`. 직접 수정 금지. 정본 덤프 lastModified: 2026-08-13T07:54:52Z.
 > **이 문서는 값·규격.** 화면 조립=`design-principles.md` · 아이콘=`icons.md` · 레이아웃(화면 유형·치수)=`layouts.md` 참조.
