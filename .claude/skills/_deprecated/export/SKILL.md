@@ -1,6 +1,7 @@
+<!-- 폐기됨(2026-08-31): dist/sidiz 15색 기준이라 현재 dist/fg 22색 구조를 만들 수 없음. /export 로 호출하지 말 것. -->
 ---
-name: export
-description: design-system/ 정본 문서를 실무자용 배포물(dist/sidiz/)로 가공한다. 정본 → 배포물 단방향이며 역방향은 없다. tokens 4종 + components 19개를 통합 마크다운·tokens.css·CLAUDE.md·README.md로 변환한다. "디자인 시스템 배포", "export", "dist 생성", "배포물 만들어줘", "tokens.css 뽑아줘", "실무자용으로 내보내줘" 류 요청에 사용. 정본은 읽기만 하고 수정하지 않는다.
+name: export-DEPRECATED
+description: 【폐기】 dist/sidiz 15색 기준 스킬. 현재 dist/fg 22색 구조와 맞지 않아 사용 중단. 호출하지 않는다. 정본 → 배포물 단방향이며 역방향은 없다. tokens 4종 + components 19개를 통합 마크다운·tokens.css·CLAUDE.md·README.md로 변환한다. "디자인 시스템 배포", "export", "dist 생성", "배포물 만들어줘", "tokens.css 뽑아줘", "실무자용으로 내보내줘" 류 요청에 사용. 정본은 읽기만 하고 수정하지 않는다.
 ---
 
 # export — 정본(design-system/) → 실무자 배포물(dist/sidiz/)

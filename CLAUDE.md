@@ -7,7 +7,7 @@
 
 이 저장소는 **SIDIZ(시디즈) 디자인 시스템**의 정본(`design-system/`)과 실무자 배포물(`dist/fg/`)을 관리하는 곳이다.
 
-> 이 파일의 UI 지침·규칙 요약은 `/export` 시 `dist/fg/` 기준으로 동기화된다. 마지막 동기화: 2026-08-31 (v7).
+> 이 파일의 UI 지침·규칙 요약은 `dist/fg/` 기준으로 관리자가 수기 동기화한다(옛 `/export` 자동 동기화는 폐기). 마지막 동기화: 2026-08-31 (v7).
 
 > ## ⚠️ 절대 원칙 — 정본 22색 · 14종 (예외 없음)
 > 정본은 **컬러 22색(Primary 2 / System 10 / Grey 10) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다. Primary는 **9개 브랜드마다 값이 다르며(600/200 두 톤)** `<html data-brand="...">`로 전환한다(미지정 시 기본은 그룹사 공통). System·Grey는 9브랜드 공통이다. 이 밖의 색·크기·굵기는 존재하지 않는다(근사·신규·중간·예외 토큰 금지, 팔레트 확장 금지). 정본 밖 값이 발견되면 오류이자 정본 토큰 교정 대상이며, `design-qa`는 이를 "위반"으로 분류한다.
@@ -103,14 +103,14 @@
 ## 저장소 구조
 
 - `design-system/` — **정본(source of truth).** Figma에서 추출한 토큰(`tokens/`)·컴포넌트(`components/`)·화면 조립 원칙(`design-principles.md`)·라우터(`index.md`). 값의 최종 원본은 Figma `퍼시스그룹_디자인 시스템`.
-- `dist/fg/` — **실무자 배포물**(정본에서 `/export`로 생성). `Design.md`·`design-principles.md`·`tokens.css`·`CLAUDE.md`·`README.md`. **자동 생성물이므로 직접 수정 금지** — 값 변경은 정본에서 하고 다시 export 한다.
+- `dist/fg/` — **실무자 배포물.** `Design.md`·`design-principles.md`·`tokens.css`·`CLAUDE.md`·`README.md`. **현재는 관리자가 직접 관리·편집한다**(옛 `/export` 스킬은 dist/sidiz 15색 기준이라 폐기됨 → `.claude/skills/_deprecated/export/`). 값을 바꿀 때는 **정본(`design-system/`)과 `dist/fg/` 를 함께** 손으로 갱신해 어긋나지 않게 한다. 자동 재생성 파이프라인이 다시 필요해지면 그때 22색 구조에 맞는 스킬을 새로 만든다.
 - 정본과 배포물이 다르면 **정본이 우선.**
 
 ## 스킬
 
 - `/sync` — Figma 재덤프 → `design-system/` 정본 갱신(local/remote 분리 검사 포함).
 - `/design-qa` — 피그마·결과물이 정본 규격을 지키는지 검사(팔레트·타이포·컴포넌트·스페이싱).
-- `/export` — 정본 → `dist/fg/` 배포물 생성 + **루트 CLAUDE.md 동기화**.
+- ~~`/export`~~ — **폐기됨.** dist/sidiz 15색 기준이라 현재 dist/fg 22색 구조를 만들 수 없어 `.claude/skills/_deprecated/export/` 로 이동. 현재 `dist/fg/` 는 관리자가 직접 관리한다.
 
 ## design-system/ 문서 편집 원칙 (관리자용)
 
@@ -118,4 +118,4 @@
 - 토큰 항목 형식: **이름 / 값 / 용도 / 사용 규칙**.
 - 각 문서 500줄 이내(넘으면 분할).
 - `design-principles.md`는 `/sync` 대상이 아니며 관리자가 직접 수정한다.
-- 디자인이 바뀌면 정본을 고친 뒤 `/export`로 배포물과 이 CLAUDE.md를 재생성한다.
+- 디자인이 바뀌면 정본을 고친 뒤 **`dist/fg/` 배포물과 이 CLAUDE.md를 손으로 함께 갱신한다**(옛 `/export` 자동 생성은 폐기). 정본과 배포물이 어긋나지 않게 유지하는 것이 관리자 책임이다.

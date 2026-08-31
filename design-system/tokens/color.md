@@ -63,7 +63,7 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 
 ## Secondary Colors (고객 화면 전용 · 브랜드별)
 
-*용도:* 고객 화면(랜딩·브랜드·프로모션)의 **섹션 배경·보조 강조 전용.** **업무 시스템 화면에서 쓰지 않는다.** 변수는 `--fg-secondary-{계열}-{번호}`(계열 소문자, 두 단어는 하이픈: `purple-gray`·`silver-sand`). 정본 값은 `dist/fg/tokens.css` 의 `[data-brand]` 블록.
+*용도:* 고객 화면(랜딩·브랜드·프로모션)의 **섹션 배경·보조 강조 전용.** **업무 시스템 화면에서 쓰지 않는다.** 변수는 `--fg-secondary-{계열}-{번호}`(계열 소문자, 두 단어는 하이픈: `purple-gray`·`silver-sand`). 정본 값은 **아래 브랜드별 표(시디즈~그룹사)** 다. (`dist/fg/tokens.css` 의 `[data-brand]` 블록은 이 표에서 생성된 산출물)
 
 - **숫자는 Grey Scale 의 밝기 위치**를 뜻한다. `Primary-500` 과 `Secondary-500` 은 같은 밝기다.
 - 예외: **일룸의 Yellow·Blue 는 10단계 램프**로 브랜드 가이드의 원래 번호를 그대로 쓴다(밝기 기준이 아니다).

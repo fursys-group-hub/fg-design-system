@@ -1,6 +1,6 @@
-<!-- 자동 생성 파일 — 원본은 design-system/layouts.md. 직접 수정 금지. -->
+<!-- 배포물(관리자 수기 유지) — 원본(정본)은 design-system/layouts.md. 실무자 직접 수정 금지. 갱신은 관리자가 정본과 함께 손으로 한다(옛 /export 자동 생성은 폐기). -->
 > **버전: 2026-08-31 / 생성 커밋: `4bad7b8`**
-> 자동 생성 파일 — 원본은 `design-system/layouts.md`. 직접 수정 금지.
+> 배포물(관리자 수기 유지) — 원본(정본)은 `design-system/layouts.md`. 실무자 직접 수정 금지(갱신은 관리자가 정본과 함께).
 
 # Layouts — SIDIZ 화면 조립 레퍼런스
 
