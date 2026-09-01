@@ -195,7 +195,9 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   background: var(--fg-color-grey-50);
 }
 .fg-table { width: 100%; border-collapse: collapse; }
-.fg-table tbody tr:last-child td { border-bottom: 0; }
+.fg-table tbody tr:last-child td { border-bottom: 0; }                                              /* tfoot 없을 때: 마지막 데이터 행이 진짜 마지막 */
+.fg-table:has(tfoot) tbody tr:last-child td { border-bottom: 1px solid var(--fg-color-grey-200); }  /* tfoot 있으면 데이터↔총합계 구분선 복구 */
+.fg-table tfoot tr:last-child td { border-bottom: 0; }                                              /* 총합계 마지막 행만 아래 선 제거(감싼 테두리와 2px 겹침 방지) */
 .fg-table th {
   height: 32px; padding: 0 16px; text-align: left;
   background: var(--fg-color-grey-100);
@@ -318,7 +320,7 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 
 /* ------------------------------------------------------------
    11. Sidebar — W256 · 좌우 pad12 · 블록 간 gap24
-       브랜드: 로고 18x25.3 + 시스템명 Title5(14/600), gap16, 상단 pad24
+       브랜드: 시스템명 Title4(16/600), 상단 pad24 (로고 없음 — 업무 화면)
        검색: H38 r6 · 아이콘16 stroke1.2 Grey-400 · 텍스트 Body1(13/600) Grey-400
        메뉴 항목: H34 · pad 0/12 · r6 · gap12 · Body1(13/600) Grey-900
        하위 항목: H34 · pad 0/20 · 좌측 들여쓰기 20 · Body1 Grey-400 · 좌측 보더 Grey-200
@@ -331,15 +333,8 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   box-sizing: border-box;
 }
 .fg-sidebar__head { display: flex; flex-direction: column; gap: 20px; padding-top: 24px; }
-.fg-sidebar__brand { display: flex; align-items: center; gap: 16px; }
-.fg-sidebar__brand .fg-logo {
-  display: block;
-  width: var(--fg-logo-w);
-  height: var(--fg-logo-h);
-  background: var(--fg-logo) center / contain no-repeat;
-  flex: 0 0 auto;
-}
-.fg-sidebar__brand b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
+.fg-sidebar__brand { display: flex; align-items: center; }
+.fg-sidebar__brand b { font-size: 16px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
 .fg-sidebar__search {
   display: flex; align-items: center; gap: 12px;
   height: 38px; padding: 0 12px;

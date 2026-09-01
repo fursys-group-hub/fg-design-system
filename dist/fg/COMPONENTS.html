@@ -10,10 +10,6 @@
 :root{
   /* Primary — 기본: 그룹사 공통. 브랜드 전환은 tokens.css 의 [data-brand] + <html data-brand="..."> */
   --fg-color-primary-600:#6725F3; --fg-color-primary-200:#F0E9FE;
-  /* 기본 로고 — 그룹사 공통 심볼 (data-brand 로 브랜드별 전환) */
-  --fg-logo: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiByeD0iMTYiIGZpbGw9IiM2NzI2RjMiLz4KPHBhdGggZD0iTTc3LjQ1MzEgNDQuNjcxOVY1MUg3MC45MTQxVjgwLjAzOTFDNzMuNzI2NiA3OS44MjgxIDc2LjUzOTEgNzkuNTgyIDc5LjIxMDkgNzkuMjY1Nkw3OS42MzI4IDg0Ljg5MDZDNjYuNzY1NiA4Ny4wNzAzIDUyIDg3LjM1MTYgNDEuMDMxMiA4Ny4zNTE2TDQwLjI1NzggODAuODgyOEw0Ny44NTE2IDgwLjgxMjVWNTFINDIuMDg1OVY0NC42NzE5SDc3LjQ1MzFaTTkzLjkwNjIgMzguNjk1M1YxMDIuMjU4SDg2LjE3MTlWNjguNDM3NUg3NS40ODQ0VjYyLjEwOTRIODYuMTcxOVYzOC42OTUzSDkzLjkwNjJaTTU1LjUxNTYgODAuNjcxOUM1OC4xMTcyIDgwLjYzNjcgNjAuNzUzOSA4MC41NjY0IDYzLjM5MDYgODAuNDYwOVY1MUg1NS41MTU2VjgwLjY3MTlaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K");
-  --fg-logo-white: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiByeD0iMTYiIGZpbGw9IiM2NzI2RjMiLz4KPHBhdGggZD0iTTc3LjQ1MzEgNDQuNjcxOVY1MUg3MC45MTQxVjgwLjAzOTFDNzMuNzI2NiA3OS44MjgxIDc2LjUzOTEgNzkuNTgyIDc5LjIxMDkgNzkuMjY1Nkw3OS42MzI4IDg0Ljg5MDZDNjYuNzY1NiA4Ny4wNzAzIDUyIDg3LjM1MTYgNDEuMDMxMiA4Ny4zNTE2TDQwLjI1NzggODAuODgyOEw0Ny44NTE2IDgwLjgxMjVWNTFINDIuMDg1OVY0NC42NzE5SDc3LjQ1MzFaTTkzLjkwNjIgMzguNjk1M1YxMDIuMjU4SDg2LjE3MTlWNjguNDM3NUg3NS40ODQ0VjYyLjEwOTRIODYuMTcxOVYzOC42OTUzSDkzLjkwNjJaTTU1LjUxNTYgODAuNjcxOUM1OC4xMTcyIDgwLjYzNjcgNjAuNzUzOSA4MC41NjY0IDYzLjM5MDYgODAuNDYwOVY1MUg1NS41MTU2VjgwLjY3MTlaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K");
-  --fg-logo-w: 25px; --fg-logo-h: 25px;
   /* System (9브랜드 공통 · 각 600/100) */
   --fg-color-red-600:#EF2E32;    --fg-color-red-100:#FBE7E7;
   --fg-color-yellow-600:#D4A300; --fg-color-yellow-100:#F9F1D9;
@@ -228,6 +224,8 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 }
 .fg-table { width: 100%; border-collapse: collapse; }
 .fg-table tbody tr:last-child td { border-bottom: 0; }
+.fg-table:has(tfoot) tbody tr:last-child td { border-bottom: 1px solid var(--fg-color-grey-200); }
+.fg-table tfoot tr:last-child td { border-bottom: 0; }
 .fg-table th {
   height: 32px; padding: 0 16px; text-align: left;
   background: var(--fg-color-grey-100);
@@ -349,7 +347,7 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 
 /* ------------------------------------------------------------
    11. Sidebar — W256 · 좌우 pad12 · 블록 간 gap24
-       브랜드: 로고 18x25.3 + 시스템명 Title5(14/600), gap16, 상단 pad24
+       브랜드: 시스템명 Title4(16/600), 상단 pad24 (로고 없음 — 업무 화면)
        검색: H38 r6 · 아이콘16 stroke1.2 Grey-400 · 텍스트 Body1(13/600) Grey-400
        메뉴 항목: H34 · pad 0/12 · r6 · gap12 · Body1(13/600) Grey-900
        하위 항목: H34 · pad 0/20 · 좌측 들여쓰기 20 · Body1 Grey-400 · 좌측 보더 Grey-200
@@ -362,15 +360,8 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   box-sizing: border-box;
 }
 .fg-sidebar__head { display: flex; flex-direction: column; gap: 20px; padding-top: 24px; }
-.fg-sidebar__brand { display: flex; align-items: center; gap: 16px; }
-.fg-sidebar__brand .fg-logo {
-  display: block;
-  width: var(--fg-logo-w);
-  height: var(--fg-logo-h);
-  background: var(--fg-logo) center / contain no-repeat;
-  flex: 0 0 auto;
-}
-.fg-sidebar__brand b { font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
+.fg-sidebar__brand { display: flex; align-items: center; }
+.fg-sidebar__brand b { font-size: 16px; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; color: var(--fg-color-grey-900); }
 .fg-sidebar__search {
   display: flex; align-items: center; gap: 12px;
   height: 38px; padding: 0 12px;
@@ -715,7 +706,7 @@ p.doc{ font-size:12px; font-weight:400; color:var(--fg-color-grey-400); margin:0
   <div class="fg-app" style="width:1600px;max-width:100%;min-height:420px">
     <nav class="fg-sidebar">
       <div class="fg-sidebar__head">
-        <div class="fg-sidebar__brand"><span class="fg-logo"></span><b>(시스템명)</b></div>
+        <div class="fg-sidebar__brand"><b>(시스템명)</b></div>
         <div class="fg-sidebar__search"><i data-lucide="search"></i><input placeholder="검색"></div>
       </div>
       <div class="fg-sidebar__body">
@@ -1147,13 +1138,13 @@ Multiple Checked 흰 배경 + Grey-900 보더 + Grey-900 체크 · Disabled Grey
 </div>
 
 <h2 class="doc">13. Sidebar (신규 추가)</h2>
-<p class="doc">W256 · 좌우 pad12 · 블록 간 gap24 · 로고 18x25.3 + 시스템명 Title5, gap16, 상단 pad24<br>
+<p class="doc">W256 · 좌우 pad12 · 블록 간 gap24 · 시스템명 Title4, 상단 pad24 (로고 없음)<br>
 검색 H38 r6 텍스트 Body1 13/600 Grey-400 · 메뉴 항목 H34 pad 0/12 r6 gap12 Body1 Grey-900<br>
 활성 항목 배경 Blue-100 글자와 아이콘 Blue-700 · 하위 항목 Body1 Grey-400, 좌측 보더 Grey-200</p>
 <div class="demo" style="padding:0;display:flex">
   <nav class="fg-sidebar" style="height:520px">
     <div class="fg-sidebar__head">
-      <div class="fg-sidebar__brand"><span class="fg-logo"></span><b>(시스템명)</b></div>
+      <div class="fg-sidebar__brand"><b>(시스템명)</b></div>
       <div class="fg-sidebar__search"><i data-lucide="search"></i><input placeholder="검색"></div>
     </div>
     <div class="fg-sidebar__body">

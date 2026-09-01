@@ -125,13 +125,9 @@ Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 
 # 로고
 
-브랜드마다 로고가 다르며 `<html data-brand="...">` 로 **자동 전환**된다(색과 같은 방식). tokens.css 의 브랜드 블록이 로고 4변수를 제공한다: `--fg-logo`(기본), `--fg-logo-white`(반전용), `--fg-logo-w`, `--fg-logo-h`.
+**업무 화면에는 브랜드 로고를 쓰지 않는다.** 사이드바 상단에는 **시스템명 텍스트(Title4 16/600)만** 둔다. `<span class="fg-logo"></span>` 를 넣지 않으며, 로고 변수(`--fg-logo` 등)를 화면에 복사하지도 않는다.
 
-- **심볼을 쓰는 브랜드:** 시디즈 · 퍼시스 · 슬로우베드 · 그룹사 공통(공통 심볼). 심볼 높이 25 기준으로 폭 계산.
-- **워드마크를 쓰는 브랜드:** 일룸 · 데스커 · 알로소 · 레터스 · 퍼플식스(심볼이 없어 워드마크). 높이 20 기준.
-- 기본색 black, 반전용 white(`--fg-logo-white`). 예외: **일룸**은 black 이 없어 red 가 기본, **그룹사 공통**은 white 가 없어 black 으로 폴백.
-- **로고를 마크업에 직접 넣지 않는다.** 사이드바 브랜드 자리에는 `<span class="fg-logo"></span>` 만 두고, 실제 이미지는 `.fg-sidebar__brand .fg-logo` 가 `data-brand` 에 따라 배경으로 그린다. 시디즈 심볼 SVG 를 하드코딩하지 않는다.
-- **화면을 만들 때 그 화면의 브랜드 로고 변수 4개를 `tokens.css` 에서 찾아 해당 `[data-brand]` 블록에 그대로 복사해 넣는다.** `--fg-logo` · `--fg-logo-white` · `--fg-logo-w` · `--fg-logo-h` 네 개다. **9개 브랜드를 다 넣지 않는다. 만드는 화면의 브랜드 하나만** 넣는다. 이걸 빼먹으면 그룹사 공통 심볼이 그대로 남는다.
+(브랜드 로고는 고객 화면 전용이다. `tokens.css` 의 로고 변수·base64 는 고객 화면에서 쓰므로 그대로 둔다.)
 
 # 인터랙션
 
@@ -181,7 +177,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 | Dashboard Card 수치 | Title3 22/600 |
 | Dashboard Card 단위 | Caption1 11/600 |
 | Sidebar 메뉴 항목 | Body1 13/600 |
-| Sidebar 시스템명 | Title5 14/600 |
+| Sidebar 시스템명 | Title4 16/600 |
 | Header 담당자명 | Body1 13/600 |
 | Header 역할 뱃지 | Caption1 11/600 Grey-400 |
 | Tab Line | Title5 14/600 |
@@ -213,6 +209,13 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 
 **Dashboard Card 의 수치와 단위 글자색은 그 카드 태그의 진한 색과 같게 맞춘다.**
 카드에 `fg-card--wait` / `--hold` / `--progress` / `--done` / `--fail` 중 하나를 붙이면 자동 적용된다.
+
+## 색 변형은 상태에만 — 집계 수치엔 무채색
+
+- **대시보드 카드의 색 변형은 상태를 나타낼 때만 쓴다.** 대기·보류·진행중·완료·실패 같은 상태값을 가진 카드에만 붙인다.
+- **단순 집계 수치는 색 변형 없이 무채색을 쓴다.** 당월 입고 건수·총 금액·대상 수량 같은 것들이다.
+- **태그 색도 같은 원칙을 따른다.**
+- **한 화면에 색을 골고루 나눠 쓰려고 하지 않는다. 상태가 하나면 색도 하나다.**
 
 # Search Filter 구조
 
@@ -293,7 +296,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 
 ## 조립 순서
 
-1. Sidebar 폭 256, 항목 H34, 검색 H38, 로고 18x25.3
+1. Sidebar 폭 256, 항목 H34, 검색 H38, 시스템명 Title4(16/600)
 2. Header 높이 50, 좌우 padding 24, 하단 Grey-200 보더
 3. Contents 배경 Grey-100, padding 상24 좌우32 하100
 4. Container 폭 1280 중앙 정렬
