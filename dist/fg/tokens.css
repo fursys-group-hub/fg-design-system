@@ -51,10 +51,10 @@ html, body {
   --fg-font-weight-regular: 400;
 
   --fg-font-size-title1: 40px;
-  --fg-font-size-title2: 26px;
-  --fg-font-size-title3: 22px;
-  --fg-font-size-title4: 16px;
-  --fg-font-size-title5: 14px;
+  --fg-font-size-title3: 26px;
+  --fg-font-size-title4: 22px;
+  --fg-font-size-title5: 16px;
+  --fg-font-size-title7: 14px;
   --fg-font-size-body1: 13px;
   --fg-font-size-body2: 13px;
   --fg-font-size-body3: 12px;
@@ -215,7 +215,7 @@ button, input, select, textarea {
 }
 
 /* ===== Typography 조합 클래스 (14) — size/weight + LH 150% + LS 1% ===== */
-.title1, .title2, .title3, .title4, .title5,
+.title1, .title3, .title4, .title5, .title7,
 .body1, .body2, .body3, .body4,
 .caption1, .caption2, .caption3, .caption4, .caption5 {
   font-family: var(--fg-font-family);
@@ -224,10 +224,10 @@ button, input, select, textarea {
 }
 
 .title1 { font-size: var(--fg-font-size-title1); font-weight: var(--fg-font-weight-semibold); }
-.title2 { font-size: var(--fg-font-size-title2); font-weight: var(--fg-font-weight-semibold); }
 .title3 { font-size: var(--fg-font-size-title3); font-weight: var(--fg-font-weight-semibold); }
 .title4 { font-size: var(--fg-font-size-title4); font-weight: var(--fg-font-weight-semibold); }
 .title5 { font-size: var(--fg-font-size-title5); font-weight: var(--fg-font-weight-semibold); }
+.title7 { font-size: var(--fg-font-size-title7); font-weight: var(--fg-font-weight-semibold); }
 
 .body1 { font-size: var(--fg-font-size-body1); font-weight: var(--fg-font-weight-semibold); }
 .body2 { font-size: var(--fg-font-size-body2); font-weight: var(--fg-font-weight-regular); }
@@ -307,7 +307,7 @@ button, input, select, textarea {
   border-right: 1px solid var(--fg-color-grey-200);
   box-shadow: var(--fg-shadow-sm);
 }
-.sidebar__brand { display: flex; align-items: center; gap: var(--fg-space-8); } /* Attention 로고 18×25 + 시스템명 Title5 */
+.sidebar__brand { display: flex; align-items: center; gap: var(--fg-space-8); } /* Attention 로고 18×25 + 시스템명 Title7 */
 .sidebar-search { height: 38px; } /* 사이드바 검색 — 정본 Sidebar 검색 H38(조각 sidebar.html과 일치). 내부는 .input 구성 유지 */
 .sidebar-item {
   display: flex; align-items: center; gap: var(--fg-space-8);
@@ -342,8 +342,8 @@ button, input, select, textarea {
   border: 1px solid var(--fg-color-grey-200); border-radius: var(--fg-radius-4);
   background: var(--fg-color-grey-50); /* 그림자 없음 — border 구분 */
 }
-.dashboard-card__value { flex: 1; display: flex; align-items: baseline; gap: var(--fg-space-4); } /* 수치 Title3 + 단위 Caption1 */
-.dashboard-card__num { font-size: var(--fg-font-size-title3); font-weight: var(--fg-font-weight-semibold); color: var(--fg-color-grey-900); }
+.dashboard-card__value { flex: 1; display: flex; align-items: baseline; gap: var(--fg-space-4); } /* 수치 Title4 + 단위 Caption1 */
+.dashboard-card__num { font-size: var(--fg-font-size-title4); font-weight: var(--fg-font-weight-semibold); color: var(--fg-color-grey-900); }
 .dashboard-card__num--point { color: var(--fg-color-blue-600); } /* 상태 연동: 포인트(완료) = System Blue */
 .dashboard-card__num--error { color: var(--fg-color-red-600); }  /* 상태 연동: 에러(취소/실패) */
 .dashboard-card__num--hold     { color: var(--fg-color-yellow-600); } /* 보류 — Tag Yellow 전경색(로컬 확장색) */

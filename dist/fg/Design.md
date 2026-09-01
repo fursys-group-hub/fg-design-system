@@ -104,10 +104,10 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 | 토큰(별칭) | Size | Weight | 클래스 | 용도 |
 |---|---|---|---|---|
 | Title1 | 40px | 600 | `.title1` | 프로모션 대제목 |
-| Title2 | 26px | 600 | `.title2` | 프로모션 중제목 |
-| Title3 | 22px | 600 | `.title3` | Dashboard Card 수치 |
-| Title4 | 16px | 600 | `.title4` | 페이지 타이틀 |
-| Title5 | 14px | 600 | `.title5` | Card/Modal 타이틀 |
+| Title3 | 26px | 600 | `.title3` | 프로모션 중제목 |
+| Title4 | 22px | 600 | `.title4` | Dashboard Card 수치 |
+| Title5 | 16px | 600 | `.title5` | 페이지 타이틀 |
+| Title7 | 14px | 600 | `.title7` | Card/Modal 타이틀 |
 | Body1 | 13px | 600 | `.body1` | 그룹 타이틀 |
 | Body2 | 13px | 400 | `.body2` | 그룹 타이틀 보조 |
 | Body3 | 12px | 600 | `.body3` | 본문 강조 |
@@ -222,7 +222,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 - **일정(기간) 필드:** 날짜 범위는 **한 줄 유지(nowrap), 줄바꿈 금지** — 좁으면 폭을 늘린다(기간 필드 min-width 348).
 
 ### 5.8 Tab — 2 variant
-- **속성:** Varient(Box/Line). H40, 텍스트 Title5(14/600), **shadow/sm**.
+- **속성:** Varient(Box/Line). H40, 텍스트 Title7(14/600), **shadow/sm**.
 - Line 탭 활성 밑줄 **Primary-600**. **사용 규칙:** 선택 탭만 포인트 색.
 
 ### 5.9 Tag — 12 variant
@@ -251,8 +251,8 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.13 Sidebar — 4 variant
 - **속성:** Varient(Favorite/Default) × States(Default/Extended/Hover). W256×H1080, padding 좌우 12, gap 24, **shadow/sm**.
-- **메뉴 항목(SidebarMenuButton) 높이 34**, **검색창 높이 38.** 텍스트 Body1 + Title5(그룹 타이틀). 검색 placeholder `Body1`(`Grey-400`). Hover 활성 항목 **Primary-600** + 배경 Primary-200.
-- **로고:** 상단 브랜드 심볼은 **[§6 로고 SVG](#6-로고-svg-attention-심볼)(Attention, 18×25)** + 우측 **시스템명(`Title5`) 필수.** Lucide 등 아이콘 세트로 대체 금지, 시스템명 생략 금지. CSS: `.sidebar`/`.sidebar-item`.
+- **메뉴 항목(SidebarMenuButton) 높이 34**, **검색창 높이 38.** 텍스트 Body1 + Title7(그룹 타이틀). 검색 placeholder `Body1`(`Grey-400`). Hover 활성 항목 **Primary-600** + 배경 Primary-200.
+- **로고:** 상단 브랜드 심볼은 **[§6 로고 SVG](#6-로고-svg-attention-심볼)(Attention, 18×25)** + 우측 **시스템명(`Title7`) 필수.** Lucide 등 아이콘 세트로 대체 금지, 시스템명 생략 금지. CSS: `.sidebar`/`.sidebar-item`.
 - **사용 규칙:** 흰 배경 사이드바. 활성 메뉴만 포인트 색. **금지:** 항목 높이 40·검색 36·시스템명 누락·placeholder를 Body2로.
 
 ### 5.14 Breadcrumb — 1
@@ -261,7 +261,7 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조
 
 ### 5.15 Dashboard Card — 1
 - W314×H65 **고정**, padding 16/20, radius 4, 보더 Grey-200. **내부 가로(HORIZONTAL) auto-layout, gap 0.** CSS: `.dashboard-cards`/`.dashboard-card`.
-- **내부 구조(가로 1줄):** `Tag`(상태) + [수치 `Title3` + 단위 `Caption1`]. 수치·라벨을 **세로로 쌓지 않는다.**
+- **내부 구조(가로 1줄):** `Tag`(상태) + [수치 `Title4` + 단위 `Caption1`]. 수치·라벨을 **세로로 쌓지 않는다.**
 - **수치·단위 색 = 카드 태그의 진한 색과 동일**: 카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여 시 자동(정본: `CLAUDE.md` 상태 태그 5범주 · `fg-components.css`).
 - **배열:** 요약 카드는 **가로(HORIZONTAL) 1행**, 카드 간 **gap 8**. 세로(상하) 스택 금지.
 - **사용 규칙:** 그림자 없이 border로 구분. **금지:** 카드 내부 세로 스택·3줄 구성·gap≠0·높이 가변(65 초과).

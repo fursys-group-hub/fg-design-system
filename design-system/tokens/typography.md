@@ -9,10 +9,10 @@
 | 토큰 (Figma 스타일) | 별칭 | Size | Weight | LH | LS | 용도 |
 |---|---|---|---|---|---|---|
 | `Title/Title1-SemiBold` | Title1 | 40px | SemiBold (600) | 150% | 1% | 프로모션 대제목 |
-| `Title/Title2-SemiBold` | Title2 | 26px | SemiBold (600) | 150% | 1% | 프로모션 중제목 |
-| `Title/Title3-SemiBold` | Title3 | 22px | SemiBold (600) | 150% | 1% | Dashboard Card 수치 |
-| `Title/Title4-SemiBold` | Title4 | 16px | SemiBold (600) | 150% | 1% | 페이지 타이틀 |
-| `Title/Title5-SemiBold` | Title5 | 14px | SemiBold (600) | 150% | 1% | Card/Modal 타이틀 |
+| `Title/Title3-SemiBold` | Title3 | 26px | SemiBold (600) | 150% | 1% | 프로모션 중제목 |
+| `Title/Title4-SemiBold` | Title4 | 22px | SemiBold (600) | 150% | 1% | Dashboard Card 수치 |
+| `Title/Title5-SemiBold` | Title5 | 16px | SemiBold (600) | 150% | 1% | 페이지 타이틀 |
+| `Title/Title7-SemiBold` | Title7 | 14px | SemiBold (600) | 150% | 1% | Card/Modal 타이틀 |
 
 ## Body
 

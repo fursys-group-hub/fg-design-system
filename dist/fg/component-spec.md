@@ -48,8 +48,8 @@
 - Varient=Line | 570x40 | 가로 gap0 pad(0,0,0,0) 정렬 시작/시작 | 보더 Grey-200(#EAEDF0) (하 1px, INSIDE)
   - Select | 114x40 | 가로 gap8 pad(8,0,8,0) 정렬 중앙/중앙 | 배경 Grey-50(#FFFFFF) | 보더 Blue-700(#003EFF) (하 2px, INSIDE) | 그림자 DROP(0,1,2,0)#000000@0.05
     - 아이콘 Sun 16x16, stroke 1.33, 색 마스터 상속 [숨김]
-    - 선택 메뉴명 | 65x21 | 색 Grey-900(#000000) | 텍스트 Title/Title5-SemiBold (SemiBold 14) | 내용 '선택 메뉴명'
-    - 100 | 25x21 | 색 Grey-400(#A4AAB0) | 텍스트 Title/Title5-SemiBold (SemiBold 14) | 내용 '100'
+    - 선택 메뉴명 | 65x21 | 색 Grey-900(#000000) | 텍스트 Title/Title7-SemiBold (SemiBold 14) | 내용 '선택 메뉴명'
+    - 100 | 25x21 | 색 Grey-400(#A4AAB0) | 텍스트 Title/Title7-SemiBold (SemiBold 14) | 내용 '100'
   - Default | 114x40 | 가로 gap8 pad(8,0,8,0) 정렬 중앙/중앙 | 인스턴스: Active=Off
   - Default | 114x40 | 가로 gap8 pad(8,0,8,0) 정렬 중앙/중앙 | 인스턴스: Active=Off
   - Default | 114x40 | 가로 gap8 pad(8,0,8,0) 정렬 중앙/중앙 | 인스턴스: Active=Off
@@ -98,7 +98,7 @@
 - Dashboard Card | 314x65 | 가로 gap0 pad(20,16,20,16) 정렬 시작/중앙 | r4 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (전체 1px, INSIDE)
   - Tag | 28x18 | 가로 gap0 pad(4,0,4,0) 정렬 중앙/중앙 | r2 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (상+우+하+좌 1px, INSIDE) | 인스턴스: State=Light, Color=Black
   - Frame 4192 | 246x33 | 가로 gap4 pad(0,0,0,0) 정렬 끝/끝
-    - 100 | 39x33 | 색 Grey-900(#000000) | 텍스트 Title/Title3-SemiBold (SemiBold 22) | 내용 '100'
+    - 100 | 39x33 | 색 Grey-900(#000000) | 텍스트 Title/Title4-SemiBold (SemiBold 22) | 내용 '100'
     - Frame 1000007756 | 11x22 | 세로 gap0 pad(0,0,0,5) 정렬 중앙/중앙
       - 건 | 11x17 | 색 Grey-900(#000000) | 텍스트 Caption/Caption1-SemiBold (SemiBold 11) | 내용 '건'
 
@@ -164,7 +164,7 @@
     - Frame 3916 | 155x43 | 세로 gap2 pad(0,0,0,0) 정렬 중앙/시작
       - Frame 1000007758 | 155x21 | 가로 gap10 pad(0,0,0,0) 정렬 양끝(SB)/중앙
         - Frame 1000007057 | 139x21 | 가로 gap8 pad(0,0,0,0) 정렬 시작/중앙
-          - 담당자명 | 49x21 | 색 Grey-900(#000000) | 텍스트 Title/Title5-SemiBold (SemiBold 14) | 내용 '담당자명'
+          - 담당자명 | 49x21 | 색 Grey-900(#000000) | 텍스트 Title/Title7-SemiBold (SemiBold 14) | 내용 '담당자명'
           - Badge | 40x17 | 가로 gap0 pad(8,0,8,0) 정렬 중앙/중앙 | 배경 Grey-100(#F5F6F7)
             - 관리자 | 29x17 | 색 Grey-400(#A4AAB0) | 텍스트 Caption/Caption1-SemiBold (SemiBold 11) | 내용 '관리자 '
         - 아이콘 Settings 16x16, stroke 1.8, 색 Grey-900(#000000)
@@ -787,7 +787,7 @@
   - Frame 1000007000 | 232x107.294 | 세로 gap20 pad(0,24,0,0) 정렬 시작/시작
     - Frame 1000007777 | 94x25.2939 | 가로 gap16 pad(0,0,0,0) 정렬 시작/중앙
       - Attention | 18x25.2939 | 자유배치 | 배경 Grey-50(#FFFFFF) (hidden) | 인스턴스: Sort=Attention, Color=Black
-      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title5-SemiBold (SemiBold 14) | 내용 '(시스템명)'
+      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title7-SemiBold (SemiBold 14) | 내용 '(시스템명)'
     - Search | 232x38 | 가로 gap12 pad(12,0,12,0) 정렬 시작/중앙 | r6 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (상+우+하+좌 1px, INSIDE)
       - 아이콘 Search 16x16, stroke 1.2, 색 Grey-400(#A4AAB0)
       - PlaceholderText | 180x20 | 색 Grey-400(#A4AAB0) | 텍스트 Body/Body1-SemiBold (SemiBold 13) | 내용 '검색'
@@ -829,7 +829,7 @@
   - Frame 1000007000 | 232x107.294 | 세로 gap20 pad(0,24,0,0) 정렬 시작/시작
     - Frame 1000007777 | 94x25.2939 | 가로 gap16 pad(0,0,0,0) 정렬 시작/중앙
       - Attention | 18x25.2939 | 자유배치 | 배경 Grey-50(#FFFFFF) (hidden) | 인스턴스: Sort=Attention, Color=Black
-      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title5-SemiBold (SemiBold 14) | 내용 '(시스템명)'
+      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title7-SemiBold (SemiBold 14) | 내용 '(시스템명)'
     - Search | 232x38 | 가로 gap12 pad(12,0,12,0) 정렬 시작/중앙 | r6 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (상+우+하+좌 1px, INSIDE)
       - 아이콘 Search 16x16, stroke 1.2, 색 Grey-400(#A4AAB0)
       - PlaceholderText | 180x20 | 색 Grey-400(#A4AAB0) | 텍스트 Body/Body1-SemiBold (SemiBold 13) | 내용 '검색'
@@ -905,7 +905,7 @@
   - Frame 1000007000 | 232x107.294 | 세로 gap20 pad(0,24,0,0) 정렬 시작/시작
     - Frame 1000007777 | 94x25.2939 | 가로 gap16 pad(0,0,0,0) 정렬 시작/중앙
       - Attention | 18x25.2939 | 자유배치 | 배경 Grey-50(#FFFFFF) (hidden) | 인스턴스: Sort=Attention, Color=Black
-      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title5-SemiBold (SemiBold 14) | 내용 '(시스템명)'
+      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title7-SemiBold (SemiBold 14) | 내용 '(시스템명)'
     - Search | 232x38 | 가로 gap12 pad(12,0,12,0) 정렬 시작/중앙 | r6 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (상+우+하+좌 1px, INSIDE)
       - 아이콘 Search 16x16, stroke 1.2, 색 Grey-400(#A4AAB0)
       - PlaceholderText | 180x20 | 색 Grey-400(#A4AAB0) | 텍스트 Body/Body1-SemiBold (SemiBold 13) | 내용 '검색'
@@ -958,7 +958,7 @@
   - Frame 1000007000 | 232x107.294 | 세로 gap20 pad(0,24,0,0) 정렬 시작/시작
     - Frame 1000007777 | 94x25.2939 | 가로 gap16 pad(0,0,0,0) 정렬 시작/중앙
       - Attention | 18x25.2939 | 자유배치 | 배경 Grey-50(#FFFFFF) (hidden) | 인스턴스: Sort=Attention, Color=Black
-      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title5-SemiBold (SemiBold 14) | 내용 '(시스템명)'
+      - (시스템명) | 60x21 | 색 Grey-900(#000000) | 텍스트 Title/Title7-SemiBold (SemiBold 14) | 내용 '(시스템명)'
     - Search | 232x38 | 가로 gap12 pad(12,0,12,0) 정렬 시작/중앙 | r6 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (상+우+하+좌 1px, INSIDE)
       - 아이콘 Search 16x16, stroke 1.2, 색 Grey-400(#A4AAB0)
       - PlaceholderText | 180x20 | 색 Grey-400(#A4AAB0) | 텍스트 Body/Body1-SemiBold (SemiBold 13) | 내용 '검색'

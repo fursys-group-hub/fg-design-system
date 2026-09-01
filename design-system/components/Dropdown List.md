@@ -16,7 +16,7 @@
 
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
-| Varient=Profile, State=Default | W×H 195×243, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-900 (#000000), Grey-100 (#F5F6F7), Grey-400 (#A4AAB0) | Title/Title5-SemiBold, Caption/Caption1-SemiBold, Body/Body2-Regular, Body/Body3-SemiBold | Drop Shadow |
+| Varient=Profile, State=Default | W×H 195×243, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-900 (#000000), Grey-100 (#F5F6F7), Grey-400 (#A4AAB0) | Title/Title7-SemiBold, Caption/Caption1-SemiBold, Body/Body2-Regular, Body/Body3-SemiBold | Drop Shadow |
 | Varient=Multiple, State=Hover | W×H 220×256, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000), Grey-300 (#D6DADE), Grey-100 (#F5F6F7) | Body/Body4-Regular, Body/Body2-Regular | — |
 | Varient=Multiple, State=Default | W×H 220×260, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000), Grey-300 (#D6DADE) | Body/Body2-Regular | — |
 | Varient=Single, State=Hover | W×H 220×260, radius 4 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-900 (#000000), Grey-100 (#F5F6F7) | Body/Body2-Regular | — |

@@ -16,10 +16,10 @@
 
 | variant | 크기 | 배경(컨테이너) | 보더 | 자식 색(텍스트·아이콘·포인트) | 텍스트 토큰 | 이펙트 |
 |---|---|---|---|---|---|---|
-| Varient=Favorite, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
-| Varient=Default, States=Extended | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
-| Varient=Default, States=Hover | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Blue-100 (#E3EDFF), Blue-700 (#003EFF) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
-| Varient=Default, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title5-SemiBold, Body/Body1-SemiBold | shadow/sm |
+| Varient=Favorite, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title7-SemiBold, Body/Body1-SemiBold | shadow/sm |
+| Varient=Default, States=Extended | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title7-SemiBold, Body/Body1-SemiBold | shadow/sm |
+| Varient=Default, States=Hover | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7), Blue-100 (#E3EDFF), Blue-700 (#003EFF) | Title/Title7-SemiBold, Body/Body1-SemiBold | shadow/sm |
+| Varient=Default, States=Default | W×H 256×1080, padding(TRBL) -/12/-/12 | **Grey-50 (#FFFFFF)** | Grey-200 (#EAEDF0) | Grey-900 (#000000), Grey-50 (#FFFFFF), Grey-200 (#EAEDF0), Grey-400 (#A4AAB0), Grey-100 (#F5F6F7) | Title/Title7-SemiBold, Body/Body1-SemiBold | shadow/sm |
 
 ## 레이아웃 (오토레이아웃)
 
@@ -31,7 +31,7 @@
 - Frame 1000007000 (frame) [레이아웃 세로(V) · 가로 fill/세로 hug · 크기 232×107]
   - Frame 1000007777 (frame) [레이아웃 가로(H) · 가로 hug/세로 hug · 크기 94×25]
     - Attention (instance) [가로 고정/세로 고정 · 크기 18×25] · → Sort=Attention, Color=Black
-    - (시스템명) (text) [가로 hug/세로 hug · 크기 60×21] · 텍스트 Title/Title5-SemiBold · 색 Grey-900 (#000000)
+    - (시스템명) (text) [가로 hug/세로 hug · 크기 60×21] · 텍스트 Title/Title7-SemiBold · 색 Grey-900 (#000000)
   - Search (frame) [레이아웃 가로(H) · 가로 fill/세로 고정 · 크기 232×38] · 배경 Grey-50 (#FFFFFF), 선 Grey-200 (#EAEDF0)
     - Icon / Search (instance) [가로 고정/세로 고정 · 크기 16×16] · → Icon / Search
     - PlaceholderText (text) [가로 fill/세로 hug · grow 1.0 · 크기 180×20] · 텍스트 Body/Body1-SemiBold · 색 Grey-400 (#A4AAB0)
@@ -54,7 +54,7 @@
 ## 사용 규칙
 
 - **크기·간격:** 폭 256, 좌우 padding 12, 항목 간 gap 24. **메뉴 항목(SidebarMenuButton) 높이 34**, **검색창 높이 38**.
-- **로고:** 상단 브랜드 심볼은 **Attention 로고 SVG(18×25)** + 우측 **시스템명 텍스트(`Title5`, `Grey-900`) 필수**. 로고를 Lucide 등 아이콘으로 대체 금지, 시스템명 생략 금지.
+- **로고:** 상단 브랜드 심볼은 **Attention 로고 SVG(18×25)** + 우측 **시스템명 텍스트(`Title7`, `Grey-900`) 필수**. 로고를 Lucide 등 아이콘으로 대체 금지, 시스템명 생략 금지.
 - **텍스트:** 메뉴 항목 `Body1`, 검색 placeholder `Body1`(`Grey-400`).
 - **활성/hover:** 활성 메뉴만 `Blue-700` 전경 + `Blue-100` 배경. 배경은 흰색.
 - **금지:** 메뉴 항목 높이 40, 검색창 36, 시스템명 누락, placeholder를 `Body2`로 쓰는 것.

@@ -125,7 +125,7 @@ Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 
 # 로고
 
-**업무 화면에는 브랜드 로고를 쓰지 않는다.** 사이드바 상단에는 **시스템명 텍스트(Title4 16/600)만** 둔다. `<span class="fg-logo"></span>` 를 넣지 않으며, 로고 변수(`--fg-logo` 등)를 화면에 복사하지도 않는다.
+**업무 화면에는 브랜드 로고를 쓰지 않는다.** 사이드바 상단에는 **시스템명 텍스트(Title5 16/600)만** 둔다. `<span class="fg-logo"></span>` 를 넣지 않으며, 로고 변수(`--fg-logo` 등)를 화면에 복사하지도 않는다.
 
 (브랜드 로고는 고객 화면 전용이다. `tokens.css` 의 로고 변수·base64 는 고객 화면에서 쓰므로 그대로 둔다.)
 
@@ -154,7 +154,7 @@ Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 Pretendard 단일. 모든 텍스트 `line-height: 150%`, `letter-spacing: 1%`.
 정본 14종만 쓴다.
 
-Title1 40/600 · Title2 26/600 · Title3 22/600 · Title4 16/600 · Title5 14/600
+Title1 40/600 · Title3 26/600 · Title4 22/600 · Title5 16/600 · Title7 14/600
 Body1 13/600 · Body2 13/400 · Body3 12/600 · Body4 12/400
 Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Caption5 8/400
 
@@ -162,10 +162,10 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 
 | 위치 | 크기와 굵기 |
 |---|---|
-| 페이지 타이틀 | Title4 16/600 Grey-900 |
+| 페이지 타이틀 | Title5 16/600 Grey-900 |
 | 페이지 타이틀 우측 서브 문구 | Body4 12/400 Grey-400, baseline 정렬, gap8, 서술형은 마침표로 끝낸다 |
-| 섹션 타이틀 | Title5 14/600 Grey-900 |
-| 섹션 건수 | Title5 14/600 Primary-600, gap4, **단위를 붙이지 않는다** |
+| 섹션 타이틀 | Title7 14/600 Grey-900 |
+| 섹션 건수 | Title7 14/600 Primary-600, gap4, **단위를 붙이지 않는다** |
 | Table 헤더 | Caption1 11/600 Grey-400 |
 | Table 셀 | Body2 13/400 Grey-900 |
 | Input placeholder 와 입력값 | Body2 13/400 (Stepper 만 Body4 12/400) |
@@ -174,20 +174,20 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 | Button Square, Round | Body1 13/600 |
 | Button Flat, Text | Body3 12/600 |
 | Tag 12변형 전부 | Caption1 11/600 |
-| Dashboard Card 수치 | Title3 22/600 |
+| Dashboard Card 수치 | Title4 22/600 |
 | Dashboard Card 단위 | Caption1 11/600 |
 | Sidebar 메뉴 항목 | Body1 13/600 |
-| Sidebar 시스템명 | Title4 16/600 |
+| Sidebar 시스템명 | Title5 16/600 |
 | Header 담당자명 | Body1 13/600 |
 | Header 역할 뱃지 | Caption1 11/600 Grey-400 |
-| Tab Line | Title5 14/600 |
+| Tab Line | Title7 14/600 |
 | Tab Box | Body1 13/600 |
 | Toast 본문 | Body1 13/600 Grey-50 |
 | Toast 닫기 | Body2 13/400 Grey-400 |
 | Breadcrumb | Body2 13/400 Grey-400, 현재 위치만 Body1 13/600 Grey-900 |
 | Pagination | 현재 Body1 13/600 Grey-900, 나머지 Body2 13/400 Grey-400 |
 | Dropdown 항목 | Body2 13/400 Grey-900 |
-| Dropdown 담당자명 | Title5 14/600 |
+| Dropdown 담당자명 | Title7 14/600 |
 
 # 상태 태그 5범주 매핑
 
@@ -296,7 +296,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 
 ## 조립 순서
 
-1. Sidebar 폭 256, 항목 H34, 검색 H38, 시스템명 Title4(16/600)
+1. Sidebar 폭 256, 항목 H34, 검색 H38, 시스템명 Title5(16/600)
 2. Header 높이 50, 좌우 padding 24, 하단 Grey-200 보더
 3. Contents 배경 Grey-100, padding 상24 좌우32 하100
 4. Container 폭 1280 중앙 정렬

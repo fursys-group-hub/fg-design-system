@@ -49,11 +49,11 @@
 가장 흔한 관리자 화면. 조회 → 목록.
 
 **콘텐츠 순서** (`design-principles.md` §1과 동일 · 값 정본은 `CLAUDE.md`/`component-spec.md`):
-1. 페이지 타이틀(`Title4`) + 우측 서브 문구(`Body4`/`Grey-400`)
+1. 페이지 타이틀(`Title5`) + 우측 서브 문구(`Body4`/`Grey-400`)
 2. 브레드크럼(우측 정렬)
 3. **필터 카드** — Input Case 필드 1행 + 우측 조회 버튼(**Secondary Round**) · 상세 조회(**Text**)
 4. (요약 카드) — 유형 3 참조
-5. **테이블 섹션** — 섹션 타이틀(`Title5`)+건수(`Title5`/`Primary-600`, 단위 없음), 우측 액션 버튼 그룹 / Table(헤더 `Grey-100` 배경·`Caption1`, 셀 `Body2`, **No. 열 없음·첫 열 체크박스**) + 상태 `Tag` + 하단 `Pagination`(테이블 폭 기준 중앙)
+5. **테이블 섹션** — 섹션 타이틀(`Title7`)+건수(`Title7`/`Primary-600`, 단위 없음), 우측 액션 버튼 그룹 / Table(헤더 `Grey-100` 배경·`Caption1`, 셀 `Body2`, **No. 열 없음·첫 열 체크박스**) + 상태 `Tag` + 하단 `Pagination`(테이블 폭 기준 중앙)
 
 ## 유형 2. 상세형 (마스터-디테일)
 
@@ -61,7 +61,7 @@
 
 ## 유형 3. 대시보드형 (요약 카드)
 
-- 상태별 **요약 카드 4~5개를 가로(HORIZONTAL) 1행**으로 배열한다. **세로(상하) 스택 금지.** 카드 간 **gap 8px**. 각 카드 = 상태 `Tag` + 큰 수치(`Title3`) + 단위(`Caption1`). **수치·단위 색은 카드 태그의 진한 색과 같게 맞춘다**(카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여 시 자동. 상세 규칙=`CLAUDE.md` 상태 태그 5범주).
+- 상태별 **요약 카드 4~5개를 가로(HORIZONTAL) 1행**으로 배열한다. **세로(상하) 스택 금지.** 카드 간 **gap 8px**. 각 카드 = 상태 `Tag` + 큰 수치(`Title4`) + 단위(`Caption1`). **수치·단위 색은 카드 태그의 진한 색과 같게 맞춘다**(카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여 시 자동. 상세 규칙=`CLAUDE.md` 상태 태그 5범주).
 - 카드 하단에 테이블/차트 섹션.
 
 ## 유형 4. 모달
@@ -89,9 +89,9 @@
 | **Input Case** | 라벨(`Body3`) + Input + 헬프/에러(`Body4`, 에러 `Red-600`) |
 | **필터 카드** | Input Case 여러 개 1행(가로 auto-layout) + 조회 버튼(**Secondary Round**)·상세 조회(**Text**) |
 | **테이블 행** | Table Cell 조합(Type: Checkbox/Text/Link/Button/Tag/Calendar…), **No. 열 없음·첫 열 체크박스**, 상태는 `Tag`, 링크는 밑줄 |
-| **Dashboard Card** | `Tag`(상태) + 수치(`Title3`) + 단위(`Caption1`) |
+| **Dashboard Card** | `Tag`(상태) + 수치(`Title4`) + 단위(`Caption1`) |
 
-> **업무 화면에는 브랜드 로고를 쓰지 않는다.** 사이드바 상단·헤더·인증 화면 Panel 모두 **시스템명 텍스트(Title4)만** 둔다. (브랜드 로고는 고객 화면 전용 — `CLAUDE-customer.md`.)
+> **업무 화면에는 브랜드 로고를 쓰지 않는다.** 사이드바 상단·헤더·인증 화면 Panel 모두 **시스템명 텍스트(Title5)만** 둔다. (브랜드 로고는 고객 화면 전용 — `CLAUDE-customer.md`.)
 
 > 화면 예시·목업은 **정본 컴포넌트의 인스턴스만으로** 조립한다(`design-principles.md` §8). 컴포넌트를 복제해 새 COMPONENT로 만들지 않는다.
 
@@ -100,7 +100,7 @@
 > 관리자 콘솔(OMS류) 화면 구조. **마크업 정본은 `COMPONENTS.html`, CSS는 `fg-components.css`, 수치 근거는 `component-spec.md`, 값 규칙은 `CLAUDE.md`.** 아래는 배치 순서 요약이며, 값이 어긋나면 이 문서가 아니라 위 정본을 따른다.
 
 ### 페이지 타이틀 블록
-- 좌측: 페이지 타이틀 `Title4`(16/600/Grey-900) + 우측 서브 문구 `Body4`(12/400/Grey-400), baseline 정렬, gap 8. 서술형은 마침표로 끝낸다.
+- 좌측: 페이지 타이틀 `Title5`(16/600/Grey-900) + 우측 서브 문구 `Body4`(12/400/Grey-400), baseline 정렬, gap 8. 서술형은 마침표로 끝낸다.
 - 우측 끝: Breadcrumb 우측 정렬(`Body2`/Grey-400, 현재 페이지 `Body1`/Grey-900).
 
 ### 필터 카드
@@ -110,11 +110,11 @@
 - 기간 필드만 고정(프리셋 드롭다운 136 + gap4 + 날짜 범위 인풋 216), `0000/00/00 - 0000/00/00` 한 줄 유지(2개로 쪼개지 않음).
 
 ### 요약 카드 행 (현황 카드)
-- Dashboard Card 4~5개 가로 1행, gap 8. 카드 = 상태 태그 + 수치(`Title3`) + 단위(`Caption1`).
+- Dashboard Card 4~5개 가로 1행, gap 8. 카드 = 상태 태그 + 수치(`Title4`) + 단위(`Caption1`).
 - **수치·단위 색은 카드 태그의 진한 색과 같게** 맞춘다(카드에 `fg-card--wait/--hold/--progress/--done/--fail` 부여 시 자동). 상세 규칙=`CLAUDE.md` 상태 태그 5범주.
 
 ### 섹션 타이틀 + 건수
-- 섹션 타이틀 `Title5`(14/600/Grey-900) + 건수 `Title5`(14/600/Primary-600), gap 4, **단위를 붙이지 않는다**.
+- 섹션 타이틀 `Title7`(14/600/Grey-900) + 건수 `Title7`(14/600/Primary-600), gap 4, **단위를 붙이지 않는다**.
 - 우측: 액션 버튼 그룹(Secondary 나열), 최우선 액션 1개만 Primary(Grey-900).
 
 ### 목록 테이블
@@ -127,7 +127,7 @@
 ### 마스터 디테일
 - 상하 분할: 상단 목록 + 하단 상세 섹션(탭 전환은 Tab/Line variant, 선택 탭 Grey-900 + 하단 Primary-600 2px).
 - 좌우 분할: 좌측 목록 + 우측 상세 폼 패널(Grey-200 보더 카드), 패널 우상단에 저장 Primary 버튼.
-- 상세 폼: 섹션 타이틀 `Title5`(14/600) 단위로 구분, 필드는 2열 그리드(Input Case), 읽기 전용 필드는 Grey-200 배경 + Grey-400 텍스트(Input Disabled와 동일).
+- 상세 폼: 섹션 타이틀 `Title7`(14/600) 단위로 구분, 필드는 2열 그리드(Input Case), 읽기 전용 필드는 Grey-200 배경 + Grey-400 텍스트(Input Disabled와 동일).
 
 ### 빈 상태 (조회 결과 없음)
 - 목록 영역 중앙: 아이콘(Lucide, 24~32, Grey-400) + "조회 결과가 없습니다" `Body1`/Grey-900 + 보조문 `Body4`/Grey-400. 목록이 0건이면 목록 액션 버튼은 Disabled 상태로.
