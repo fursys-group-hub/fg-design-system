@@ -99,15 +99,18 @@ body { font-family: 'Pretendard', sans-serif; }
 
 ## 2. 타이포그래피
 
-Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 14종. `tokens.css`의 조합 클래스(`.title1`~`.caption5`)로 적용.
+Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 17종. `tokens.css`의 조합 클래스(`.title1`~`.caption5`)로 적용.
 
 | 토큰(별칭) | Size | Weight | 클래스 | 용도 |
 |---|---|---|---|---|
 | Title1 | 40px | 600 | `.title1` | 프로모션 대제목 |
+| Title2 | 32px | 600 | `.title2` | 프로모션 소제목 |
 | Title3 | 26px | 600 | `.title3` | 프로모션 중제목 |
 | Title4 | 22px | 600 | `.title4` | Dashboard Card 수치 |
 | Title5 | 16px | 600 | `.title5` | 페이지 타이틀 |
+| Title6 | 16px | 400 | `.title6` | 16px 타이틀 (Regular) |
 | Title7 | 14px | 600 | `.title7` | Card/Modal 타이틀 |
+| Title8 | 14px | 400 | `.title8` | 14px 타이틀 (Regular) |
 | Body1 | 13px | 600 | `.body1` | 그룹 타이틀 |
 | Body2 | 13px | 400 | `.body2` | 그룹 타이틀 보조 |
 | Body3 | 12px | 600 | `.body3` | 본문 강조 |

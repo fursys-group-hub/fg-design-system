@@ -152,9 +152,9 @@ Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 # 타이포
 
 Pretendard 단일. 모든 텍스트 `line-height: 150%`, `letter-spacing: 1%`.
-정본 14종만 쓴다.
+정본 17종만 쓴다.
 
-Title1 40/600 · Title3 26/600 · Title4 22/600 · Title5 16/600 · Title7 14/600
+Title1 40/600 · Title2 32/600 · Title3 26/600 · Title4 22/600 · Title5 16/600 · Title6 16/400 · Title7 14/600 · Title8 14/400
 Body1 13/600 · Body2 13/400 · Body3 12/600 · Body4 12/400
 Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Caption5 8/400
 

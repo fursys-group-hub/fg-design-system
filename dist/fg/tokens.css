@@ -51,10 +51,13 @@ html, body {
   --fg-font-weight-regular: 400;
 
   --fg-font-size-title1: 40px;
+  --fg-font-size-title2: 32px;
   --fg-font-size-title3: 26px;
   --fg-font-size-title4: 22px;
   --fg-font-size-title5: 16px;
+  --fg-font-size-title6: 16px;   /* Title5 와 같은 16px, 굵기만 Regular */
   --fg-font-size-title7: 14px;
+  --fg-font-size-title8: 14px;   /* Title7 과 같은 14px, 굵기만 Regular */
   --fg-font-size-body1: 13px;
   --fg-font-size-body2: 13px;
   --fg-font-size-body3: 12px;
@@ -214,8 +217,8 @@ button, input, select, textarea {
   letter-spacing: inherit;
 }
 
-/* ===== Typography 조합 클래스 (14) — size/weight + LH 150% + LS 1% ===== */
-.title1, .title3, .title4, .title5, .title7,
+/* ===== Typography 조합 클래스 (17) — size/weight + LH 150% + LS 1% ===== */
+.title1, .title2, .title3, .title4, .title5, .title6, .title7, .title8,
 .body1, .body2, .body3, .body4,
 .caption1, .caption2, .caption3, .caption4, .caption5 {
   font-family: var(--fg-font-family);
@@ -224,10 +227,13 @@ button, input, select, textarea {
 }
 
 .title1 { font-size: var(--fg-font-size-title1); font-weight: var(--fg-font-weight-semibold); }
+.title2 { font-size: var(--fg-font-size-title2); font-weight: var(--fg-font-weight-semibold); }
 .title3 { font-size: var(--fg-font-size-title3); font-weight: var(--fg-font-weight-semibold); }
 .title4 { font-size: var(--fg-font-size-title4); font-weight: var(--fg-font-weight-semibold); }
 .title5 { font-size: var(--fg-font-size-title5); font-weight: var(--fg-font-weight-semibold); }
+.title6 { font-size: var(--fg-font-size-title6); font-weight: var(--fg-font-weight-regular); }
 .title7 { font-size: var(--fg-font-size-title7); font-weight: var(--fg-font-weight-semibold); }
+.title8 { font-size: var(--fg-font-size-title8); font-weight: var(--fg-font-weight-regular); }
 
 .body1 { font-size: var(--fg-font-size-body1); font-weight: var(--fg-font-weight-semibold); }
 .body2 { font-size: var(--fg-font-size-body2); font-weight: var(--fg-font-weight-regular); }

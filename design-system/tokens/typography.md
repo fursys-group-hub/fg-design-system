@@ -1,7 +1,7 @@
 # Typography — SIDIZ 타이포그래피 토큰
 
 정본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`, 2026-08-12 재수신) → **`2. Foundation` Typography**.
-**Pretendard 단일 · line-height 150% · letter-spacing 1%** 공통. 14종 체계.
+**Pretendard 단일 · line-height 150% · letter-spacing 1%** 공통. 17종 체계.
 주 토큰명 = 실제 Figma 스타일명, `별칭`·용도 병기.
 
 ## Title
@@ -9,10 +9,13 @@
 | 토큰 (Figma 스타일) | 별칭 | Size | Weight | LH | LS | 용도 |
 |---|---|---|---|---|---|---|
 | `Title/Title1-SemiBold` | Title1 | 40px | SemiBold (600) | 150% | 1% | 프로모션 대제목 |
+| `Title/Title2-SemiBold` | Title2 | 32px | SemiBold (600) | 150% | 1% | 프로모션 소제목 |
 | `Title/Title3-SemiBold` | Title3 | 26px | SemiBold (600) | 150% | 1% | 프로모션 중제목 |
 | `Title/Title4-SemiBold` | Title4 | 22px | SemiBold (600) | 150% | 1% | Dashboard Card 수치 |
 | `Title/Title5-SemiBold` | Title5 | 16px | SemiBold (600) | 150% | 1% | 페이지 타이틀 |
+| `Title/Title6-Regular` | Title6 | 16px | Regular (400) | 150% | 1% | 16px 타이틀 (Regular) |
 | `Title/Title7-SemiBold` | Title7 | 14px | SemiBold (600) | 150% | 1% | Card/Modal 타이틀 |
+| `Title/Title8-Regular` | Title8 | 14px | Regular (400) | 150% | 1% | 14px 타이틀 (Regular) |
 
 ## Body
 
