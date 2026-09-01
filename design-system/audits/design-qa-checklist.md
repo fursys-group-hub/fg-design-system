@@ -11,7 +11,7 @@
 | 외부 주소 참조 | src 나 href 에 http 로 시작하는 값이 있는지. 아이콘과 이미지는 파일 안에 넣어야 한다. 폰트는 예외로, Design.md 에 명시된 Pretendard CDN 링크는 허용한다 |
 | 업무 화면 로고 | data-type 이 internal 인 화면에 fg-logo 가 있는지. 있으면 위반 |
 | 임의 hex | style 이나 CSS 에 # 으로 시작하는 색이 직접 쓰였는지 |
-| 임의 크기 | 정의된 타이포 18종에 없는 font-size 가 있는지 |
+| 임의 크기 | 정의된 타이포 17종에 없는 font-size 가 있는지 |
 | 접두어 섞임 | 한 파일에 fg- 와 fgc- 가 같이 있는지 |
 | 필수 속성 | html 태그에 data-brand 와 data-type 이 있는지 |
 | 표 셀 줄바꿈 | 표 셀에 줄바꿈 금지가 걸려 있는지 |
@@ -37,6 +37,6 @@
 | sidiz 접두어 | fg 와 fgc |
 | 색 15개 | 22색과 Secondary 65개 |
 | 브랜드 1개 | 브랜드 9개, data-brand 로 전환 |
-| 타이포 14종 | 18종. Display 3종과 Body0 추가 |
+| 타이포 14종 | 17종. Title 8·Body 4·Caption 5 (Display 없음) |
 | 유형 구분 없음 | internal 과 customer 두 유형 |
 | 인터랙션 없음 | 인터랙션 7종이 들어 있는지 확인 |

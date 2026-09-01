@@ -104,22 +104,22 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 17종. `tokens.css`의 조
 | 토큰(별칭) | Size | Weight | 클래스 | 용도 |
 |---|---|---|---|---|
 | Title1 | 40px | 600 | `.title1` | 프로모션 대제목 |
-| Title2 | 32px | 600 | `.title2` | 프로모션 소제목 |
+| Title2 | 32px | 600 | `.title2` | 프로모션 대제목 |
 | Title3 | 26px | 600 | `.title3` | 프로모션 중제목 |
-| Title4 | 22px | 600 | `.title4` | Dashboard Card 수치 |
-| Title5 | 16px | 600 | `.title5` | 페이지 타이틀 |
-| Title6 | 16px | 400 | `.title6` | 16px 타이틀 (Regular) |
+| Title4 | 22px | 600 | `.title4` | 페이지 메인 타이틀 |
+| Title5 | 16px | 600 | `.title5` | 섹션 타이틀 |
+| Title6 | 16px | 400 | `.title6` | 섹션 타이틀 |
 | Title7 | 14px | 600 | `.title7` | Card/Modal 타이틀 |
-| Title8 | 14px | 400 | `.title8` | 14px 타이틀 (Regular) |
+| Title8 | 14px | 400 | `.title8` | Card/Modal 타이틀 |
 | Body1 | 13px | 600 | `.body1` | 그룹 타이틀 |
 | Body2 | 13px | 400 | `.body2` | 그룹 타이틀 보조 |
 | Body3 | 12px | 600 | `.body3` | 본문 강조 |
 | Body4 | 12px | 400 | `.body4` | 기본 본문 |
 | Caption1 | 11px | 600 | `.caption1` | Label, 헬프 텍스트 |
-| Caption2 | 10px | 600 | `.caption2` | 뱃지·태그 텍스트 |
+| Caption2 | 10px | 600 | `.caption2` | 뱃지, 태그 텍스트 |
 | Caption3 | 10px | 400 | `.caption3` | 서브 문구 |
-| Caption4 | 8px | 600 | `.caption4` | 최소 표기 강조(뱃지/라벨 전용) |
-| Caption5 | 8px | 400 | `.caption5` | 최소 표기(뱃지/라벨 전용) |
+| Caption4 | 8px | 600 | `.caption4` | 최소 표기 강조 |
+| Caption5 | 8px | 400 | `.caption5` | 최소 표기 |
 
 > **최소 크기 규칙:** Caption4·5(8·10px)는 본문에 쓰지 않는다.
 

@@ -21,7 +21,7 @@ description: 생성된 화면 HTML 파일이 퍼시스그룹 디자인 시스템
 
 - **퍼시스그룹 디자인 시스템**(옛 "시디즈 디자인 시스템" 아님).
 - **색 22색**(Primary 2톤·브랜드별 / System 10 / Grey 10) **+ Secondary 65색**(고객 화면 전용).
-- **타이포 18종** — 업무 14종(Title1~5 · Body1~4 · Caption1~5) + 고객 전용 **Display1~3 · Body0**.
+- **타이포 17종** — Title1~8 · Body1~4 · Caption1~5. 고객 화면도 동일하게 쓰며 **별도 Display 계열은 없다**.
 - **9개 브랜드**, `<html data-brand="...">` 로 전환.
 - **화면 유형 2종** — `data-type="internal"`(업무) / `data-type="customer"`(고객).
 - **클래스 접두어** — 업무 `fg-`, 고객 `fgc-`.
@@ -51,7 +51,7 @@ description: 생성된 화면 HTML 파일이 퍼시스그룹 디자인 시스템
 체크리스트 항목 중 정본 값과 대조해야 하는 것(임의 hex·임의 크기 등)을 위해, 필요 시 아래를 로드한다.
 
 - 색(22색 + Secondary 65) → `dist/fg/tokens.css` 의 CSS 변수(`--fg-color-*` · `--fg-secondary-*`) 또는 `design-system/tokens/color.md`.
-- 타이포 18종 크기 → `design-system/tokens/typography.md` 또는 `tokens.css`.
+- 타이포 17종 크기 → `design-system/tokens/typography.md` 또는 `tokens.css`.
 - 클래스·구조 규칙 → `dist/fg/CLAUDE.md`(또는 `design-system/CLAUDE.md`).
 - 브랜드별 값은 `data-brand` 블록 기준. 값을 외워서 판정하지 않는다.
 
