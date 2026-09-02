@@ -66,6 +66,26 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 }
 
 /* ------------------------------------------------------------
+   1.5 포커스 — 키보드 이동 시 현재 위치 표시
+      :focus-visible 로 키보드 이동 시에만 그린다(마우스 클릭 제외).
+      outline 으로 그려 요소 위치가 밀리지 않는다.
+      Primary-600 · 2px · 요소에서 2px 띄움. outline: 0 으로 지우지 않는다.
+   ------------------------------------------------------------ */
+.fg-btn:focus-visible,
+.fg-tab__item:focus-visible,
+.fg-check:focus-visible,
+.fg-radio:focus-visible,
+.fg-select__trigger:focus-visible,
+.fg-link:focus-visible,
+.fg-pagination__nums > span:focus-visible,
+.fg-input > input:focus-visible,
+.fg-input > select:focus-visible,
+.fg-sidebar__search > input:focus-visible {
+  outline: 2px solid var(--fg-color-primary-600);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
    2. Input — H36 · r4 · pad 0/12 · Body2(13/400) · 보더 Grey-200
       Dropdown 과 Search 는 SPACE_BETWEEN → 아이콘이 우측 끝 고정
    ------------------------------------------------------------ */
@@ -82,7 +102,7 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 }
 .fg-input > input, .fg-input > select {
   flex: 1; min-width: 0;
-  border: 0; outline: 0; background: transparent;
+  border: 0; background: transparent;
   font: inherit; color: inherit;
   letter-spacing: inherit; line-height: inherit;
   -webkit-appearance: none; -moz-appearance: none; appearance: none;
@@ -372,7 +392,7 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 }
 .fg-sidebar__search > svg { color: var(--fg-color-grey-400); }
 .fg-sidebar__search > input {
-  flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+  flex: 1; min-width: 0; border: 0; background: transparent;
   font: inherit; color: inherit; letter-spacing: inherit;
 }
 .fg-sidebar__search > input::placeholder { color: var(--fg-color-grey-400); }
