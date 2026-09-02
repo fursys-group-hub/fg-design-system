@@ -321,6 +321,8 @@
 - Varient=Cell, Type=Textlink | 66x38 | 가로 gap0 pad(16,0,16,0) 정렬 시작/중앙 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (하 1px, INSIDE)
   - 텍스트 | 34x20 | 색 Grey-900(#000000) | 텍스트 Body/Body2-Regular (Regular 13) | 내용 '텍스트'
 
+**마크업 규칙 — 링크 셀(Link·Textlink):** `.fg-link` 은 `<a href>` 로 만든다. `<span>` 으로 만들지 않는다. `<span>` 은 키보드 Tab 으로 이동할 수 없어 포커스 표시가 나타나지 않는다.
+
 ### Varient=Cell, Type=Text
 - Varient=Cell, Type=Text | 66x38 | 가로 gap4 pad(16,0,16,0) 정렬 시작/중앙 | 배경 Grey-50(#FFFFFF) | 보더 Grey-200(#EAEDF0) (하 1px, INSIDE)
   - 텍스트 | 34x20 | 색 Grey-900(#000000) | 텍스트 Body/Body2-Regular (Regular 13) | 내용 '텍스트'

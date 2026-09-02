@@ -237,7 +237,7 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   white-space: nowrap;
 }
 .fg-table th.fg-col-check, .fg-table td.fg-col-check { width: 48px; }
-.fg-table .fg-link { color: var(--fg-color-grey-900); text-decoration: underline; cursor: pointer; }
+.fg-link { color: var(--fg-color-grey-900); text-decoration: underline; cursor: pointer; }
 .fg-table tfoot td { background: var(--fg-color-grey-100); font-weight: 600; }
 
 /* ------------------------------------------------------------
