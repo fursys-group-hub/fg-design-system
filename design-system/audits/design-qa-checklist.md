@@ -22,6 +22,7 @@
 | Secondary 넓은 면 | 고객 화면에서 Secondary 를 히어로나 섹션 전체 배경에 썼는지 |
 | 사이드바 시스템명 | Title5 16px SemiBold 인지 |
 | 링크 태그 | fg-link 클래스가 a 태그에 붙어 있는지. span 이면 위반 |
+| 페이지네이션 태그 | fg-pagination__nums 안 숫자가 button 태그인지. span 이면 위반 |
 
 ## 사람이 봐야 하는 것
 

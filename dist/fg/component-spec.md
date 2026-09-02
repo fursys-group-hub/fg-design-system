@@ -18,6 +18,8 @@
     - 5 | 8x20 | 색 Grey-400(#A4AAB0) | 텍스트 Body/Body2-Regular (Regular 13) | 내용 '5'
   - 아이콘 ChevronRight 16x16, stroke 1.2, 색 Grey-900(#000000)
 
+**마크업 규칙 — 페이지네이션:** 숫자와 좌우 화살표는 `<button>` 으로 만든다. `<span>` 이나 `<i>` 태그만으로 만들지 않는다. `<span>`·`<i>` 은 키보드 Tab 으로 이동할 수 없어 포커스 표시가 나타나지 않는다.
+
 ## Carousel
 
 ### Varient=Indicator

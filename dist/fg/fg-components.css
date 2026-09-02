@@ -48,7 +48,7 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
 .fg-radio:focus-visible,
 .fg-select__trigger:focus-visible,
 .fg-link:focus-visible,
-.fg-pagination__nums > span:focus-visible,
+.fg-pagination button:focus-visible,
 .fg-input > input:focus-visible,
 .fg-input > select:focus-visible,
 .fg-sidebar__search > input:focus-visible {
@@ -252,10 +252,11 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   line-height: 1.5; letter-spacing: 0.01em;
   color: var(--fg-color-grey-400);
 }
-.fg-pagination > svg { width: 16px; height: 16px; color: var(--fg-color-grey-900); }
+.fg-pagination button { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.fg-pagination > button > svg { width: 16px; height: 16px; color: var(--fg-color-grey-900); }
 .fg-pagination__nums { display: flex; align-items: center; gap: 20px; }
-.fg-pagination__nums > span { font-weight: 400; color: var(--fg-color-grey-400); }
-.fg-pagination__nums > span.is-current { font-weight: 600; color: var(--fg-color-grey-900); }
+.fg-pagination__nums > button { font-weight: 400; color: var(--fg-color-grey-400); }
+.fg-pagination__nums > button.is-current { font-weight: 600; color: var(--fg-color-grey-900); }
 
 /* ------------------------------------------------------------
    9. Search Filter — W1280 · r4 · 상하 pad16 · 좌우 pad16
