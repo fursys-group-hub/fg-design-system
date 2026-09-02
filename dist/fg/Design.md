@@ -15,10 +15,10 @@ AI/실무자가 이 문서만 읽고 SIDIZ 규격대로 화면을 만들 수 있
 ## 0. 개요 · 핵심 원칙
 
 > ### ⚠️ 절대 원칙 (예외 없음)
-> 시디즈 정본은 **컬러 22색(Primary 2톤·브랜드별 / System 10·공통 / Grey Scale 10·공통) + 타이포 14종(Title1~5, Body1~4, Caption1~5)**뿐이다. Primary 는 9개 브랜드마다 다르다.
+> 시디즈 정본은 **컬러 22색(Primary 2톤·브랜드별 / System 10·공통 / Grey Scale 10·공통) + 타이포 17종(Title1~8, Body1~4, Caption1~5)**뿐이다. Primary 는 9개 브랜드마다 다르다.
 > - 이 밖의 색·크기·굵기는 **존재하지 않는다.** 발견되면 오류이자 정본 토큰 교정 대상이다.
 > - **신규·근사·중간·예외 토큰 생성 금지. 팔레트 확장 금지.**
-> - **화면 제작 시 `tokens.css`의 클래스(타이포 14종 + 컴포넌트 클래스)만 사용한다. `font-size`·`padding`·`height` 등을 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.
+> - **화면 제작 시 `tokens.css`의 클래스(타이포 17종 + 컴포넌트 클래스)만 사용한다. `font-size`·`padding`·`height` 등을 직접 지정하지 않는다.** 필요한 클래스가 없으면 임의로 만들지 말고 관리자에게 알린다.
 > - 옛 컴포넌트 로컬 확장색(Tag Green/Yellow·Toast Alert)은 **System(Green/Yellow)으로 편입**되어 더 이상 예외가 아니다. 초록=`Green-600/100`, 노랑=`Yellow-600/100`.
 
 - **폰트:** Pretendard 단일. 모든 텍스트 `line-height: 150%`, `letter-spacing: 1%(0.01em)`.
@@ -126,6 +126,18 @@ Pretendard 단일 · LH 150% · LS 1%(0.01em) 공통. 17종. `tokens.css`의 조
 > ⚠️ **동명이값 주의(정본 아님):** 로컬에 정본과 이름이 같으나 값이 다른 구세대 스타일 2종이 잔존해 오선택 위험이 있다. 값을 확인해 피한다.
 > - `Body/Body2-Regular` 구세대 = 15px / LH 160% / LS -2% (정본은 13px / 150% / 1%)
 > - `Body/Body4-Regular` 구세대 = 13px / LH 120% / LS -2% (정본은 12px / 150% / 1%)
+
+### 모바일 축소 (고객 화면)
+
+고객 화면(랜딩·프로모션)은 모바일(폭 768 이하)에서 큰 제목을 한 단계 줄인다. **모바일용 크기를 새로 만들지 않는다. 정의된 17종 이름 안에서 한 단계 내려간다.** `fg-customer.css` 의 기존 `@media (max-width: 768px)` 에서 `var(--fg-font-size-titleN)` 으로 참조하므로 원본 Title 값이 바뀌면 따라간다.
+
+| 데스크톱 | 모바일 |
+|---|---|
+| Title1 40px | Title3 26px |
+| Title2 32px | Title4 22px |
+| Title3 26px | Title4 22px |
+| Title4 22px | Title5 16px |
+| Title5 16px 이하 | 그대로 |
 
 ---
 

@@ -39,9 +39,21 @@
 > 정본 굵기는 **600·400 두 가지뿐이다. 700 은 정본에 없다.**
 > 고객 화면(랜딩·브랜드·프로모션)도 위 **17종을 그대로** 쓴다. **별도 Display 계열은 없다**(피그마에 없음). 고객 화면의 위치별 폰트 매핑은 `CLAUDE-customer.md`.
 
+## 모바일 축소 (고객 화면)
+
+고객 화면은 모바일(폭 768 이하)에서 큰 제목을 한 단계 줄인다. **모바일용 크기를 새로 만들지 않는다. 위 17종 이름 안에서 한 단계 내려간다.** `fg-customer.css` 의 기존 `@media (max-width: 768px)` 에서 `var(--fg-font-size-titleN)` 으로 참조하므로 원본 Title 값이 바뀌면 따라간다.
+
+| 데스크톱 | 모바일 |
+|---|---|
+| Title1 40px | Title3 26px |
+| Title2 32px | Title4 22px |
+| Title3 26px | Title4 22px |
+| Title4 22px | Title5 16px |
+| Title5 16px 이하 | 그대로 |
+
 ## 확정 체계 대조
 
-사용자 확정 체계와 Figma 적용 스타일 **14종 전부 일치** (Pretendard / LH 150% / LS 1%, size·weight 동일). 불일치 없음.
+사용자 확정 체계와 Figma 적용 스타일 **17종 전부 일치** (Pretendard / LH 150% / LS 1%, size·weight 동일). 불일치 없음.
 LH 150% 실측 px = size×1.5 (40→60, 13→19.5, 8→12 …) 정확히 일치. LS 1% 실측 px = size×0.01.
 
 ## Foundation 안내표와 다른 항목

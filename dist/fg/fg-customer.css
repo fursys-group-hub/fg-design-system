@@ -81,10 +81,17 @@
 /* ------------------------------------------------------------
    모바일 — 화면 폭 768 아래
    좌우 여백 20 · 섹션 상하 60 · 그리드 1열
-   (타이포는 Title 토큰 고정값을 그대로 쓴다)
+   타이포는 큰 제목을 정의된 17종 안에서 한 단계 내린다(모바일용 새 크기 안 만듦).
+   크기는 var 로 참조해 원본 Title 값이 바뀌면 따라간다. 16px 이하는 그대로.
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
   .fgc-container { padding: 0 20px; }
   .fgc-section { padding: 60px 0; }
   .fgc-grid--2 > *, .fgc-grid--3 > *, .fgc-grid--4 > * { flex-basis: 100%; }
+  /* 타이포 축소 — 정의된 17종 안에서 한 단계 내린다 */
+  .title1 { font-size: var(--fg-font-size-title3); }  /* Title1 40 → Title3 26 */
+  .title2 { font-size: var(--fg-font-size-title4); }  /* Title2 32 → Title4 22 */
+  .title3 { font-size: var(--fg-font-size-title4); }  /* Title3 26 → Title4 22 */
+  .title4 { font-size: var(--fg-font-size-title5); }  /* Title4 22 → Title5 16 */
+  .fgc-title { font-size: var(--fg-font-size-title4); }  /* 메인 타이틀 Title2 32 → Title4 22 */
 }
