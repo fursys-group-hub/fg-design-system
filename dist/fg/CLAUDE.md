@@ -331,7 +331,7 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
 
 # 생성물 저장 위치
 
-모든 생성물은 `~/Desktop/sidiz-output/` 에 저장한다. 폴더가 없으면 만든다.
+모든 생성물은 `~/Desktop/fg-output/` 에 저장한다. 폴더가 없으면 만든다.
 저장소 폴더와 배포물 폴더 안에는 어떤 생성물도 만들지 않는다.
 
 # 값이 애매할 때
