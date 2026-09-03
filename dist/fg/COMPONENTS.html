@@ -73,8 +73,6 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
    ------------------------------------------------------------ */
 .fg-btn:focus-visible,
 .fg-tab__item:focus-visible,
-.fg-check:focus-visible,
-.fg-radio:focus-visible,
 .fg-select__trigger:focus-visible,
 .fg-link:focus-visible,
 .fg-pagination button:focus-visible,
@@ -596,14 +594,23 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
    17. Checkbox / Radio — 16 프레임 안 13 박스(r2) / 14 원
    ------------------------------------------------------------ */
 .fg-check, .fg-radio {
+  position: relative;
   display: inline-flex; align-items: center; justify-content: center;
   width: 16px; height: 16px; flex: 0 0 auto; cursor: pointer;
 }
-/* 5상태: Unchecked / Hover / Checked / Multiple Checked / Disabled
+/* 네이티브 input — 눈에 안 보이지만 포커스를 받는다.
+   display:none·visibility:hidden 은 포커스를 죽이므로 position+opacity 로 숨긴다. */
+.fg-check > input, .fg-radio > input {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  margin: 0; opacity: 0; cursor: pointer;
+}
+.fg-check > input:disabled, .fg-radio > input:disabled { cursor: not-allowed; }
+/* 5상태: Unchecked / Hover / Checked / Multiple(indeterminate) / Disabled
+   — 상태는 클래스가 아니라 네이티브 input 이 준다(:checked · :indeterminate · :disabled)
    Unchecked  = 흰 배경 + Grey-300 보더
    Hover      = 흰 배경 + Grey-900 보더
    Checked    = Grey-900 배경 + 흰 체크
-   Multiple   = 흰 배경 + Grey-900 보더 + Grey-900 체크
+   Multiple   = 흰 배경 + Grey-900 보더 + Grey-900 체크 (indeterminate)
    Disabled   = Grey-300 배경 + 흰 마이너스, 클릭 불가 */
 .fg-check__box {
   width: 13px; height: 13px; border-radius: 2px;
@@ -613,25 +620,24 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   box-sizing: border-box;
 }
 .fg-check__box > svg { width: 11px; height: 11px; display: none; }
-.fg-check:hover:not(.is-disabled):not(.is-checked):not(.is-multiple) .fg-check__box {
+.fg-check:hover > input:not(:disabled):not(:checked):not(:indeterminate) ~ .fg-check__box {
   border-color: var(--fg-color-grey-900);
 }
-.fg-check.is-checked .fg-check__box {
+.fg-check > input:checked ~ .fg-check__box {
   background: var(--fg-color-grey-900); border-color: var(--fg-color-grey-900);
   color: var(--fg-color-grey-50);
 }
-.fg-check.is-checked .fg-check__box > svg.fg-check-icon { display: block; }
-.fg-check.is-multiple .fg-check__box {
+.fg-check > input:checked ~ .fg-check__box > svg.fg-check-icon { display: block; }
+.fg-check > input:indeterminate ~ .fg-check__box {
   background: var(--fg-color-grey-50); border-color: var(--fg-color-grey-900);
   color: var(--fg-color-grey-900);
 }
-.fg-check.is-multiple .fg-check__box > svg.fg-check-icon { display: block; }
-.fg-check.is-disabled { cursor: not-allowed; }
-.fg-check.is-disabled .fg-check__box {
+.fg-check > input:indeterminate ~ .fg-check__box > svg.fg-check-icon { display: block; }
+.fg-check > input:disabled ~ .fg-check__box {
   background: var(--fg-color-grey-300); border-color: var(--fg-color-grey-300);
   color: var(--fg-color-grey-50);
 }
-.fg-check.is-disabled .fg-check__box > svg.fg-minus-icon { display: block; }
+.fg-check > input:disabled ~ .fg-check__box > svg.fg-minus-icon { display: block; }
 .fg-radio__dot {
   width: 14px; height: 14px; border-radius: 9999px;
   border: 1px solid var(--fg-color-grey-300);
@@ -639,10 +645,22 @@ svg[class*="lucide"], .fg-icon, [data-lucide] {
   display: inline-flex; align-items: center; justify-content: center;
   box-sizing: border-box;
 }
-.fg-radio.is-active .fg-radio__dot { border-color: var(--fg-color-grey-900); }
-.fg-radio.is-active .fg-radio__dot::after {
+.fg-radio:hover > input:not(:disabled):not(:checked) ~ .fg-radio__dot {
+  border-color: var(--fg-color-grey-900);
+}
+.fg-radio > input:checked ~ .fg-radio__dot { border-color: var(--fg-color-grey-900); }
+.fg-radio > input:checked ~ .fg-radio__dot::after {
   content: ""; width: 9px; height: 9px; border-radius: 9999px;
   background: var(--fg-color-grey-900);
+}
+.fg-radio > input:disabled ~ .fg-radio__dot {
+  border-color: var(--fg-color-grey-300); background: var(--fg-color-grey-100);
+}
+/* 포커스 — input 이 포커스를 받으면 box/dot 에 링을 그린다(label 은 포커스 대상 아님) */
+.fg-check > input:focus-visible ~ .fg-check__box,
+.fg-radio > input:focus-visible ~ .fg-radio__dot {
+  outline: 2px solid var(--fg-color-primary-600);
+  outline-offset: 2px;
 }
 
 /* ------------------------------------------------------------
@@ -1011,37 +1029,37 @@ Header H32 Grey-100 Caption1 11/600 Grey-400 · Cell H38 Body2 13/400 Grey-900 �
   <table class="fg-table">
     <thead>
       <tr>
-        <th class="fg-col-check"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span></th>
+        <th class="fg-col-check"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label></th>
         <th>주문번호</th><th>고객사</th><th>주문 상태</th><th>결제금액</th><th>주문일시</th><th>상세</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="fg-col-check"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span></td>
+        <td class="fg-col-check"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label></td>
         <td>ORD-20260821-0113</td><td>바이더하임</td>
         <td><span class="fg-tag fg-tag--gray-light">대기</span></td>
         <td>1,290,000원</td><td>2026-08-21 15:02</td><td><a class="fg-link" href="#">보기</a></td>
       </tr>
       <tr>
-        <td class="fg-col-check"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span></td>
+        <td class="fg-col-check"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label></td>
         <td>ORD-20260821-0109</td><td>데스커</td>
         <td><span class="fg-tag fg-tag--green-light">배송중</span></td>
         <td>459,000원</td><td>2026-08-21 14:41</td><td><a class="fg-link" href="#">보기</a></td>
       </tr>
       <tr>
-        <td class="fg-col-check"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span></td>
+        <td class="fg-col-check"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label></td>
         <td>ORD-20260821-0102</td><td>바이더하임</td>
         <td><span class="fg-tag fg-tag--blue-light">결제완료</span></td>
         <td>1,540,000원</td><td>2026-08-21 14:08</td><td><a class="fg-link" href="#">보기</a></td>
       </tr>
       <tr>
-        <td class="fg-col-check"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span></td>
+        <td class="fg-col-check"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label></td>
         <td>ORD-20260821-0098</td><td>시디즈</td>
         <td><span class="fg-tag fg-tag--yellow-light">배송준비</span></td>
         <td>872,000원</td><td>2026-08-21 13:55</td><td><a class="fg-link" href="#">보기</a></td>
       </tr>
       <tr>
-        <td class="fg-col-check"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span></td>
+        <td class="fg-col-check"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label></td>
         <td>ORD-20260821-0091</td><td>데스커</td>
         <td><span class="fg-tag fg-tag--red-light">취소</span></td>
         <td>310,000원</td><td>2026-08-21 13:20</td><td><a class="fg-link" href="#">보기</a></td>
@@ -1109,25 +1127,36 @@ Header H32 Grey-100 Caption1 11/600 Grey-400 · Cell H38 Body2 13/400 Grey-900 �
 <p class="doc">16 프레임 안 13 박스 r2 · 체크와 마이너스 11px<br>
 Unchecked 흰 배경 + Grey-300 보더 · Hover 흰 배경 + Grey-900 보더 · Checked Grey-900 배경 + 흰 체크<br>
 Multiple Checked 흰 배경 + Grey-900 보더 + Grey-900 체크 · Disabled Grey-300 배경 + 흰 마이너스<br>
-클릭하면 토글된다. 테이블 헤더 체크박스는 전체 선택과 해제로 동작한다</p>
+네이티브 input 으로 동작한다. 상태는 checked·disabled 속성으로 주고, 중간(indeterminate)만 스크립트 한 줄로 지정한다</p>
 <div class="demo">
   <div style="display:flex;flex-direction:column;gap:16px">
     <div style="display:flex;align-items:center;gap:12px">
-      <span class="fg-check is-checked"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span>
-      <span style="font-size:12px;color:var(--fg-color-grey-400)">Checked</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <span class="fg-check "><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span>
+      <label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label>
       <span style="font-size:12px;color:var(--fg-color-grey-400)">Unchecked (마우스 올리면 Hover)</span>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <span class="fg-check is-multiple"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span>
-      <span style="font-size:12px;color:var(--fg-color-grey-400)">Multiple Checked</span>
+      <label class="fg-check"><input type="checkbox" checked><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label>
+      <span style="font-size:12px;color:var(--fg-color-grey-400)">Checked</span>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <span class="fg-check is-disabled"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span>
+      <label class="fg-check"><input type="checkbox" data-indeterminate><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label>
+      <span style="font-size:12px;color:var(--fg-color-grey-400)">Multiple (indeterminate)</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <label class="fg-check"><input type="checkbox" disabled><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label>
       <span style="font-size:12px;color:var(--fg-color-grey-400)">Disabled</span>
     </div>
+  </div>
+</div>
+
+<h2 class="doc">11-2. Radio</h2>
+<p class="doc">16 프레임 안 14 원 · 선택 시 Grey-900 보더 + 9px Grey-900 점<br>
+네이티브 input[type=radio] 으로 동작한다. 같은 name 으로 묶어 하나만 선택된다. 상태는 checked·disabled 속성으로 준다</p>
+<div class="demo">
+  <div style="display:flex;align-items:center;gap:24px">
+    <label class="fg-radio"><input type="radio" name="demo-radio" checked><span class="fg-radio__dot"></span></label>
+    <label class="fg-radio"><input type="radio" name="demo-radio"><span class="fg-radio__dot"></span></label>
+    <label class="fg-radio"><input type="radio" name="demo-radio" disabled><span class="fg-radio__dot"></span></label>
   </div>
 </div>
 
@@ -1238,9 +1267,9 @@ Profile: W195 r4 Drop Shadow · 3블록 각 pad20 · 담당자명 Title7 + 역�
       <div class="fg-dropdown__search">검색<i data-lucide="search"></i></div>
       <div class="fg-dropdown__list">
         <div class="fg-dropdown__item">전체</div>
-        <div class="fg-dropdown__item"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span>드롭다운 텍스트</div>
-        <div class="fg-dropdown__item is-hover"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span>드롭다운 텍스트</div>
-        <div class="fg-dropdown__item"><span class="fg-check"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></span>드롭다운 텍스트</div>
+        <div class="fg-dropdown__item"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label>드롭다운 텍스트</div>
+        <div class="fg-dropdown__item is-hover"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label>드롭다운 텍스트</div>
+        <div class="fg-dropdown__item"><label class="fg-check"><input type="checkbox"><span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span></label>드롭다운 텍스트</div>
       </div>
     </div>
     <div class="fg-dropdown fg-dropdown--profile">
@@ -1283,37 +1312,35 @@ lucide.createIcons();
    화면에 해당 컴포넌트가 없어도 오류 없이 통과한다.
    ⚠️ 화면을 만들 때 이 <script> 블록을 반드시 함께 복사한다.
    ============================================================ */
-document.addEventListener('click', function (e) {
-  /* 0) 체크박스 토글 (테이블 헤더는 전체 선택/해제) */
-  var box = e.target.closest('.fg-check');
-  if (box && !box.classList.contains('is-disabled')) {
-    var thead = box.closest('thead');
-    if (thead) {
-      var table = thead.closest('table');
-      var on = !(box.classList.contains('is-checked') || box.classList.contains('is-multiple'));
-      box.classList.remove('is-multiple');
-      box.classList.toggle('is-checked', on);
-      table.querySelectorAll('tbody .fg-check').forEach(function (c) {
-        if (!c.classList.contains('is-disabled')) c.classList.toggle('is-checked', on);
-      });
-      return;
-    }
-    box.classList.remove('is-multiple');
-    box.classList.toggle('is-checked');
-    var t2 = box.closest('table');
-    if (t2) {
-      var all = Array.prototype.slice.call(t2.querySelectorAll('tbody .fg-check'));
-      var n = all.filter(function (c) { return c.classList.contains('is-checked'); }).length;
-      var head = t2.querySelector('thead .fg-check');
-      if (head) {
-        head.classList.remove('is-checked', 'is-multiple');
-        if (n === all.length && n > 0) head.classList.add('is-checked');
-        else if (n > 0) head.classList.add('is-multiple');
-      }
-    }
-    return;
-  }
+/* Checkbox·Radio 는 네이티브 input 으로 동작하므로 클래스 토글 스크립트가 필요 없다.
+   단, indeterminate(중간) 상태만 HTML 속성으로 표현할 수 없어 아래 한 줄로 지정한다(데모용). */
+document.querySelectorAll('.fg-check > input[data-indeterminate]').forEach(function (i) { i.indeterminate = true; });
 
+/* 표 전체선택 — 네이티브에 없는 기능이라 이 스크립트가 필요하다(체크박스 토글 자체는 네이티브가 처리).
+   헤더 체크박스 ↔ 행 체크박스 동기화. 표(table)마다 독립으로 동작하며 disabled 행은 건드리지 않는다.
+   위 data-indeterminate 데모는 표 밖이라 여기 걸리지 않는다(table 조상이 없으면 반환). */
+document.addEventListener('change', function (e) {
+  var input = e.target;
+  if (!input || input.type !== 'checkbox') return;
+  var label = input.closest('.fg-check');
+  if (!label) return;
+  var table = label.closest('table');
+  if (!table) return;
+  var head = table.querySelector('thead .fg-col-check input[type="checkbox"]');
+  var rows = Array.prototype.slice.call(table.querySelectorAll('tbody .fg-col-check input[type="checkbox"]'));
+  if (!head || !rows.length) return;
+  if (label.closest('thead')) {
+    rows.forEach(function (r) { if (!r.disabled) r.checked = head.checked; });
+    head.indeterminate = false;
+  } else {
+    var enabled = rows.filter(function (r) { return !r.disabled; });
+    var n = enabled.filter(function (r) { return r.checked; }).length;
+    head.checked = (n === enabled.length && n > 0);
+    head.indeterminate = (n > 0 && n < enabled.length);
+  }
+});
+
+document.addEventListener('click', function (e) {
   /* 1) 토스트 닫기 */
   var tclose = e.target.closest('.fg-toast__close');
   if (tclose) { var toast = tclose.closest('.fg-toast'); if (toast) toast.remove(); return; }

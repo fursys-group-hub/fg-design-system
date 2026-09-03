@@ -158,6 +158,10 @@
   - Frame 1000007699 | 13x13 | 자유배치 | r2 | 배경 Grey-900(#000000) | 위치 (1.5,1.5)
     - 아이콘 Check 11x11, stroke 2.18, 색 Grey-50(#FFFFFF) @(1.0,1.0)
 
+**마크업 규칙 — 체크박스·라디오:** `<label class="fg-check">`(라디오는 `fg-radio`) 안에 네이티브 `<input type="checkbox">`(라디오는 `<input type="radio" name="...">`)와 `<span class="fg-check__box">`(라디오는 `fg-radio__dot`)를 넣어 만든다. `<span>` 만으로 만들지 않는다. 상태는 클래스가 아니라 `checked`·`disabled` 속성으로 주고, 중간 상태는 `indeterminate`(스크립트로 지정)로 준다. input 은 `position:absolute; opacity:0` 으로 숨기되 포커스는 받는다(`display:none`·`visibility:hidden` 금지).
+
+**표 전체선택:** 표 헤더 체크박스로 행을 한 번에 켜고 끄려면 전체선택 스크립트를 화면에 함께 넣는다. 체크박스 토글 자체는 스크립트 없이 동작하지만, 전체선택은 네이티브 기능이 아니라 스크립트가 필요하다. **표의 체크박스 셀(`th`·`td`)에는 `.fg-col-check` 를 붙인다** — 전체선택 스크립트가 이 클래스로 헤더·행 체크박스를 찾으므로 빠지면 전체선택이 죽는다.
+
 ## Dropdown List
 
 ### Varient=Profile, State=Default

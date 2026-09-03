@@ -137,7 +137,7 @@ Primary-600 은 강조·선택·링크·건수 표기에만 절제해서 쓴다.
 
 | # | 동작 | 트리거 | 결과 |
 |---|---|---|---|
-| 0 | 체크박스 토글 | `.fg-check` 클릭 | 체크 토글. 테이블 헤더는 전체 선택·해제, 일부 선택 시 `is-multiple` |
+| 0 | 체크박스·라디오 | 네이티브 `<input>` (스크립트 없음) | 클릭·키보드로 토글. 상태는 `checked`·`disabled` 속성, 중간은 `indeterminate`(스크립트 1줄) |
 | 1 | 토스트 닫기 | `.fg-toast__close` 클릭 | 그 `.fg-toast` 를 화면에서 제거 |
 | 2 | 라인형 탭 전환 | `.fg-tab--line .fg-tab__item` 클릭 | 그 탭 `is-active`, 나머지 해제. `data-panel` 있으면 해당 패널만 표시 |
 | 3 | 박스형 탭 전환 | `.fg-tab--box .fg-tab__item` 클릭(사이드바 전체메뉴/즐겨찾기 포함) | 위와 동일 |
@@ -251,22 +251,34 @@ Caption1 11/600 · Caption2 10/600 · Caption3 10/400 · Caption4 8/600 · Capti
   원 안에 원이 겹쳐 보인다.
 - 우측은 닫기 텍스트 버튼만 둔다. X 나 Plus 아이콘을 넣지 않는다.
 
-# Checkbox 5상태
+# Checkbox · Radio
 
-| 상태 | 클래스 | 박스 |
+체크박스와 라디오는 **`<label>` 안에 네이티브 `<input>` 을 넣어** 만든다. `<span>` 만으로 만들지 않는다.
+상태는 클래스가 아니라 **`input` 속성**으로 준다. 클래스 토글 스크립트를 쓰지 않는다.
+
+```
+<label class="fg-check">
+  <input type="checkbox">
+  <span class="fg-check__box"><i data-lucide="check" class="fg-check-icon"></i><i data-lucide="minus" class="fg-minus-icon"></i></span>
+</label>
+```
+
+라디오는 `fg-radio` + `fg-radio__dot`, 안의 input 은 `<input type="radio" name="...">`.
+
+| 상태 | 주는 법 | 박스 |
 |---|---|---|
-| Unchecked | (없음) | 흰 배경 + Grey-300 보더 |
+| Unchecked | (속성 없음) | 흰 배경 + Grey-300 보더 |
 | Hover | (CSS `:hover`) | 흰 배경 + Grey-900 보더 |
-| Checked | `is-checked` | Grey-900 배경 + 흰 체크 |
-| Multiple Checked | `is-multiple` | 흰 배경 + Grey-900 보더 + Grey-900 체크 |
-| Disabled | `is-disabled` | Grey-300 배경 + 흰 마이너스, 클릭 불가 |
+| Checked | `checked` | Grey-900 배경 + 흰 체크 |
+| Multiple Checked | `indeterminate`(스크립트) | 흰 배경 + Grey-900 보더 + Grey-900 체크 |
+| Disabled | `disabled` | Grey-300 배경 + 흰 마이너스, 클릭 불가 |
 
 16 프레임 안에 13 박스(r2), 체크와 마이너스 글리프는 11px 이다.
 마크업에는 체크와 마이너스 두 아이콘을 항상 넣고 표시는 CSS 가 제어한다.
 
-**클릭 토글 동작이 필요하다.** 테이블 헤더의 체크박스는 전체 선택과 해제로 동작하고,
-일부만 선택된 상태에서는 헤더가 `is-multiple` 로 바뀐다.
-`COMPONENTS.html` 하단의 토글 스크립트를 그대로 복사해 쓴다.
+- **input 은 눈에 안 보이게 숨기되 포커스는 받아야 한다.** `position:absolute; opacity:0` 로 숨긴다. `display:none`·`visibility:hidden` 은 포커스가 죽으니 쓰지 않는다.
+- **클릭·키보드 토글은 네이티브가 처리한다.** 별도 토글 스크립트가 필요 없다. 단 `indeterminate`(중간) 상태만 HTML 속성으로 표현할 수 없어 스크립트 한 줄로 지정한다.
+- 테이블 헤더의 전체 선택·해제는 네이티브만으로는 안 된다. 필요하면 별도 스크립트를 붙인다.
 
 # Tab
 
