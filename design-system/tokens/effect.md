@@ -1,4 +1,4 @@
-# Effect — SIDIZ 그림자 토큰
+# Effect — 퍼시스그룹 그림자 토큰
 
 원본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`). EFFECT 스타일 2종.
 

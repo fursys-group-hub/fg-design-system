@@ -1,4 +1,4 @@
-# Color — SIDIZ 컬러 토큰
+# Color — 퍼시스그룹 컬러 토큰
 
 정본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`) → **`2. Foundation` 페이지 Color 프레임**.
 Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`)은 구 세대 잔존물이므로 이 문서에서 제외한다.

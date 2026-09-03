@@ -1,4 +1,4 @@
-# Spacing / Radius — SIDIZ 간격·코너 토큰
+# Spacing / Radius — 퍼시스그룹 간격·코너 토큰
 
 원본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`), `3. Component` 페이지의 변수 바인딩 값 집계.
 간격·radius는 **Figma 변수**로 정의됨(변수명은 REST 미제공). 아래는 실제 사용된 값 스케일(괄호=사용 빈도).

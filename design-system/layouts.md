@@ -1,4 +1,4 @@
-# Layouts — SIDIZ 화면 조립 레퍼런스
+# Layouts — 퍼시스그룹 화면 조립 레퍼런스
 
 화면 유형별 골격·컴포넌트 조합·공통 치수를 정의한다. 개별 컴포넌트 값은 `components/*.md`, 값이 아닌 화면 판단 원칙은 `design-principles.md`가 정본이다.
 

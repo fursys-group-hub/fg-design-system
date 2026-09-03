@@ -1,4 +1,4 @@
-# Typography — SIDIZ 타이포그래피 토큰
+# Typography — 퍼시스그룹 타이포그래피 토큰
 
 정본: Figma `퍼시스그룹_디자인 시스템` (`UsCx1wPybDpRRBglYY5Nmx`, 2026-08-12 재수신) → **`2. Foundation` Typography**.
 **Pretendard 단일 · line-height 150% · letter-spacing 1%** 공통. 17종 체계.
