@@ -26,6 +26,7 @@
 | 체크박스 input 태그 | fg-check 안에 input 태그가 있는지. span 만이면 위반 |
 | 체크박스 상태 방식 | 상태를 is-checked·is-multiple 클래스로 주고 있는지. 있으면 위반(checked·disabled·indeterminate 로 줘야 한다) |
 | 표 전체선택 스크립트 | 표 헤더(thead)에 체크박스가 있는데 전체선택 스크립트가 없으면 위반 |
+| 브레이크포인트 신설 | 768 외의 @media 브레이크포인트를 새로 만들었으면 위반 |
 
 ## 사람이 봐야 하는 것
 
