@@ -42,6 +42,7 @@ description: 새 세션을 열었을 때 이 저장소의 상태와 남은 일�
 
 - 이 저장소는 정본(`design-system/`)과 배포물(`dist/fg/`) **두 벌을 같이 유지**한다. 같은 이름 파일이 어긋나면 여기서 티가 나므로 **가장 위험한 지점**이다.
 - 두 폴더에 **같은 basename 으로 존재하는 파일**을 찾아 하나씩 내용 비교한다. 예: `fg-components.css` · `COMPONENTS.html` · `component-spec.md` · `design-principles.md` · `layouts.md` · `icons.md` · `CLAUDE.md` · `CLAUDE-customer.md` · `fg-customer.css`.
+  - **비교 전에 dist/fg 판 맨 위 배포 배너를 제외한다.** `design-principles.md`·`layouts.md`·`icons.md` 의 dist/fg 판에는 맨 위에 **배포 배너**(`배포물(관리자 수기 유지)` HTML 주석 + `버전 / 생성 커밋` 줄 + 뒤따르는 빈 줄)가 있다. 이 배너는 **의도적으로 dist 판에만** 있는 헤더라 정본에는 없다. 걷어내지 않으면 diff 가 항상 뜨지만 **어긋남이 아니다.** 예: `diff <(sed '/^<!-- 배포물/,/^$/d' dist/fg/<f>) design-system/<f>` 로 배너 블록을 제외하고 본다. **제외한 줄 수를 보고에 적는다**(현재 각 파일 4줄).
   - `diff -q design-system/<f> dist/fg/<f>` (또는 `git diff --no-index`) 로 **다른지만** 먼저 본다.
   - 다르면 그 파일을 표시하고, 어디가 다른지 몇 줄로 요약한다. `[확인 필요]`: 두 벌이 **의도적으로 다른 파일**(예: 루트 `CLAUDE.md` 는 별개, `Design.md`·`README.md`·`tokens.css` 는 `dist/fg` 에만, `index.md`·`extraction-plan.md`·`tokens/` 는 `design-system` 에만)은 비교 대상이 아니다. **양쪽에 같은 이름으로 있고 같아야 하는 파일만** 본다.
 - 전부 일치하면 "두 벌 일치".
@@ -55,7 +56,8 @@ description: 새 세션을 열었을 때 이 저장소의 상태와 남은 일�
 ### 6. 옛 기준 잔여 (design-qa-checklist.md)
 
 - `design-system/audits/design-qa-checklist.md` 의 **"스킬 자체에서 고쳐야 할 옛 기준"** 섹션 표를 읽는다.
-- 이 표는 스킬을 최신으로 유지하려는 마이그레이션 메모다. **아직 남아 있는 행**을 그대로 목록으로 보여준다(무엇을 무엇으로 바꿔야 하는지). 표가 비었으면 "옛 기준 잔여 없음".
+- 이 표는 스킬을 최신으로 유지하려는 마이그레이션 메모다. 각 행에는 **상태 열**이 있고, 반영된 행에는 커밋 해시가, 아직 안 된 행은 비어 있다.
+- **상태 열이 빈 행만** 잔여로 세어 목록으로 보여준다(무엇을 무엇으로 바꿔야 하는지). 해시가 적힌 행은 이미 반영됐으므로 잔여로 세지 않는다. 빈 행이 없으면 "옛 기준 잔여 없음".
 
 ---
 
