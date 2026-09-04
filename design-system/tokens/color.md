@@ -21,7 +21,7 @@ Foundation에 없는 published 스타일(`Semantic/*`, `Main colors/Main Gray/*`
 | 퍼시스 | `fursys` | `#E3001C` | `#FCE5E8` |
 | 일룸 | `iloom` | `#D60707` | `#FEDADA` |
 | 데스커 | `desker` | `#272727` | `#E9E9E9` |
-| 알로소 | `alloso` | `#B14E3F` | `#F7EDEC` |
+| 알로소 | `alloso` | `#000000` | `#E9E9E9` |
 | 슬로우베드 | `sloubed` | `#0D207C` | `#D7E4F0` |
 | 레터스 | `letus` | `#FF5C39` | `#FFF3ED` |
 | 퍼플식스 | `p6` | `#7800F5` | `#F4E8FF` |
